@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Heart Apartment 心動公寓 — Sean Syue</title>
+<meta name="description" content="A cozy life-sim about two roommates you can simply watch, or step into at the moments they hesitate. A local language model proposes; the game's rules decide. Built in Godot 4.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;family=Public+Sans:wght@400;500;600&amp;family=Zen+Maru+Gothic:wght@500;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/site.css?v=20260929a">
+<script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"dark"}catch(e){document.documentElement.dataset.theme="dark"}</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/">Sean Syue</a>
+    <nav class="nav" aria-label="Main">
+      <span class="nav-item">
+        <a href="/#work" aria-current="page">Work</a>
+        <span class="nav-menu">
+          <span class="nav-group">Checking AI work</span>
+          <a href="/work/aicc/">AI Control Center<small>Desktop app · AI agents</small></a>
+          <a href="/work/negative-control/">negative-control<small>Testing tool</small></a>
+          <a href="/work/tetherlock/">Tetherlock<small>Security design study</small></a>
+          <span class="nav-group">AI media workflows</span>
+          <a href="/work/ai-image/">AI image<small>Character specification</small></a>
+          <a href="/work/ai-music/">AI music<small>76-track soundtrack</small></a>
+          <span class="nav-group">AI game</span>
+          <a href="/work/heart-apartment/">Heart Apartment<small>Life-sim game</small></a>
+        </span>
+      </span>
+      <a href="/about/">About</a>
+      <a href="/resume/">Résumé</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+      <button class="theme-toggle" type="button" id="theme-toggle" aria-label="Switch between day and night" title="Day / night">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.2 5.2l1.4 1.4M17.4 17.4l1.4 1.4M18.8 5.2l-1.4 1.4M6.6 17.4l-1.4 1.4"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.2A8.2 8.2 0 0 1 9.8 4a8.4 8.4 0 1 0 10.2 10.2z"/></svg>
+      </button>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <p class="crumbs"><a href="/#work">Work</a> → Heart Apartment</p>
+    <section class="proj-head">
+      <span class="eyebrow">AI game · Godot 4</span>
+      <h1>Heart Apartment <small lang="zh-Hant">心動公寓</small></h1>
+      <p class="lede">A cozy life-sim for Windows about two roommates you can simply watch, or step into at the moments they hesitate — a small “life movie” that keeps going after each choice.</p>
+      <dl class="facts">
+        <div><dt>Type</dt><dd>Game prototype</dd></div>
+        <div><dt>Status</dt><dd><span class="status works">Playable on Windows · in development</span></dd></div>
+        <div><dt>Updated</dt><dd>2026-09</dd></div>
+        <div><dt>My role</dt><dd>Product owner &amp; director</dd></div>
+        <div><dt>Stack</dt><dd>Godot 4.7 · GDScript · llama.cpp · Qwen3-4B</dd></div>
+      </dl>
+      <video class="shot" controls preload="metadata" playsinline poster="/assets/img/heart-apartment/09-showcase-poster.jpg" width="1600" height="900" aria-label="15-second showcase: title screen, a thought-cloud choice, the park bench, small moments at home and the cinema, and an argument that ends in laughter.">
+        <source src="/assets/video/heart-apartment/09-showcase-15s.mp4" type="video/mp4">
+      </video>
+      <p class="muted" style="font-size: 14px;">15-second showcase with the game's own title theme. Recorded 2026-09-22 from the current build.</p>
+    </section>
+  </div>
+
+  <nav class="section-nav" aria-label="On this page">
+    <div class="wrap">
+      <a href="#overview">Overview</a>
+      <a href="#demo">Gameplay</a>
+      <a href="#design">Game &amp; AI design</a>
+      <a href="#status">Status</a>
+    </div>
+  </nav>
+
+  <div class="wrap">
+
+    <!-- ============ OVERVIEW ============ -->
+    <section id="overview" class="block">
+      <div class="block-head"><span class="eyebrow">Overview</span><h2>Watch, step in, and see it matter later</h2></div>
+
+      <div class="loop3">
+        <figure class="loop-panel">
+          <video class="loop-media" autoplay muted loop playsinline preload="metadata" poster="/assets/img/heart-apartment/01-home-day.jpg" aria-label="The two roommates on the sofa, reacting to each other.">
+            <source src="/assets/video/heart-apartment/11-loop-feelings.mp4" type="video/mp4">
+          </video>
+          <figcaption><span class="num">01</span><h3>Watch</h3><p>Leave both women alone and they live their own days — home, work, shopping, the park, the cinema.</p></figcaption>
+        </figure>
+        <figure class="loop-panel">
+          <img class="loop-media" src="/assets/img/heart-apartment/02-choice-thought-cloud.jpg" width="1600" height="900" loading="lazy" alt="Zhiwei's thought cloud: Yuqing suggests going somewhere else; the choices are go to the park, see a film, or stay home.">
+          <figcaption><span class="num">02</span><h3>Step in</h3><p>Click one of them to <em>suggest</em> or <em>order</em> where to go and what to do. A suggestion can be declined; an order is obeyed, but she remembers it. When she hesitates, a thought cloud lets you pick.</p></figcaption>
+        </figure>
+        <figure class="loop-panel">
+          <div class="loop-media memory-card">
+            <p class="memory-label">Story moment · whose turn to cook</p>
+            <p><b>Her memory</b><span>“I said I'd cook tonight and told her to just wait and not forget the dishes.”</span></p>
+            <p><b>Her roommate's</b><span>“My roommate said she'd cook tonight and told me not to forget the dishes.”</span></p>
+          </div>
+          <figcaption><span class="num">03</span><h3>They remember</h3><p>Each story moment writes one line to her memory and a different one to her roommate's. Later scenes check those memories before they appear.</p></figcaption>
+        </figure>
+      </div>
+
+      <div class="numbers">
+        <div><b>10</b><span>places</span></div>
+        <div><b>2 + 9</b><span>leads + side characters</span></div>
+        <div><b>299</b><span>hand-authored story moments</span></div>
+        <div><b>76</b><span>music tracks</span></div>
+      </div>
+      <p class="muted" style="font-size: 14px; margin-top: -20px;">Current build, as of 2026-09-15.</p>
+
+      <div class="two">
+        <div class="stack">
+          <h3>What I did</h3>
+          <ul class="facts-list">
+            <li><b>Product owner and director:</b> the concept, the two leads, every art-direction call</li>
+            <li>Chose a clean Japanese-style town over a Taiwanese street version</li>
+            <li>Made the soundtrack and picked every track by ear; playtested every build; set the rules the team followed</li>
+            <li>The side-character art and the soundtrack came out of my <a href="/#media">AI media workflows</a></li>
+            <li><b>The team was AI:</b> Codex drew the leads and co-wrote code, Claude integrated code, story and scenes, GPT reviewed acceptance, local models made side-character art and power the chat</li>
+          </ul>
+        </div>
+        <div class="stack">
+          <h3>Key decisions</h3>
+          <div class="decision"><h3>The model proposes; the rules decide</h3><p>A language model can make characters sound alive, but it can't be trusted to change the world. Every action is checked by the game before it happens. <a href="#design">Example →</a></p></div>
+          <div class="decision"><h3>“Saw it myself” vs “was told”</h3><p>Hearing about something from her roommate is stored differently from being there. <a href="#design">How →</a></p></div>
+          <div class="decision"><h3>A smaller model, for speed</h3><p>The 4B model answered about six times faster than the 9B, and the quality test couldn't show the 9B was better. <a href="#model">Numbers →</a></p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GAMEPLAY ============ -->
+    <section id="demo" class="block">
+      <div class="block-head"><span class="eyebrow">Gameplay</span><h2>The two of them, and their town</h2></div>
+
+      <div class="two">
+        <article class="card lead-card">
+          <img class="portrait" src="/assets/img/heart-apartment/zhiwei.png" width="467" height="700" loading="lazy" alt="Lu Zhiwei: black ponytail, round glasses, green sweater and a beige pleated skirt.">
+          <div class="stack">
+            <span class="eyebrow">Lead</span>
+            <h3>Lu Zhiwei <span lang="zh-Hant">陸知微</span></h3>
+            <p>Reserved and thoughtful. Loves reading and a tidy home, and would rather listen fully before agreeing to anything.</p>
+            <p><b>Inner contradiction:</b> she wants to say what she really needs, but worries a short “no” will sound cold.</p>
+          </div>
+        </article>
+        <article class="card lead-card">
+          <img class="portrait" src="/assets/img/heart-apartment/yuqing.png" width="467" height="700" loading="lazy" alt="Lin Yuqing: short brown hair with a cream bow, blue cardigan and a pink pleated skirt.">
+          <div class="stack">
+            <span class="eyebrow">Lead</span>
+            <h3>Lin Yuqing <span lang="zh-Hant">林雨晴</span></h3>
+            <p>Upbeat and direct. Loves music and sharing the small things she likes, and wants a real reaction back, not polite agreement.</p>
+            <p><b>Inner contradiction:</b> she wants to get close right away, but doesn't want her enthusiasm to become a burden.</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="stack">
+        <h3>Ten places, one town</h3>
+        <div class="places">
+          <figure><img src="/assets/img/heart-apartment/01-home-day.jpg" width="1600" height="900" loading="lazy" alt="Home on a Saturday morning, both on the sofa."><figcaption>Home, Saturday morning</figcaption></figure>
+          <figure><img src="/assets/img/heart-apartment/03-home-night.jpg" width="1600" height="900" loading="lazy" alt="Home at night with warm lighting."><figcaption>Home at night</figcaption></figure>
+          <figure><img src="/assets/img/heart-apartment/04-supermarket.jpg" width="1600" height="900" loading="lazy" alt="The supermarket with labelled aisles and a cashier at the checkout."><figcaption>Supermarket — basket, pay, and no leaving with unpaid items</figcaption></figure>
+          <figure><img src="/assets/img/heart-apartment/05-park.jpg" width="1600" height="900" loading="lazy" alt="The park and pond."><figcaption>Park</figcaption></figure>
+          <figure><img src="/assets/img/heart-apartment/06-street.jpg" width="1600" height="900" loading="lazy" alt="Overview of the neighbourhood street."><figcaption>Neighbourhood street</figcaption></figure>
+          <figure><img src="/assets/img/heart-apartment/07-shopping-plaza.jpg" width="1600" height="900" loading="lazy" alt="The shopping plaza with three buildings."><figcaption>Shopping plaza</figcaption></figure>
+          <figure><img src="/assets/img/heart-apartment/08-cinema.jpg" width="1600" height="900" loading="lazy" alt="Cinema lobby and hall with a ticket desk and snack counter."><figcaption>Cinema</figcaption></figure>
+        </div>
+        <p class="muted" style="font-size: 14px;">Also: a department store, a lifestyle store and two offices. Screenshots captured 2026-09-22 at 1920×1080 from the current build.</p>
+      </div>
+    </section>
+
+    <!-- ============ DESIGN ============ -->
+    <section id="design" class="block">
+      <div class="block-head"><span class="eyebrow">Game &amp; AI design</span><h2>How the characters think</h2></div>
+
+      <div class="cards">
+        <div class="card"><span class="num">01</span><h3>The model proposes, the rules decide</h3><p>A real rejection: the model proposed putting on an album and making tea. The game refused — <em>“the character's state has changed; this old proposal is void.”</em></p></div>
+        <div class="card"><span class="num">02</span><h3>Seen vs told</h3><p>Each story moment writes one memory line for the person who was there and a different one for the roommate who only heard about it. Later scenes check which.</p></div>
+        <div class="card"><span class="num">03</span><h3>Depth before breadth</h3><p>Five tests per character: a reason, a contradiction, continuity, a difference — from her roommate and from herself when tired — and visible to the player.</p></div>
+      </div>
+
+      <article id="model" class="chapter">
+        <h3>Choosing the model</h3>
+        <div class="two">
+          <div class="bars" role="img" aria-label="Median reply time: Qwen3-4B 0.53 seconds; Qwen3.5-9B 3.26 seconds.">
+            <div class="bar-row"><span>Qwen3-4B (Q5)<small>median reply</small></span><div class="bar-track"><div class="bar-fill" style="width: 16%;"></div></div><b>0.53 s</b></div>
+            <div class="bar-row"><span>Qwen3.5-9B (Q5)<small>median reply</small></span><div class="bar-track"><div class="bar-fill" style="width: 100%; background: var(--terracotta);"></div></div><b>3.26 s</b></div>
+            <p class="muted" style="font-size: 13px;">Same prompt, 16 runs each, 2026-09-11. 95th percentile: 0.66 s vs 4.18 s.</p>
+          </div>
+          <ul class="facts-list">
+            <li>The quality test couldn't show the 9B was better, so the game ships the 4B</li>
+            <li>Replies are labelled “AI reply”; if the model takes over 6 s or isn't installed, a hand-written line is used, labelled “text fallback”</li>
+            <li>A late answer never pops up after the moment has passed; the launcher only stops servers it started</li>
+          </ul>
+        </div>
+      </article>
+
+      <article id="testing" class="chapter">
+        <h3>One rule from a playtest: nothing may cover a face</h3>
+        <ul class="facts-list">
+          <li><b>What I saw</b> — captions and panels sitting on the characters' faces in a recorded build (2026-09-15)</li>
+          <li><b>What changed</b> — a hard rule for every caption, thought cloud, panel and HUD card, side characters included</li>
+          <li><b>How it's checked</b> — recordings flag any frame where something covers a face; the 2026-09-22 recording logged zero</li>
+        </ul>
+      </article>
+
+      <details class="more"><summary>Art &amp; music sources</summary>
+        <div class="table-scroll">
+          <table class="plain">
+            <thead><tr><th>What</th><th>How it was made</th><th>License</th></tr></thead>
+            <tbody>
+              <tr><td>Scenes and buildings</td><td>Built in code — 3D blocks, custom shaders, a code-drawn cinema screen</td><td>Project-owned</td></tr>
+              <tr><td>Lead characters</td><td>Codex image generation from original designs</td><td>Commercial use</td></tr>
+              <tr><td>9 side characters, 8 expressions</td><td>Local ComfyUI (animagine-xl-4.0 + IPAdapter)</td><td>CreativeML Open RAIL++-M; IPAdapter Apache-2.0</td></tr>
+              <tr><td>Music, 76 tracks</td><td>Made by me with Stable Audio 3 Medium — <a href="/work/ai-music/">the pipeline</a></td><td>Stability AI Community License</td></tr>
+              <tr><td>Sound effects</td><td>Synthesised live in code</td><td>Project-owned</td></tr>
+              <tr><td>Title font</td><td>jf open 粉圓 (Huninn) 2.0</td><td>SIL OFL 1.1</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+    </section>
+
+    <!-- ============ STATUS ============ -->
+    <section id="status" class="block">
+      <div class="block-head"><span class="eyebrow">Status</span><h2>What exists, what's proven, what's next</h2></div>
+      <div class="ledger">
+        <div class="done"><h3>Built</h3><ul><li>10 places; workdays, days off and wages; a real supermarket checkout; shopping and cinema tickets</li><li>Two leads, 9 side characters, 8 expressions</li><li>299 story moments with per-character memory</li><li>Optional local AI chat with a text fallback</li><li>76-track soundtrack; weather</li></ul></div>
+        <div class="verified"><h3>Verified</h3><ul><li>Checkout: a 47.5-second real-input run passed (2026-09-16)</li><li>Every recorded scene played with zero face overlaps (2026-09-22)</li><li>AI chat tested with the real 4B model (2026-09-14)</li></ul></div>
+        <div class="notyet"><h3>Next</h3><ul><li>Story arcs beyond the current 299 moments</li><li>A new eight-direction character rig</li><li>Public release</li></ul></div>
+      </div>
+    </section>
+
+    <section class="next">
+      <span class="eyebrow">Next</span>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="/#work">Back to all work →</a>
+        <a class="btn btn-quiet" href="/work/ai-music/">← Its soundtrack</a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="btn-row">
+      <a class="btn btn-quiet" href="https://www.linkedin.com/in/sean-syue-171a132b6">LinkedIn</a>
+      <a class="btn btn-quiet" href="https://github.com/SeanSyue">GitHub</a>
+    </div>
+    <small>© 2026 Sean Syue</small>
+  </div>
+</footer>
+<script src="/assets/js/site.js?v=20260929a"></script>
+</body>
+</html>

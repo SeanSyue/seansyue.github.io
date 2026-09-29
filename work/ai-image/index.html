@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deciding what “right” looks like — AI image — Sean Syue</title>
+<meta name="description" content="Ten days and six rounds of local experiments turned “make it look good” into a written specification precise enough that the final character render came back right.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;family=Public+Sans:wght@400;500;600&amp;family=Zen+Maru+Gothic:wght@500;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/site.css?v=20260929a">
+<script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"dark"}catch(e){document.documentElement.dataset.theme="dark"}</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/">Sean Syue</a>
+    <nav class="nav" aria-label="Main">
+      <span class="nav-item">
+        <a href="/#work" aria-current="page">Work</a>
+        <span class="nav-menu">
+          <span class="nav-group">Checking AI work</span>
+          <a href="/work/aicc/">AI Control Center<small>Desktop app · AI agents</small></a>
+          <a href="/work/negative-control/">negative-control<small>Testing tool</small></a>
+          <a href="/work/tetherlock/">Tetherlock<small>Security design study</small></a>
+          <span class="nav-group">AI media workflows</span>
+          <a href="/work/ai-image/">AI image<small>Character specification</small></a>
+          <a href="/work/ai-music/">AI music<small>76-track soundtrack</small></a>
+          <span class="nav-group">AI game</span>
+          <a href="/work/heart-apartment/">Heart Apartment<small>Life-sim game</small></a>
+        </span>
+      </span>
+      <a href="/about/">About</a>
+      <a href="/resume/">Résumé</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+      <button class="theme-toggle" type="button" id="theme-toggle" aria-label="Switch between day and night" title="Day / night">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.2 5.2l1.4 1.4M17.4 17.4l1.4 1.4M18.8 5.2l-1.4 1.4M6.6 17.4l-1.4 1.4"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.2A8.2 8.2 0 0 1 9.8 4a8.4 8.4 0 1 0 10.2 10.2z"/></svg>
+      </button>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <p class="crumbs"><a href="/#work">Work</a> → AI image</p>
+    <section class="proj-head">
+      <span class="eyebrow">AI media workflows · Image</span>
+      <h1>Deciding what “right” looks like</h1>
+      <p class="lede">Six rounds of local experiments turned “make it look good” — which no model can act on — into a written specification precise enough that the final render came back right the first time.</p>
+      <dl class="facts">
+        <div><dt>Type</dt><dd>Specification through experiment</dd></div>
+        <div><dt>Status</dt><dd><span class="status works">Characters delivered</span></dd></div>
+        <div><dt>When</dt><dd>09/2026, six rounds over ten days</dd></div>
+        <div><dt>My role</dt><dd>Experiments, specification, acceptance</dd></div>
+        <div><dt>Tools</dt><dd>Local ComfyUI · Python · a hosted model for the final render</dd></div>
+      </dl>
+      <div class="portraits">
+        <figure><img src="/assets/img/ai-image/resident-c.jpg" width="750" height="1000" alt="Resident C: honey-blonde side braid with a dark-green ribbon, cream oversized cardigan over a moss-green pinafore, standing with one hand at her braid."><figcaption class="muted">Resident C</figcaption></figure>
+        <figure><img src="/assets/img/ai-image/resident-d.jpg" width="750" height="1000" alt="Resident D: lavender-grey long hair, cream blouse with a blue sash bow and a long purple floral-hem skirt, standing with one hand touching her hair."><figcaption class="muted">Resident D</figcaption></figure>
+      </div>
+      <p class="note-band">The two finished illustrations were rendered by a hosted frontier image model. What the local work produced is the <b>specification</b> — the exact wording, proportions, materials and failure modes the render was given — and the measurements behind it.</p>
+    </section>
+  </div>
+
+  <nav class="section-nav" aria-label="On this page">
+    <div class="wrap">
+      <a href="#rounds">The rounds</a>
+      <a href="#spec">The specification</a>
+      <a href="#check">The check that survived</a>
+      <a href="#status">Status</a>
+    </div>
+  </nav>
+
+  <div class="wrap">
+
+    <!-- ============ ROUNDS ============ -->
+    <section id="rounds" class="block">
+      <div class="block-head"><span class="eyebrow">The rounds</span><h2>Six experiments, one variable each</h2></div>
+      <div class="table-scroll">
+        <table class="plain">
+          <thead><tr><th>#</th><th>Question</th><th>Answer</th><th>Into the spec</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>How much does “denoise” preserve?</td><td>Depends on the image: 0.45 painted, 0.60 flat</td><td>Measure per image; never copy a number from a guide</td></tr>
+            <tr><td>2</td><td>Can an edit model borrow a face from another picture?</td><td>It borrows the expression and lighting too</td><td>Identity is described in words, not borrowed</td></tr>
+            <tr><td>3</td><td>Does a colour reference help a colour-only change?</td><td>No — and the wrong result scored <b>0.958 vs 0.965</b></td><td>Similarity can't see this error; a palette check can</td></tr>
+            <tr><td>4</td><td>Can an edit turn chibi into adult proportions?</td><td>Stops at six heads; push harder and the character breaks</td><td>Proportion change is a generation job, not an edit</td></tr>
+            <tr><td>5</td><td>Are “15 / 20 / 25 years old” useful words?</td><td>20 and 25 came back identical; “mature” just adds makeup</td><td>Specify structure: head-to-body ratio, jaw, eye size</td></tr>
+            <tr><td>6</td><td>Does a newer base model fix proportions?</td><td>Yes, first try, 12–24 s — but references alone still fail</td><td>Description leads; a reference image only supports</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <details class="more"><summary>Read the full findings</summary>
+        <div class="stack">
+          <p><b>Round 1.</b> Measured with SSIM: on a painted image the picture starts changing at denoise 0.45; on a flat-coloured one it holds to 0.60. The encoder alone caps similarity at 0.98–0.996.</p>
+          <p><b>Round 2.</b> An edit model given “this face from that other picture” brings that picture's expression and lighting with it, and the fast 8-step variant drifts to one default face.</p>
+          <p><b>Round 3.</b> Words-only kept everything else intact; the attached colour reference dragged its own character's hair colour and braid into the image — and the wrong result scored SSIM 0.958 against 0.965 for the right one.</p>
+          <p><b>Round 4.</b> Identity and outfit held perfectly, but the body stopped at about six heads. Pushing harder (full model, higher guidance) finally moved the body and broke the character: hair colour changed, the pinafore became a pencil skirt, the linework turned Western.</p>
+          <p><b>Round 5.</b> 15 separated clearly; 20 and 25 came back nearly identical. Asking for “mature” only added makeup.</p>
+          <p><b>Round 6.</b> A newer base model gave correct adult proportions on the first attempt, 12–24 seconds per image. Reference images alone still failed three ways: ignored entirely, turned into a turnaround sheet, or the outfit replaced.</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- ============ SPEC ============ -->
+    <section id="spec" class="block">
+      <div class="block-head"><span class="eyebrow">The specification</span><h2>Four blocks, so only one changes at a time</h2></div>
+      <div class="cards">
+        <div class="card"><span class="num">01</span><h3>Identity — exact</h3><p>Every defining element named: hairstyle and its ribbon, eye colour, each garment's cut, colour and details. Anything vague gets redrawn next time.</p></div>
+        <div class="card"><span class="num">02</span><h3>Proportions — structure</h3><p>Seven to seven and a half heads; small head, long legs, defined waist; adult jaw, eyes at natural size. Not chibi, not fashion-elongated.</p></div>
+        <div class="card"><span class="num">03</span><h3>Pose — one sentence</h3><p>Relaxed three-quarter stance, weight on one leg, one hand at her hair. Everything else stays byte-identical between poses.</p></div>
+        <div class="card"><span class="num">04</span><h3>Rendering — what looks drawn</h3><p>Clean lineart, painterly shading, no plastic gloss, fabric that differs by material, detailed hands, soft studio light, whole body in frame.</p></div>
+      </div>
+      <p class="muted">Deliberately left out, because the rounds showed it doesn't help: quality-tag stacking, long negative-prompt lists, style references for colour work, and the word “mature” on its own.</p>
+    </section>
+
+    <!-- ============ CHECK ============ -->
+    <section id="check" class="block">
+      <div class="block-head"><span class="eyebrow">The check that survived</span><h2>The score that couldn't see the error, and the one that could</h2></div>
+      <div class="two">
+        <div class="bars" role="img" aria-label="Palette distance: same character 3.8 to 6.6; different character 19.0 to 20.3.">
+          <div class="bar-row"><span>Same character<small>palette distance</small></span><div class="bar-track"><div class="bar-fill" style="width: 28%;"></div></div><b>3.8–6.6</b></div>
+          <div class="bar-row"><span>Different character<small>palette distance</small></span><div class="bar-track"><div class="bar-fill" style="width: 90%; background: var(--terracotta);"></div></div><b>19–20.3</b></div>
+          <p class="muted" style="font-size: 13px;">The character's colours are clustered and compared with the approved design. A drifted design is caught automatically — on white-background sheets. On busy scene art it's too noisy, and a person looks.</p>
+        </div>
+        <ul class="facts-list">
+          <li><b>Dropped:</b> similarity scoring (SSIM) as a gate — it rated a wrong-coloured result 0.958 against 0.965 for the right one</li>
+          <li><b>Kept:</b> a palette check that separates same-character from different-character by a factor of three</li>
+          <li><b>The final render</b> was handed to the strongest hosted image model available. The transferable work is the specification and the acceptance criteria — knowing what to ask for, and how to tell whether you got it</li>
+          <li><b>Next:</b> these two characters are the subjects of my next video production</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ STATUS ============ -->
+    <section id="status" class="block">
+      <div class="block-head"><span class="eyebrow">Status &amp; limits</span><h2>What exists, what's measured, what isn't claimed</h2></div>
+      <div class="ledger">
+        <div class="done"><h3>Built</h3><ul><li>A four-block character specification that reproduces the same character across poses</li><li>A palette check that flags design drift automatically</li><li>Six recorded rounds, one variable each, with parameters and conclusions</li></ul></div>
+        <div class="verified"><h3>Measured</h3><ul><li>Denoise thresholds per image type (0.45 painted, 0.60 flat)</li><li>Encoder similarity ceiling: 0.98–0.996</li><li>Palette distance: 3.8–6.6 same character vs 19.0–20.3 different character</li></ul></div>
+        <div class="notyet"><h3>Not claimed</h3><ul><li>The final illustrations were not rendered locally</li><li>The palette check is unusable on busy scene art</li><li>No public repo — the scripts stay private</li></ul></div>
+      </div>
+    </section>
+
+    <section class="next">
+      <span class="eyebrow">Next</span>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="/work/ai-music/">Next project: AI music →</a>
+        <a class="btn btn-quiet" href="/work/tetherlock/">← Tetherlock</a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="btn-row">
+      <a class="btn btn-quiet" href="https://www.linkedin.com/in/sean-syue-171a132b6">LinkedIn</a>
+      <a class="btn btn-quiet" href="https://github.com/SeanSyue">GitHub</a>
+    </div>
+    <small>© 2026 Sean Syue</small>
+  </div>
+</footer>
+<script src="/assets/js/site.js?v=20260929a"></script>
+</body>
+</html>
