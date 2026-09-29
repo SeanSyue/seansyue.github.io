@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;family=Public+Sans:wght@400;500;600&amp;family=Zen+Maru+Gothic:wght@500;700&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/site.css?v=20260929e">
+<link rel="stylesheet" href="/assets/css/site.css?v=20260929f">
 <script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"dark"}catch(e){document.documentElement.dataset.theme="dark"}</script>
 </head>
 <body>
@@ -219,25 +219,13 @@ the case is too easy, or the break never reached the code.</span></pre>
           <h3 class="work-title">Tetherlock</h3>
           <p class="lede">A workspace that opens only when three things hold at once, and closes the moment one stops.</p>
           <ul class="facts-list">
-            <li><b>3</b> conditions at once: account, licensed device, password</li>
-            <li>Pull the device and it locks; later actions are refused</li>
-            <li><b>My role:</b> the threat model, the unlock and lock rules, and where each key lives</li>
+            <li><b>3</b> conditions at once: an allowed account, a signed token on the drive, the password</li>
+            <li>Pull the drive and it locks</li>
+            <li><b>My role:</b> the access rules, the key design and the lock lifecycle</li>
           </ul>
           <div class="btn-row"><a class="btn btn-primary" href="/work/tetherlock/">Read the design</a></div>
         </div>
-        <figure class="diagram lift">
-          <svg viewBox="0 0 560 250" role="img" aria-label="Three conditions — account, device, password — feed one lock. Removing the device closes it.">
-            <defs><marker id="ah2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--ink-3)"/></marker></defs>
-            <g class="d-box"><rect x="20" y="24" width="150" height="46" rx="10"/><text x="95" y="53" text-anchor="middle" class="d-t">Account qualifies</text></g>
-            <g class="d-box"><rect x="20" y="102" width="150" height="46" rx="10"/><text x="95" y="131" text-anchor="middle" class="d-t">Device present</text></g>
-            <g class="d-box"><rect x="20" y="180" width="150" height="46" rx="10"/><text x="95" y="209" text-anchor="middle" class="d-t">Password passes</text></g>
-            <path class="d-arrow" d="M170 47 H230 V118" /><path class="d-arrow" d="M170 125 H230"/><path class="d-arrow" d="M170 203 H230 V132" marker-end="url(#ah2)"/>
-            <g class="d-lock"><rect x="250" y="95" width="90" height="70" rx="12"/><path d="M270 95 V78 a25 25 0 0 1 50 0 V95" fill="none"/><circle cx="295" cy="128" r="7"/><path d="M295 128 v14"/></g>
-            <text x="295" y="190" text-anchor="middle" class="d-s">opens · keeps checking</text>
-            <path class="d-arrow d-loop" d="M340 130 H400" marker-end="url(#ah2)"/>
-            <g class="d-deny"><rect x="404" y="100" width="136" height="60" rx="10"/><text x="472" y="125" text-anchor="middle" class="d-t">Device removed</text><text x="472" y="145" text-anchor="middle" class="d-s">locks · actions refused</text></g>
-          </svg>
-        </figure>
+        <figure class="diagram-img lift"><a class="theme-img" href="/work/tetherlock/" aria-label="Read the Tetherlock design"><img class="on-dark" src="/assets/img/tetherlock/00-overview-dark.svg" width="1200" height="440" loading="lazy" alt="An allowed account, a signed USB drive and the password together open the workspace; pulling the drive locks it again."><img class="on-light" src="/assets/img/tetherlock/00-overview.svg" width="1200" height="440" loading="lazy" alt=""></a></figure>
       </div>
     </article>
 
@@ -349,6 +337,6 @@ the case is too easy, or the break never reached the code.</span></pre>
   </div>
 </footer>
 
-<script src="/assets/js/site.js?v=20260929e"></script>
+<script src="/assets/js/site.js?v=20260929f"></script>
 </body>
 </html>

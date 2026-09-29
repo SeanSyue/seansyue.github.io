@@ -543,6 +543,15 @@ table.plain th[scope="row"] { white-space: nowrap; color: var(--wood); letter-sp
 .site-footer .contact-text { display: grid; gap: 6px; flex-basis: 100%; }
 .contact-text p { font-family: var(--serif); font-size: clamp(20px, 2vw, 24px); line-height: 1.4; max-width: 44ch; }
 
+/* ---------- ready-made diagrams (Tetherlock): a dark and a light file, shown by theme ---------- */
+.diagram-img { margin: 0; display: grid; gap: 10px; }
+.diagram-img figcaption { font-size: 14px; color: var(--ink-3); }
+.theme-img { display: block; border-radius: 16px; overflow: hidden; }
+.theme-img img { width: 100%; height: auto; display: block; }
+.theme-img .on-light { display: none; }
+:root[data-theme="light"] .theme-img .on-dark { display: none; }
+:root[data-theme="light"] .theme-img .on-light { display: block; }
+
 /* ---------- slideshow (Tetherlock screens): a swipeable row; buttons appear once site.js is running ---------- */
 .slideshow { display: grid; gap: 14px; }
 .slides { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; border-radius: 16px; }
