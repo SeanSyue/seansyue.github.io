@@ -543,6 +543,24 @@ table.plain th[scope="row"] { white-space: nowrap; color: var(--wood); letter-sp
 .site-footer .contact-text { display: grid; gap: 6px; flex-basis: 100%; }
 .contact-text p { font-family: var(--serif); font-size: clamp(20px, 2vw, 24px); line-height: 1.4; max-width: 44ch; }
 
+/* ---------- slideshow (Tetherlock screens): a swipeable row; buttons appear once site.js is running ---------- */
+.slideshow { display: grid; gap: 14px; }
+.slides { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; border-radius: 16px; }
+.slideshow.is-ready .slides { scrollbar-width: none; }
+.slideshow.is-ready .slides::-webkit-scrollbar { display: none; }
+.slide { flex: 0 0 100%; scroll-snap-align: start; margin: 0; display: grid; gap: 12px; align-content: start; }
+.slide-zoom { display: block; border-radius: 14px; }
+.slide img { width: 100%; height: auto; border-radius: 14px; background: #12151a; box-shadow: var(--shadow-soft); }
+.slide figcaption { font-size: 16px; color: var(--ink-2); }
+.slide figcaption b { font-family: var(--serif); font-weight: 400; color: var(--terracotta); margin-right: 10px; }
+.slide-controls { display: none; align-items: center; justify-content: center; gap: 14px; }
+.slideshow.is-ready .slide-controls { display: flex; }
+.slide-controls button { min-width: 44px; min-height: 44px; border-radius: 999px; border: 1px solid var(--rule); background: var(--paper); color: var(--ink); font-size: 18px; cursor: pointer; }
+.slide-controls button:hover:not(:disabled) { background: var(--sage-wash); }
+.slide-controls button:disabled { opacity: .35; cursor: default; }
+.slide-count { min-width: 5ch; text-align: center; font-size: 14px; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+@media (prefers-reduced-motion: reduce) { .slides { scroll-behavior: auto; } }
+
 /* ---------- drafts: visible only while building ---------- */
 .todo {
   border: 2px dashed var(--terracotta); border-radius: 16px; padding: 18px 20px;

@@ -48,3 +48,41 @@
   }, { rootMargin: '0px 0px -8% 0px' });
   items.forEach(function (el) { io.observe(el); });
 })();
+
+// Slideshow: the row of screens scrolls and snaps on its own (swipe, trackpad,
+// arrow keys when focused); the buttons and the counter are extras on top.
+// The buttons keep their own index, so they never depend on scroll events.
+(function () {
+  document.querySelectorAll('.slideshow').forEach(function (show) {
+    var track = show.querySelector('.slides');
+    var slides = track.children;
+    var prev = show.querySelector('.slide-prev');
+    var next = show.querySelector('.slide-next');
+    var count = show.querySelector('.slide-count');
+    if (!slides.length || !prev || !next) return;
+    var index = 0;
+    function render() {
+      count.textContent = (index + 1) + ' / ' + slides.length;
+      prev.disabled = index === 0;
+      next.disabled = index === slides.length - 1;
+    }
+    function go(i) {
+      index = Math.max(0, Math.min(slides.length - 1, i));
+      track.scrollTo({ left: index * track.clientWidth });
+      render();
+    }
+    prev.addEventListener('click', function () { go(index - 1); });
+    next.addEventListener('click', function () { go(index + 1); });
+    var timer = 0;
+    track.addEventListener('scroll', function () {  // swipes and trackpads
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        index = Math.round(track.scrollLeft / Math.max(1, track.clientWidth));
+        render();
+      }, 80);
+    });
+    window.addEventListener('resize', function () { track.scrollTo({ left: index * track.clientWidth }); });
+    show.classList.add('is-ready');
+    render();
+  });
+})();
