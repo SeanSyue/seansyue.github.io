@@ -2,29 +2,164 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://seansyue.github.io/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://seansyue.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://seansyue.github.io/zh-tw/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://seansyue.github.io/ja/"/>
+  </url>
+  <url>
+    <loc>https://seansyue.github.io/zh-tw/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://seansyue.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://seansyue.github.io/zh-tw/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://seansyue.github.io/ja/"/>
+  </url>
+  <url>
+    <loc>https://seansyue.github.io/ja/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://seansyue.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://seansyue.github.io/zh-tw/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://seansyue.github.io/ja/"/>
   </url>
   <url>
     <loc>https://seansyue.github.io/about/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://seansyue.github.io/about/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://seansyue.github.io/zh-tw/about/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://seansyue.github.io/ja/about/"/>
+  </url>
+  <url>
+    <loc>https://seansyue.github.io/zh-tw/about/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://seansyue.github.io/about/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://seansyue.github.io/zh-tw/about/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://seansyue.github.io/ja/about/"/>
+  </url>
+  <url>
+    <loc>https://seansyue.github.io/ja/about/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://seansyue.github.io/about/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://seansyue.github.io/zh-tw/about/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://seansyue.github.io/ja/about/"/>
   </url>
   <url>
     <loc>https://seansyue.github.io/resume/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://seansyue.github.io/resume/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://seansyue.github.io/zh-tw/resume/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://seansyue.github.io/ja/resume/"/>
+  </url>
+  <url>
+    <loc>https://seansyue.github.io/zh-tw/resume/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://seansyue.github.io/resume/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://seansyue.github.io/zh-tw/resume/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://seansyue.github.io/ja/resume/"/>
+  </url>
+  <url>
+    <loc>https://seansyue.github.io/ja/resume/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://seansyue.github.io/resume/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://seansyue.github.io/zh-tw/resume/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://seansyue.github.io/ja/resume/"/>
   </url>
   <url>
     <loc>https://seansyue.github.io/work/aicc/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://seansyue.github.io/work/aicc/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://seansyue.github.io/zh-tw/work/aicc/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://seansyue.github.io/ja/work/aicc/"/>
+  </url>
+  <url>
+    <loc>https://seansyue.github.io/zh-tw/work/aicc/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://seansyue.github.io/work/aicc/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://seansyue.github.io/zh-tw/work/aicc/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://seansyue.github.io/ja/work/aicc/"/>
+  </url>
+  <url>
+    <loc>https://seansyue.github.io/ja/work/aicc/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://seansyue.github.io/work/aicc/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://seansyue.github.io/zh-tw/work/aicc/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://seansyue.github.io/ja/work/aicc/"/>
   </url>
   <url>
     <loc>https://seansyue.github.io/work/negative-control/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://seansyue.github.io/work/negative-control/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://seansyue.github.io/zh-tw/work/negative-control/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://seansyue.github.io/ja/work/negative-control/"/>
+  </url>
+  <url>
+    <loc>https://seansyue.github.io/zh-tw/work/negative-control/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://seansyue.github.io/work/negative-control/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://seansyue.github.io/zh-tw/work/negative-control/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://seansyue.github.io/ja/work/negative-control/"/>
+  </url>
+  <url>
+    <loc>https://seansyue.github.io/ja/work/negative-control/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://seansyue.github.io/work/negative-control/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://seansyue.github.io/zh-tw/work/negative-control/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://seansyue.github.io/ja/work/negative-control/"/>
   </url>
   <url>
     <loc>https://seansyue.github.io/work/tetherlock/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://seansyue.github.io/work/tetherlock/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://seansyue.github.io/zh-tw/work/tetherlock/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://seansyue.github.io/ja/work/tetherlock/"/>
+  </url>
+  <url>
+    <loc>https://seansyue.github.io/zh-tw/work/tetherlock/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://seansyue.github.io/work/tetherlock/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://seansyue.github.io/zh-tw/work/tetherlock/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://seansyue.github.io/ja/work/tetherlock/"/>
+  </url>
+  <url>
+    <loc>https://seansyue.github.io/ja/work/tetherlock/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://seansyue.github.io/work/tetherlock/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://seansyue.github.io/zh-tw/work/tetherlock/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://seansyue.github.io/ja/work/tetherlock/"/>
   </url>
   <url>
     <loc>https://seansyue.github.io/work/ai-image/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://seansyue.github.io/work/ai-image/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://seansyue.github.io/zh-tw/work/ai-image/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://seansyue.github.io/ja/work/ai-image/"/>
+  </url>
+  <url>
+    <loc>https://seansyue.github.io/zh-tw/work/ai-image/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://seansyue.github.io/work/ai-image/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://seansyue.github.io/zh-tw/work/ai-image/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://seansyue.github.io/ja/work/ai-image/"/>
+  </url>
+  <url>
+    <loc>https://seansyue.github.io/ja/work/ai-image/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://seansyue.github.io/work/ai-image/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://seansyue.github.io/zh-tw/work/ai-image/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://seansyue.github.io/ja/work/ai-image/"/>
   </url>
   <url>
     <loc>https://seansyue.github.io/work/ai-music/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://seansyue.github.io/work/ai-music/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://seansyue.github.io/zh-tw/work/ai-music/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://seansyue.github.io/ja/work/ai-music/"/>
+  </url>
+  <url>
+    <loc>https://seansyue.github.io/zh-tw/work/ai-music/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://seansyue.github.io/work/ai-music/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://seansyue.github.io/zh-tw/work/ai-music/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://seansyue.github.io/ja/work/ai-music/"/>
+  </url>
+  <url>
+    <loc>https://seansyue.github.io/ja/work/ai-music/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://seansyue.github.io/work/ai-music/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://seansyue.github.io/zh-tw/work/ai-music/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://seansyue.github.io/ja/work/ai-music/"/>
   </url>
   <url>
     <loc>https://seansyue.github.io/work/heart-apartment/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://seansyue.github.io/work/heart-apartment/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://seansyue.github.io/zh-tw/work/heart-apartment/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://seansyue.github.io/ja/work/heart-apartment/"/>
+  </url>
+  <url>
+    <loc>https://seansyue.github.io/zh-tw/work/heart-apartment/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://seansyue.github.io/work/heart-apartment/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://seansyue.github.io/zh-tw/work/heart-apartment/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://seansyue.github.io/ja/work/heart-apartment/"/>
+  </url>
+  <url>
+    <loc>https://seansyue.github.io/ja/work/heart-apartment/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://seansyue.github.io/work/heart-apartment/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://seansyue.github.io/zh-tw/work/heart-apartment/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://seansyue.github.io/ja/work/heart-apartment/"/>
   </url>
 </urlset>
