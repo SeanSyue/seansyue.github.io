@@ -600,7 +600,7 @@ table.plain th[scope="row"] { white-space: nowrap; color: var(--wood); letter-sp
 :root:is(:lang(zh-Hant-TW), :lang(ja)) .work-text .work-title { font-size: clamp(28px, 3.6vw, 44px); }
 :root:is(:lang(zh-Hant-TW), :lang(ja)) .lede { max-width: 38em; }
 :root:lang(ja) body { word-break: auto-phrase; } /* break Japanese between phrases, never inside a word (Chrome / Edge; others ignore it) */
-:root:lang(zh-Hant-TW) :is(h1, h2, h3) { word-break: keep-all; overflow-wrap: anywhere; } /* Chinese headings break at punctuation (做完了，／不代表做對了。), not mid-word; a long run with no punctuation still wraps */
+:root:is(:lang(zh-Hant-TW), :lang(ja)) .keep { white-space: nowrap; } /* a clause that must stay on one line, e.g. 不代表做對了。 */
 :root:is(:lang(zh-Hant-TW), :lang(ja)) :is(em, i, blockquote) { font-style: normal; } /* Chinese and Japanese have no italics; browsers would slant the glyphs */
 :root:is(:lang(zh-Hant-TW), :lang(ja)) .date { white-space: nowrap; } /* 2026-09-14 never splits at a hyphen */
 
