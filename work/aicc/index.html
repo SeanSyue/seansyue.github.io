@@ -8,8 +8,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;family=Public+Sans:wght@400;500;600&amp;family=Zen+Maru+Gothic:wght@500;700&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/site.css?v=20260929f">
-<script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"dark"}catch(e){document.documentElement.dataset.theme="dark"}</script>
+<link rel="stylesheet" href="/assets/css/site.css?v=20260930a">
+<script>document.documentElement.classList.add("js");try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"dark"}catch(e){document.documentElement.dataset.theme="dark"}</script>
 </head>
 <body>
 
@@ -60,7 +60,7 @@
       <div class="numbers">
         <div><b>30 → 0</b><span>false greens found in one sweep, then cleared · Aug 24–27, 2026</span></div>
         <div><b>868</b><span>deliberate breaks on record, across 115 recipe files</span></div>
-        <div><b>2,200</b><span>of 2,219 tests passed in an independent pre-release review, 0 skipped · 2026-09-24</span></div>
+        <div><b>2,200</b><span>of 2,219 tests passed in an AI-assisted pre-release review, 0 skipped · 2026-09-24</span></div>
         <div><b>3</b><span>outcomes, not two: pass · fail · not verifiable</span></div>
       </div>
     </section>
@@ -91,13 +91,13 @@
         </div>
         <div class="table-scroll">
           <table class="plain compare">
-            <thead><tr><th>Most AI tools</th><th>AI Control Center</th></tr></thead>
+            <thead><tr><th>Risk to avoid</th><th>How AICC responds</th></tr></thead>
             <tbody>
-              <tr><td>It finishes on its own</td><td><b>It stops when it's your call</b></td></tr>
-              <tr><td>One agent does and judges</td><td><b>Whoever does the work never sets the bar</b></td></tr>
-              <tr><td>An approval is a moment</td><td><b>An approval is bound to a version; change it and it expires</b></td></tr>
-              <tr><td>Green means green</td><td><b>Green counts only after something has turned it red</b></td></tr>
-              <tr><td>Records live in their backend</td><td><b>Records are plain text, in your folder, verifiable without the app</b></td></tr>
+              <tr><td>No explicit point where a person decides</td><td><b>It stops when it's your call</b></td></tr>
+              <tr><td>The same role does the work and sets the bar</td><td><b>Whoever does the work never sets the bar</b></td></tr>
+              <tr><td>An approval detached from the version it checked</td><td><b>An approval is bound to a version; change it and it expires</b></td></tr>
+              <tr><td>Passing tests that may not catch a failure</td><td><b>Green counts only after something has turned it red</b></td></tr>
+              <tr><td>Records that can only be read inside the app</td><td><b>Records are plain text, in your folder, verifiable without the app</b></td></tr>
             </tbody>
           </table>
         </div>
@@ -107,7 +107,7 @@
     <!-- ============ EVIDENCE ============ -->
     <section id="evidence" class="block">
       <div class="block-head"><span class="eyebrow">Evidence tied to a version</span><h2>A stamp is worth exactly as much as the version it was stamped on</h2></div>
-      <figure class="diagram wide">
+      <figure style="--diagram-min: 900px" class="diagram wide">
         <svg viewBox="0 0 900 300" role="img" aria-label="Three stamps — verify, review, approve — sit on content version A. When the content changes to version B, the stamps on A expire and the work returns to review. A machine stamp cannot exist without evidence; a review stamp may not carry a result.">
           <defs><marker id="ahe" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--ink-3)"/></marker></defs>
           <g class="d-box"><rect x="30" y="40" width="360" height="150" rx="14"/><text x="50" y="68" class="d-t">Content · version A</text><text x="50" y="90" class="d-s">digest 7f3a…</text></g>
@@ -126,6 +126,7 @@
           <text x="30" y="276" class="d-s">Third outcome — GATED: the task declared no way to verify it. Not a failure, so no agent is sent to fix what isn't broken.</text>
         </svg>
       </figure>
+        <p class="scroll-hint" aria-hidden="true">Swipe sideways to see the whole diagram.</p>
       <details class="more">
         <summary>Read the detail</summary>
         <div class="stack">
@@ -139,7 +140,7 @@
     <section id="negative" class="block">
       <div class="block-head"><span class="eyebrow">Tests that are tested</span><h2>A green test only counts after something has turned it red</h2></div>
       <div class="two wide-left">
-        <figure class="diagram">
+        <figure style="--diagram-min: 560px" class="diagram">
           <svg viewBox="0 0 560 210" role="img" aria-label="Negative control loop: a passing test, break one line of code on purpose, run the test, it must turn red, restore from a copy and assert the restore, then the green counts. If it stayed green the test has no teeth; if it didn't run, the result is unknown.">
             <defs><marker id="ahn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--ink-3)"/></marker></defs>
             <rect x="20" y="30" width="96" height="40" rx="8" class="d-green"/><text x="68" y="55" text-anchor="middle" class="d-tag">green</text>
@@ -156,6 +157,7 @@
             <text x="20" y="200" class="d-s"><tspan class="d-strong">868 breaks</tspan> on record; a separate check turns red if a break stops matching its target</text>
           </svg>
         </figure>
+        <p class="scroll-hint" aria-hidden="true">Swipe sideways to see the whole diagram.</p>
         <div class="stack">
           <ul class="facts-list">
             <li>Restores from a copy, never <code>git checkout</code> — that once destroyed uncommitted work</li>
@@ -190,7 +192,7 @@
             <li>A rejection is routed to the responsible seat by duty, not by position</li>
             <li>A duty that grants power is never auto-assigned: if you didn't seat it, the engine won't pick one for you</li>
           </ul>
-          <p class="muted" style="font-size: 14px;">Under the hood: Claude Code runs read-only duties in plan mode; Codex runs them in a read-only sandbox. Only Work gets write access.</p>
+          <p class="muted" style="font-size: 14px;">Under the hood: Claude Code runs read-only duties in plan mode; Codex runs them in a read-only sandbox. Only Work gets write access. These are the vendor tools' own permission modes: AICC asks for them, and is not an operating-system sandbox itself.</p>
         </div>
       </div>
     </section>
@@ -218,11 +220,11 @@
     <section id="graph" class="block">
       <div class="block-head"><span class="eyebrow">Five layers</span><h2>It's a graph — and each node still has the four layers inside it</h2></div>
       <div class="two wide-left">
-        <figure class="diagram">
+        <figure style="--diagram-min: 640px" class="diagram">
           <svg viewBox="0 0 640 330" role="img" aria-label="Five nested layers: one AI call in the centre, wrapped by prompt, context, harness and loop, with graph as the outermost layer. To the right, a small graph where one node is opened to show the same four layers inside, and another node runs its own loop.">
             <defs><marker id="ahg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--ink-3)"/></marker></defs>
             <g class="d-ring"><rect x="16" y="16" width="300" height="298" rx="20"/><text x="34" y="42" class="d-t">Graph</text><text x="34" y="60" class="d-s">who does what · handoffs · where it's checked</text></g>
-            <g class="d-ring"><rect x="36" y="74" width="260" height="214" rx="18"/><text x="54" y="98" class="d-t">Loop</text><text x="54" y="115" class="d-s">fix until it passes</text></g>
+            <g class="d-ring"><rect x="36" y="74" width="260" height="214" rx="18"/><text x="54" y="98" class="d-t">Loop</text><text x="54" y="115" class="d-s">up to two repair tries, then you</text></g>
             <g class="d-ring"><rect x="56" y="128" width="220" height="146" rx="16"/><text x="74" y="152" class="d-t">Harness</text><text x="74" y="169" class="d-s">what it may touch</text></g>
             <g class="d-ring"><rect x="76" y="182" width="180" height="78" rx="14"/><text x="94" y="206" class="d-t">Context</text><text x="94" y="223" class="d-s">just enough</text></g>
             <g class="d-ring d-core"><rect x="160" y="228" width="84" height="24" rx="10"/><text x="202" y="245" text-anchor="middle" class="d-tag">Prompt</text></g>
@@ -238,6 +240,7 @@
             <text x="482" y="272" text-anchor="middle" class="d-s">you are a node too</text>
           </svg>
         </figure>
+        <p class="scroll-hint" aria-hidden="true">Swipe sideways to see the whole diagram.</p>
         <div class="stack">
           <p class="lede">Prompt, context, harness, loop, graph — the five layers people now describe as graph engineering. They aren't stages that replace each other; every run in AICC uses all five at once, and the fix loop lives inside one node.</p>
           <details class="more">
@@ -247,7 +250,7 @@
                 <tr><th scope="row">Prompt</th><td>what to do, limits, success criteria, return format — <code>prompt_builder</code></td></tr>
                 <tr><th scope="row">Context</th><td>just enough for this step: each duty receives only its rule layers plus the shared project memory</td></tr>
                 <tr><th scope="row">Harness</th><td>what it may touch: the CLI runner, the project's sensitivity level and permission mode</td></tr>
-                <tr><th scope="row">Loop</th><td>the fix loop in the workflow worker, bounded by attempts</td></tr>
+                <tr><th scope="row">Loop</th><td>the fix loop in the workflow worker: up to two repair attempts, then the run goes back to a person</td></tr>
                 <tr><th scope="row">Graph</th><td>the lineup of seats and the nine step gates; state kept in run records, a timeline, and the stamp chain</td></tr>
               </tbody>
             </table></div>
@@ -261,8 +264,8 @@
       <div class="block-head"><span class="eyebrow">What it doesn't do</span><h2>Three things, stated plainly</h2></div>
       <div class="cards">
         <div class="card"><span class="num">01</span><h3>It doesn't take what you didn't give it</h3><p>Your Claude or Codex login never passes through AICC — it only opens the vendor's own sign-in. No browser or app caches are read. A test fails if any new way to accept an API key appears in the credential module.</p></div>
-        <div class="card"><span class="num">02</span><h3>It doesn't sell the model</h3><p>You use your own Claude and Codex membership. AICC takes nothing from your usage.</p></div>
-        <div class="card"><span class="num">03</span><h3>It doesn't take your work to a cloud</h3><p>No account, no sign-up, no server. Project memory is plain-text files in your own folder — and AICC is itself the first project it manages.</p></div>
+        <div class="card"><span class="num">02</span><h3>It doesn't resell the model</h3><p>You use your own Claude and Codex accounts, under their own usage limits. AICC adds nothing on top of what you pay them.</p></div>
+        <div class="card"><span class="num">03</span><h3>It has no server of its own</h3><p>No account, no sign-up, no AICC server. Project records are plain-text files in your own folder, and AICC is itself the first project it manages. Prompts do go to Claude or Codex through their own command-line tools, and the optional LINE and Google Drive features have their own data paths.</p></div>
       </div>
     </section>
 
@@ -270,9 +273,9 @@
     <section id="status" class="block">
       <div class="block-head"><span class="eyebrow">Status &amp; limits</span><h2>What exists, what's proven, what isn't</h2></div>
       <div class="ledger">
-        <div class="done"><h3>Built</h3><ul><li>Installable Windows app; install → launch → uninstall verified</li><li>Roles with duty-bound permissions, stamp chain, timeline, exportable decision log</li><li>One person running several projects side by side</li></ul></div>
-        <div class="verified"><h3>Verified</h3><ul><li>An independent pre-release review ran 2,219 tests: 2,200 passed, 0 skipped; the 19 failures and what each one means are listed in the repository</li><li>The same review ran 853 deliberate breaks and published the misses too</li><li>30 false greens found and cleared to 0 (Aug 24–27, 2026)</li></ul></div>
-        <div class="notyet"><h3>Next</h3><ul><li>Owner acceptance run for the next beta</li><li>The source is on <a href="https://github.com/SeanSyue/ai-control-center">GitHub</a>; the breaking tool also stands on its own as <a href="/work/negative-control/">negative-control</a></li></ul></div>
+        <div class="done"><h3>Built</h3><ul><li>Windows desktop app; an earlier build was installed, launched and uninstalled twice on Windows</li><li>Roles with duty-bound permissions, stamp chain, timeline, exportable decision log</li><li>One person running several projects side by side</li></ul></div>
+        <div class="verified"><h3>Verified</h3><ul><li>An AI-assisted pre-release review ran 2,219 tests: 2,200 passed, 19 failed, 0 skipped; the repository explains each failure</li><li>The same review ran 853 deliberate breaks and published the misses too</li><li>30 false greens found and cleared to 0 (Aug 24–27, 2026)</li></ul></div>
+        <div class="notyet"><h3>Next</h3><ul><li>Owner acceptance run for the next beta</li><li>The public repository ships source only; the current installer still needs a full upgrade test. Known limits are listed in <a href="https://github.com/SeanSyue/ai-control-center/blob/main/SECURITY.md">SECURITY.md</a></li><li>The source is on <a href="https://github.com/SeanSyue/ai-control-center">GitHub</a>; the breaking tool also stands on its own as <a href="/work/negative-control/">negative-control</a></li></ul></div>
       </div>
     </section>
 
@@ -295,6 +298,6 @@
     <small>© 2026 Sean Syue</small>
   </div>
 </footer>
-<script src="/assets/js/site.js?v=20260929f"></script>
+<script src="/assets/js/site.js?v=20260930a"></script>
 </body>
 </html>

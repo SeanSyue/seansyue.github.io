@@ -8,8 +8,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;family=Public+Sans:wght@400;500;600&amp;family=Zen+Maru+Gothic:wght@500;700&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/site.css?v=20260929f">
-<script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"dark"}catch(e){document.documentElement.dataset.theme="dark"}</script>
+<link rel="stylesheet" href="/assets/css/site.css?v=20260930a">
+<script>document.documentElement.classList.add("js");try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"dark"}catch(e){document.documentElement.dataset.theme="dark"}</script>
 </head>
 <body>
 
@@ -136,7 +136,7 @@
   <section id="work" class="work-list" aria-label="Selected projects">
     <div class="work-intro">
       <span class="eyebrow">Selected projects</span>
-      <p>Things I designed and built on my own. Client work stays under NDA.</p>
+      <p>Independent projects. I define the product, the architecture and what counts as done; AI coding agents write most of the code. Client work stays under NDA.</p>
     </div>
 
     <!-- ===== Group 1: Checking AI work ===== -->
@@ -158,7 +158,7 @@
           </ul>
           <div class="btn-row"><a class="btn btn-primary" href="/work/aicc/">See how it proves it</a></div>
         </div>
-        <figure class="diagram lift">
+        <figure style="--diagram-min: 560px" class="diagram lift">
           <svg viewBox="0 0 560 250" role="img" aria-label="Work is verified by a command, reviewed by a read-only role, then approved by a person. Each stamp is bound to a content version; a change expires the stamps. Underneath, a test is broken on purpose and must turn red before its green counts.">
             <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--ink-3)"/></marker></defs>
             <text x="20" y="30" class="d-s">every step leaves a stamp, bound to the version it checked</text>
@@ -182,6 +182,7 @@
             <text x="20" y="228" class="d-s">stayed green after the break? then the test had no teeth, and it gets fixed</text>
           </svg>
         </figure>
+        <p class="scroll-hint" aria-hidden="true">Swipe sideways to see the whole diagram.</p>
       </div>
     </article>
 
@@ -217,7 +218,7 @@ the case is too easy, or the break never reached the code.</span></pre>
       <div class="work-body">
         <div class="work-text">
           <h3 class="work-title">Tetherlock</h3>
-          <p class="lede">A workspace that opens only when three things hold at once, and closes the moment one stops.</p>
+          <p class="lede">An access-control component: a workspace opens only when three things hold at once, and the application is told to lock it on the next check after one stops.</p>
           <ul class="facts-list">
             <li><b>3</b> conditions at once: an allowed account, a signed token on the drive, the password</li>
             <li>Pull the drive and it locks</li>
@@ -337,6 +338,6 @@ the case is too easy, or the break never reached the code.</span></pre>
   </div>
 </footer>
 
-<script src="/assets/js/site.js?v=20260929f"></script>
+<script src="/assets/js/site.js?v=20260930a"></script>
 </body>
 </html>

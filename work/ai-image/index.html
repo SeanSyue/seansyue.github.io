@@ -8,8 +8,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;family=Public+Sans:wght@400;500;600&amp;family=Zen+Maru+Gothic:wght@500;700&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/site.css?v=20260929f">
-<script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"dark"}catch(e){document.documentElement.dataset.theme="dark"}</script>
+<link rel="stylesheet" href="/assets/css/site.css?v=20260930a">
+<script>document.documentElement.classList.add("js");try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"dark"}catch(e){document.documentElement.dataset.theme="dark"}</script>
 </head>
 <body>
 
@@ -122,7 +122,7 @@
         <div class="bars" role="img" aria-label="Palette distance: same character 3.8 to 6.6; different character 19.0 to 20.3.">
           <div class="bar-row"><span>Same character<small>palette distance</small></span><div class="bar-track"><div class="bar-fill" style="width: 28%;"></div></div><b>3.8–6.6</b></div>
           <div class="bar-row"><span>Different character<small>palette distance</small></span><div class="bar-track"><div class="bar-fill" style="width: 90%; background: var(--terracotta);"></div></div><b>19–20.3</b></div>
-          <p class="muted" style="font-size: 13px;">The character's colours are clustered and compared with the approved design. A drifted design is caught automatically — on white-background sheets. On busy scene art it's too noisy, and a person looks.</p>
+          <p class="muted" style="font-size: 13px;">Each image's colours are grouped into eight clusters (k-means in CIELAB) and compared with the approved design. On this round's white-background sheets, the same character measured 3.8–6.6 and the other character 19.0–20.3, so a threshold of about 10 separated them. It checks colour drift on clean sheets, not character consistency in general; on busy scene art it's too noisy, and a person looks.</p>
         </div>
         <ul class="facts-list">
           <li><b>Dropped:</b> similarity scoring (SSIM) as a gate — it rated a wrong-coloured result 0.958 against 0.965 for the right one</li>
@@ -162,6 +162,6 @@
     <small>© 2026 Sean Syue</small>
   </div>
 </footer>
-<script src="/assets/js/site.js?v=20260929f"></script>
+<script src="/assets/js/site.js?v=20260930a"></script>
 </body>
 </html>

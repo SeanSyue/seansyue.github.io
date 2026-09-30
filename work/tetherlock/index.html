@@ -8,8 +8,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;family=Public+Sans:wght@400;500;600&amp;family=Zen+Maru+Gothic:wght@500;700&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/site.css?v=20260929f">
-<script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"dark"}catch(e){document.documentElement.dataset.theme="dark"}</script>
+<link rel="stylesheet" href="/assets/css/site.css?v=20260930a">
+<script>document.documentElement.classList.add("js");try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"dark"}catch(e){document.documentElement.dataset.theme="dark"}</script>
 </head>
 <body>
 
@@ -48,7 +48,7 @@
     <section class="proj-head">
       <span class="eyebrow">Checking AI work · Security design study</span>
       <h1>Tetherlock</h1>
-      <p class="lede">A local workspace that opens only when three things are true at the same time: the person signed in is allowed in, a signed token is on the inserted drive, and the password matches. Remove the drive, and the workspace locks.</p>
+      <p class="lede">An access-control component for a local workspace. It lets the host application open the workspace only when three things are true at the same time: the person signed in is allowed in, a signed token is on the inserted drive, and the password matches. When a later check finds the drive gone, it tells the application to lock the workspace.</p>
       <dl class="facts">
         <div><dt>Type</dt><dd>Standalone module</dd></div>
         <div><dt>Source</dt><dd><a href="https://github.com/SeanSyue/tetherlock">GitHub · MIT</a></dd></div>
@@ -117,7 +117,7 @@
       </figure>
       <ol class="steps">
         <li><div><b>The account must be allowed in.</b> The host application answers one question: may this account open protected areas? It is asked first, on every cycle. “No” means no prompt, and anything open is locked.</div></li>
-        <li><div><b>A signed token must be on the drive.</b> The signature, the trusted key, the expiry and, optionally, the drive it was issued to are all checked. A copy on another drive is refused.</div></li>
+        <li><div><b>A signed token must be on the drive.</b> The signature, the trusted key and the expiry are checked. When the token is bound to a drive, a copy on another drive is refused; the check compares the drive's volume serial number, so it does not stop an exact clone.</div></li>
         <li><div><b>The password must match.</b> It is checked against a stored verifier; the token never contains the password.</div></li>
         <li><div><b>The drive is checked again, after the password.</b> The token is re-read and must be the same one found before the prompt, so a drive pulled or swapped while someone types opens nothing.</div></li>
       </ol>
@@ -222,6 +222,6 @@
     <small>© 2026 Sean Syue</small>
   </div>
 </footer>
-<script src="/assets/js/site.js?v=20260929f"></script>
+<script src="/assets/js/site.js?v=20260930a"></script>
 </body>
 </html>

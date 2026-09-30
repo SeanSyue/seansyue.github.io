@@ -8,8 +8,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;family=Public+Sans:wght@400;500;600&amp;family=Zen+Maru+Gothic:wght@500;700&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/site.css?v=20260929f">
-<script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"dark"}catch(e){document.documentElement.dataset.theme="dark"}</script>
+<link rel="stylesheet" href="/assets/css/site.css?v=20260930a">
+<script>document.documentElement.classList.add("js");try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"dark"}catch(e){document.documentElement.dataset.theme="dark"}</script>
 </head>
 <body>
 
@@ -106,8 +106,8 @@
     <article class="role">
       <div class="role-head"><h3>AI Control Center — orchestration for AI coding agents</h3><span class="muted">08/2026 – present</span></div>
       <ul>
-        <li>Designed and shipped a Windows application that coordinates AI coding agents through defined roles with duty-bound permissions, verification steps and human approval, with an audit timeline for every project.</li>
-        <li>Set the verification discipline: 2,200+ automated tests under a zero-skip rule, and 860+ deliberate code breaks that check whether a test can fail; a sweep with this method found 30 false greens and cleared them to zero. Source: github.com/SeanSyue/ai-control-center (MIT). Packaged as an installer with a verified install and uninstall lifecycle.</li>
+        <li>Designed and built a Windows desktop application (in development) that coordinates AI coding agents through defined roles with duty-bound permissions, verification steps and human approval, with an audit timeline for every project.</li>
+        <li>Set the verification discipline: 2,200+ automated tests under a zero-skip rule, and 860+ deliberate code breaks that check whether a test can fail; a sweep with this method found 30 false greens and cleared them to zero. Source: github.com/SeanSyue/ai-control-center (MIT). An earlier build was installed, launched and uninstalled on Windows; known limits are documented in the repository.</li>
       </ul>
     </article>
 
@@ -124,7 +124,7 @@
       <ul>
         <li>Turned subjective art direction into a written specification and an automated colour check, after measuring that a similarity score could not distinguish a correct result from a wrong one.</li>
         <li>Produced a 76-track game soundtrack in two days, with every render verified automatically before review and an honest test showing the screening script did not predict human judgement.</li>
-        <li>Directed a Godot life-sim in which a locally run language model proposes character actions that the game's rules validate before they happen; selected the 4B model over the 9B at roughly six times the speed with no measurable quality loss.</li>
+        <li>Directed a Godot life-sim in which a locally run language model proposes character actions that the game's rules validate before they happen; selected the 4B model after a test on the target PC: 0.53 s median reply against 3.26 s for the 9B, which did not fit fully in GPU memory, with no clear quality advantage for the 9B across eight test scenarios.</li>
       </ul>
     </article>
   </section>
@@ -166,6 +166,6 @@
     <small>© 2026 Sean Syue</small>
   </div>
 </footer>
-<script src="/assets/js/site.js?v=20260929f"></script>
+<script src="/assets/js/site.js?v=20260930a"></script>
 </body>
 </html>

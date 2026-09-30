@@ -8,8 +8,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;family=Public+Sans:wght@400;500;600&amp;family=Zen+Maru+Gothic:wght@500;700&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/site.css?v=20260929f">
-<script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"dark"}catch(e){document.documentElement.dataset.theme="dark"}</script>
+<link rel="stylesheet" href="/assets/css/site.css?v=20260930a">
+<script>document.documentElement.classList.add("js");try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"dark"}catch(e){document.documentElement.dataset.theme="dark"}</script>
 </head>
 <body>
 
@@ -122,7 +122,7 @@
           <h3>Key decisions</h3>
           <div class="decision"><h3>The model proposes; the rules decide</h3><p>A language model can make characters sound alive, but it can't be trusted to change the world. Every action is checked by the game before it happens. <a href="#design">Example →</a></p></div>
           <div class="decision"><h3>“Saw it myself” vs “was told”</h3><p>Hearing about something from her roommate is stored differently from being there. <a href="#design">How →</a></p></div>
-          <div class="decision"><h3>A smaller model, for speed</h3><p>The 4B model answered about six times faster than the 9B, and the quality test couldn't show the 9B was better. <a href="#model">Numbers →</a></p></div>
+          <div class="decision"><h3>A smaller model, for speed</h3><p>On the target PC the 4B answered about six times faster than the 9B, which did not fit fully in GPU memory, and in eight test scenarios the 9B showed no clear quality advantage. <a href="#model">Numbers →</a></p></div>
         </div>
       </div>
     </section>
@@ -183,10 +183,10 @@
           <div class="bars" role="img" aria-label="Median reply time: Qwen3-4B 0.53 seconds; Qwen3.5-9B 3.26 seconds.">
             <div class="bar-row"><span>Qwen3-4B (Q5)<small>median reply</small></span><div class="bar-track"><div class="bar-fill" style="width: 16%;"></div></div><b>0.53 s</b></div>
             <div class="bar-row"><span>Qwen3.5-9B (Q5)<small>median reply</small></span><div class="bar-track"><div class="bar-fill" style="width: 100%; background: var(--terracotta);"></div></div><b>3.26 s</b></div>
-            <p class="muted" style="font-size: 13px;">Same prompt, 16 runs each, 2026-09-11. 95th percentile: 0.66 s vs 4.18 s.</p>
+            <p class="muted" style="font-size: 13px;">Current prompt, 8 scenarios × 2 seeds = 16 runs each, 2026-09-11. 95th percentile: 0.66 s vs 4.18 s. Measured on the target PC (i9-13900K, RTX 4070 Ti with 12 GB): the 4B ran fully on the GPU; the 9B did not fit, so 20 of its layers ran on the GPU and the rest on the CPU.</p>
           </div>
           <ul class="facts-list">
-            <li>The quality test couldn't show the 9B was better, so the game ships the 4B</li>
+            <li>In an exploratory check across the same eight scenarios, the 9B made the same kind of mistake as the 4B and showed no clear quality advantage, so the game ships the 4B</li>
             <li>Replies are labelled “AI reply”; if the model takes over 6 s or isn't installed, a hand-written line is used, labelled “text fallback”</li>
             <li>A late answer never pops up after the moment has passed; the launcher only stops servers it started</li>
           </ul>
@@ -248,6 +248,6 @@
     <small>© 2026 Sean Syue</small>
   </div>
 </footer>
-<script src="/assets/js/site.js?v=20260929f"></script>
+<script src="/assets/js/site.js?v=20260930a"></script>
 </body>
 </html>

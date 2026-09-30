@@ -8,8 +8,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;family=Public+Sans:wght@400;500;600&amp;family=Zen+Maru+Gothic:wght@500;700&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/site.css?v=20260929f">
-<script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"dark"}catch(e){document.documentElement.dataset.theme="dark"}</script>
+<link rel="stylesheet" href="/assets/css/site.css?v=20260930a">
+<script>document.documentElement.classList.add("js");try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"dark"}catch(e){document.documentElement.dataset.theme="dark"}</script>
 </head>
 <body>
 
@@ -135,7 +135,7 @@
             <div class="bar-row"><span>Script said pass<small>79 renders</small></span><div class="bar-track"><div class="bar-fill" style="width: 48%;"></div><i class="bar-ref" style="left: 47%;"></i></div><b>48%</b></div>
             <div class="bar-row"><span>Script said cut<small>162 renders</small></span><div class="bar-track"><div class="bar-fill" style="width: 46%;"></div><i class="bar-ref" style="left: 47%;"></i></div><b>46%</b></div>
             <div class="bar-row"><span>Cut for extreme brightness<small>11 renders</small></span><div class="bar-track"><div class="bar-fill" style="width: 9%;"></div><i class="bar-ref" style="left: 47%;"></i></div><b>9%</b></div>
-            <p class="muted" style="font-size: 13px;">Share I liked · dashed line: all 241 renders, 47 %</p>
+            <p class="muted" style="font-size: 13px;">Share I liked · dashed line: all 241 renders, 47 %. Of the 244 verdicts, 3 were too mixed to count as liked or not, so 241 are shown. The 11 bright renders are part of the 162 the script would cut.</p>
           </div>
           <ul class="facts-list">
             <li>As a gate, the script was a coin toss — tracks it would cut were liked as often as tracks it passed</li>
@@ -172,7 +172,7 @@
         <details class="more"><summary>Read the detail</summary>
           <div class="stack">
             <p>A batch runner starts one ComfyUI job per process with a 600-second limit, then decodes each file and checks seed, prompt, settings, real length and format against the job file. All 95 jobs are logged with the prompt hash and peak GPU memory.</p>
-            <p>All 76 tracks were measured to ITU-R BS.1770-4 and set to −18 LUFS for music and −27 LUFS for ambience, true peak at or below −1 dBTP. The fix is a fixed gain only — no compression or limiting — so the sound is unchanged. The meter was self-tested against the standard's reference signal first.</p>
+            <p>All 76 tracks were measured to ITU-R BS.1770-4 and brought to −18 LUFS for music and −27 LUFS for ambience, true peak at or below −1 dBTP. The fix is a fixed gain only — no compression or limiting — so the sound is unchanged; six quiet tracks were left slightly under target rather than pushed through a limiter. The meter was self-tested against the standard's reference signal first.</p>
           </div>
         </details>
       </article>
@@ -253,6 +253,6 @@
     <small>© 2026 Sean Syue</small>
   </div>
 </footer>
-<script src="/assets/js/site.js?v=20260929f"></script>
+<script src="/assets/js/site.js?v=20260930a"></script>
 </body>
 </html>
