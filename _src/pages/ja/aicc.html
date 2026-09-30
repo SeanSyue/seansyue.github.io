@@ -1,0 +1,253 @@
+title: 完了したことと、正しくできたことは別 — AI Control Center — Sean Syue
+description: AI Control Centerは、AIに証拠を示させます。各ステップの記録は確認した版に結びつき、テスト自体もコードをわざと壊すことで、誤りを検出できるかを証明します。
+---
+
+
+<main>
+  <div class="wrap">
+    <p class="crumbs"><a href="{{link:/}}#work">プロジェクト</a> → AI Control Center</p>
+    <section class="proj-head">
+      <span class="eyebrow">AIの仕事を検証する · デスクトップアプリ</span>
+      <h1>完了したことと、正しくできたことは別。</h1>
+      <p class="lede">AI Control Centerは、役割の分担、検証ステップ、人による承認を通じて、複数のAIコーディングエージェントを連携させるWindowsアプリケーションです。AIに証拠を示させるのが狙いです。各ステップの記録は確認した版に結びつき、テスト自体も、コードをわざと壊すことで誤りを検出できるかを証明します。</p>
+      <dl class="facts">
+        <div><dt>種類</dt><dd>個人開発の製品</dd></div>
+        <div><dt>状態</dt><dd><span class="status dev">開発中 · {{f:aicc.version}}</span></dd></div>
+        <div><dt>更新</dt><dd>2026-09</dd></div>
+        <div><dt>担当範囲</dt><dd>製品のルール、アーキテクチャ、検証</dd></div>
+        <div><dt>技術</dt><dd>Python · PySide6 · pytest · Inno Setup</dd></div>
+        <div><dt>ソースコード</dt><dd><a href="https://github.com/SeanSyue/ai-control-center">GitHub · MIT</a></dd></div>
+      </dl>
+      <div class="numbers">
+        <div><b>{{f:aicc.false_greens}}</b><span>一度の総点検で見つけた偽りの合格。すべて解消 · {{f:aicc.false_greens_dates}}</span></div>
+        <div><b>{{f:aicc.breaks}}</b><span>件の意図的な破壊を記録。{{f:aicc.recipe_files}}個のレシピファイルに収録</span></div>
+        <div><b>{{f:aicc.review_passed}}</b><span>件のテストが合格（全{{f:aicc.review_total}}件）。AIを活用したリリース前レビュー、スキップ0件 · 2026-09-24</span></div>
+        <div><b>3</b><span>種類の結果（2種類ではない）：合格 · 失敗 · 検証不能</span></div>
+      </div>
+    </section>
+  </div>
+
+  <nav class="section-nav" aria-label="このページの内容">
+    <div class="wrap">
+      <a href="#problem">ギャップ</a>
+      <a href="#evidence">版に結びつく証拠</a>
+      <a href="#negative">テストをテストする</a>
+      <a href="#duties">職責の分離</a>
+      <a href="#decide">判断は人に戻す</a>
+      <a href="#graph">5つの層</a>
+      <a href="#not">しないこと</a>
+      <a href="#status">現状</a>
+    </div>
+  </nav>
+
+  <div class="wrap">
+
+    <!-- ============ THE GAP ============ -->
+    <section id="problem" class="block">
+      <div class="block-head"><span class="eyebrow">ギャップ</span><h2>報告書の上では、「終わった」と「正しく終わった」は見分けがつかない</h2></div>
+      <div class="two">
+        <div class="stack">
+          <p class="lede">AIエージェントは、目に見えるタスクを終わらせるのが得意です。常に合格するテスト、計算して画面に送ったのに誰も読まない値、その後に変更された版に付いたままのレビュー――どれも「合格」と表示されます。このプロジェクトでは、一度の点検で<b>30件</b>見つかりました。</p>
+          <p class="lede">だからこの製品は、ひとつの問いを軸にしています。<b>本当に確かめるには、何が必要か？</b></p>
+        </div>
+        <div class="table-scroll">
+          <table class="plain compare">
+            <thead><tr><th>避けたいリスク</th><th>AICCの対応</th></tr></thead>
+            <tbody>
+              <tr><td>人が判断するポイントが明確でない</td><td><b>あなたが判断すべき場面で止まる</b></td></tr>
+              <tr><td>同じ役割が作業し、合格基準も決める</td><td><b>作業する役割は、決して合格基準を決めない</b></td></tr>
+              <tr><td>承認が、確認した版と切り離されている</td><td><b>承認は版に結びつき、内容が変われば失効する</b></td></tr>
+              <tr><td>合格するテストが、失敗を検出できないかもしれない</td><td><b>一度失敗させてから、はじめて合格を認める</b></td></tr>
+              <tr><td>記録がアプリの中でしか読めない</td><td><b>記録はプレーンテキストで手元のフォルダに。アプリなしで検証できる</b></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EVIDENCE ============ -->
+    <section id="evidence" class="block">
+      <div class="block-head"><span class="eyebrow">版に結びつく証拠</span><h2>確認記録の価値は、どの版を確認したかで決まる</h2></div>
+      <figure style="--diagram-min: 900px" class="diagram wide">
+        <svg viewBox="0 0 900 300" role="img" aria-label="検証・レビュー・承認の3つの記録が内容の版Aに付いている。内容が版Bに変わると、版Aの記録は失効し、作業はレビューに戻る。機械による記録は証拠なしには作れず、レビューの記録は結果を持てない。">
+          <defs><marker id="ahe" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--ink-3)"/></marker></defs>
+          <g class="d-box"><rect x="30" y="40" width="360" height="150" rx="14"/><text x="50" y="68" class="d-t">内容 · 版A</text><text x="50" y="90" class="d-s">ダイジェスト 7f3a…</text></g>
+          <g class="d-stamp"><circle cx="110" cy="130" r="24"/><text x="110" y="135" text-anchor="middle" class="d-tag">検証</text><text x="110" y="172" text-anchor="middle" class="d-tiny">証拠が必要</text></g>
+          <g class="d-stamp"><circle cx="210" cy="130" r="24"/><text x="210" y="135" text-anchor="middle" class="d-tag">審査</text><text x="210" y="172" text-anchor="middle" class="d-tiny">結果は持たない</text></g>
+          <g class="d-stamp d-human"><circle cx="310" cy="130" r="24"/><text x="310" y="135" text-anchor="middle" class="d-tag">承認</text><text x="310" y="172" text-anchor="middle" class="d-tiny">あなた</text></g>
+          <path class="d-arrow d-loop" d="M390 115 H500" marker-end="url(#ahe)"/>
+          <text x="445" y="104" text-anchor="middle" class="d-s">編集</text>
+          <g class="d-box"><rect x="510" y="40" width="360" height="150" rx="14"/><text x="530" y="68" class="d-t">内容 · 版B</text><text x="530" y="90" class="d-s">ダイジェスト c91e…</text></g>
+          <g class="d-stamp d-expired"><circle cx="590" cy="130" r="24"/><text x="590" y="135" text-anchor="middle" class="d-tag">✕</text></g>
+          <g class="d-stamp d-expired"><circle cx="690" cy="130" r="24"/><text x="690" y="135" text-anchor="middle" class="d-tag">✕</text></g>
+          <g class="d-stamp d-expired"><circle cx="790" cy="130" r="24"/><text x="790" y="135" text-anchor="middle" class="d-tag">✕</text></g>
+          <text x="690" y="172" text-anchor="middle" class="d-tiny">失効 · レビューに戻る</text>
+          <text x="690" y="215" text-anchor="middle" class="d-s">変更に依存していた記録だけが失効する</text>
+          <text x="30" y="250" class="d-s">機械による記録は証拠なしには作れない。レビューの記録は結果を持てない。どちらのルールもコメントではなく、データモデルに組み込まれている。</text>
+          <text x="30" y="276" class="d-s">3つ目の結果――GATED：検証方法が宣言されていないタスク。失敗ではないので、壊れていないものを直しにエージェントを送らない。</text>
+        </svg>
+      </figure>
+        <p class="scroll-hint" aria-hidden="true">{{s:scroll.hint}}</p>
+      <details class="more">
+        <summary>詳しく読む</summary>
+        <div class="stack">
+          <p>実行中の各役割は、確認記録を残します。記録されるのは、誰が、いつ、どの内容のダイジェストに対して、どんな証拠で確認したか。承認には、必要な記録がすべて同じダイジェストにそろっていることが必要です。内容が変わると、入力が変わった記録だけが失効するので、影響のない作業はやり直しになりません。</p>
+          <p>判断の記録はハッシュチェーンとして残り、エクスポートして、アプリに依存しない単体の検証ツールで確認できます。チェーンの途中で改ざんや削除があれば検出できますが、チェーン全体が最初から書き直された場合まで検出できるとは主張していません。</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- ============ NEGATIVE CONTROL ============ -->
+    <section id="negative" class="block">
+      <div class="block-head"><span class="eyebrow">テストをテストする</span><h2>合格は、一度失敗させてから、はじめて意味を持つ</h2></div>
+      <div class="two wide-left">
+        <figure style="--diagram-min: 560px" class="diagram">
+          <svg viewBox="0 0 560 210" role="img" aria-label="ネガティブコントロールの流れ：合格しているテスト、コードを1行わざと壊す、テストを実行、失敗しなければならない、コピーから復元して復元を確認、そこで初めて合格が意味を持つ。壊しても合格のままなら、そのテストは何も検出できていない。実行されなければ、結果は不明。">
+            <defs><marker id="ahn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--ink-3)"/></marker></defs>
+            <rect x="20" y="30" width="96" height="40" rx="8" class="d-green"/><text x="68" y="55" text-anchor="middle" class="d-tag">合格</text>
+            <path class="d-arrow" d="M116 50 H146" marker-end="url(#ahn)"/>
+            <rect x="150" y="30" width="120" height="40" rx="8" class="d-mut"/><text x="210" y="55" text-anchor="middle" class="d-tag">1行壊す</text>
+            <path class="d-arrow" d="M270 50 H300" marker-end="url(#ahn)"/>
+            <rect x="304" y="30" width="96" height="40" rx="8" class="d-red"/><text x="352" y="55" text-anchor="middle" class="d-tag">失敗 ✓</text>
+            <path class="d-arrow" d="M400 50 H430" marker-end="url(#ahn)"/>
+            <rect x="434" y="30" width="106" height="40" rx="8" class="d-mut"/><text x="487" y="55" text-anchor="middle" class="d-tag">復元して確認</text>
+            <path class="d-arrow d-loop" d="M487 70 V100 H68 V74" marker-end="url(#ahn)"/>
+            <text x="278" y="118" text-anchor="middle" class="d-s">ここで初めて合格が意味を持つ</text>
+            <text x="20" y="152" class="d-s"><tspan class="d-strong">壊しても合格のまま？</tspan> そのテストは何も検出できていない ✗</text>
+            <text x="20" y="172" class="d-s"><tspan class="d-strong">実行されなかった？</tspan> 結果は不明 ?――黙って合格扱いにはしない</text>
+            <text x="20" y="200" class="d-s"><tspan class="d-strong">{{f:aicc.breaks}}件の破壊</tspan>を記録。対象とずれた破壊は、別のチェックが失敗させる</text>
+          </svg>
+        </figure>
+        <p class="scroll-hint" aria-hidden="true">{{s:scroll.hint}}</p>
+        <div class="stack">
+          <ul class="facts-list">
+            <li>復元は必ずコピーから行い、<code>git checkout</code>は使わない――保存前の変更をまとめて失ったことがあるため</li>
+            <li>スキップ0件は絶対のルール：空のパラメータ化テストが1件でもSKIPを出したら、実行全体を失敗にする</li>
+            <li>2つの層はどちらも代わりにならない：pytestは値が<b>読まれている</b>ことを、本物のQWebEngine上のDOMチェックは<b>表示されている</b>ことを確認する</li>
+            <li>「計算して画面に送ったのに、どこからも読まれない」という繰り返し起きる不具合を、専用ツールで探している</li>
+          </ul>
+          <p><a class="text-link" href="{{link:/work/negative-control/}}">コードを壊すツールは独立しました：negative-control →</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DUTIES ============ -->
+    <section id="duties" class="block">
+      <div class="block-head"><span class="eyebrow">職責の分離</span><h2>作業する役割は、決して合格基準を決めない</h2></div>
+      <div class="two">
+        <div class="table-scroll">
+          <table class="plain matrix" aria-label="職責ごとにできること">
+            <thead><tr><th>職責</th><th>読み取り</th><th>ファイルの書き込み</th><th>合格基準の設定</th><th>承認</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">計画</th><td class="yes">●</td><td class="no">—</td><td class="yes">●</td><td class="no">—</td></tr>
+              <tr><th scope="row">作業</th><td class="yes">●</td><td class="yes only">● これだけ</td><td class="no">不可</td><td class="no">—</td></tr>
+              <tr><th scope="row">レビュー</th><td class="yes">●</td><td class="no">—</td><td class="yes">●</td><td class="no">—</td></tr>
+              <tr><th scope="row">承認</th><td class="yes">●</td><td class="no">—</td><td class="no">—</td><td class="yes">● 機械の記録は覆せない</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="stack">
+          <p class="lede">それぞれの役割はひとつの席で、自分の職責、自分の対話、自分に見えるルールを持ちます。エンジンは席の名前ではなく職責で仕事を割り振り、役割が自分の作業を自分で検証することを防ぎます。</p>
+          <ul class="facts-list">
+            <li>合格基準は「作業」以外の席が決める。基準の記録と実装の記録が同じ役割から出ていれば、エンジンは拒否する</li>
+            <li>差し戻しは、位置ではなく職責に基づいて担当の席へ送られる</li>
+            <li>権限を与える職責は自動では割り当てない。あなたが配置していなければ、エンジンが代わりに選ぶことはない</li>
+          </ul>
+          <p class="muted" style="font-size: 14px;">内部の仕組み：Claude Codeは読み取り専用の職責をplanモードで実行し、Codexは読み取り専用のサンドボックスで実行します。書き込めるのは「作業」だけです。これらはベンダーのツール自身の権限モードで、AICCはそれを要求しているだけです。AICC自体はOSレベルのサンドボックスではありません。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STOPS FOR YOUR CALL ============ -->
+    <section id="decide" class="block">
+      <div class="block-head"><span class="eyebrow">判断は人に戻す</span><h2>多くのツールは「もっと自動化」を売る。これは、止まるように作られている。</h2></div>
+      <div class="flow" aria-label="AIは作業を続け、あなたにしか決められない判断に行き当たると、実行はあなたの判断待ちリストで待機する。あなたが判断すると、判断を記録に残して続行する。">
+        <span>AIが作業</span><i>→</i>
+        <span>あなたにしか決められない判断に行き当たる</span><i>→</i>
+        <span class="human">判断待ちリストで待機</span><i>→</i>
+        <span>あなたが判断</span><i>→</i>
+        <span>判断を記録に残して続行</span>
+      </div>
+      <div class="cards">
+        <div class="card"><h3>権限は初期設定で渡さない</h3><p>権限を与える職責は自動では割り当てません。あなたが配置していなければ、エンジンが代わりに選ぶことはありません。</p></div>
+        <div class="card"><h3>「検証できない」は「壊れている」ではない</h3><p>確認方法が宣言されていないタスクは「検証不能」になります。失敗としては扱わないので、壊れていないものを直しにエージェントを送ることはありません。</p></div>
+        <div class="card"><h3>承認でチェック結果は覆せない</h3><p>機械のチェックが失敗していれば、承認しても合格にはなりません。承認者は読むことはできても、結果を書き換えることはできません。</p></div>
+      </div>
+    </section>
+
+    <!-- Product screenshots go here once clean captures exist (fake project name, no local paths). -->
+
+    <!-- ============ GRAPH ============ -->
+    <section id="graph" class="block">
+      <div class="block-head"><span class="eyebrow">5つの層</span><h2>全体はグラフ。そして各ノードの中にも、同じ4つの層がある</h2></div>
+      <div class="two wide-left">
+        <figure style="--diagram-min: 640px" class="diagram">
+          <svg viewBox="0 0 640 330" role="img" aria-label="入れ子になった5つの層：中心に1回のAI呼び出しがあり、その外側をprompt、context、harness、loopが包み、いちばん外側がgraph。右側は小さなグラフで、1つのノードを開くと同じ4つの層が入っており、別のノードは自分のループを持つ。">
+            <defs><marker id="ahg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--ink-3)"/></marker></defs>
+            <g class="d-ring"><rect x="16" y="16" width="300" height="298" rx="20"/><text x="34" y="42" class="d-t">Graph</text><text x="34" y="60" class="d-s">誰が何をするか · 引き継ぎ · 確認する場所</text></g>
+            <g class="d-ring"><rect x="36" y="74" width="260" height="214" rx="18"/><text x="54" y="98" class="d-t">Loop</text><text x="54" y="115" class="d-s">修正は最大2回、その後はあなたへ</text></g>
+            <g class="d-ring"><rect x="56" y="128" width="220" height="146" rx="16"/><text x="74" y="152" class="d-t">Harness</text><text x="74" y="169" class="d-s">触れてよい範囲</text></g>
+            <g class="d-ring"><rect x="76" y="182" width="180" height="78" rx="14"/><text x="94" y="206" class="d-t">Context</text><text x="94" y="223" class="d-s">必要な分だけ</text></g>
+            <g class="d-ring d-core"><rect x="160" y="228" width="84" height="24" rx="10"/><text x="202" y="245" text-anchor="middle" class="d-tag">Prompt</text></g>
+            <text x="166" y="305" text-anchor="middle" class="d-s">はしごではない：1回の呼び出しを5重に包む</text>
+            <g class="d-box"><rect x="346" y="40" width="80" height="40" rx="9"/><text x="386" y="65" text-anchor="middle" class="d-s">計画</text></g>
+            <g class="d-box d-open"><rect x="452" y="24" width="170" height="80" rx="9"/><text x="537" y="45" text-anchor="middle" class="d-s">作業</text><rect x="466" y="54" width="142" height="40" rx="6" class="d-inner"/><text x="537" y="71" text-anchor="middle" class="d-tiny">prompt · context</text><text x="537" y="85" text-anchor="middle" class="d-tiny">harness · loop</text></g>
+            <g class="d-box"><rect x="346" y="160" width="80" height="40" rx="9"/><text x="386" y="185" text-anchor="middle" class="d-s">検証</text></g>
+            <g class="d-box"><rect x="452" y="160" width="80" height="40" rx="9"/><text x="492" y="185" text-anchor="middle" class="d-s">レビュー</text></g>
+            <path class="d-arrow d-loop" d="M506 200 q0 18 -14 18 q-14 0 -14 -18"/>
+            <g class="d-gate"><path d="M588 158 L618 180 L588 202 L558 180 Z"/><text x="588" y="184" text-anchor="middle" class="d-s">あなた</text></g>
+            <path class="d-arrow" d="M426 60 H447" marker-end="url(#ahg)"/><path class="d-arrow" d="M386 80 V155" marker-end="url(#ahg)"/><path class="d-arrow" d="M426 180 H447" marker-end="url(#ahg)"/><path class="d-arrow" d="M532 180 H553" marker-end="url(#ahg)"/>
+            <text x="482" y="252" text-anchor="middle" class="d-s">検証はAIではなくコマンド</text>
+            <text x="482" y="272" text-anchor="middle" class="d-s">あなたもノードのひとつ</text>
+          </svg>
+        </figure>
+        <p class="scroll-hint" aria-hidden="true">{{s:scroll.hint}}</p>
+        <div class="stack">
+          <p class="lede">Prompt、context、harness、loop、graph――この5つの層は、いまgraph engineeringと呼ばれています。互いに置き換わる段階ではなく、AICCの実行は毎回5つすべてを同時に使い、修正ループは1つのノードの中にあります。</p>
+          <details class="more">
+            <summary>各層がコードのどこにあるか</summary>
+            <div class="table-scroll"><table class="plain">
+              <tbody>
+                <tr><th scope="row">Prompt</th><td>何をするか、制約、成功の基準、返す形式――<code>prompt_builder</code></td></tr>
+                <tr><th scope="row">Context</th><td>このステップに必要な分だけ：各職責には、自分のルール層と共有のプロジェクト記憶だけを渡す</td></tr>
+                <tr><th scope="row">Harness</th><td>触れてよい範囲：CLIの実行部、プロジェクトの機密レベルと権限モード</td></tr>
+                <tr><th scope="row">Loop</th><td>ワークフロー内の修正ループ：修正は最大2回まで。その後、実行は人に戻る</td></tr>
+                <tr><th scope="row">Graph</th><td>席の構成と9つのステップゲート。状態は実行記録、タイムライン、確認記録のチェーンに残る</td></tr>
+              </tbody>
+            </table></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ NOT ============ -->
+    <section id="not" class="block">
+      <div class="block-head"><span class="eyebrow">しないこと</span><h2>しない3つのことを、はっきり</h2></div>
+      <div class="cards">
+        <div class="card"><span class="num">01</span><h3>渡されていないものは取らない</h3><p>ClaudeやCodexへのログインはAICCを経由しません。AICCはベンダー自身のサインイン画面を開くだけで、ブラウザや他のアプリのキャッシュも読みません。認証情報のモジュールにAPIキーを受け取る新しい経路が加わると、テストが失敗します。</p></div>
+        <div class="card"><span class="num">02</span><h3>モデルを転売しない</h3><p>ご自身のClaudeとCodexのアカウントを、それぞれの利用上限の範囲で使います。AICCが利用料に上乗せすることはありません。</p></div>
+        <div class="card"><span class="num">03</span><h3>独自のサーバーを持たない</h3><p>アカウント登録は不要で、AICCのサーバーもありません。プロジェクトの記録は手元のフォルダにあるプレーンテキストで、AICC自身が最初の管理対象プロジェクトです。なお、プロンプトはClaudeやCodex自身のコマンドラインツールを通じて送信され、オプションのLINE通知とGoogle Drive連携にはそれぞれのデータの流れがあります。</p></div>
+      </div>
+    </section>
+
+    <!-- ============ STATUS ============ -->
+    <section id="status" class="block">
+      <div class="block-head"><span class="eyebrow">現状と制約</span><h2>できていること、証明できたこと、まだのこと</h2></div>
+      <div class="ledger">
+        <div class="done"><h3>できていること</h3><ul><li>Windowsデスクトップアプリ。以前のビルドでは、Windows上でインストール・起動・アンインストールを2回実施</li><li>職責に応じた権限を持つ役割、確認記録のチェーン、タイムライン、エクスポートできる判断記録</li><li>1人で複数のプロジェクトを並行して管理</li></ul></div>
+        <div class="verified"><h3>検証済み</h3><ul><li>AIを活用したリリース前レビューで{{f:aicc.review_total}}件のテストを実行：合格{{f:aicc.review_passed}}件、失敗19件、スキップ0件。失敗はすべてリポジトリで説明</li><li>同じレビューで{{f:aicc.review_breaks_run}}件の意図的な破壊を実行し、検出できなかったものも公開</li><li>偽りの合格を30件見つけ、0件まで解消（{{f:aicc.false_greens_dates}}）</li></ul></div>
+        <div class="notyet"><h3>次のステップ</h3><ul><li>次のベータ版でのオーナーによる受け入れテスト</li><li>公開リポジトリはソースコードのみ。現在のインストーラーは、アップグレードまで含めた検証がまだ必要です。既知の制約は<a href="https://github.com/SeanSyue/ai-control-center/blob/main/SECURITY.md">SECURITY.md</a>に記載</li><li>ソースコードは<a href="https://github.com/SeanSyue/ai-control-center">GitHub</a>で公開。コードを壊すツールも<a href="{{link:/work/negative-control/}}">negative-control</a>として独立</li></ul></div>
+      </div>
+      <p class="muted" style="font-size: 14px;">GitHubのリポジトリと文書は英語です。</p>
+    </section>
+
+    <section class="next">
+      <span class="eyebrow">次へ</span>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="{{link:/work/negative-control/}}">次のプロジェクト：negative-control →</a>
+        <a class="btn btn-quiet" href="{{link:/}}#contact">連絡する</a>
+      </div>
+    </section>
+  </div>
+</main>
+

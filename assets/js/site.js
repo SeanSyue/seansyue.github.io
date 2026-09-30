@@ -86,3 +86,18 @@
     render();
   });
 })();
+
+// Language menu: Escape and a click outside close it; switching keeps the section you were reading.
+(function () {
+  document.querySelectorAll('.lang-switch').forEach(function (menu) {
+    menu.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && menu.open) { menu.open = false; menu.querySelector('summary').focus(); }
+    });
+    document.addEventListener('click', function (e) { if (menu.open && !menu.contains(e.target)) menu.open = false; });
+    menu.querySelectorAll('.lang-menu a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        if (location.hash) link.href = link.href.split('#')[0] + location.hash;
+      });
+    });
+  });
+})();

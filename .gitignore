@@ -1,2 +1,5 @@
 # AI video page: on hold until the showcase clips are made
 work/ai-video/
+
+# Python bytecode from the build scripts
+__pycache__/

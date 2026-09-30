@@ -27,5 +27,6 @@
   "footer.copyright": "© 2026 Sean Syue",
   "footer.contact": "Contact",
   "footer.looking": "Open to business systems, process automation and business analysis roles, in teams putting AI to work.",
-  "lang.label": ""
+  "lang.aria": "Language",
+  "scroll.hint": "Swipe sideways to see the whole diagram."
 }

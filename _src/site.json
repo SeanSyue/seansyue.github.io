@@ -8,7 +8,26 @@
       "hreflang": "en",
       "label": "English",
       "fonts_url": "https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;family=Public+Sans:wght@400;500;600&amp;family=Zen+Maru+Gothic:wght@500;700&amp;display=swap",
-      "published": true
+      "published": true,
+      "short": "EN"
+    },
+    "zh-tw": {
+      "prefix": "/zh-tw",
+      "html_lang": "zh-Hant-TW",
+      "hreflang": "zh-TW",
+      "label": "繁體中文",
+      "short": "中文",
+      "published": false,
+      "fonts_url": "https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;family=Public+Sans:wght@400;500;600&amp;family=Zen+Maru+Gothic:wght@500;700&amp;family=Noto+Sans+TC:wght@400;500;700&amp;family=Noto+Serif+TC:wght@500;600&amp;display=swap"
+    },
+    "ja": {
+      "prefix": "/ja",
+      "html_lang": "ja",
+      "hreflang": "ja",
+      "label": "日本語",
+      "short": "日本語",
+      "published": false,
+      "fonts_url": "https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;family=Public+Sans:wght@400;500;600&amp;family=Zen+Maru+Gothic:wght@500;700&amp;family=Noto+Sans+JP:wght@400;500;700&amp;family=Noto+Serif+JP:wght@500;600&amp;display=swap"
     }
   },
   "pages": [

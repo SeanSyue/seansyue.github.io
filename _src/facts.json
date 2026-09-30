@@ -3,47 +3,63 @@
     "en": "30 → 0",
     "note": "False greens found in one sweep and cleared",
     "as_of": "2026-08-27",
-    "source": "ai-control-center: tools/false_greens.json (30 entries, all fixed)"
+    "source": "ai-control-center: tools/false_greens.json (30 entries, all fixed)",
+    "zh-tw": "30 → 0",
+    "ja": "30 → 0"
   },
   "aicc.false_greens_dates": {
     "en": "Aug 24–27, 2026",
     "note": "Sweep found them 2026-08-24; cleared by 2026-08-27",
-    "source": "private working repository commit history"
+    "source": "private working repository commit history",
+    "zh-tw": "2026 年 8 月 24–27 日",
+    "ja": "2026年8月24日〜27日"
   },
   "aicc.breaks": {
     "en": "868",
     "note": "Deliberate breaks on record (mutation recipes)",
     "as_of": "2026-09-26",
-    "source": "ai-control-center: tools/mutations/*.json"
+    "source": "ai-control-center: tools/mutations/*.json",
+    "zh-tw": "868",
+    "ja": "868"
   },
   "aicc.recipe_files": {
     "en": "115",
     "note": "Recipe files holding those breaks",
     "as_of": "2026-09-26",
-    "source": "ai-control-center: tools/mutations/"
+    "source": "ai-control-center: tools/mutations/",
+    "zh-tw": "115",
+    "ja": "115"
   },
   "aicc.review_passed": {
     "en": "2,200",
     "note": "Tests passed in the AI-assisted pre-release review",
     "as_of": "2026-09-24",
-    "source": "ai-control-center: README.md, verification table"
+    "source": "ai-control-center: README.md, verification table",
+    "zh-tw": "2,200",
+    "ja": "2,200"
   },
   "aicc.review_total": {
     "en": "2,219",
     "note": "Tests run in that review",
     "as_of": "2026-09-24",
-    "source": "ai-control-center: README.md"
+    "source": "ai-control-center: README.md",
+    "zh-tw": "2,219",
+    "ja": "2,219"
   },
   "aicc.review_breaks_run": {
     "en": "853",
     "note": "Deliberate breaks run in that review",
     "as_of": "2026-09-24",
-    "source": "ai-control-center: README.md"
+    "source": "ai-control-center: README.md",
+    "zh-tw": "853",
+    "ja": "853"
   },
   "aicc.version": {
     "en": "v0.9.4-dev",
     "note": "Version shown in the facts table",
-    "source": "ai-control-center"
+    "source": "ai-control-center",
+    "zh-tw": "v0.9.4-dev",
+    "ja": "v0.9.4-dev"
   },
   "nc.tests": {
     "en": "27",
@@ -67,7 +83,9 @@
     "en": "76",
     "note": "Tracks approved and in the game",
     "as_of": "2026-09-15",
-    "source": "private production log"
+    "source": "private production log",
+    "zh-tw": "76",
+    "ja": "76"
   },
   "music.renders": {
     "en": "244",
@@ -87,7 +105,9 @@
   "heart.moments": {
     "en": "299",
     "note": "Story moments in the game",
-    "source": "private game project"
+    "source": "private game project",
+    "zh-tw": "299",
+    "ja": "299"
   },
   "heart.reply_4b": {
     "en": "0.53",

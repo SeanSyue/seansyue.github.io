@@ -49,11 +49,8 @@ def main(argv):
             (out / rel).parent.mkdir(parents=True, exist_ok=True)
             (out / rel).write_text(html, encoding="utf-8", newline="")
 
-        # 1. committed output matches the sources (published languages only; previews are never committed)
-        for rel, html in built.items():
-            lang = next((c for c, i in site.langs.items() if i["prefix"] and rel.startswith(i["prefix"].strip("/") + "/")), "en")
-            if not site.langs[lang].get("published"):
-                continue
+        # 1. committed output matches what the published build writes (previews are never committed)
+        for rel, html in build.Site(preview=False).outputs():
             committed = ROOT / rel
             if not committed.exists():
                 errors.append(f"{rel}: not built yet (run python _src/build.py)")
@@ -86,7 +83,8 @@ def main(argv):
             m = re.search(r'<html lang="([^"]+)"', html)
             if not m or m.group(1) != site.langs[lang]["html_lang"]:
                 errors.append(f"{rel}: lang attribute should be {site.langs[lang]['html_lang']}")
-            for attr, href in re.findall(r'\b(href|src|poster)="(/[^"/][^"]*|/)"', html):
+            body = re.sub(r'<details class="lang-switch">.*?</details>', "", html, flags=re.S)  # switch links cross languages on purpose
+            for attr, href in re.findall(r'\b(href|src|poster)="(/[^"/][^"]*|/)"', body):
                 if href.startswith("//"):
                     continue
                 target, anchor = resolve(out, href)
@@ -98,7 +96,7 @@ def main(argv):
                 if anchor and target.suffix == ".html" and anchor not in page_ids(target.read_text(encoding="utf-8")):
                     errors.append(f"{rel}: {href} — no #{anchor} on that page")
                 is_page = target.name == "index.html"
-                if is_page and prefix and not href.startswith(prefix) and 'rel="alternate"' not in html.split(href)[0][-60:] and "lang-switch" not in html.split(href)[0][-400:]:
+                if is_page and prefix and not href.startswith(prefix):
                     warnings.append(f"{rel}: links to {href}, outside its language")
             for alt in re.findall(r'<link rel="alternate" hreflang="[^"]+" href="([^"]+)">', html):
                 path = alt.replace(site.config["origin"], "")

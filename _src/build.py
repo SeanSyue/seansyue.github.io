@@ -147,7 +147,7 @@ class Site:
             f'<a href="{self.url(c, page["path"])}" hreflang="{self.langs[c]["hreflang"]}" lang="{self.langs[c]["html_lang"]}"'
             + (' aria-current="true"' if c == lang else "") + f'>{self.langs[c]["label"]}</a>'
             for c in langs)
-        return self.render(self.layout["lang-switch"], {"lang": lang, "page": page, "vars": {"items": items}})
+        return self.render(self.layout["lang-switch"], {"lang": lang, "page": page, "vars": {"items": items, "lang_now": self.langs[lang]["short"]}})
 
     def page_html(self, lang, page):
         meta, body = self.source(lang, page["id"])
