@@ -28,11 +28,16 @@ Only the Python standard library is needed. GitHub Pages serves the generated HT
 
 1. Add it to `site.json` with `"published": false`.
 2. Add `strings/<lang>.json`, the language's text in `facts.json`, and `pages/<lang>/*.html`.
-3. Preview without touching the site: `python _src/build.py --preview --out ../preview` and `python _src/check.py --preview`.
+3. Preview without touching the site: `python _src/serve_preview.py` (http://127.0.0.1:8766, rebuilds on every page load), or `python _src/build.py --preview --out ../preview`; check with `python _src/check.py --preview`.
 4. When every page exists and has been reviewed, set `"published": true`, run `build.py` and `check.py`.
 
 A language only goes live when all its pages exist; `check.py` fails a published language with missing pages.
 
 ## What check.py catches
 
-Hand-edited output, unresolved markers, unknown or unused facts, missing pages in a published language, internal links and `#anchors` that lead nowhere, links that leave the page's language, `hreflang` pointing at missing pages, a stale cache token, and private strings (local paths, names that must not appear). Each of these was tried on purpose on 2026-09-30 and turned the check red.
+Hand-edited output, unresolved markers, unknown or unused facts, missing pages in a published language, internal links and `#anchors` that lead nowhere, links that leave the page's language, `hreflang` pointing at missing pages, `sitemap.xml` entries that are not pages, a stale cache token, and private strings (local paths, names that must not appear). Each of these was tried on purpose on 2026-09-30 and turned the check red.
+
+## Also written by the build
+
+- `<link rel="canonical">` on every page, pointing at the page itself in its own language.
+- `sitemap.xml`: every page in every published language, with its language alternates.

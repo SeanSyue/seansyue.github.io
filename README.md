@@ -24,16 +24,23 @@ python -m http.server 8765
 
 ## Résumé PDF
 
-`resume/Sean-Syue-Resume.pdf` is printed from `/resume/` itself, so the page and the download can't drift apart.
-After editing the résumé page, regenerate it (server running on 8765):
+Each résumé PDF is printed from its own page, so the page and the download can't drift apart:
+
+| PDF | printed from |
+|---|---|
+| `resume/Sean-Syue-Resume.pdf` | `/resume/` |
+| `resume/Sean-Syue-Resume-zh-TW.pdf` | `/zh-tw/resume/` |
+| `resume/Sean-Syue-Resume-ja.pdf` | `/ja/resume/` |
+
+After editing a résumé page, regenerate its PDF. While Chinese and Japanese are unpublished, print from the preview server (`python _src/serve_preview.py`, port 8766); the English one works from either server:
 
 ```bash
-"/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe" --headless=new --disable-gpu --user-data-dir="$TEMP/edge-pdf" --no-pdf-header-footer --print-to-pdf="$PWD/resume/Sean-Syue-Resume.pdf" --virtual-time-budget=6000 "http://localhost:8765/resume/"
+"/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe" --headless=new --disable-gpu --user-data-dir="$TEMP/edge-pdf" --no-pdf-header-footer --print-to-pdf="$PWD/resume/Sean-Syue-Resume-zh-TW.pdf" --virtual-time-budget=8000 "http://127.0.0.1:8766/zh-tw/resume/"
 ```
 
 `--user-data-dir` keeps it working while your normal Edge is open (without it the command silently does nothing).
 
-The print rules live in the `@media print` block of `site.css`: one column, black on white, nav and buttons hidden. Keep it to two pages.
+The print rules live in the `@media print` blocks of `site.css`: one column, black on white, nav and buttons hidden. Keep each PDF to two pages. English prints in system fonts; Chinese and Japanese print their characters in the page's Noto web fonts, because system CJK fonts copy out of a PDF as look-alike radicals (⾃ instead of 自). After printing, extract the text (for example `pypdf`, `extraction_mode="layout"`) and check that names, dates, `·` and `–` come out as typed.
 
 ## Drafts
 
