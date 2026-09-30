@@ -22,6 +22,8 @@
   "menu.heart.sub": "Life-sim game",
   "theme.aria": "Switch between day and night",
   "theme.title": "Day / night",
+  "theme.to_day": "Switch to day mode",
+  "theme.to_night": "Switch to night mode",
   "footer.linkedin": "LinkedIn",
   "footer.github": "GitHub",
   "footer.copyright": "© 2026 Sean Syue",

@@ -63,18 +63,24 @@
   },
   "nc.tests": {
     "en": "27",
+    "zh-tw": "27",
+    "ja": "27",
     "note": "negative-control's own tests, all passing",
     "as_of": "2026-09-29",
     "source": "negative-control: tests/ (run 2026-09-29)"
   },
   "nc.self_breaks": {
     "en": "12",
+    "zh-tw": "12",
+    "ja": "12",
     "note": "Ways the tool breaks itself, all caught",
     "as_of": "2026-09-29",
     "source": "negative-control: mutations/mutations_the_tool_itself.json"
   },
   "tl.tests_passed": {
     "en": "143",
+    "zh-tw": "143",
+    "ja": "143",
     "note": "Tetherlock tests passed (1 skipped)",
     "as_of": "2026-09-26",
     "source": "tetherlock: pytest run recorded in the project log"
@@ -89,16 +95,22 @@
   },
   "music.renders": {
     "en": "244",
+    "zh-tw": "244",
+    "ja": "244",
     "note": "Renders listened to, each with a stored verdict",
     "source": "private listening log"
   },
   "music.rated": {
     "en": "241",
+    "zh-tw": "241",
+    "ja": "241",
     "note": "Verdicts clear enough to count as liked or not (3 left out)",
     "source": "private listening log"
   },
   "music.cut": {
     "en": "162",
+    "zh-tw": "162",
+    "ja": "162",
     "note": "Renders the ranking script would cut",
     "source": "private test of the ranking script, 2026-09-22"
   },
@@ -111,45 +123,61 @@
   },
   "heart.reply_4b": {
     "en": "0.53",
+    "zh-tw": "0.53",
+    "ja": "0.53",
     "note": "Median reply, Qwen3-4B, seconds",
     "as_of": "2026-09-11",
     "source": "private model test, i9-13900K + RTX 4070 Ti"
   },
   "heart.reply_9b": {
     "en": "3.26",
+    "zh-tw": "3.26",
+    "ja": "3.26",
     "note": "Median reply, Qwen3.5-9B (partly on CPU), seconds",
     "as_of": "2026-09-11",
     "source": "private model test"
   },
   "heart.p95_4b": {
     "en": "0.66",
+    "zh-tw": "0.66",
+    "ja": "0.66",
     "note": "95th percentile, 4B, seconds",
     "as_of": "2026-09-11",
     "source": "private model test"
   },
   "heart.p95_9b": {
     "en": "4.18",
+    "zh-tw": "4.18",
+    "ja": "4.18",
     "note": "95th percentile, 9B, seconds",
     "as_of": "2026-09-11",
     "source": "private model test"
   },
   "image.same_character": {
     "en": "3.8–6.6",
+    "zh-tw": "3.8–6.6",
+    "ja": "3.8–6.6",
     "note": "Palette distance, same character, white-background sheets",
     "source": "private experiment record 2026-09-22"
   },
   "image.other_character": {
     "en": "19.0–20.3",
+    "zh-tw": "19.0–20.3",
+    "ja": "19.0–20.3",
     "note": "Palette distance, different character",
     "source": "private experiment record 2026-09-22"
   },
   "image.ssim_wrong": {
     "en": "0.958",
+    "zh-tw": "0.958",
+    "ja": "0.958",
     "note": "SSIM of the wrong-coloured result",
     "source": "private experiment record"
   },
   "image.ssim_right": {
     "en": "0.965",
+    "zh-tw": "0.965",
+    "ja": "0.965",
     "note": "SSIM of the right result",
     "source": "private experiment record"
   }

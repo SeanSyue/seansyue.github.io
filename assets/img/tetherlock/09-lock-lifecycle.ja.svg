@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" font-family="'Yu Gothic', YuGothic, 'Hiragino Sans', 'Noto Sans JP', Meiryo, Segoe UI, Helvetica, Arial, sans-serif">
+  <title>保護された1つの領域のライフサイクル</title>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#475569"/>
+    </marker>
+    <marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/>
+    </marker>
+    <style>
+      .h{font-size:20px;font-weight:700;fill:#0f172a}
+      .sub{font-size:14px;fill:#475569}
+      .st{fill:#f8fafc;stroke:#94a3b8;stroke-width:1.8}
+      .ask{fill:#ecfeff;stroke:#0e7490;stroke-width:1.8}
+      .open{fill:#f0fdf4;stroke:#15803d;stroke-width:1.8}
+      .T{font-size:20px;font-weight:700;fill:#0f172a}
+      .s{font-size:13px;fill:#334155}
+      .lab{font-size:13px;fill:#0f172a}
+      .labr{font-size:13px;fill:#b91c1c}
+      .n{font-size:12.5px;fill:#64748b;font-style:italic}
+      .ln{stroke:#475569;stroke-width:1.6;fill:none}
+      .lr{stroke:#b91c1c;stroke-width:1.6;fill:none}
+      .box{fill:none;stroke:#cbd5e1;stroke-width:1.5;stroke-dasharray:3 4}
+    </style>
+  </defs>
+  <rect width="1200" height="600" fill="#ffffff"/>
+
+  <text x="30" y="40" class="h">保護された1つの領域のライフサイクル</text>
+  <text x="30" y="64" class="sub">各領域は、これらの状態をそれぞれ独立して移る。複数の領域を同時に開くことができ、それぞれが自分のドライブに結びつく。</text>
+
+  <!-- states -->
+  <rect x="60" y="150" width="230" height="110" rx="55" class="st"/>
+  <text x="175" y="198" text-anchor="middle" class="T">ロック中</text>
+  <text x="175" y="222" text-anchor="middle" class="s">保護対象は読み込まれない</text>
+
+  <rect x="485" y="150" width="230" height="110" rx="55" class="ask"/>
+  <text x="600" y="198" text-anchor="middle" class="T">入力待ち</text>
+  <text x="600" y="222" text-anchor="middle" class="s">パスワード入力画面を表示中</text>
+
+  <rect x="910" y="150" width="230" height="110" rx="55" class="open"/>
+  <text x="1025" y="198" text-anchor="middle" class="T">ロック解除</text>
+  <text x="1025" y="222" text-anchor="middle" class="s">ホストが領域を読み込み済み</text>
+
+  <!-- locked -> asking -->
+  <path d="M290,180 L482,180" class="ln" marker-end="url(#a)"/>
+  <text x="386" y="130" text-anchor="middle" class="lab">アカウント許可＋</text>
+  <text x="386" y="148" text-anchor="middle" class="lab">有効なトークン＋待機時間外</text>
+
+  <!-- asking -> locked -->
+  <path d="M485,232 L293,232" class="lr" marker-end="url(#r)"/>
+  <text x="389" y="256" text-anchor="middle" class="labr">キャンセル → 60秒待つ</text>
+  <text x="389" y="274" text-anchor="middle" class="labr">パスワード誤り／ドライブ変更 → 20秒</text>
+  <text x="389" y="292" text-anchor="middle" class="labr">その間にサインアウト → 待たない</text>
+
+  <!-- asking -> open -->
+  <path d="M715,205 L907,205" class="ln" marker-end="url(#a)"/>
+  <text x="811" y="168" text-anchor="middle" class="lab">トークンを再検証、</text>
+  <text x="811" y="186" text-anchor="middle" class="lab">パスワード一致→ホストが開く</text>
+
+  <!-- open -> locked -->
+  <path d="M1025,260 C1025,360 175,360 175,263" class="lr" marker-end="url(#r)"/>
+  <text x="600" y="366" text-anchor="middle" class="labr">ドライブを抜く · トークンの差し替え・形式不正・無効化（期限切れ、鍵の廃止）</text>
+  <text x="600" y="386" text-anchor="middle" class="labr">アカウントの権限がなくなる · サインアウトまたは終了（lock_all）</text>
+
+  <!-- what locking does -->
+  <rect x="60" y="440" width="1080" height="118" rx="12" class="box"/>
+  <text x="80" y="468" class="lab" font-weight="700">このライブラリでの「ロック」の意味</text>
+  <text x="80" y="492" class="s">監視部分はアクセス許可を破棄し、on_lock(scope, handle, reason) を呼び出す。同じドライブを差し直すと、すぐに認識される。</text>
+  <text x="80" y="512" class="s">待ち時間が適用されるのは、キャンセルか失敗の後だけ。画面を閉じ、以後のデータ操作を拒否するのはホストの役目。</text>
+  <text x="80" y="538" class="n">抜いたことが検出されるのは即時ではなく、次のチェックのとき。60秒と20秒は設定の初期値で、計測値ではない。</text>
+</svg>

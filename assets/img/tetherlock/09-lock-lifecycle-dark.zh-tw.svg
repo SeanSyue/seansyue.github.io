@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" font-family="'Microsoft JhengHei','PingFang TC','Noto Sans TC',Segoe UI, Helvetica, Arial, sans-serif">
+  <title>一個受保護區域的生命週期</title>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9da7b3"/>
+    </marker>
+    <marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#f47067"/>
+    </marker>
+    <style>
+      .h{font-size:20px;font-weight:700;fill:#e6edf3}
+      .sub{font-size:14px;fill:#9da7b3}
+      .st{fill:#161b22;stroke:#6e7681;stroke-width:1.8}
+      .ask{fill:#0c2d36;stroke:#39c5cf;stroke-width:1.8}
+      .open{fill:#0f2a1a;stroke:#3fb950;stroke-width:1.8}
+      .T{font-size:20px;font-weight:700;fill:#e6edf3}
+      .s{font-size:13px;fill:#c9d1d9}
+      .lab{font-size:13px;fill:#e6edf3}
+      .labr{font-size:13px;fill:#f47067}
+      .n{font-size:12.5px;fill:#8b949e;font-style:italic}
+      .ln{stroke:#9da7b3;stroke-width:1.6;fill:none}
+      .lr{stroke:#f47067;stroke-width:1.6;fill:none}
+      .box{fill:none;stroke:#3d444d;stroke-width:1.5;stroke-dasharray:3 4}
+    </style>
+  </defs>
+  <rect width="1200" height="600" fill="#0d1117"/>
+
+  <text x="30" y="40" class="h">一個受保護區域的生命週期</text>
+  <text x="30" y="64" class="sub">每個區域各自在這些狀態之間切換。多個區域可以同時打開，各自綁在自己的隨身碟上。</text>
+
+  <!-- states -->
+  <rect x="60" y="150" width="230" height="110" rx="55" class="st"/>
+  <text x="175" y="198" text-anchor="middle" class="T">已上鎖</text>
+  <text x="175" y="222" text-anchor="middle" class="s">受保護的內容都沒有載入</text>
+
+  <rect x="485" y="150" width="230" height="110" rx="55" class="ask"/>
+  <text x="600" y="198" text-anchor="middle" class="T">詢問中</text>
+  <text x="600" y="222" text-anchor="middle" class="s">密碼視窗開著</text>
+
+  <rect x="910" y="150" width="230" height="110" rx="55" class="open"/>
+  <text x="1025" y="198" text-anchor="middle" class="T">已打開</text>
+  <text x="1025" y="222" text-anchor="middle" class="s">應用程式已載入這個區域</text>
+
+  <!-- locked -> asking -->
+  <path d="M290,180 L482,180" class="ln" marker-end="url(#a)"/>
+  <text x="386" y="130" text-anchor="middle" class="lab">帳號被允許 + 找到有效 token</text>
+  <text x="386" y="148" text-anchor="middle" class="lab">+ 不在等待期間</text>
+
+  <!-- asking -> locked -->
+  <path d="M485,232 L293,232" class="lr" marker-end="url(#r)"/>
+  <text x="389" y="256" text-anchor="middle" class="labr">取消 → 等 60 秒</text>
+  <text x="389" y="274" text-anchor="middle" class="labr">密碼錯誤／隨身碟變了 → 20 秒</text>
+  <text x="389" y="292" text-anchor="middle" class="labr">期間登出 → 不用等</text>
+
+  <!-- asking -> open -->
+  <path d="M715,205 L907,205" class="ln" marker-end="url(#a)"/>
+  <text x="811" y="168" text-anchor="middle" class="lab">token 重新驗證通過、</text>
+  <text x="811" y="186" text-anchor="middle" class="lab">密碼相符，應用程式打開</text>
+
+  <!-- open -> locked -->
+  <path d="M1025,260 C1025,360 175,360 175,263" class="lr" marker-end="url(#r)"/>
+  <text x="600" y="366" text-anchor="middle" class="labr">隨身碟被拔掉 · token 被換掉、格式錯誤或失效（過期、金鑰已淘汰）</text>
+  <text x="600" y="386" text-anchor="middle" class="labr">帳號不再被允許 · 登出或結束程式（lock_all）</text>
+
+  <!-- what locking does -->
+  <rect x="60" y="440" width="1080" height="118" rx="12" class="box"/>
+  <text x="80" y="468" class="lab" font-weight="700">在這個函式庫裡，「上鎖」代表什麼</text>
+  <text x="80" y="492" class="s">監控程式會丟掉授權，並呼叫 on_lock(scope, handle, reason)。重新插入同一支隨身碟，會立刻被偵測到；</text>
+  <text x="80" y="512" class="s">等待時間只在取消或失敗之後才會套用。關閉畫面、拒絕後續的資料操作，是應用程式的工作。</text>
+  <text x="80" y="538" class="n">拔除要到下一輪檢查才會發現，不是即時的。60 秒和 20 秒是設定的預設值，不是量測結果。</text>
+</svg>

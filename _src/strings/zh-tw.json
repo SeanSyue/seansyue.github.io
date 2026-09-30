@@ -22,6 +22,8 @@
   "menu.heart.sub": "生活模擬遊戲",
   "theme.aria": "切換深色與淺色",
   "theme.title": "深色／淺色",
+  "theme.to_day": "切換成淺色",
+  "theme.to_night": "切換成深色",
   "footer.linkedin": "LinkedIn",
   "footer.github": "GitHub",
   "footer.copyright": "© 2026 Sean Syue",

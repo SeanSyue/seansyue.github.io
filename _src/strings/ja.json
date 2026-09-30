@@ -22,6 +22,8 @@
   "menu.heart.sub": "生活シミュレーションゲーム",
   "theme.aria": "ダークとライトを切り替える",
   "theme.title": "ダーク／ライト",
+  "theme.to_day": "ライトモードに切り替え",
+  "theme.to_night": "ダークモードに切り替え",
   "footer.linkedin": "LinkedIn",
   "footer.github": "GitHub",
   "footer.copyright": "© 2026 Sean Syue",

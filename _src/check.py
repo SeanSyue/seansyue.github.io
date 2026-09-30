@@ -9,6 +9,7 @@ It rebuilds into a temporary folder and reports:
   - published languages that are missing pages
   - internal links and #anchors that lead nowhere, and links that jump to another language
   - hreflang alternates that point at pages that do not exist, and wrong lang attributes
+  - sitemap.xml entries that are not pages
   - a stale cache token, and private strings (local paths, names that must never appear)
 Exit code 0 means no errors; warnings do not fail the check.
 """
@@ -78,6 +79,8 @@ def main(argv):
 
         # 4. links, anchors, language of links, hreflang, lang attribute
         for rel, html in built.items():
+            if not rel.endswith(".html"):
+                continue
             lang = next((c for c, i in site.langs.items() if i["prefix"] and rel.startswith(i["prefix"].strip("/") + "/")), "en")
             prefix = site.langs[lang]["prefix"]
             m = re.search(r'<html lang="([^"]+)"', html)
@@ -103,9 +106,17 @@ def main(argv):
                 if resolve(out, path)[0] is None:
                     errors.append(f"{rel}: hreflang points at missing page {path}")
 
+        # 4b. every sitemap entry is a built page
+        for loc in re.findall(r'<loc>([^<]+)</loc>|href="([^"]+)"', built.get("sitemap.xml", "")):
+            loc = loc[0] or loc[1]
+            if resolve(out, loc.replace(site.config["origin"], ""))[0] is None:
+                errors.append(f"sitemap.xml: {loc} is not a page")
+        if "sitemap.xml" not in built:
+            errors.append("sitemap.xml is not built")
+
         # 5. cache token and private strings
         token = site.cache_token(write=False)
-        for rel in built:
+        for rel in [r for r in built if r.endswith(".html")]:
             committed = ROOT / rel
             if committed.exists() and f"?v={token}" not in committed.read_text(encoding="utf-8"):
                 errors.append(f"{rel}: cache token is not {token} (run python _src/build.py)")
@@ -119,7 +130,7 @@ def main(argv):
         print("warning:", w)
     for e in errors:
         print("ERROR:", e)
-    print(f"{len(built)} pages checked, {len(errors)} errors, {len(warnings)} warnings")
+    print(f"{len([r for r in built if r.endswith('.html')])} pages checked, {len(errors)} errors, {len(warnings)} warnings")
     return 1 if errors else 0
 
 

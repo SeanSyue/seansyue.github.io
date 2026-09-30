@@ -599,7 +599,10 @@ table.plain th[scope="row"] { white-space: nowrap; color: var(--wood); letter-sp
 :root:is(:lang(zh-Hant-TW), :lang(ja)) h2 { font-size: clamp(26px, 3.4vw, 42px); }
 :root:is(:lang(zh-Hant-TW), :lang(ja)) .work-text .work-title { font-size: clamp(28px, 3.6vw, 44px); }
 :root:is(:lang(zh-Hant-TW), :lang(ja)) .lede { max-width: 38em; }
-:root:lang(ja) :is(h1, h2, h3, p, li, dd, td, th, .lede) { word-break: auto-phrase; }
+:root:lang(ja) body { word-break: auto-phrase; } /* break Japanese between phrases, never inside a word (Chrome / Edge; others ignore it) */
+:root:lang(zh-Hant-TW) :is(h1, h2, h3) { word-break: keep-all; overflow-wrap: anywhere; } /* Chinese headings break at punctuation (做完了，／不代表做對了。), not mid-word; a long run with no punctuation still wraps */
+:root:is(:lang(zh-Hant-TW), :lang(ja)) :is(em, i, blockquote) { font-style: normal; } /* Chinese and Japanese have no italics; browsers would slant the glyphs */
+:root:is(:lang(zh-Hant-TW), :lang(ja)) .date { white-space: nowrap; } /* 2026-09-14 never splits at a hyphen */
 
 /* ---------- language menu (only rendered when a page exists in more than one language) ---------- */
 .lang-switch { position: relative; flex: none; }
@@ -617,6 +620,29 @@ table.plain th[scope="row"] { white-space: nowrap; color: var(--wood); letter-sp
 .lang-menu a[aria-current]::after { content: " ✓"; color: var(--sage); }
 @media (max-width: 720px) { .lang-switch { order: 1; } .lang-switch summary { height: 36px; padding: 0 10px; } }
 @media (max-width: 380px) { :root:lang(ja) .nav a { font-size: 13.5px; padding: 8px 4px; } } /* four Japanese labels fit one row at 320 px */
+
+/* résumé: company · place · dates wrap only at the separators, so "2025年3月" never splits */
+:root:is(:lang(zh-Hant-TW), :lang(ja)) .role-head span { word-break: keep-all; }
+
+/* résumé: links to the PDF in the other languages */
+.pdf-langs { margin: 0; font-size: 14px; color: var(--ink-3); }
+.pdf-langs a { color: var(--ink-2); }
+
+/* the Japanese middle dot "・" from the Noto web font copies out of a PDF as "‧"; take that one character from a system font */
+@font-face { font-family: "Print JP Dot"; src: local("Yu Gothic Regular"), local("YuGothic-Regular"), local("Meiryo"), local("Hiragino Sans"); unicode-range: U+30FB; }
+/* Chinese / Japanese résumé PDF: Latin text and punctuation in Arial like the English one; Chinese and Japanese in the
+   page's Noto web font. System CJK fonts (Microsoft JhengHei, Yu Gothic) copy out of the PDF as look-alike radicals
+   (⾃ instead of 自), which breaks search and applicant-tracking systems. */
+@media print {
+  :root:lang(zh-Hant-TW) :is(body, .lede, .role ul, .skills dd, .contact-line) { font-family: Arial, "Noto Sans TC", sans-serif; }
+  :root:lang(zh-Hant-TW) :is(h1, h2, h3) { font-family: Georgia, "Noto Sans TC", sans-serif; font-weight: 700; }
+  :root:lang(ja) :is(body, .lede, .role ul, .skills dd, .contact-line) { font-family: Arial, "Print JP Dot", "Noto Sans JP", sans-serif; }
+  :root:lang(ja) :is(h1, h2, h3) { font-family: Georgia, "Print JP Dot", "Noto Sans JP", sans-serif; font-weight: 700; }
+  :root:is(:lang(zh-Hant-TW), :lang(ja)) body { line-height: 1.5; }
+  :root:is(:lang(zh-Hant-TW), :lang(ja)) .proj-head h1 { font-size: 19pt; }
+  :root:is(:lang(zh-Hant-TW), :lang(ja)) h2 { font-size: 12pt; }
+  :root:is(:lang(zh-Hant-TW), :lang(ja)) .lede { max-width: none; }
+}
 
 /* ---------- drafts: visible only while building ---------- */
 .todo {

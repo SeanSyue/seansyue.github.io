@@ -1,0 +1,116 @@
+title: 決定什麼才叫「對」 — AI 圖像 — Sean Syue
+description: 十天、六輪本機實驗，把「畫得好看一點」寫成一份書面規格；規格夠精確，最後的角色圖就畫對了。
+---
+
+
+<main>
+  <div class="wrap">
+    <p class="crumbs"><a href="{{link:/}}#work">作品</a> → AI 圖像</p>
+    <section class="proj-head">
+      <span class="eyebrow">AI 圖影音工作流程 · 圖像</span>
+      <h1>決定什麼才叫「對」</h1>
+      <p class="lede">「畫得好看一點」是任何模型都沒辦法照著做的要求。六輪本機實驗，把它變成一份書面規格，精確到最後的成品圖第一次就畫對了。</p>
+      <dl class="facts">
+        <div><dt>類型</dt><dd>用實驗寫出規格</dd></div>
+        <div><dt>狀態</dt><dd><span class="status works">角色已交付</span></dd></div>
+        <div><dt>時間</dt><dd>2026 年 9 月，十天內跑了六輪</dd></div>
+        <div><dt>我負責的部分</dt><dd>實驗、規格、驗收</dd></div>
+        <div><dt>工具</dt><dd>本機 ComfyUI · Python · 最後的成品圖用雲端模型</dd></div>
+      </dl>
+      <div class="portraits">
+        <figure><img src="/assets/img/ai-image/resident-c.jpg" width="750" height="1000" alt="角色 C：蜂蜜金色的側邊辮子繫著深綠色緞帶，米白色寬鬆開襟毛衣搭苔綠色背心裙，站著，一手扶著辮子。"><figcaption class="muted">角色 C</figcaption></figure>
+        <figure><img src="/assets/img/ai-image/resident-d.jpg" width="750" height="1000" alt="角色 D：薰衣草灰色長髮，米白色襯衫配藍色緞帶蝴蝶結，搭裙襬有花朵圖案的紫色長裙，站著，一手輕碰頭髮。"><figcaption class="muted">角色 D</figcaption></figure>
+      </div>
+      <p class="note-band">這兩張完成圖，是雲端的頂尖圖像模型畫的。本機實驗產出的是<b>規格</b>：交給模型的確切用字、比例、材質和要避開的失敗情況，以及背後的量測數據。</p>
+    </section>
+  </div>
+
+  <nav class="section-nav" aria-label="本頁內容">
+    <div class="wrap">
+      <a href="#rounds">各輪實驗</a>
+      <a href="#spec">規格</a>
+      <a href="#check">留下來的檢查</a>
+      <a href="#status">現況</a>
+    </div>
+  </nav>
+
+  <div class="wrap">
+
+    <!-- ============ ROUNDS ============ -->
+    <section id="rounds" class="block">
+      <div class="block-head"><span class="eyebrow">各輪實驗</span><h2>六輪實驗，每輪只改一個變數</h2></div>
+      <div class="table-scroll">
+        <table class="plain">
+          <thead><tr><th>#</th><th>問題</th><th>結果</th><th>寫進規格</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>「denoise」設多少，原圖還保得住？</td><td>看圖而定：繪畫感的圖 0.45，平塗的圖 0.60</td><td>每張圖各自量，不照抄教學裡的數字</td></tr>
+            <tr><td>2</td><td>編輯模型能從另一張圖借一張臉嗎？</td><td>連那張圖的表情和光線也一起借過來</td><td>角色特徵用文字描述，不用借的</td></tr>
+            <tr><td>3</td><td>只改顏色時，附一張配色參考圖有幫助嗎？</td><td>沒有。而且錯的和對的結果，分數是 <b>{{f:image.ssim_wrong}} 對 {{f:image.ssim_right}}</b></td><td>相似度看不出這種錯，配色檢查看得出來</td></tr>
+            <tr><td>4</td><td>用編輯能把 Q 版改成成人比例嗎？</td><td>停在六頭身；再加強，角色就走樣</td><td>改比例要重新生成，不是用編輯</td></tr>
+            <tr><td>5</td><td>寫「15／20／25 歲」有用嗎？</td><td>20 和 25 歲畫出來一樣；寫「成熟」只會多上妝</td><td>改寫結構：頭身比、下顎、眼睛大小</td></tr>
+            <tr><td>6</td><td>換新一代的基礎模型，比例問題能解決嗎？</td><td>可以，第一次就對，12–24 秒；但只給參考圖還是會失敗</td><td>以文字描述為主，參考圖只當輔助</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <details class="more"><summary>看每一輪的完整結果</summary>
+        <div class="stack">
+          <p><b>第 1 輪。</b>用 SSIM 量：繪畫感的圖，denoise 到 0.45 畫面就開始變；平塗的圖撐得到 0.60。光是經過編碼器一次，相似度上限就只有 0.98–0.996。</p>
+          <p><b>第 2 輪。</b>要編輯模型「用另一張圖裡的這張臉」，它會把那張圖的表情和光線一起帶過來；快速的 8 步版本則會漂回同一張預設的臉。</p>
+          <p><b>第 3 輪。</b>只用文字時，其他部分都保持原樣；附上配色參考圖，反而把參考圖裡那個角色的髮色和辮子拖進畫面。而錯的結果 SSIM 是 {{f:image.ssim_wrong}}，對的是 {{f:image.ssim_right}}。</p>
+          <p><b>第 4 輪。</b>角色特徵和服裝完全保住，但身體停在大約六頭身。再加強（換完整版模型、調高 guidance），身體終於變了，角色卻也走樣：髮色變了，背心裙變成窄裙，線條變成歐美畫風。</p>
+          <p><b>第 5 輪。</b>15 歲分得很清楚；20 和 25 歲畫出來幾乎一樣。要求「成熟」只會多上妝。</p>
+          <p><b>第 6 輪。</b>新一代的基礎模型第一次就畫出正確的成人比例，每張 12–24 秒。但只給參考圖，還是有三種失敗：完全被忽略、變成三視圖，或衣服被換掉。</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- ============ SPEC ============ -->
+    <section id="spec" class="block">
+      <div class="block-head"><span class="eyebrow">規格</span><h2>分成四塊，一次只改一塊</h2></div>
+      <div class="cards">
+        <div class="card"><span class="num">01</span><h3>角色特徵：精確</h3><p>每個決定這個角色的元素都寫出來：髮型和髮帶、眼睛顏色，每件衣服的剪裁、顏色和細節。寫得含糊的地方，下一次就會被重新畫過。</p></div>
+        <div class="card"><span class="num">02</span><h3>比例：寫結構</h3><p>七到七頭半身；頭小、腿長、腰線明顯；成人的下顎線，眼睛是自然大小。不是 Q 版，也不是時裝插畫那種拉長的比例。</p></div>
+        <div class="card"><span class="num">03</span><h3>姿勢：一句話</h3><p>放鬆的四分之三側身站姿，重心放在一隻腳，一手扶著頭髮。換姿勢時，其他部分一字不改。</p></div>
+        <div class="card"><span class="num">04</span><h3>質感：像畫出來的</h3><p>乾淨的線稿、有繪畫感的陰影、沒有塑膠般的光澤、布料依材質畫出不同質感、細緻的手、柔和的棚拍光，全身入鏡。</p></div>
+      </div>
+      <p class="muted">刻意不寫的，因為實驗證明沒有幫助：堆疊品質標籤、一長串負面提示詞、改顏色時附風格參考圖，以及單獨一個「成熟」。</p>
+    </section>
+
+    <!-- ============ CHECK ============ -->
+    <section id="check" class="block">
+      <div class="block-head"><span class="eyebrow">留下來的檢查</span><h2>看不出錯的分數，和看得出錯的那一個</h2></div>
+      <div class="two">
+        <div class="bars" role="img" aria-label="配色距離：同一個角色 3.8 到 6.6；不同角色 19.0 到 20.3。">
+          <div class="bar-row"><span>同一個角色<small>配色距離</small></span><div class="bar-track"><div class="bar-fill" style="width: 28%;"></div></div><b>{{f:image.same_character}}</b></div>
+          <div class="bar-row"><span>不同角色<small>配色距離</small></span><div class="bar-track"><div class="bar-fill" style="width: 90%; background: var(--terracotta);"></div></div><b>19–20.3</b></div>
+          <p class="muted" style="font-size: 13px;">每張圖的顏色分成八群（在 CIELAB 色彩空間做 k-means），再跟核准過的設計比對。這一輪的白底設定圖上，同一個角色量到 {{f:image.same_character}}，另一個角色量到 {{f:image.other_character}}，所以門檻設在 10 左右就分得開。它檢查的是乾淨設定圖上的顏色偏移，不是角色整體有沒有一致；畫面複雜的場景圖雜訊太多，改由人來看。</p>
+        </div>
+        <ul class="facts-list">
+          <li><b>拿掉：</b>用相似度分數（SSIM）當關卡。顏色錯的結果，它給 {{f:image.ssim_wrong}}；對的結果給 {{f:image.ssim_right}}</li>
+          <li><b>留下：</b>配色檢查。同一個角色和不同角色的距離，差了三倍</li>
+          <li><b>最後的成品圖</b>交給當時能用的最強雲端圖像模型。能帶到別的工作上的，是規格和驗收標準：知道要求什麼，也知道怎麼判斷有沒有拿到</li>
+          <li><b>下一步：</b>她們會是我下一支影片的主角</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ STATUS ============ -->
+    <section id="status" class="block">
+      <div class="block-head"><span class="eyebrow">現況與限制</span><h2>已有的、量過的、不宣稱的</h2></div>
+      <div class="ledger">
+        <div class="done"><h3>已完成</h3><ul><li>分成四塊的角色規格，換姿勢也能畫出同一個角色</li><li>自動標出設計偏移的配色檢查</li><li>六輪有紀錄的實驗，每輪一個變數，附參數和結論</li></ul></div>
+        <div class="verified"><h3>已量測</h3><ul><li>不同類型圖片的 denoise 門檻（繪畫感的圖 0.45，平塗的圖 0.60）</li><li>編碼器的相似度上限：0.98–0.996</li><li>配色距離：同一個角色 {{f:image.same_character}}，不同角色 {{f:image.other_character}}</li></ul></div>
+        <div class="notyet"><h3>不宣稱</h3><ul><li>最後的完成圖不是在本機畫的</li><li>畫面複雜的場景圖，配色檢查用不上</li><li>沒有公開的 repo，程式不公開</li></ul></div>
+      </div>
+    </section>
+
+    <section class="next">
+      <span class="eyebrow">下一個</span>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="{{link:/work/ai-music/}}">下一個作品：AI 音樂 →</a>
+        <a class="btn btn-quiet" href="{{link:/work/tetherlock/}}">← Tetherlock</a>
+      </div>
+    </section>
+  </div>
+</main>
+

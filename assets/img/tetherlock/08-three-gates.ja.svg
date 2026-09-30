@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" font-family="'Yu Gothic', YuGothic, 'Hiragino Sans', 'Noto Sans JP', Meiryo, Segoe UI, Helvetica, Arial, sans-serif">
+  <title>1回のチェック：3つのゲートを、この順番で</title>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#475569"/>
+    </marker>
+    <marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/>
+    </marker>
+    <style>
+      .h{font-size:20px;font-weight:700;fill:#0f172a}
+      .sub{font-size:14px;fill:#475569}
+      .step{fill:#f8fafc;stroke:#94a3b8;stroke-width:1.5}
+      .gate{fill:#ecfeff;stroke:#0e7490;stroke-width:1.5}
+      .red{fill:#fef2f2;stroke:#b91c1c;stroke-width:1.5}
+      .grn{fill:#f0fdf4;stroke:#15803d;stroke-width:1.5}
+      .pre{fill:none;stroke:#94a3b8;stroke-width:1.5;stroke-dasharray:5 4}
+      .t{font-size:14px;font-weight:700;fill:#0f172a}
+      .s{font-size:12.5px;fill:#334155}
+      .c{font-size:10.5px;fill:#64748b;font-family:Consolas, 'Cascadia Mono', monospace}
+      .n{font-size:12px;fill:#64748b;font-style:italic}
+      .ln{stroke:#475569;stroke-width:1.6;fill:none}
+      .no{stroke:#b91c1c;stroke-width:1.4;fill:none;stroke-dasharray:4 3}
+    </style>
+  </defs>
+  <rect width="1200" height="560" fill="#ffffff"/>
+
+  <text x="30" y="40" class="h">1回のチェックサイクル：3つのゲートを、必ずこの順番で</text>
+  <text x="30" y="64" class="sub">ホストがタイマーでpoll()を呼び出す。前のゲートを通らない限り、次のゲートは問われもしない。</text>
+
+  <!-- happy path -->
+  <rect x="30" y="110" width="160" height="104" rx="10" class="step"/>
+  <text x="46" y="140" class="t">定期チェック</text>
+  <text x="46" y="162" class="s">ホストがpoll()を</text>
+  <text x="46" y="180" class="s">数秒ごとに呼ぶ</text>
+  <text x="46" y="200" class="c">WorkspaceMonitor.poll</text>
+
+  <rect x="225" y="110" width="160" height="104" rx="10" class="gate"/>
+  <text x="241" y="140" class="t">ゲート1 アカウント</text>
+  <text x="241" y="162" class="s">このアカウントは</text>
+  <text x="241" y="180" class="s">保護領域に入れるか？</text>
+  <text x="241" y="200" class="c">is_authorized()</text>
+
+  <rect x="420" y="110" width="160" height="104" rx="10" class="gate"/>
+  <text x="436" y="140" class="t">ゲート2 ドライブ</text>
+  <text x="436" y="162" class="s">署名済みトークン？</text>
+  <text x="436" y="180" class="s">署名者/領域/期限/媒体</text>
+  <text x="436" y="200" class="c">verify_token_file</text>
+
+  <rect x="615" y="110" width="160" height="104" rx="10" class="gate"/>
+  <text x="631" y="140" class="t">ゲート3 パスワード</text>
+  <text x="631" y="162" class="s">この領域の</text>
+  <text x="631" y="180" class="s">パスワードを尋ねる</text>
+  <text x="631" y="200" class="c">prompt_password(scope)</text>
+
+  <rect x="810" y="110" width="160" height="104" rx="10" class="step"/>
+  <text x="826" y="140" class="t">再確認</text>
+  <text x="826" y="162" class="s">同じトークン・媒体？</text>
+  <text x="826" y="180" class="s">同セッション・許可？</text>
+  <text x="826" y="200" class="c">revalidate_token</text>
+
+  <rect x="1005" y="110" width="165" height="104" rx="10" class="grn"/>
+  <text x="1021" y="140" class="t">開く</text>
+  <text x="1021" y="162" class="s">パスワードが一致</text>
+  <text x="1021" y="180" class="s">→ ホストが開く</text>
+  <text x="1021" y="200" class="c">on_unlock(grant)</text>
+
+  <line x1="190" y1="162" x2="222" y2="162" class="ln" marker-end="url(#a)"/>
+  <line x1="385" y1="162" x2="417" y2="162" class="ln" marker-end="url(#a)"/>
+  <line x1="580" y1="162" x2="612" y2="162" class="ln" marker-end="url(#a)"/>
+  <line x1="775" y1="162" x2="807" y2="162" class="ln" marker-end="url(#a)"/>
+  <line x1="970" y1="162" x2="1002" y2="162" class="ln" marker-end="url(#a)"/>
+
+  <!-- refusals -->
+  <line x1="305" y1="214" x2="305" y2="276" class="no" marker-end="url(#r)"/>
+  <rect x="225" y="280" width="160" height="96" rx="10" class="red"/>
+  <text x="241" y="306" class="t">権限なし</text>
+  <text x="241" y="328" class="s">入力画面は出ない。</text>
+  <text x="241" y="346" class="s">開いているものは</text>
+  <text x="241" y="364" class="s">すべてロック。</text>
+
+  <line x1="500" y1="214" x2="500" y2="276" class="no" marker-end="url(#r)"/>
+  <rect x="420" y="280" width="160" height="96" rx="10" class="red"/>
+  <text x="436" y="306" class="t">有効なトークンなし</text>
+  <text x="436" y="328" class="s">何も起きない。</text>
+  <text x="436" y="346" class="s">無効なファイルは</text>
+  <text x="436" y="364" class="s">黙って読み飛ばす。</text>
+
+  <line x1="695" y1="214" x2="695" y2="276" class="no" marker-end="url(#r)"/>
+  <rect x="615" y="280" width="160" height="96" rx="10" class="red"/>
+  <text x="631" y="306" class="t">キャンセル</text>
+  <text x="631" y="328" class="s">60秒間は再表示しない</text>
+  <text x="631" y="346" class="s">（設定）</text>
+
+  <line x1="890" y1="214" x2="890" y2="276" class="no" marker-end="url(#r)"/>
+  <rect x="810" y="280" width="160" height="96" rx="10" class="red"/>
+  <text x="826" y="306" class="t">変化あり</text>
+  <text x="826" y="328" class="s">ドライブ交換または</text>
+  <text x="826" y="346" class="s">サインアウト→破棄</text>
+  <text x="826" y="364" class="s">交換は20秒後に再試行</text>
+
+  <line x1="1087" y1="214" x2="1087" y2="276" class="no" marker-end="url(#r)"/>
+  <rect x="1005" y="280" width="165" height="96" rx="10" class="red"/>
+  <text x="1021" y="306" class="t">パスワード誤り</text>
+  <text x="1021" y="328" class="s">またはモジュールの</text>
+  <text x="1021" y="346" class="s">読み込み失敗→拒否</text>
+  <text x="1021" y="364" class="s">20秒後再試行（設定）</text>
+
+  <!-- before the gates -->
+  <rect x="30" y="412" width="1140" height="112" rx="12" class="pre"/>
+  <text x="50" y="440" class="t">ゲートの前に、毎回行うこと</text>
+  <text x="50" y="464" class="s">すでに開いている領域はすべて確認し直す：トークンファイルがまだあるか、署名がまだ有効か、同じトークンか。</text>
+  <text x="50" y="484" class="s">そうでなければ（チェック自体が失敗した場合も）、その領域だけをロック。他のドライブで開いた領域は開いたまま。</text>
+  <text x="50" y="508" class="n">新たな解除は1回のチェックにつき最大1つ。入力画面の表示中に、2つ目のパスワード入力画面は開かない。</text>
+</svg>

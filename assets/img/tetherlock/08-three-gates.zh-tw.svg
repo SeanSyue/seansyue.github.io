@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" font-family="'Microsoft JhengHei','PingFang TC','Noto Sans TC',Segoe UI, Helvetica, Arial, sans-serif">
+  <title>一輪檢查：三道關卡，依照這個順序</title>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#475569"/>
+    </marker>
+    <marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/>
+    </marker>
+    <style>
+      .h{font-size:20px;font-weight:700;fill:#0f172a}
+      .sub{font-size:14px;fill:#475569}
+      .step{fill:#f8fafc;stroke:#94a3b8;stroke-width:1.5}
+      .gate{fill:#ecfeff;stroke:#0e7490;stroke-width:1.5}
+      .red{fill:#fef2f2;stroke:#b91c1c;stroke-width:1.5}
+      .grn{fill:#f0fdf4;stroke:#15803d;stroke-width:1.5}
+      .pre{fill:none;stroke:#94a3b8;stroke-width:1.5;stroke-dasharray:5 4}
+      .t{font-size:15px;font-weight:700;fill:#0f172a}
+      .s{font-size:12.5px;fill:#334155}
+      .c{font-size:10.5px;fill:#64748b;font-family:Consolas, 'Cascadia Mono', monospace}
+      .n{font-size:12px;fill:#64748b;font-style:italic}
+      .ln{stroke:#475569;stroke-width:1.6;fill:none}
+      .no{stroke:#b91c1c;stroke-width:1.4;fill:none;stroke-dasharray:4 3}
+    </style>
+  </defs>
+  <rect width="1200" height="560" fill="#ffffff"/>
+
+  <text x="30" y="40" class="h">一輪檢查：三道關卡，永遠照這個順序</text>
+  <text x="30" y="64" class="sub">應用程式用計時器定時呼叫 poll()。前一關通過，才會問到下一關。</text>
+
+  <!-- happy path -->
+  <rect x="30" y="110" width="160" height="104" rx="10" class="step"/>
+  <text x="46" y="140" class="t">計時器觸發</text>
+  <text x="46" y="162" class="s">應用程式呼叫 poll()</text>
+  <text x="46" y="180" class="s">每隔幾秒一次</text>
+  <text x="46" y="200" class="c">WorkspaceMonitor.poll</text>
+
+  <rect x="225" y="110" width="160" height="104" rx="10" class="gate"/>
+  <text x="241" y="140" class="t">關卡 1 · 帳號</text>
+  <text x="241" y="162" class="s">這個帳號可以進入</text>
+  <text x="241" y="180" class="s">受保護的區域嗎？</text>
+  <text x="241" y="200" class="c">is_authorized()</text>
+
+  <rect x="420" y="110" width="160" height="104" rx="10" class="gate"/>
+  <text x="436" y="140" class="t">關卡 2 · 隨身碟</text>
+  <text x="436" y="162" class="s">有簽過名的 token？</text>
+  <text x="436" y="180" class="s">簽章/範圍/效期/綁定</text>
+  <text x="436" y="200" class="c">verify_token_file</text>
+
+  <rect x="615" y="110" width="160" height="104" rx="10" class="gate"/>
+  <text x="631" y="140" class="t">關卡 3 · 密碼</text>
+  <text x="631" y="162" class="s">詢問這個區域的</text>
+  <text x="631" y="180" class="s">密碼</text>
+  <text x="631" y="200" class="c">prompt_password(scope)</text>
+
+  <rect x="810" y="110" width="160" height="104" rx="10" class="step"/>
+  <text x="826" y="140" class="t">再檢查一次</text>
+  <text x="826" y="162" class="s">token、隨身碟沒變？</text>
+  <text x="826" y="180" class="s">登入沒變、仍被允許？</text>
+  <text x="826" y="200" class="c">revalidate_token</text>
+
+  <rect x="1005" y="110" width="165" height="104" rx="10" class="grn"/>
+  <text x="1021" y="140" class="t">打開</text>
+  <text x="1021" y="162" class="s">密碼與驗證值相符</text>
+  <text x="1021" y="180" class="s">→ 應用程式打開它</text>
+  <text x="1021" y="200" class="c">on_unlock(grant)</text>
+
+  <line x1="190" y1="162" x2="222" y2="162" class="ln" marker-end="url(#a)"/>
+  <line x1="385" y1="162" x2="417" y2="162" class="ln" marker-end="url(#a)"/>
+  <line x1="580" y1="162" x2="612" y2="162" class="ln" marker-end="url(#a)"/>
+  <line x1="775" y1="162" x2="807" y2="162" class="ln" marker-end="url(#a)"/>
+  <line x1="970" y1="162" x2="1002" y2="162" class="ln" marker-end="url(#a)"/>
+
+  <!-- refusals -->
+  <line x1="305" y1="214" x2="305" y2="276" class="no" marker-end="url(#r)"/>
+  <rect x="225" y="280" width="160" height="96" rx="10" class="red"/>
+  <text x="241" y="306" class="t">不被允許</text>
+  <text x="241" y="328" class="s">不跳出密碼視窗。</text>
+  <text x="241" y="346" class="s">已經打開的區域</text>
+  <text x="241" y="364" class="s">全部上鎖。</text>
+
+  <line x1="500" y1="214" x2="500" y2="276" class="no" marker-end="url(#r)"/>
+  <rect x="420" y="280" width="160" height="96" rx="10" class="red"/>
+  <text x="436" y="306" class="t">沒有有效的 token</text>
+  <text x="436" y="328" class="s">什麼都不會發生。</text>
+  <text x="436" y="346" class="s">無效的檔案會直接</text>
+  <text x="436" y="364" class="s">略過，不顯示訊息。</text>
+
+  <line x1="695" y1="214" x2="695" y2="276" class="no" marker-end="url(#r)"/>
+  <rect x="615" y="280" width="160" height="96" rx="10" class="red"/>
+  <text x="631" y="306" class="t">已取消</text>
+  <text x="631" y="328" class="s">60 秒內不會再問</text>
+  <text x="631" y="346" class="s">（這是設定值）。</text>
+
+  <line x1="890" y1="214" x2="890" y2="276" class="no" marker-end="url(#r)"/>
+  <rect x="810" y="280" width="160" height="96" rx="10" class="red"/>
+  <text x="826" y="306" class="t">中途有變</text>
+  <text x="826" y="328" class="s">隨身碟被換，或已登出</text>
+  <text x="826" y="346" class="s">→ 剛輸入的密碼作廢。</text>
+  <text x="826" y="364" class="s">換碟：20 秒後重試。</text>
+
+  <line x1="1087" y1="214" x2="1087" y2="276" class="no" marker-end="url(#r)"/>
+  <rect x="1005" y="280" width="165" height="96" rx="10" class="red"/>
+  <text x="1021" y="306" class="t">密碼錯誤</text>
+  <text x="1021" y="328" class="s">或模組載入失敗</text>
+  <text x="1021" y="346" class="s">→ 拒絕；20 秒後</text>
+  <text x="1021" y="364" class="s">再試（可設定）。</text>
+
+  <!-- before the gates -->
+  <rect x="30" y="412" width="1140" height="112" rx="12" class="pre"/>
+  <text x="50" y="440" class="t">每一輪，在進入關卡之前</text>
+  <text x="50" y="464" class="s">每個已經打開的區域都會重新檢查：token 檔還在、簽章仍然有效、還是同一個 token。</text>
+  <text x="50" y="484" class="s">只要有一項不符，或檢查本身出錯，就只鎖上那個區域；由其他隨身碟解鎖的區域維持打開。</text>
+  <text x="50" y="508" class="n">每一輪最多只解鎖一個新區域；密碼視窗開著時，不會再跳出第二個。</text>
+</svg>

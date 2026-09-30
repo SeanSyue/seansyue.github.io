@@ -18,7 +18,9 @@ Template markers:
     {{link:/path/}}    a site path in the page's language (English has no prefix)
     {{current:nav}}    ' aria-current="page"' on the page's own navigation item
     {{> name}}         a layout partial; {{> footer}} picks the page's footer variant
-    {{title}} {{description}} {{html_lang}} {{fonts_url}} {{token}} {{alternates}} {{lang_switch}} {{body}}
+    {{title}} {{description}} {{html_lang}} {{fonts_url}} {{token}} {{canonical}} {{alternates}} {{lang_switch}} {{body}}
+
+It also writes sitemap.xml: every page in every built language, with its language alternates.
 
 Only the Python standard library is used.
 """
@@ -155,6 +157,7 @@ class Site:
         ctx = {"lang": lang, "page": page, "vars": {
             "title": meta["title"], "description": meta["description"], "html_lang": info["html_lang"],
             "fonts_url": info["fonts_url"], "token": self.token, "body": body,
+            "canonical": self.config["origin"] + self.url(lang, page["path"]),
             "alternates": self.alternates(page), "lang_switch": self.lang_switch(page, lang),
         }}
         return self.render(self.layout["page"], ctx)
@@ -167,6 +170,19 @@ class Site:
                     continue
                 rel = (self.url(lang, page["path"]).lstrip("/") + "index.html")
                 yield rel, self.page_html(lang, page)
+        yield "sitemap.xml", self.sitemap()
+
+    def sitemap(self):
+        origin, rows = self.config["origin"], []
+        for page in self.config["pages"]:
+            langs = self.languages_with(page["id"])
+            links = "".join(f'\n    <xhtml:link rel="alternate" hreflang="{self.langs[c]["hreflang"]}" href="{origin}{self.url(c, page["path"])}"/>'
+                            for c in langs) if len(langs) > 1 else ""
+            for lang in langs:
+                rows.append(f'  <url>\n    <loc>{origin}{self.url(lang, page["path"])}</loc>{links}\n  </url>')
+        return ('<?xml version="1.0" encoding="UTF-8"?>\n'
+                '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'
+                + "\n".join(rows) + "\n</urlset>\n")
 
 
 def main(argv):

@@ -13,7 +13,8 @@
   }
   function sync() {
     var dark = current() === 'dark';
-    btn.setAttribute('aria-label', dark ? 'Switch to day mode' : 'Switch to night mode');
+    // labels come from the page (data-to-day / data-to-night) so they follow the page's language
+    btn.setAttribute('aria-label', dark ? (btn.dataset.toDay || 'Switch to day mode') : (btn.dataset.toNight || 'Switch to night mode'));
     btn.setAttribute('aria-pressed', String(dark));
   }
   btn.addEventListener('click', function () {
