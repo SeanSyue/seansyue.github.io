@@ -1,0 +1,70 @@
+{
+  "origin": "https://seansyue.github.io",
+  "default_language": "en",
+  "languages": {
+    "en": {
+      "prefix": "",
+      "html_lang": "en",
+      "hreflang": "en",
+      "label": "English",
+      "fonts_url": "https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;family=Public+Sans:wght@400;500;600&amp;family=Zen+Maru+Gothic:wght@500;700&amp;display=swap",
+      "published": true
+    }
+  },
+  "pages": [
+    {
+      "id": "home",
+      "path": "/",
+      "nav": null,
+      "footer": "contact"
+    },
+    {
+      "id": "about",
+      "path": "/about/",
+      "nav": "about",
+      "footer": "standard"
+    },
+    {
+      "id": "resume",
+      "path": "/resume/",
+      "nav": "resume",
+      "footer": "resume"
+    },
+    {
+      "id": "aicc",
+      "path": "/work/aicc/",
+      "nav": "projects",
+      "footer": "standard"
+    },
+    {
+      "id": "negative-control",
+      "path": "/work/negative-control/",
+      "nav": "projects",
+      "footer": "standard"
+    },
+    {
+      "id": "tetherlock",
+      "path": "/work/tetherlock/",
+      "nav": "projects",
+      "footer": "standard"
+    },
+    {
+      "id": "ai-image",
+      "path": "/work/ai-image/",
+      "nav": "projects",
+      "footer": "standard"
+    },
+    {
+      "id": "ai-music",
+      "path": "/work/ai-music/",
+      "nav": "projects",
+      "footer": "standard"
+    },
+    {
+      "id": "heart-apartment",
+      "path": "/work/heart-apartment/",
+      "nav": "projects",
+      "footer": "standard"
+    }
+  ]
+}

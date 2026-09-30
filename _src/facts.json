@@ -1,0 +1,136 @@
+{
+  "aicc.false_greens": {
+    "en": "30 → 0",
+    "note": "False greens found in one sweep and cleared",
+    "as_of": "2026-08-27",
+    "source": "ai-control-center: tools/false_greens.json (30 entries, all fixed)"
+  },
+  "aicc.false_greens_dates": {
+    "en": "Aug 24–27, 2026",
+    "note": "Sweep found them 2026-08-24; cleared by 2026-08-27",
+    "source": "private working repository commit history"
+  },
+  "aicc.breaks": {
+    "en": "868",
+    "note": "Deliberate breaks on record (mutation recipes)",
+    "as_of": "2026-09-26",
+    "source": "ai-control-center: tools/mutations/*.json"
+  },
+  "aicc.recipe_files": {
+    "en": "115",
+    "note": "Recipe files holding those breaks",
+    "as_of": "2026-09-26",
+    "source": "ai-control-center: tools/mutations/"
+  },
+  "aicc.review_passed": {
+    "en": "2,200",
+    "note": "Tests passed in the AI-assisted pre-release review",
+    "as_of": "2026-09-24",
+    "source": "ai-control-center: README.md, verification table"
+  },
+  "aicc.review_total": {
+    "en": "2,219",
+    "note": "Tests run in that review",
+    "as_of": "2026-09-24",
+    "source": "ai-control-center: README.md"
+  },
+  "aicc.review_breaks_run": {
+    "en": "853",
+    "note": "Deliberate breaks run in that review",
+    "as_of": "2026-09-24",
+    "source": "ai-control-center: README.md"
+  },
+  "aicc.version": {
+    "en": "v0.9.4-dev",
+    "note": "Version shown in the facts table",
+    "source": "ai-control-center"
+  },
+  "nc.tests": {
+    "en": "27",
+    "note": "negative-control's own tests, all passing",
+    "as_of": "2026-09-29",
+    "source": "negative-control: tests/ (run 2026-09-29)"
+  },
+  "nc.self_breaks": {
+    "en": "12",
+    "note": "Ways the tool breaks itself, all caught",
+    "as_of": "2026-09-29",
+    "source": "negative-control: mutations/mutations_the_tool_itself.json"
+  },
+  "tl.tests_passed": {
+    "en": "143",
+    "note": "Tetherlock tests passed (1 skipped)",
+    "as_of": "2026-09-26",
+    "source": "tetherlock: pytest run recorded in the project log"
+  },
+  "music.tracks": {
+    "en": "76",
+    "note": "Tracks approved and in the game",
+    "as_of": "2026-09-15",
+    "source": "private production log"
+  },
+  "music.renders": {
+    "en": "244",
+    "note": "Renders listened to, each with a stored verdict",
+    "source": "private listening log"
+  },
+  "music.rated": {
+    "en": "241",
+    "note": "Verdicts clear enough to count as liked or not (3 left out)",
+    "source": "private listening log"
+  },
+  "music.cut": {
+    "en": "162",
+    "note": "Renders the ranking script would cut",
+    "source": "private test of the ranking script, 2026-09-22"
+  },
+  "heart.moments": {
+    "en": "299",
+    "note": "Story moments in the game",
+    "source": "private game project"
+  },
+  "heart.reply_4b": {
+    "en": "0.53",
+    "note": "Median reply, Qwen3-4B, seconds",
+    "as_of": "2026-09-11",
+    "source": "private model test, i9-13900K + RTX 4070 Ti"
+  },
+  "heart.reply_9b": {
+    "en": "3.26",
+    "note": "Median reply, Qwen3.5-9B (partly on CPU), seconds",
+    "as_of": "2026-09-11",
+    "source": "private model test"
+  },
+  "heart.p95_4b": {
+    "en": "0.66",
+    "note": "95th percentile, 4B, seconds",
+    "as_of": "2026-09-11",
+    "source": "private model test"
+  },
+  "heart.p95_9b": {
+    "en": "4.18",
+    "note": "95th percentile, 9B, seconds",
+    "as_of": "2026-09-11",
+    "source": "private model test"
+  },
+  "image.same_character": {
+    "en": "3.8–6.6",
+    "note": "Palette distance, same character, white-background sheets",
+    "source": "private experiment record 2026-09-22"
+  },
+  "image.other_character": {
+    "en": "19.0–20.3",
+    "note": "Palette distance, different character",
+    "source": "private experiment record 2026-09-22"
+  },
+  "image.ssim_wrong": {
+    "en": "0.958",
+    "note": "SSIM of the wrong-coloured result",
+    "source": "private experiment record"
+  },
+  "image.ssim_right": {
+    "en": "0.965",
+    "note": "SSIM of the right result",
+    "source": "private experiment record"
+  }
+}

@@ -1,0 +1,207 @@
+title: One World, 76 Tracks — AI music — Sean Syue
+description: An AI-generated soundtrack for a life-sim game: directed by ear, checked by numbers, shipped in two days. Including the filter that failed its own test.
+---
+
+
+<main>
+  <div class="wrap">
+    <p class="crumbs"><a href="/#work">Projects</a> → AI music</p>
+    <section class="proj-head">
+      <span class="eyebrow">AI media workflows · Music</span>
+      <h1>One world, {{f:music.tracks}} tracks</h1>
+      <p class="lede">An AI-generated soundtrack for the life-sim <a href="/work/heart-apartment/">Heart Apartment</a> — directed by ear, checked by numbers, shipped in two days.</p>
+      <dl class="facts">
+        <div><dt>Type</dt><dd>Production pipeline</dd></div>
+        <div><dt>Status</dt><dd><span class="status works">{{f:music.tracks}} tracks in the game</span></dd></div>
+        <div><dt>When</dt><dd>14–15 Sep 2026</dd></div>
+        <div><dt>My role</dt><dd>Director and listener</dd></div>
+        <div><dt>Model</dt><dd>Stable Audio 3 Medium, local, in ComfyUI</dd></div>
+      </dl>
+      <div class="numbers">
+        <div><b>{{f:music.tracks}}</b><span>tracks shipped · 54 themes, 15 story cues, 7 ambience beds</span></div>
+        <div><b>{{f:music.renders}}</b><span>renders, each listened to, with the verdict stored next to the file</span></div>
+        <div><b>~1.5</b><span>days from first planning note to game integration</span></div>
+        <div><b>0</b><span>renders reached a listener without passing automatic checks</span></div>
+      </div>
+    </section>
+  </div>
+
+  <nav class="section-nav" aria-label="On this page">
+    <div class="wrap">
+      <a href="#overview">Overview</a>
+      <a href="#design">Highlights</a>
+      <a href="#demo">Listen</a>
+      <a href="#status">Status</a>
+    </div>
+  </nav>
+
+  <div class="wrap">
+
+    <!-- ============ OVERVIEW ============ -->
+    <section id="overview" class="block">
+      <div class="block-head"><span class="eyebrow">Overview</span><h2>Fifty tracks that have to agree</h2></div>
+      <div class="two wide-left">
+        <div class="stack">
+          <p class="lede">A cozy life-sim needs hours of music that sounds like one world and stays out of the way. A model can make any single track. The hard part is fifty that agree — when the only quality test is one person saying “this feels wrong”.</p>
+          <ul class="facts-list">
+            <li><b>Me:</b> one-sentence brief per scene, every render heard, every verdict stored word for word</li>
+            <li><b>AI agents:</b> batch runner, analysis and ranking scripts, loudness normaliser, listening page</li>
+            <li><b>Model:</b> Stable Audio 3 Medium, local, in ComfyUI</li>
+          </ul>
+        </div>
+        <div class="stack">
+          <div class="flow" aria-label="Production loop">
+            <span class="human">Scene brief</span><i>→</i><span>Batch job</span><i>→</i><span>Auto-checks</span><i>→</i><span class="human">Listen &amp; comment</span><i>→</i><span>Ship</span>
+          </div>
+          <p class="muted" style="font-size: 14px;">Rejected takes loop back as a rewritten description. Highlighted steps are human decisions.</p>
+          <div class="card">
+            <span class="eyebrow">Three calls that changed the product</span>
+            <ul class="facts-list">
+              <li><b>No loops</b> — full three-minute pieces; long sessions need variety, not seamless repeats</li>
+              <li><b>Three ambience beds cut</b> — “noisy, and not really useful”</li>
+              <li><b>Every use has a place</b> — a bright Shibuya-kei take moved from title theme to “on the way out”</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HIGHLIGHTS ============ -->
+    <section id="design" class="block">
+      <div class="block-head"><span class="eyebrow">Highlights</span><h2>Taste, numbers, and knowing which to trust</h2></div>
+
+      <article id="measure" class="chapter">
+        <h3>1 · “It sounds wrong” became a rule you can write down</h3>
+        <div class="table-scroll">
+          <table class="plain">
+            <thead><tr><th>I said</th><th>The number</th><th>The rule</th></tr></thead>
+            <tbody>
+              <tr><td>“Monotonous, and noisy”</td><td>Harmonic change 0.10–0.11 vs 0.21–0.56 for liked tracks</td><td>Spell out the harmony: maj7 / m9 chords, slow progression</td></tr>
+              <tr><td>“Too grand, oppressive”</td><td>50–80 % of energy below 60 Hz vs 0–12 %</td><td>No drones, no sub-bass, no string pads</td></tr>
+              <tr><td>“Cluttered”</td><td>Spectral centroid 492 Hz vs 120–250 Hz</td><td>Three to five instruments; space between phrases</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <figure class="stack" style="margin: 0;">
+          <img class="chart-plate" src="/assets/img/ai-music/harmonic-change.png" width="1920" height="624" loading="lazy" alt="Two heatmaps of note energy over 30 seconds. The rejected take shows long flat bands on one or two notes; the style anchor shifts between notes every few seconds." style="border-radius: 14px; border: 4px solid var(--paper);">
+          <figcaption class="muted" style="font-size: 14px;">Left: rejected as “dull” (0.11) — the same notes for seconds at a time. Right: the style anchor (0.22) keeps moving.</figcaption>
+        </figure>
+        <details class="more"><summary>What “harmonic change” measures</summary><p>The track is split into short windows; each window's spectrum is folded into the 12 musical notes; the measure is how much that note profile shifts from one window to the next. A track stuck on one chord scores low; one that moves through a progression scores high.</p></details>
+      </article>
+
+      <article id="filter" class="chapter">
+        <h3>2 · I tested my own filter, and it failed</h3>
+        <div class="two wide-left">
+          <div class="bars" role="img" aria-label="Share of renders liked, by what the ranking script said: pass 48 percent of 79; cut 46 percent of {{f:music.cut}}; cut for extreme brightness 9 percent of 11. All renders: 47 percent.">
+            <div class="bar-row"><span>Script said pass<small>79 renders</small></span><div class="bar-track"><div class="bar-fill" style="width: 48%;"></div><i class="bar-ref" style="left: 47%;"></i></div><b>48%</b></div>
+            <div class="bar-row"><span>Script said cut<small>{{f:music.cut}} renders</small></span><div class="bar-track"><div class="bar-fill" style="width: 46%;"></div><i class="bar-ref" style="left: 47%;"></i></div><b>46%</b></div>
+            <div class="bar-row"><span>Cut for extreme brightness<small>11 renders</small></span><div class="bar-track"><div class="bar-fill" style="width: 9%;"></div><i class="bar-ref" style="left: 47%;"></i></div><b>9%</b></div>
+            <p class="muted" style="font-size: 13px;">Share I liked · dashed line: all {{f:music.rated}} renders, 47 %. Of the {{f:music.renders}} verdicts, 3 were too mixed to count as liked or not, so {{f:music.rated}} are shown. The 11 bright renders are part of the {{f:music.cut}} the script would cut.</p>
+          </div>
+          <ul class="facts-list">
+            <li>As a gate, the script was a coin toss — tracks it would cut were liked as often as tracks it passed</li>
+            <li>Most rejections were about mood and fit: “sounds like a phone ringing”, “music for an argument”. No spectrum threshold can see that</li>
+            <li><b>What changed:</b> numbers diagnose a complaint; a person screens. The effort went into making listening cheap</li>
+          </ul>
+        </div>
+      </article>
+
+      <article id="process" class="chapter">
+        <h3>3 · The process changed when the evidence said so</h3>
+        <ul class="facts-list">
+          <li><b>AI prompt expansion kept failing</b> — it added vinyl crackle and hip-hop drums and turned “slightly uneasy” into horror. Prompts now name concrete instruments and a tempo in one sentence</li>
+          <li><b>30-second auditions hid problems</b> — a quiet theme passed at 30 s; all four 3-minute versions failed when a double bass entered at 1:00. Approval moved to full length</li>
+          <li><b>Percussion wouldn't behave</b> — generate as a drumless duo, or lower the drums afterwards with source separation</li>
+        </ul>
+        <details class="more"><summary>Read the detail</summary>
+          <div class="stack">
+            <p>The built-in expander added vinyl crackle, shakers and hip-hop drums, and turned “slightly uneasy” into horror (“Change it. This isn't a horror film.”). From round 7, prompts named concrete instruments and a tempo in one sentence and avoided mood words like <i>ambient</i> or <i>cinematic</i>; nearly every 30-second test in that round passed.</p>
+            <p>A quiet reading theme got “really good” at 30 seconds. All four three-minute versions were then rejected because a double bass came in at the one-minute mark. Quiet scenes became solo piano, and approval moved to full length.</p>
+            <p>Clap rolls and over-dense snaps could not be controlled. Two fixes: generate as a melodic duo with no drums, or remove or lower the drums afterwards with source separation, leaving the other instruments untouched.</p>
+          </div>
+        </details>
+      </article>
+
+      <article id="ship" class="chapter">
+        <h3>4 · Built to ship, not to demo</h3>
+        <ul class="facts-list">
+          <li><b>Every render verified</b> before anyone listens — seed, prompt, settings, real length, format; 95 jobs logged</li>
+          <li><b>One loudness standard</b> — −18 LUFS music, −27 ambience, true peak ≤ −1 dBTP, fixed gain only</li>
+          <li><b>Provenance recorded</b> — each shipped file maps to its render, seed and job; Stability AI Community License</li>
+          <li><b>In the game</b> — all {{f:music.tracks}} tracks as 192 kbps MP3 with a playlist file</li>
+        </ul>
+        <details class="more"><summary>Read the detail</summary>
+          <div class="stack">
+            <p>A batch runner starts one ComfyUI job per process with a 600-second limit, then decodes each file and checks seed, prompt, settings, real length and format against the job file. All 95 jobs are logged with the prompt hash and peak GPU memory.</p>
+            <p>All {{f:music.tracks}} tracks were measured to ITU-R BS.1770-4 and brought to −18 LUFS for music and −27 LUFS for ambience, true peak at or below −1 dBTP. The fix is a fixed gain only — no compression or limiting — so the sound is unchanged; six quiet tracks were left slightly under target rather than pushed through a limiter. The meter was self-tested against the standard's reference signal first.</p>
+          </div>
+        </details>
+      </article>
+    </section>
+
+    <!-- ============ LISTEN ============ -->
+    <section id="demo" class="block">
+      <div class="block-head"><span class="eyebrow">Listen</span><h2>The anchor, a favourite, and one description three ways</h2></div>
+      <p class="lede">New batches didn't start from a blank prompt. Each job reused the full generation settings of a track I had already approved — first the night-jazz take below, later a morning piece I made myself in ComfyUI. Only the text description changed.</p>
+
+      <div class="players">
+        <figure class="player">
+          <figcaption><span class="eyebrow">Style anchor · home, night</span><h3><span lang="zh-Hant">夜裡的小爵士</span> Little Night Jazz</h3><p class="muted">“Exactly what I'd hear on YouTube.”</p></figcaption>
+          <audio controls preload="none" src="/assets/audio/ai-music/02-little-night-jazz-style-anchor.mp3"></audio>
+        </figure>
+        <figure class="player">
+          <figcaption><span class="eyebrow">Home, daytime</span><h3><span lang="zh-Hant">晴天的木琴</span> Sunny Marimba</h3><p class="muted">“Amazing.”</p></figcaption>
+          <audio controls preload="none" src="/assets/audio/ai-music/01-sunny-marimba.mp3"></audio>
+        </figure>
+      </div>
+
+      <div class="stack">
+        <h3><span lang="zh-Hant">收拾好的午後</span> The Afternoon, Tidied — one description, three kept takes</h3>
+        <p class="muted">Four seeds, three kept, each heard differently. This is the process itself.</p>
+        <div class="players three">
+          <figure class="player"><figcaption><span class="eyebrow">Take A</span><p>“Fine.”</p></figcaption><audio controls preload="none" src="/assets/audio/ai-music/03-afternoon-tidied-take-a.mp3"></audio></figure>
+          <figure class="player"><figcaption><span class="eyebrow">Take B</span><p>“Good, strong sense of story.”</p></figcaption><audio controls preload="none" src="/assets/audio/ai-music/04-afternoon-tidied-take-b.mp3"></audio></figure>
+          <figure class="player"><figcaption><span class="eyebrow">Take C</span><p>“Good, strong atmosphere.”</p></figcaption><audio controls preload="none" src="/assets/audio/ai-music/05-afternoon-tidied-take-c.mp3"></audio></figure>
+        </div>
+        <p class="muted" style="font-size: 14px;">Excerpts, 60–75 s, from the loudness-matched masters.</p>
+      </div>
+
+      <div class="stack">
+        <h3>Where the {{f:music.tracks}} tracks play</h3>
+        <div class="table-scroll">
+          <table class="plain">
+            <tbody>
+              <tr><th scope="row">Home, day</th><td>Morning · weekend brunch on the sofa · chores · afternoon reading · cooking and dinner together</td></tr>
+              <tr><th scope="row">Home, night</th><td>Night rotation · livelier chat time · quiet evening · winding down after work · reading side by side</td></tr>
+              <tr><th scope="row">Work</th><td>Two characters' workdays · wrapping up and overtime</td></tr>
+              <tr><th scope="row">Out and about</th><td>Neighbourhood · park bench and walks · commute home at dusk · on the way out</td></tr>
+              <tr><th scope="row">Shops</th><td>Supermarket · plaza and department store · lifestyle store · cinema lobby</td></tr>
+              <tr><th scope="row">Theme</th><td>Title · weekly recap</td></tr>
+              <tr><th scope="row">Story cues</th><td>Being remembered · light teasing · waiting for the boss's reply · exhausted pause · loss and parting · apology and making up · good news · end of the week</td></tr>
+              <tr><th scope="row">Ambience</th><td>Home · office · park pond · supermarket · rain</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STATUS ============ -->
+    <section id="status" class="block">
+      <div class="block-head"><span class="eyebrow">Status &amp; limits</span><h2>What exists, what's proven, what isn't</h2></div>
+      <div class="ledger">
+        <div class="done"><h3>Built</h3><ul><li>Batch runner with per-render checks</li><li>Ranking script, drum removal, loudness normaliser</li><li>Listening page with feedback capture</li></ul></div>
+        <div class="verified"><h3>Verified</h3><ul><li>{{f:music.tracks}} tracks approved and integrated into the game (2026-09-15)</li><li>Loudness targets met — six quiet tracks left slightly under rather than limited</li><li>Ranking script tested against {{f:music.rated}} verdicts: it doesn't work as a gate (2026-09-22)</li></ul></div>
+        <div class="notyet"><h3>Limits &amp; next</h3><ul><li>The numbers explain complaints; they don't predict taste</li><li>The model can't follow bar-level structure — tracks were chosen, not composed</li><li>Separate music and ambience sliders: specified, not built</li></ul></div>
+      </div>
+    </section>
+
+    <section class="next">
+      <span class="eyebrow">Next</span>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="/work/heart-apartment/">Next: the game it was made for →</a>
+        <a class="btn btn-quiet" href="/work/ai-image/">← AI image</a>
+      </div>
+    </section>
+  </div>
+</main>
+

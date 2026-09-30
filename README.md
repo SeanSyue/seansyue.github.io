@@ -1,9 +1,10 @@
 # seansyue.github.io
 
-Portfolio site of Sean Syue. Plain static HTML and CSS — no build step.
+Portfolio site of Sean Syue. Static HTML and CSS, generated from `_src/` by a small Python script (standard library only). **Edit `_src/`, then run `python _src/build.py` and `python _src/check.py`** — see [`_src/README.md`](_src/README.md).
 
 ```
-index.html                    home
+_src/                         sources: pages, strings, facts, layout, build and check scripts
+index.html                    home (generated)
 work/<project>/index.html     one page per project (Overview · Demo · Design & Verification · Status)
 about/  resume/
 assets/css/site.css           all styles
@@ -19,11 +20,7 @@ python -m http.server 8765
 
 ## Cache busting
 
-`site.css` and `site.js` are linked with `?v=<date>`. **Bump that token in every page when you change either file**, or returning visitors keep the old copy:
-
-```bash
-grep -rl 'site.css?v=' . --include=index.html | xargs sed -i 's/?v=[0-9]\{8\}/?v=20260923d/g'
-```
+`site.css` and `site.js` are linked with `?v=<token>`. `python _src/build.py` changes the token by itself whenever either file changes, so returning visitors never keep an old copy.
 
 ## Résumé PDF
 

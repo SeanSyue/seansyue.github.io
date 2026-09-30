@@ -1,0 +1,38 @@
+# _src — how the site is built
+
+Every page under the site root is generated from this folder. **Edit here, not the HTML at the root.**
+
+```bash
+python _src/build.py        # rebuild the site (only changed files are written)
+python _src/check.py        # must end with 0 errors before a commit
+```
+
+Only the Python standard library is needed. GitHub Pages serves the generated HTML exactly as before; nothing runs on GitHub.
+
+## What lives where
+
+| File | What it holds |
+|---|---|
+| `site.json` | Languages (URL prefix, `lang`, `hreflang`, fonts, `published`) and the page list: id, path, current nav item, footer variant |
+| `pages/<lang>/<id>.html` | One page in one language: `title:` and `description:` lines, `---`, then the page body |
+| `strings/<lang>.json` | Interface text: navigation, menu, theme button, footer |
+| `facts.json` | Numbers and dates shared by every language, each with a note and where it comes from |
+| `layout/` | Page frame, header, language switch, footer variants |
+| `assets.json` | Cache token for `site.css` / `site.js`; the build bumps it when either file changes |
+
+## Template markers
+
+`{{s:key}}` interface string · `{{f:id}}` fact · `{{link:/path/}}` path in the page's language · `{{current:nav}}` marks the current nav item · `{{> name}}` layout partial.
+
+## Adding a language
+
+1. Add it to `site.json` with `"published": false`.
+2. Add `strings/<lang>.json`, the language's text in `facts.json`, and `pages/<lang>/*.html`.
+3. Preview without touching the site: `python _src/build.py --preview --out ../preview` and `python _src/check.py --preview`.
+4. When every page exists and has been reviewed, set `"published": true`, run `build.py` and `check.py`.
+
+A language only goes live when all its pages exist; `check.py` fails a published language with missing pages.
+
+## What check.py catches
+
+Hand-edited output, unresolved markers, unknown or unused facts, missing pages in a published language, internal links and `#anchors` that lead nowhere, links that leave the page's language, `hreflang` pointing at missing pages, a stale cache token, and private strings (local paths, names that must not appear). Each of these was tried on purpose on 2026-09-30 and turned the check red.

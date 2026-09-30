@@ -1,0 +1,252 @@
+title: Finished is not the same as correct — AI Control Center — Sean Syue
+description: AI Control Center makes AI prove its work: every step leaves evidence tied to the version it checked, and the tests themselves are proven by breaking the code on purpose.
+---
+
+
+<main>
+  <div class="wrap">
+    <p class="crumbs"><a href="/#work">Projects</a> → AI Control Center</p>
+    <section class="proj-head">
+      <span class="eyebrow">Checking AI work · Desktop app</span>
+      <h1>Finished is not the same as correct.</h1>
+      <p class="lede">AI Control Center is a Windows application that coordinates AI coding agents through defined roles, verification steps, and human approval. It makes AI prove its work: every step leaves evidence tied to the version it checked, and the tests themselves are proven by breaking the code on purpose.</p>
+      <dl class="facts">
+        <div><dt>Type</dt><dd>Independent product</dd></div>
+        <div><dt>Status</dt><dd><span class="status dev">In development · {{f:aicc.version}}</span></dd></div>
+        <div><dt>Updated</dt><dd>2026-09</dd></div>
+        <div><dt>My role</dt><dd>Product rules, architecture, verification</dd></div>
+        <div><dt>Stack</dt><dd>Python · PySide6 · pytest · Inno Setup</dd></div>
+        <div><dt>Source</dt><dd><a href="https://github.com/SeanSyue/ai-control-center">GitHub · MIT</a></dd></div>
+      </dl>
+      <div class="numbers">
+        <div><b>{{f:aicc.false_greens}}</b><span>false greens found in one sweep, then cleared · {{f:aicc.false_greens_dates}}</span></div>
+        <div><b>{{f:aicc.breaks}}</b><span>deliberate breaks on record, across {{f:aicc.recipe_files}} recipe files</span></div>
+        <div><b>{{f:aicc.review_passed}}</b><span>of {{f:aicc.review_total}} tests passed in an AI-assisted pre-release review, 0 skipped · 2026-09-24</span></div>
+        <div><b>3</b><span>outcomes, not two: pass · fail · not verifiable</span></div>
+      </div>
+    </section>
+  </div>
+
+  <nav class="section-nav" aria-label="On this page">
+    <div class="wrap">
+      <a href="#problem">The gap</a>
+      <a href="#evidence">Evidence tied to a version</a>
+      <a href="#negative">Tests that are tested</a>
+      <a href="#duties">Separation of duties</a>
+      <a href="#decide">Stops for your call</a>
+      <a href="#graph">Five layers</a>
+      <a href="#not">What it doesn't do</a>
+      <a href="#status">Status</a>
+    </div>
+  </nav>
+
+  <div class="wrap">
+
+    <!-- ============ THE GAP ============ -->
+    <section id="problem" class="block">
+      <div class="block-head"><span class="eyebrow">The gap</span><h2>On a report, “done” and “done right” look identical</h2></div>
+      <div class="two">
+        <div class="stack">
+          <p class="lede">An AI agent is very good at finishing the visible task. A test that always passes, a value computed and pushed to the screen that nothing ever reads, a review stamped on a version that has since changed — all of these report green. One sweep of this project found <b>30 of them</b>.</p>
+          <p class="lede">So the product is built around one question: <b>what would it take to actually know?</b></p>
+        </div>
+        <div class="table-scroll">
+          <table class="plain compare">
+            <thead><tr><th>Risk to avoid</th><th>How AICC responds</th></tr></thead>
+            <tbody>
+              <tr><td>No explicit point where a person decides</td><td><b>It stops when it's your call</b></td></tr>
+              <tr><td>The same role does the work and sets the bar</td><td><b>Whoever does the work never sets the bar</b></td></tr>
+              <tr><td>An approval detached from the version it checked</td><td><b>An approval is bound to a version; change it and it expires</b></td></tr>
+              <tr><td>Passing tests that may not catch a failure</td><td><b>Green counts only after something has turned it red</b></td></tr>
+              <tr><td>Records that can only be read inside the app</td><td><b>Records are plain text, in your folder, verifiable without the app</b></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EVIDENCE ============ -->
+    <section id="evidence" class="block">
+      <div class="block-head"><span class="eyebrow">Evidence tied to a version</span><h2>A stamp is worth exactly as much as the version it was stamped on</h2></div>
+      <figure style="--diagram-min: 900px" class="diagram wide">
+        <svg viewBox="0 0 900 300" role="img" aria-label="Three stamps — verify, review, approve — sit on content version A. When the content changes to version B, the stamps on A expire and the work returns to review. A machine stamp cannot exist without evidence; a review stamp may not carry a result.">
+          <defs><marker id="ahe" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--ink-3)"/></marker></defs>
+          <g class="d-box"><rect x="30" y="40" width="360" height="150" rx="14"/><text x="50" y="68" class="d-t">Content · version A</text><text x="50" y="90" class="d-s">digest 7f3a…</text></g>
+          <g class="d-stamp"><circle cx="110" cy="130" r="24"/><text x="110" y="135" text-anchor="middle" class="d-tag">verify</text><text x="110" y="172" text-anchor="middle" class="d-tiny">needs evidence</text></g>
+          <g class="d-stamp"><circle cx="210" cy="130" r="24"/><text x="210" y="135" text-anchor="middle" class="d-tag">review</text><text x="210" y="172" text-anchor="middle" class="d-tiny">carries no result</text></g>
+          <g class="d-stamp d-human"><circle cx="310" cy="130" r="24"/><text x="310" y="135" text-anchor="middle" class="d-tag">approve</text><text x="310" y="172" text-anchor="middle" class="d-tiny">you</text></g>
+          <path class="d-arrow d-loop" d="M390 115 H500" marker-end="url(#ahe)"/>
+          <text x="445" y="104" text-anchor="middle" class="d-s">edit</text>
+          <g class="d-box"><rect x="510" y="40" width="360" height="150" rx="14"/><text x="530" y="68" class="d-t">Content · version B</text><text x="530" y="90" class="d-s">digest c91e…</text></g>
+          <g class="d-stamp d-expired"><circle cx="590" cy="130" r="24"/><text x="590" y="135" text-anchor="middle" class="d-tag">✕</text></g>
+          <g class="d-stamp d-expired"><circle cx="690" cy="130" r="24"/><text x="690" y="135" text-anchor="middle" class="d-tag">✕</text></g>
+          <g class="d-stamp d-expired"><circle cx="790" cy="130" r="24"/><text x="790" y="135" text-anchor="middle" class="d-tag">✕</text></g>
+          <text x="690" y="172" text-anchor="middle" class="d-tiny">expired · back to review</text>
+          <text x="690" y="215" text-anchor="middle" class="d-s">only the stamps that depended on the change expire</text>
+          <text x="30" y="250" class="d-s">A machine stamp cannot be created without evidence. A review stamp may not carry a result. Both rules live in the data model, not in a comment.</text>
+          <text x="30" y="276" class="d-s">Third outcome — GATED: the task declared no way to verify it. Not a failure, so no agent is sent to fix what isn't broken.</text>
+        </svg>
+      </figure>
+        <p class="scroll-hint" aria-hidden="true">Swipe sideways to see the whole diagram.</p>
+      <details class="more">
+        <summary>Read the detail</summary>
+        <div class="stack">
+          <p>Every role in a run leaves a stamp. A stamp records who, when, on which content digest, and on what evidence. Approval requires every required stamp to sit on the same digest; a change to the content invalidates only the stamps whose inputs changed, so unaffected work is not re-done.</p>
+          <p>Decisions are recorded as a hash chain that can be exported and checked with a standalone verifier that needs nothing from the app. It detects any altered or deleted entry in the middle of the chain; it does not claim to detect a chain rewritten end to end.</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- ============ NEGATIVE CONTROL ============ -->
+    <section id="negative" class="block">
+      <div class="block-head"><span class="eyebrow">Tests that are tested</span><h2>A green test only counts after something has turned it red</h2></div>
+      <div class="two wide-left">
+        <figure style="--diagram-min: 560px" class="diagram">
+          <svg viewBox="0 0 560 210" role="img" aria-label="Negative control loop: a passing test, break one line of code on purpose, run the test, it must turn red, restore from a copy and assert the restore, then the green counts. If it stayed green the test has no teeth; if it didn't run, the result is unknown.">
+            <defs><marker id="ahn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--ink-3)"/></marker></defs>
+            <rect x="20" y="30" width="96" height="40" rx="8" class="d-green"/><text x="68" y="55" text-anchor="middle" class="d-tag">green</text>
+            <path class="d-arrow" d="M116 50 H146" marker-end="url(#ahn)"/>
+            <rect x="150" y="30" width="120" height="40" rx="8" class="d-mut"/><text x="210" y="55" text-anchor="middle" class="d-tag">break one line</text>
+            <path class="d-arrow" d="M270 50 H300" marker-end="url(#ahn)"/>
+            <rect x="304" y="30" width="96" height="40" rx="8" class="d-red"/><text x="352" y="55" text-anchor="middle" class="d-tag">red ✓</text>
+            <path class="d-arrow" d="M400 50 H430" marker-end="url(#ahn)"/>
+            <rect x="434" y="30" width="106" height="40" rx="8" class="d-mut"/><text x="487" y="55" text-anchor="middle" class="d-tag">restore, assert</text>
+            <path class="d-arrow d-loop" d="M487 70 V100 H68 V74" marker-end="url(#ahn)"/>
+            <text x="278" y="118" text-anchor="middle" class="d-s">now the green counts</text>
+            <text x="20" y="152" class="d-s"><tspan class="d-strong">stayed green?</tspan> the test has no teeth ✗</text>
+            <text x="20" y="172" class="d-s"><tspan class="d-strong">didn't run?</tspan> unknown ? — never silently counted</text>
+            <text x="20" y="200" class="d-s"><tspan class="d-strong">{{f:aicc.breaks}} breaks</tspan> on record; a separate check turns red if a break stops matching its target</text>
+          </svg>
+        </figure>
+        <p class="scroll-hint" aria-hidden="true">Swipe sideways to see the whole diagram.</p>
+        <div class="stack">
+          <ul class="facts-list">
+            <li>Restores from a copy, never <code>git checkout</code> — that once destroyed uncommitted work</li>
+            <li>Zero skips is a hard rule: an empty parametrize producing one SKIP fails the run</li>
+            <li>Two layers, neither substitutes for the other: pytest checks a value is <b>read</b>; a DOM probe in a real QWebEngine checks it is <b>drawn</b></li>
+            <li>A dedicated tool hunts the recurring defect “computed, pushed to the screen, read by nothing”</li>
+          </ul>
+          <p><a class="text-link" href="/work/negative-control/">The breaking tool now stands on its own: negative-control →</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DUTIES ============ -->
+    <section id="duties" class="block">
+      <div class="block-head"><span class="eyebrow">Separation of duties</span><h2>Whoever does the work never sets the bar</h2></div>
+      <div class="two">
+        <div class="table-scroll">
+          <table class="plain matrix" aria-label="Which duty may do what">
+            <thead><tr><th>Duty</th><th>Read</th><th>Write files</th><th>Set the acceptance bar</th><th>Approve</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Plan</th><td class="yes">●</td><td class="no">—</td><td class="yes">●</td><td class="no">—</td></tr>
+              <tr><th scope="row">Work</th><td class="yes">●</td><td class="yes only">● only this one</td><td class="no">never</td><td class="no">—</td></tr>
+              <tr><th scope="row">Review</th><td class="yes">●</td><td class="no">—</td><td class="yes">●</td><td class="no">—</td></tr>
+              <tr><th scope="row">Approve</th><td class="yes">●</td><td class="no">—</td><td class="no">—</td><td class="yes">● can't override a machine stamp</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="stack">
+          <p class="lede">Each role is one seat with its own duty, its own conversation and its own view of the rules. The engine dispatches by duty, not by seat name — and it blocks a role from verifying its own work.</p>
+          <ul class="facts-list">
+            <li>The acceptance bar is set by a non-Work seat; the engine refuses if the criteria stamp and the implementation stamp come from the same role</li>
+            <li>A rejection is routed to the responsible seat by duty, not by position</li>
+            <li>A duty that grants power is never auto-assigned: if you didn't seat it, the engine won't pick one for you</li>
+          </ul>
+          <p class="muted" style="font-size: 14px;">Under the hood: Claude Code runs read-only duties in plan mode; Codex runs them in a read-only sandbox. Only Work gets write access. These are the vendor tools' own permission modes: AICC asks for them, and is not an operating-system sandbox itself.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STOPS FOR YOUR CALL ============ -->
+    <section id="decide" class="block">
+      <div class="block-head"><span class="eyebrow">Stops for your call</span><h2>Most tools sell more automation. This one is built to stop.</h2></div>
+      <div class="flow" aria-label="The AI works until it reaches a call only you can make; the run waits in your decision list; you decide; it continues with your decision on the record.">
+        <span>AI works</span><i>→</i>
+        <span>reaches a call only you can make</span><i>→</i>
+        <span class="human">waits in your decision list</span><i>→</i>
+        <span>you decide</span><i>→</i>
+        <span>it continues, your decision on the record</span>
+      </div>
+      <div class="cards">
+        <div class="card"><h3>Power is never handed out by default</h3><p>A duty that grants power is never auto-assigned. If you didn't seat it, the engine won't pick one for you.</p></div>
+        <div class="card"><h3>“Can't verify” is not “broken”</h3><p>A task that declares no way to check it is marked not verifiable. It isn't treated as a failure, so no agent is sent to fix what isn't broken.</p></div>
+        <div class="card"><h3>Your approval can't overrule a check</h3><p>If the machine check failed, approving doesn't make it pass. The approver reads; it can't rewrite the result.</p></div>
+      </div>
+    </section>
+
+    <!-- Product screenshots go here once clean captures exist (fake project name, no local paths). -->
+
+    <!-- ============ GRAPH ============ -->
+    <section id="graph" class="block">
+      <div class="block-head"><span class="eyebrow">Five layers</span><h2>It's a graph — and each node still has the four layers inside it</h2></div>
+      <div class="two wide-left">
+        <figure style="--diagram-min: 640px" class="diagram">
+          <svg viewBox="0 0 640 330" role="img" aria-label="Five nested layers: one AI call in the centre, wrapped by prompt, context, harness and loop, with graph as the outermost layer. To the right, a small graph where one node is opened to show the same four layers inside, and another node runs its own loop.">
+            <defs><marker id="ahg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--ink-3)"/></marker></defs>
+            <g class="d-ring"><rect x="16" y="16" width="300" height="298" rx="20"/><text x="34" y="42" class="d-t">Graph</text><text x="34" y="60" class="d-s">who does what · handoffs · where it's checked</text></g>
+            <g class="d-ring"><rect x="36" y="74" width="260" height="214" rx="18"/><text x="54" y="98" class="d-t">Loop</text><text x="54" y="115" class="d-s">up to two repair tries, then you</text></g>
+            <g class="d-ring"><rect x="56" y="128" width="220" height="146" rx="16"/><text x="74" y="152" class="d-t">Harness</text><text x="74" y="169" class="d-s">what it may touch</text></g>
+            <g class="d-ring"><rect x="76" y="182" width="180" height="78" rx="14"/><text x="94" y="206" class="d-t">Context</text><text x="94" y="223" class="d-s">just enough</text></g>
+            <g class="d-ring d-core"><rect x="160" y="228" width="84" height="24" rx="10"/><text x="202" y="245" text-anchor="middle" class="d-tag">Prompt</text></g>
+            <text x="166" y="305" text-anchor="middle" class="d-s">not a ladder: one call, wrapped five times</text>
+            <g class="d-box"><rect x="346" y="40" width="80" height="40" rx="9"/><text x="386" y="65" text-anchor="middle" class="d-s">plan</text></g>
+            <g class="d-box d-open"><rect x="452" y="24" width="170" height="80" rx="9"/><text x="537" y="45" text-anchor="middle" class="d-s">work</text><rect x="466" y="54" width="142" height="40" rx="6" class="d-inner"/><text x="537" y="71" text-anchor="middle" class="d-tiny">prompt · context</text><text x="537" y="85" text-anchor="middle" class="d-tiny">harness · loop</text></g>
+            <g class="d-box"><rect x="346" y="160" width="80" height="40" rx="9"/><text x="386" y="185" text-anchor="middle" class="d-s">verify</text></g>
+            <g class="d-box"><rect x="452" y="160" width="80" height="40" rx="9"/><text x="492" y="185" text-anchor="middle" class="d-s">review</text></g>
+            <path class="d-arrow d-loop" d="M506 200 q0 18 -14 18 q-14 0 -14 -18"/>
+            <g class="d-gate"><path d="M588 158 L618 180 L588 202 L558 180 Z"/><text x="588" y="184" text-anchor="middle" class="d-s">you</text></g>
+            <path class="d-arrow" d="M426 60 H447" marker-end="url(#ahg)"/><path class="d-arrow" d="M386 80 V155" marker-end="url(#ahg)"/><path class="d-arrow" d="M426 180 H447" marker-end="url(#ahg)"/><path class="d-arrow" d="M532 180 H553" marker-end="url(#ahg)"/>
+            <text x="482" y="252" text-anchor="middle" class="d-s">verify is a command, not an AI</text>
+            <text x="482" y="272" text-anchor="middle" class="d-s">you are a node too</text>
+          </svg>
+        </figure>
+        <p class="scroll-hint" aria-hidden="true">Swipe sideways to see the whole diagram.</p>
+        <div class="stack">
+          <p class="lede">Prompt, context, harness, loop, graph — the five layers people now describe as graph engineering. They aren't stages that replace each other; every run in AICC uses all five at once, and the fix loop lives inside one node.</p>
+          <details class="more">
+            <summary>Where each layer lives in the code</summary>
+            <div class="table-scroll"><table class="plain">
+              <tbody>
+                <tr><th scope="row">Prompt</th><td>what to do, limits, success criteria, return format — <code>prompt_builder</code></td></tr>
+                <tr><th scope="row">Context</th><td>just enough for this step: each duty receives only its rule layers plus the shared project memory</td></tr>
+                <tr><th scope="row">Harness</th><td>what it may touch: the CLI runner, the project's sensitivity level and permission mode</td></tr>
+                <tr><th scope="row">Loop</th><td>the fix loop in the workflow worker: up to two repair attempts, then the run goes back to a person</td></tr>
+                <tr><th scope="row">Graph</th><td>the lineup of seats and the nine step gates; state kept in run records, a timeline, and the stamp chain</td></tr>
+              </tbody>
+            </table></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ NOT ============ -->
+    <section id="not" class="block">
+      <div class="block-head"><span class="eyebrow">What it doesn't do</span><h2>Three things, stated plainly</h2></div>
+      <div class="cards">
+        <div class="card"><span class="num">01</span><h3>It doesn't take what you didn't give it</h3><p>Your Claude or Codex login never passes through AICC — it only opens the vendor's own sign-in. No browser or app caches are read. A test fails if any new way to accept an API key appears in the credential module.</p></div>
+        <div class="card"><span class="num">02</span><h3>It doesn't resell the model</h3><p>You use your own Claude and Codex accounts, under their own usage limits. AICC adds nothing on top of what you pay them.</p></div>
+        <div class="card"><span class="num">03</span><h3>It has no server of its own</h3><p>No account, no sign-up, no AICC server. Project records are plain-text files in your own folder, and AICC is itself the first project it manages. Prompts do go to Claude or Codex through their own command-line tools, and the optional LINE and Google Drive features have their own data paths.</p></div>
+      </div>
+    </section>
+
+    <!-- ============ STATUS ============ -->
+    <section id="status" class="block">
+      <div class="block-head"><span class="eyebrow">Status &amp; limits</span><h2>What exists, what's proven, what isn't</h2></div>
+      <div class="ledger">
+        <div class="done"><h3>Built</h3><ul><li>Windows desktop app; an earlier build was installed, launched and uninstalled twice on Windows</li><li>Roles with duty-bound permissions, stamp chain, timeline, exportable decision log</li><li>One person running several projects side by side</li></ul></div>
+        <div class="verified"><h3>Verified</h3><ul><li>An AI-assisted pre-release review ran {{f:aicc.review_total}} tests: {{f:aicc.review_passed}} passed, 19 failed, 0 skipped; the repository explains each failure</li><li>The same review ran {{f:aicc.review_breaks_run}} deliberate breaks and published the misses too</li><li>30 false greens found and cleared to 0 ({{f:aicc.false_greens_dates}})</li></ul></div>
+        <div class="notyet"><h3>Next</h3><ul><li>Owner acceptance run for the next beta</li><li>The public repository ships source only; the current installer still needs a full upgrade test. Known limits are listed in <a href="https://github.com/SeanSyue/ai-control-center/blob/main/SECURITY.md">SECURITY.md</a></li><li>The source is on <a href="https://github.com/SeanSyue/ai-control-center">GitHub</a>; the breaking tool also stands on its own as <a href="/work/negative-control/">negative-control</a></li></ul></div>
+      </div>
+    </section>
+
+    <section class="next">
+      <span class="eyebrow">Next</span>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="/work/negative-control/">Next project: negative-control →</a>
+        <a class="btn btn-quiet" href="/#contact">Contact me</a>
+      </div>
+    </section>
+  </div>
+</main>
+
