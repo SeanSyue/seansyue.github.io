@@ -14,6 +14,13 @@
     "zh-tw": "2026 年 8 月 24–27 日",
     "ja": "2026年8月24日〜27日"
   },
+  "aicc.false_greens_month": {
+    "en": "Aug 2026",
+    "note": "Month of the sweep above, where a short date fits better",
+    "source": "private working repository commit history",
+    "zh-tw": "2026 年 8 月",
+    "ja": "2026年8月"
+  },
   "aicc.breaks": {
     "en": "868",
     "note": "Deliberate breaks on record (mutation recipes)",

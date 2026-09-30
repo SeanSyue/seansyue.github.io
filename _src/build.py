@@ -126,7 +126,7 @@ class Site:
                 return ' aria-current="page"' if ctx["page"].get("nav") == arg else ""
             if kind in ctx["vars"]:
                 value = ctx["vars"][kind]
-                return self.render(value, ctx, depth + 1) if kind == "body" else value
+                return self.render(value, ctx, depth + 1) if kind in ("body", "title", "description") else value
             raise KeyError(f"unknown marker {{{{{token}}}}}")
 
         return MARK.sub(repl, text)
