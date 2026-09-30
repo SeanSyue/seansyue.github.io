@@ -98,7 +98,7 @@
             <span class="eyebrow">Three calls that changed the product</span>
             <ul class="facts-list">
               <li><b>No loops</b> — full three-minute pieces; long sessions need variety, not seamless repeats</li>
-              <li><b>Three ambience beds cut</b> — “noisy, and not really useful”</li>
+              <li><b>Three ambience beds cut</b> — too noisy, and of little use in the game</li>
               <li><b>Every use has a place</b> — a bright Shibuya-kei take moved from title theme to “on the way out”</li>
             </ul>
           </div>
@@ -114,17 +114,17 @@
         <h3>1 · “It sounds wrong” became a rule you can write down</h3>
         <div class="table-scroll">
           <table class="plain">
-            <thead><tr><th>I said</th><th>The number</th><th>The rule</th></tr></thead>
+            <thead><tr><th>My assessment</th><th>The number</th><th>The rule</th></tr></thead>
             <tbody>
-              <tr><td>“Monotonous, and noisy”</td><td>Harmonic change 0.10–0.11 vs 0.21–0.56 for liked tracks</td><td>Spell out the harmony: maj7 / m9 chords, slow progression</td></tr>
-              <tr><td>“Too grand, oppressive”</td><td>50–80 % of energy below 60 Hz vs 0–12 %</td><td>No drones, no sub-bass, no string pads</td></tr>
-              <tr><td>“Cluttered”</td><td>Spectral centroid 492 Hz vs 120–250 Hz</td><td>Three to five instruments; space between phrases</td></tr>
+              <tr><td>Monotonous, and noisy overall</td><td>Harmonic change 0.10–0.11 vs 0.21–0.56 for liked tracks</td><td>Spell out the harmony: maj7 / m9 chords, slow progression</td></tr>
+              <tr><td>Arrangement too grand; feels oppressive</td><td>50–80 % of energy below 60 Hz vs 0–12 %</td><td>No drones, no sub-bass, no string pads</td></tr>
+              <tr><td>Too many instruments; sounds cluttered</td><td>Spectral centroid 492 Hz vs 120–250 Hz</td><td>Three to five instruments; space between phrases</td></tr>
             </tbody>
           </table>
         </div>
         <figure class="stack" style="margin: 0;">
           <img class="chart-plate" src="/assets/img/ai-music/harmonic-change.png" width="1920" height="624" loading="lazy" alt="Two heatmaps of note energy over 30 seconds. The rejected take shows long flat bands on one or two notes; the style anchor shifts between notes every few seconds." style="border-radius: 14px; border: 4px solid var(--paper);">
-          <figcaption class="muted" style="font-size: 14px;">Left: rejected as “dull” (0.11) — the same notes for seconds at a time. Right: the style anchor (0.22) keeps moving.</figcaption>
+          <figcaption class="muted" style="font-size: 14px;">Left: rejected for sounding dull (0.11) — the same notes for seconds at a time. Right: the style anchor (0.22) keeps moving.</figcaption>
         </figure>
         <details class="more"><summary>What “harmonic change” measures</summary><p>The track is split into short windows; each window's spectrum is folded into the 12 musical notes; the measure is how much that note profile shifts from one window to the next. A track stuck on one chord scores low; one that moves through a progression scores high.</p></details>
       </article>
@@ -140,7 +140,7 @@
           </div>
           <ul class="facts-list">
             <li>As a gate, the script was a coin toss — tracks it would cut were liked as often as tracks it passed</li>
-            <li>Most rejections were about mood and fit: “sounds like a phone ringing”, “music for an argument”. No spectrum threshold can see that</li>
+            <li>Most rejections were about mood and fit: a tone close to a phone ringing, or a mood suited to an argument scene, neither right for the setting. No spectrum threshold can see that</li>
             <li><b>What changed:</b> numbers diagnose a complaint; a person screens. The effort went into making listening cheap</li>
           </ul>
         </div>
@@ -155,8 +155,8 @@
         </ul>
         <details class="more"><summary>Read the detail</summary>
           <div class="stack">
-            <p>The built-in expander added vinyl crackle, shakers and hip-hop drums, and turned “slightly uneasy” into horror (“Change it. This isn't a horror film.”). From round 7, prompts named concrete instruments and a tempo in one sentence and avoided mood words like <i>ambient</i> or <i>cinematic</i>; nearly every 30-second test in that round passed.</p>
-            <p>A quiet reading theme got “really good” at 30 seconds. All four three-minute versions were then rejected because a double bass came in at the one-minute mark. Quiet scenes became solo piano, and approval moved to full length.</p>
+            <p>The built-in expander added vinyl crackle, shakers and hip-hop drums, and turned “slightly uneasy” into a horror-film atmosphere that did not fit the game. From round 7, prompts named concrete instruments and a tempo in one sentence and avoided mood words like <i>ambient</i> or <i>cinematic</i>; nearly every 30-second test in that round passed.</p>
+            <p>A quiet reading theme was rated well at 30 seconds. All four three-minute versions were then rejected because a double bass came in at the one-minute mark. Quiet scenes became solo piano, and approval moved to full length.</p>
             <p>Clap rolls and over-dense snaps could not be controlled. Two fixes: generate as a melodic duo with no drums, or remove or lower the drums afterwards with source separation, leaving the other instruments untouched.</p>
           </div>
         </details>
@@ -186,11 +186,11 @@
 
       <div class="players">
         <figure class="player">
-          <figcaption><span class="eyebrow">Style anchor · home, night</span><h3><span lang="zh-Hant">夜裡的小爵士</span> Little Night Jazz</h3><p class="muted">“Exactly what I'd hear on YouTube.”</p></figcaption>
+          <figcaption><span class="eyebrow">Style anchor · home, night</span><h3><span lang="zh-Hant">夜裡的小爵士</span> Little Night Jazz</h3><p class="muted">Finish on par with published music.</p></figcaption>
           <audio controls preload="none" src="/assets/audio/ai-music/02-little-night-jazz-style-anchor.mp3"></audio>
         </figure>
         <figure class="player">
-          <figcaption><span class="eyebrow">Home, daytime</span><h3><span lang="zh-Hant">晴天的木琴</span> Sunny Marimba</h3><p class="muted">“Amazing.”</p></figcaption>
+          <figcaption><span class="eyebrow">Home, daytime</span><h3><span lang="zh-Hant">晴天的木琴</span> Sunny Marimba</h3><p class="muted">A very high level of finish.</p></figcaption>
           <audio controls preload="none" src="/assets/audio/ai-music/01-sunny-marimba.mp3"></audio>
         </figure>
       </div>
@@ -199,9 +199,9 @@
         <h3><span lang="zh-Hant">收拾好的午後</span> The Afternoon, Tidied — one description, three kept takes</h3>
         <p class="muted">Four seeds, three kept, each heard differently. This is the process itself.</p>
         <div class="players three">
-          <figure class="player"><figcaption><span class="eyebrow">Take A</span><p>“Fine.”</p></figcaption><audio controls preload="none" src="/assets/audio/ai-music/03-afternoon-tidied-take-a.mp3"></audio></figure>
-          <figure class="player"><figcaption><span class="eyebrow">Take B</span><p>“Good, strong sense of story.”</p></figcaption><audio controls preload="none" src="/assets/audio/ai-music/04-afternoon-tidied-take-b.mp3"></audio></figure>
-          <figure class="player"><figcaption><span class="eyebrow">Take C</span><p>“Good, strong atmosphere.”</p></figcaption><audio controls preload="none" src="/assets/audio/ai-music/05-afternoon-tidied-take-c.mp3"></audio></figure>
+          <figure class="player"><figcaption><span class="eyebrow">Take A</span><p>Usable.</p></figcaption><audio controls preload="none" src="/assets/audio/ai-music/03-afternoon-tidied-take-a.mp3"></audio></figure>
+          <figure class="player"><figcaption><span class="eyebrow">Take B</span><p>Strong sense of story.</p></figcaption><audio controls preload="none" src="/assets/audio/ai-music/04-afternoon-tidied-take-b.mp3"></audio></figure>
+          <figure class="player"><figcaption><span class="eyebrow">Take C</span><p>Well-built atmosphere.</p></figcaption><audio controls preload="none" src="/assets/audio/ai-music/05-afternoon-tidied-take-c.mp3"></audio></figure>
         </div>
         <p class="muted" style="font-size: 14px;">Excerpts, 60–75 s, from the loudness-matched masters.</p>
       </div>

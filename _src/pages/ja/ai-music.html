@@ -58,7 +58,7 @@ description: 生活シミュレーションゲームのために、AIで生成�
             <span class="eyebrow">成果物を変えた3つの判断</span>
             <ul class="facts-list">
               <li><b>ループなし</b>：3分のフル尺の曲にする。長時間のプレイには、切れ目のない繰り返しより変化が必要</li>
-              <li><b>環境音を3本カット</b>：「うるさいし、あまり役に立たない」</li>
+              <li><b>環境音を3本カット</b>：騒がしく、ゲーム体験への効果も限られていた</li>
               <li><b>どの曲にも使う場面を決める</b>：明るい渋谷系のテイクは、タイトル曲から「出かける途中」へ移動</li>
             </ul>
           </div>
@@ -74,17 +74,17 @@ description: 生活シミュレーションゲームのために、AIで生成�
         <h3>1 · 「なんか違う」を、書き出せるルールに</h3>
         <div class="table-scroll">
           <table class="plain">
-            <thead><tr><th>私の言葉</th><th>数値</th><th>ルール</th></tr></thead>
+            <thead><tr><th>私の評価</th><th>数値</th><th>ルール</th></tr></thead>
             <tbody>
-              <tr><td>「単調で、うるさい」</td><td>和声変化 0.10–0.11（気に入った曲は0.21–0.56）</td><td>和声を明記：maj7／m9のコード、ゆっくりした進行</td></tr>
-              <tr><td>「壮大すぎて、重苦しい」</td><td>60 Hz未満のエネルギーが50–80 %（気に入った曲は0–12 %）</td><td>ドローン、サブベース、ストリングスのパッドは使わない</td></tr>
-              <tr><td>「ごちゃごちゃしている」</td><td>スペクトル重心 492 Hz（ほかの曲は120–250 Hz）</td><td>楽器は3〜5つ。フレーズの間に余白を</td></tr>
+              <tr><td>単調で、全体的に騒がしい</td><td>和声変化 0.10–0.11（気に入った曲は0.21–0.56）</td><td>和声を明記：maj7／m9のコード、ゆっくりした進行</td></tr>
+              <tr><td>編曲が壮大すぎて、重苦しい</td><td>60 Hz未満のエネルギーが50–80 %（気に入った曲は0–12 %）</td><td>ドローン、サブベース、ストリングスのパッドは使わない</td></tr>
+              <tr><td>楽器が多すぎて、雑然としている</td><td>スペクトル重心 492 Hz（ほかの曲は120–250 Hz）</td><td>楽器は3〜5つ。フレーズの間に余白を</td></tr>
             </tbody>
           </table>
         </div>
         <figure class="stack" style="margin: 0;">
           <img class="chart-plate" src="/assets/img/ai-music/harmonic-change.png" width="1920" height="624" loading="lazy" alt="30秒間の音ごとのエネルギーを示す2つのヒートマップ。不採用のテイクは1〜2音に長く平らな帯が続き、スタイルの基準曲は数秒ごとに別の音へ移っていく。" style="border-radius: 14px; border: 4px solid var(--paper);">
-          <figcaption class="muted" style="font-size: 14px;">左：「退屈」（dull）として不採用（0.11）。同じ音が何秒も続く。右：スタイルの基準曲（0.22）は動き続ける。</figcaption>
+          <figcaption class="muted" style="font-size: 14px;">左：聴き心地が退屈なため不採用（0.11）。同じ音が何秒も続く。右：スタイルの基準曲（0.22）は動き続ける。</figcaption>
         </figure>
         <details class="more"><summary>「和声変化」が測っているもの</summary><p>曲を短い区間に分け、区間ごとのスペクトルを12の音名にまとめます。その音の分布が、区間から次の区間へどれだけ変わるかを測ります。ひとつのコードにとどまる曲は低く、コード進行に沿って動く曲は高くなります。</p></details>
       </article>
@@ -100,7 +100,7 @@ description: 生活シミュレーションゲームのために、AIで生成�
           </div>
           <ul class="facts-list">
             <li>選別の関門としては、コイン投げと同じ。スクリプトがカットする曲を、私は合格とされた曲と同じくらいの割合で気に入っていた</li>
-            <li>不採用の理由の多くは、雰囲気と場面への合い方：「電話の着信音みたい」「けんかのときの音楽」。スペクトルのしきい値では見抜けない</li>
+            <li>不採用の理由の多くは、雰囲気が場面に合わないこと：音色が電話の着信音に近い、口論の場面のような曲調になっている、など。スペクトルのしきい値では見抜けない</li>
             <li><b>変えたこと：</b>数値は不満の原因を診断し、選別は人が行う。労力は、試聴を手軽にすることに注いだ</li>
           </ul>
         </div>
@@ -115,8 +115,8 @@ description: 生活シミュレーションゲームのために、AIで生成�
         </ul>
         <details class="more"><summary>詳しく読む</summary>
           <div class="stack">
-            <p>組み込みのプロンプト拡張機能は、レコードのノイズ、シェイカー、ヒップホップのドラムを足し、「少し不安げ」をホラーに変えました（「変えて。ホラー映画じゃないんだから」）。7回目からは、具体的な楽器とテンポを1文で指定し、<i>ambient</i>や<i>cinematic</i>のような雰囲気を表す言葉を避けました。その回の30秒テストは、ほぼすべて合格しました。</p>
-            <p>静かな読書シーンのテーマ曲は、30秒の時点で「すごくいい」という評価でした。ところが3分版は4本とも、1分のところでコントラバスが入ってきたため不採用になりました。静かなシーンはピアノ独奏に切り替え、承認はフル尺で行うことにしました。</p>
+            <p>組み込みのプロンプト拡張機能は、レコードのノイズ、シェイカー、ヒップホップのドラムを足し、「少し不安げ」をホラー映画のような雰囲気に変えてしまい、ゲームの世界に合わないものになりました。7回目からは、具体的な楽器とテンポを1文で指定し、<i>ambient</i>や<i>cinematic</i>のような雰囲気を表す言葉を避けました。その回の30秒テストは、ほぼすべて合格しました。</p>
+            <p>静かな読書シーンのテーマ曲は、30秒の時点では良い評価でした。ところが3分版は4本とも、1分のところでコントラバスが入ってきたため不採用になりました。静かなシーンはピアノ独奏に切り替え、承認はフル尺で行うことにしました。</p>
             <p>連打されるクラップや、詰め込みすぎのスナップは制御できませんでした。対策は2つです。ドラムなしで旋律楽器のデュオとして生成するか、あとから音源分離でドラムを取り除く、または下げる方法です。ほかの楽器には手を加えません。</p>
           </div>
         </details>
@@ -146,11 +146,11 @@ description: 生活シミュレーションゲームのために、AIで生成�
 
       <div class="players">
         <figure class="player">
-          <figcaption><span class="eyebrow">スタイルの基準曲 · 家、夜</span><h3><span lang="zh-Hant">夜裡的小爵士</span> Little Night Jazz</h3><p class="muted">「まさにYouTubeで聴くような曲」</p></figcaption>
+          <figcaption><span class="eyebrow">スタイルの基準曲 · 家、夜</span><h3><span lang="zh-Hant">夜裡的小爵士</span> Little Night Jazz</h3><p class="muted">正式に公開されている作品と同等の完成度。</p></figcaption>
           <audio controls preload="none" src="/assets/audio/ai-music/02-little-night-jazz-style-anchor.mp3"></audio>
         </figure>
         <figure class="player">
-          <figcaption><span class="eyebrow">家、昼</span><h3><span lang="zh-Hant">晴天的木琴</span> Sunny Marimba</h3><p class="muted">「最高」</p></figcaption>
+          <figcaption><span class="eyebrow">家、昼</span><h3><span lang="zh-Hant">晴天的木琴</span> Sunny Marimba</h3><p class="muted">完成度が非常に高い。</p></figcaption>
           <audio controls preload="none" src="/assets/audio/ai-music/01-sunny-marimba.mp3"></audio>
         </figure>
       </div>
@@ -159,9 +159,9 @@ description: 生活シミュレーションゲームのために、AIで生成�
         <h3><span lang="zh-Hant">收拾好的午後</span> The Afternoon, Tidied：同じ説明文から残した3テイク</h3>
         <p class="muted">シードを4つ試して3つを採用し、それぞれ違う評価になりました。これが制作プロセスそのものです。</p>
         <div class="players three">
-          <figure class="player"><figcaption><span class="eyebrow">テイクA</span><p>「悪くない」</p></figcaption><audio controls preload="none" src="/assets/audio/ai-music/03-afternoon-tidied-take-a.mp3"></audio></figure>
-          <figure class="player"><figcaption><span class="eyebrow">テイクB</span><p>「いい。物語性が強い」</p></figcaption><audio controls preload="none" src="/assets/audio/ai-music/04-afternoon-tidied-take-b.mp3"></audio></figure>
-          <figure class="player"><figcaption><span class="eyebrow">テイクC</span><p>「いい。雰囲気がしっかり出ている」</p></figcaption><audio controls preload="none" src="/assets/audio/ai-music/05-afternoon-tidied-take-c.mp3"></audio></figure>
+          <figure class="player"><figcaption><span class="eyebrow">テイクA</span><p>採用可。</p></figcaption><audio controls preload="none" src="/assets/audio/ai-music/03-afternoon-tidied-take-a.mp3"></audio></figure>
+          <figure class="player"><figcaption><span class="eyebrow">テイクB</span><p>物語性が強い。</p></figcaption><audio controls preload="none" src="/assets/audio/ai-music/04-afternoon-tidied-take-b.mp3"></audio></figure>
+          <figure class="player"><figcaption><span class="eyebrow">テイクC</span><p>雰囲気が十分に表現されている。</p></figcaption><audio controls preload="none" src="/assets/audio/ai-music/05-afternoon-tidied-take-c.mp3"></audio></figure>
         </div>
         <p class="muted" style="font-size: 14px;">ラウドネスをそろえたマスターからの抜粋、60–75秒。</p>
       </div>

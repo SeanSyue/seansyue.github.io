@@ -58,7 +58,7 @@ description: 一款生活模擬遊戲的 AI 生成配樂：用耳朵導演、用
             <span class="eyebrow">改變了成品的三個決定</span>
             <ul class="facts-list">
               <li><b>不做循環</b>：每首都是完整的三分鐘；長時間遊玩需要變化，不是無縫重播</li>
-              <li><b>砍掉三段環境音</b>：「好吵……真沒啥用」</li>
+              <li><b>刪除三段環境音</b>：聲音過於嘈雜，對遊戲體驗的幫助有限</li>
               <li><b>每一首都有它的位置</b>：一首明亮的澀谷系版本，從標題曲改放到「出門途中」</li>
             </ul>
           </div>
@@ -74,17 +74,17 @@ description: 一款生活模擬遊戲的 AI 生成配樂：用耳朵導演、用
         <h3>1 · 把「聽起來不對」變成寫得出來的規則</h3>
         <div class="table-scroll">
           <table class="plain">
-            <thead><tr><th>我說</th><th>數字</th><th>規則</th></tr></thead>
+            <thead><tr><th>我的評語</th><th>數字</th><th>規則</th></tr></thead>
             <tbody>
-              <tr><td>「單調、很吵」</td><td>和聲變化 0.10–0.11；喜歡的曲子是 0.21–0.56</td><td>把和聲寫清楚：maj7／m9 和弦、緩慢的和弦進行</td></tr>
-              <tr><td>「太磅礡壓抑」</td><td>60 Hz 以下的能量占 50–80 %；喜歡的曲子是 0–12 %</td><td>不要持續音、不要超低頻、不要弦樂鋪底</td></tr>
-              <tr><td>「雜亂」</td><td>頻譜重心 492 Hz；其他曲子是 120–250 Hz</td><td>三到五種樂器；樂句之間留白</td></tr>
+              <tr><td>聽感單調，整體偏嘈雜</td><td>和聲變化 0.10–0.11；喜歡的曲子是 0.21–0.56</td><td>把和聲寫清楚：maj7／m9 和弦、緩慢的和弦進行</td></tr>
+              <tr><td>編曲過於宏大，聽感壓抑</td><td>60 Hz 以下的能量占 50–80 %；喜歡的曲子是 0–12 %</td><td>不要持續音、不要超低頻、不要弦樂鋪底</td></tr>
+              <tr><td>配器過多，聽感雜亂</td><td>頻譜重心 492 Hz；其他曲子是 120–250 Hz</td><td>三到五種樂器；樂句之間留白</td></tr>
             </tbody>
           </table>
         </div>
         <figure class="stack" style="margin: 0;">
           <img class="chart-plate" src="/assets/img/ai-music/harmonic-change.png" width="1920" height="624" loading="lazy" alt="兩張熱度圖，顯示 30 秒內每個音的能量。被退件的版本在一兩個音上拉出長長的平帶；風格基準曲每隔幾秒就換到別的音。" style="border-radius: 14px; border: 4px solid var(--paper);">
-          <figcaption class="muted" style="font-size: 14px;">左：評語「很悶」而退件（0.11），同樣的音一停就是好幾秒。右：風格基準曲（0.22），一直在移動。</figcaption>
+          <figcaption class="muted" style="font-size: 14px;">左：聽感沉悶而退件（0.11），同樣的音一停就是好幾秒。右：風格基準曲（0.22），一直在移動。</figcaption>
         </figure>
         <details class="more"><summary>「和聲變化」量的是什麼</summary><p>把曲子切成很短的一段一段；每一段的頻譜折算到 12 個音上；再看這組音的分布，從一段到下一段變了多少。卡在同一個和弦的曲子分數低；和弦一路在走的曲子分數高。</p></details>
       </article>
@@ -100,7 +100,7 @@ description: 一款生活模擬遊戲的 AI 生成配樂：用耳朵導演、用
           </div>
           <ul class="facts-list">
             <li>拿來當關卡，這個腳本跟丟銅板差不多：它會刷掉的曲子，我喜歡的比例跟它放行的一樣</li>
-            <li>大多數退件是因為氣氛、合不合場景：「聽起來像電話響了」「吵架才用的音樂」。這種事，任何頻譜門檻都看不出來</li>
+            <li>大多數退件是因為氣氛與場景不合：音色近似電話鈴聲，或情緒近似爭執場面的配樂。這類問題，任何頻譜門檻都無法辨識</li>
             <li><b>改了什麼：</b>數字用來診斷具體的不滿；篩選交給人。力氣改花在讓試聽更省事</li>
           </ul>
         </div>
@@ -115,8 +115,8 @@ description: 一款生活模擬遊戲的 AI 生成配樂：用耳朵導演、用
         </ul>
         <details class="more"><summary>看細節</summary>
           <div class="stack">
-            <p>內建的擴寫功能會加進黑膠沙沙聲、沙鈴和嘻哈鼓，還把「稍微惴惴不安」變成恐怖片（「要改，這不是恐怖片。」）。從第 7 輪開始，提示詞用一句話寫出具體的樂器和速度，避開 <i>ambient</i>、<i>cinematic</i> 這類氣氛詞；那一輪的 30 秒測試幾乎全過。</p>
-            <p>一首安靜的閱讀主題，30 秒版本拿到「很棒」。接著四個三分鐘版本全部被退件，因為第一分鐘時低音提琴進來了。之後安靜的場景改用鋼琴獨奏，也改成聽完整長度才核准。</p>
+            <p>內建的擴寫功能會加進黑膠沙沙聲、沙鈴和嘻哈鼓，還把「稍微惴惴不安」做成恐怖片的氛圍，與遊戲環境不符。從第 7 輪開始，提示詞用一句話寫出具體的樂器和速度，避開 <i>ambient</i>、<i>cinematic</i> 這類氣氛詞；那一輪的 30 秒測試幾乎全過。</p>
+            <p>一首安靜的閱讀主題，30 秒版本評為表現良好。接著四個三分鐘版本全部被退件，因為第一分鐘時低音提琴進來了。之後安靜的場景改用鋼琴獨奏，也改成聽完整長度才核准。</p>
             <p>連續的拍手聲和過密的彈指聲控制不了。兩個解法：生成沒有鼓的旋律二重奏；或事後用音源分離拿掉鼓、或把鼓壓小，其他樂器完全不動。</p>
           </div>
         </details>
@@ -146,11 +146,11 @@ description: 一款生活模擬遊戲的 AI 生成配樂：用耳朵導演、用
 
       <div class="players">
         <figure class="player">
-          <figcaption><span class="eyebrow">風格基準曲 · 家裡，夜晚</span><h3>夜裡的小爵士 <span lang="en">Little Night Jazz</span></h3><p class="muted">「感覺就是我在 YouTube 上會聽到的。」</p></figcaption>
+          <figcaption><span class="eyebrow">風格基準曲 · 家裡，夜晚</span><h3>夜裡的小爵士 <span lang="en">Little Night Jazz</span></h3><p class="muted">完成度與正式發表的作品相當。</p></figcaption>
           <audio controls preload="none" src="/assets/audio/ai-music/02-little-night-jazz-style-anchor.mp3"></audio>
         </figure>
         <figure class="player">
-          <figcaption><span class="eyebrow">家裡，白天</span><h3>晴天的木琴 <span lang="en">Sunny Marimba</span></h3><p class="muted">「超好聽。」</p></figcaption>
+          <figcaption><span class="eyebrow">家裡，白天</span><h3>晴天的木琴 <span lang="en">Sunny Marimba</span></h3><p class="muted">完成度很高。</p></figcaption>
           <audio controls preload="none" src="/assets/audio/ai-music/01-sunny-marimba.mp3"></audio>
         </figure>
       </div>
@@ -159,9 +159,9 @@ description: 一款生活模擬遊戲的 AI 生成配樂：用耳朵導演、用
         <h3>收拾好的午後 <span lang="en">The Afternoon, Tidied</span>：一段描述，留下三個版本</h3>
         <p class="muted">四個 seed，留下三個，每個聽起來的感受都不同。這就是製作過程本身。</p>
         <div class="players three">
-          <figure class="player"><figcaption><span class="eyebrow">版本 A</span><p>「可以。」</p></figcaption><audio controls preload="none" src="/assets/audio/ai-music/03-afternoon-tidied-take-a.mp3"></audio></figure>
-          <figure class="player"><figcaption><span class="eyebrow">版本 B</span><p>「這個好，敘事感強。」</p></figcaption><audio controls preload="none" src="/assets/audio/ai-music/04-afternoon-tidied-take-b.mp3"></audio></figure>
-          <figure class="player"><figcaption><span class="eyebrow">版本 C</span><p>「這個好，氛圍感強。」</p></figcaption><audio controls preload="none" src="/assets/audio/ai-music/05-afternoon-tidied-take-c.mp3"></audio></figure>
+          <figure class="player"><figcaption><span class="eyebrow">版本 A</span><p>可以採用。</p></figcaption><audio controls preload="none" src="/assets/audio/ai-music/03-afternoon-tidied-take-a.mp3"></audio></figure>
+          <figure class="player"><figcaption><span class="eyebrow">版本 B</span><p>敘事感強。</p></figcaption><audio controls preload="none" src="/assets/audio/ai-music/04-afternoon-tidied-take-b.mp3"></audio></figure>
+          <figure class="player"><figcaption><span class="eyebrow">版本 C</span><p>氛圍營造完整。</p></figcaption><audio controls preload="none" src="/assets/audio/ai-music/05-afternoon-tidied-take-c.mp3"></audio></figure>
         </div>
         <p class="muted" style="font-size: 14px;">片段長 60–75 秒，取自響度統一後的母帶。</p>
       </div>
