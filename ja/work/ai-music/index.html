@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ja">
+<html lang="ja" data-theme="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,19 +13,21 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;family=Public+Sans:wght@400;500;600&amp;family=Zen+Maru+Gothic:wght@500;700&amp;family=Noto+Sans+JP:wght@400;500;700&amp;family=Noto+Serif+JP:wght@500;600&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/site.css?v=20260930n">
+<link rel="stylesheet" href="/assets/css/site.css?v=20261007e">
 <script>document.documentElement.classList.add("js");try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"dark"}catch(e){document.documentElement.dataset.theme="dark"}</script>
 </head>
 <body>
+<a class="skip-link" href="#main-content">本文へ移動</a>
 
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="/ja/">Sean Syue</a>
     <nav class="nav" aria-label="メインメニュー">
+      <a href="/ja/#capabilities">強み</a>
       <span class="nav-item">
         <a href="/ja/#work" aria-current="page">プロジェクト</a>
         <span class="nav-menu">
-          <span class="nav-group">AIの仕事を検証する</span>
+          <span class="nav-group">AIワークフローとガバナンス</span>
           <a href="/ja/work/aicc/">AI Control Center<small>デスクトップアプリ · AIエージェント</small></a>
           <a href="/ja/work/negative-control/">negative-control<small>テストツール</small></a>
           <a href="/ja/work/tetherlock/">Tetherlock<small>セキュリティ設計の研究</small></a>
@@ -48,7 +50,8 @@
   </div>
 </header>
 
-<main>
+
+<main id="main-content" tabindex="-1">
   <div class="wrap">
     <p class="crumbs"><a href="/ja/#work">プロジェクト</a> → AI音楽</p>
     <section class="proj-head">
@@ -62,6 +65,17 @@
         <div><dt>担当範囲</dt><dd>ディレクター兼試聴者</dd></div>
         <div><dt>モデル</dt><dd>Stable Audio 3 Medium（ローカル、ComfyUI上）</dd></div>
       </dl>
+      <div class="case-brief">
+        <div><span class="eyebrow">課題</span><p>多くの場面を通じて、同じ世界観に聞こえるサウンドトラックが必要です。技術的なチェックだけでは、静かな部屋に合う曲か、口げんかの場面に合う曲かは判断できません。</p></div>
+        <div><span class="eyebrow">私の貢献</span><p>場面ごとの制作指示を書き、すべての生成結果を聴き、各曲をゲームのどこで使うか決めました。制作スクリプトはAIエージェントが実装し、音楽は音声モデルが生成しました。</p></div>
+        <div><span class="eyebrow">成果・検証への入口</span><p><a href="#demo">採用した曲の試聴</a>、<a href="#filter">自身のテストで不合格になったフィルター</a>、<a href="#ship">ゲームへの組み込みに向けたチェック</a>を確認できます。</p></div>
+      </div>
+      <div class="case-capabilities">
+        <span class="eyebrow">関連する能力</span>
+        <a href="/ja/#cap-creative">制作ディレクションと体験設計</a>
+        <a href="/ja/#cap-quality">検証設計と品質判断</a>
+        <a href="/ja/#cap-delivery">プロジェクト推進と職能横断の協働</a>
+      </div>
       <div class="numbers">
         <div><b>76</b><span>曲をゲームに収録 · テーマ曲54、ストーリー用の短い曲15、環境音7</span></div>
         <div><b>244</b><span>件の生成結果。すべて試聴し、評価をファイルの横に保存</span></div>
@@ -259,6 +273,6 @@
     <small>© 2026 Sean Syue</small>
   </div>
 </footer>
-<script src="/assets/js/site.js?v=20260930n"></script>
+<script src="/assets/js/site.js?v=20261007e"></script>
 </body>
 </html>

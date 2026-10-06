@@ -7,7 +7,7 @@ description: A small tool that breaks your code on purpose, runs the test that s
   <div class="wrap">
     <p class="crumbs"><a href="/#work">Projects</a> → negative-control</p>
     <section class="proj-head">
-      <span class="eyebrow">Checking AI work · Testing tool</span>
+      <span class="eyebrow">AI workflows &amp; governance · Testing tool</span>
       <h1>negative-control</h1>
       <p class="lede">A green test is not evidence until you have seen it turn red. This tool breaks your code on purpose, runs the test that should catch it, and puts the code back. If the test turns red, it was guarding something. If it stays green, it wasn't, and now you know.</p>
       <dl class="facts">
@@ -16,6 +16,16 @@ description: A small tool that breaks your code on purpose, runs the test that s
         <div><dt>My role</dt><dd>The method, the verdicts, the safety rules</dd></div>
         <div><dt>Stack</dt><dd>One Python file · pytest, nothing else</dd></div>
       </dl>
+      <div class="case-brief">
+        <div><span class="eyebrow">Challenge</span><p>A passing test may never reach the behavior it claims to protect. A failed test run can also be mistaken for a meaningful result.</p></div>
+        <div><span class="eyebrow">My contribution</span><p>I defined the method, verdicts, and safety rules: distinguish a missed bug from a test that never ran, and restore the working file from a copy. AI coding agents implemented the tool.</p></div>
+        <div><span class="eyebrow">Evidence</span><p>Follow the <a href="#why">weak-test example</a>, the <a href="#verdicts">three verdicts</a>, and the <a href="#failures">real failures behind the safety rules</a>.</p></div>
+      </div>
+      <div class="case-capabilities">
+        <span class="eyebrow">Related capabilities</span>
+        <a href="{{link:/}}#cap-quality">Verification &amp; quality judgment</a>
+        <a href="{{link:/}}#cap-systems">Requirements &amp; systems design</a>
+      </div>
       <div class="numbers">
         <div><b>3</b><span>verdicts, not two: caught · no teeth · did not run</span></div>
         <div><b>6</b><span>real failures of earlier versions, each now a rule</span></div>

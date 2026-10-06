@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-Hant-TW">
+<html lang="zh-Hant-TW" data-theme="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,19 +13,21 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;family=Public+Sans:wght@400;500;600&amp;family=Zen+Maru+Gothic:wght@500;700&amp;family=Noto+Sans+TC:wght@400;500;700&amp;family=Noto+Serif+TC:wght@500;600&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/site.css?v=20260930n">
+<link rel="stylesheet" href="/assets/css/site.css?v=20261007e">
 <script>document.documentElement.classList.add("js");try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"dark"}catch(e){document.documentElement.dataset.theme="dark"}</script>
 </head>
 <body>
+<a class="skip-link" href="#main-content">跳到主要內容</a>
 
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="/zh-tw/">Sean Syue</a>
     <nav class="nav" aria-label="主選單">
+      <a href="/zh-tw/#capabilities">核心能力</a>
       <span class="nav-item">
         <a href="/zh-tw/#work" aria-current="page">作品</a>
         <span class="nav-menu">
-          <span class="nav-group">驗證 AI 的工作</span>
+          <span class="nav-group">AI工作流與治理</span>
           <a href="/zh-tw/work/aicc/">AI Control Center<small>桌面應用程式 · AI 代理</small></a>
           <a href="/zh-tw/work/negative-control/">negative-control<small>測試工具</small></a>
           <a href="/zh-tw/work/tetherlock/">Tetherlock<small>安全設計研究</small></a>
@@ -48,7 +50,8 @@
   </div>
 </header>
 
-<main>
+
+<main id="main-content" tabindex="-1">
   <div class="wrap">
     <p class="crumbs"><a href="/zh-tw/#work">作品</a> → AI 音樂</p>
     <section class="proj-head">
@@ -62,6 +65,17 @@
         <div><dt>我負責的部分</dt><dd>導演，也負責試聽</dd></div>
         <div><dt>模型</dt><dd>Stable Audio 3 Medium，在本機的 ComfyUI 執行</dd></div>
       </dl>
+      <div class="case-brief">
+        <div><span class="eyebrow">挑戰</span><p>配樂橫跨不同場景，仍要聽起來屬於同一個世界。只靠技術檢查，無法判斷一首曲子適合安靜的房間，還是爭吵的情境。</p></div>
+        <div><span class="eyebrow">我的貢獻</span><p>我寫場景需求、聽過每個生成版本，並決定每首曲子在遊戲中的位置。AI 代理製作流程腳本，音訊模型生成音樂。</p></div>
+        <div><span class="eyebrow">證據入口</span><p><a href="#demo">試聽選用的曲子</a>，查看<a href="#filter">沒通過自身測試的篩選器</a>，以及<a href="#ship">交付遊戲前的檢查</a>。</p></div>
+      </div>
+      <div class="case-capabilities">
+        <span class="eyebrow">相關能力</span>
+        <a href="/zh-tw/#cap-creative">創作指導與體驗設計</a>
+        <a href="/zh-tw/#cap-quality">驗證設計與品質判斷</a>
+        <a href="/zh-tw/#cap-delivery">專案推進與跨職能協作</a>
+      </div>
       <div class="numbers">
         <div><b>76</b><span>首交付：主配樂 54 首、情境短曲 15 首、環境音 7 段</span></div>
         <div><b>244</b><span>個生成版本都聽過，評語存在檔案旁邊</span></div>
@@ -259,6 +273,6 @@
     <small>© 2026 Sean Syue</small>
   </div>
 </footer>
-<script src="/assets/js/site.js?v=20260930n"></script>
+<script src="/assets/js/site.js?v=20261007e"></script>
 </body>
 </html>

@@ -7,7 +7,7 @@ description: AI Control Centerは、AIに証拠を示させます。各ステッ
   <div class="wrap">
     <p class="crumbs"><a href="{{link:/}}#work">プロジェクト</a> → AI Control Center</p>
     <section class="proj-head">
-      <span class="eyebrow">AIの仕事を検証する · デスクトップアプリ</span>
+      <span class="eyebrow">AIワークフローとガバナンス · デスクトップアプリ</span>
       <h1>完了したことと、正しくできたことは別。</h1>
       <p class="lede">AI Control Centerは、役割の分担、検証ステップ、人による承認を通じて、複数のAIコーディングエージェントを連携させるWindowsアプリケーションです。AIに証拠を示させるのが狙いです。各ステップの記録は確認した版に結びつき、テスト自体も、コードをわざと壊すことで誤りを検出できるかを証明します。</p>
       <dl class="facts">
@@ -18,6 +18,17 @@ description: AI Control Centerは、AIに証拠を示させます。各ステッ
         <div><dt>技術</dt><dd>Python · PySide6 · pytest · Inno Setup</dd></div>
         <div><dt>ソースコード</dt><dd><a href="https://github.com/SeanSyue/ai-control-center">GitHub · MIT</a></dd></div>
       </dl>
+      <div class="case-brief">
+        <div><span class="eyebrow">課題</span><p>一人で複数のAIコーディングエージェントを使うとき、誰がどの版を確認したのか、テストが本当に誤りを検出できるのかを確かめる必要があります。</p></div>
+        <div><span class="eyebrow">私の貢献</span><p>製品のルールとアーキテクチャを定義し、実装前に設計をレビューし、実際に使って成果を確認しました。コードはAIコーディングエージェントが実装しました。</p></div>
+        <div><span class="eyebrow">成果・検証への入口</span><p>まずは<a href="#evidence">証拠と版を結びつける図</a>と<a href="#negative">コードをわざと壊す検証フロー</a>へ。本ページでは設計図と<a href="#status">日付付きのレビュー結果・制約</a>を示しています。製品の操作デモは掲載していません。</p></div>
+      </div>
+      <div class="case-capabilities">
+        <span class="eyebrow">関連する能力</span>
+        <a href="{{link:/}}#cap-systems">要件分析とシステム設計</a>
+        <a href="{{link:/}}#cap-integration">AI活用とワークフロー統合</a>
+        <a href="{{link:/}}#cap-quality">検証設計と品質判断</a>
+      </div>
       <div class="numbers">
         <div><b>{{f:aicc.false_greens}}</b><span>一度の総点検で見つけた偽りの合格。すべて解消 · {{f:aicc.false_greens_dates}}</span></div>
         <div><b>{{f:aicc.breaks}}</b><span>件の意図的な破壊を記録。{{f:aicc.recipe_files}}個のレシピファイルに収録</span></div>

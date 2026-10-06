@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-Hant-TW">
+<html lang="zh-Hant-TW" data-theme="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,19 +13,21 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;family=Public+Sans:wght@400;500;600&amp;family=Zen+Maru+Gothic:wght@500;700&amp;family=Noto+Sans+TC:wght@400;500;700&amp;family=Noto+Serif+TC:wght@500;600&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/site.css?v=20260930n">
+<link rel="stylesheet" href="/assets/css/site.css?v=20261007e">
 <script>document.documentElement.classList.add("js");try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"dark"}catch(e){document.documentElement.dataset.theme="dark"}</script>
 </head>
 <body>
+<a class="skip-link" href="#main-content">跳到主要內容</a>
 
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="/zh-tw/">Sean Syue</a>
     <nav class="nav" aria-label="主選單">
+      <a href="/zh-tw/#capabilities">核心能力</a>
       <span class="nav-item">
         <a href="/zh-tw/#work" aria-current="page">作品</a>
         <span class="nav-menu">
-          <span class="nav-group">驗證 AI 的工作</span>
+          <span class="nav-group">AI工作流與治理</span>
           <a href="/zh-tw/work/aicc/">AI Control Center<small>桌面應用程式 · AI 代理</small></a>
           <a href="/zh-tw/work/negative-control/">negative-control<small>測試工具</small></a>
           <a href="/zh-tw/work/tetherlock/">Tetherlock<small>安全設計研究</small></a>
@@ -48,7 +50,8 @@
   </div>
 </header>
 
-<main>
+
+<main id="main-content" tabindex="-1">
   <div class="wrap">
     <p class="crumbs"><a href="/zh-tw/#work">作品</a> → 心動公寓</p>
     <section class="proj-head">
@@ -62,6 +65,17 @@
         <div><dt>我負責的部分</dt><dd>產品負責人兼導演</dd></div>
         <div><dt>技術</dt><dd>Godot 4.7 · GDScript · llama.cpp · Qwen3-4B</dd></div>
       </dl>
+      <div class="case-brief">
+        <div><span class="eyebrow">挑戰</span><p>角色要能自行行動、記住經歷，玩家的選擇也要有意義；AI 提出的建議仍必須符合遊戲當下的狀態與規則。</p></div>
+        <div><span class="eyebrow">我的貢獻</span><p>我訂定概念與美術方向、挑選配樂，並透過各版本實測訂出驗收規則。AI 協作者依照這些方向實作程式、美術與故事整合。</p></div>
+        <div><span class="eyebrow">證據入口</span><p>查看<a href="#demo">遊戲實錄</a>、<a href="#design">檢查 AI 建議的遊戲規則</a>，以及<a href="#testing">促成「不能遮臉」規則的實測</a>。</p></div>
+      </div>
+      <div class="case-capabilities">
+        <span class="eyebrow">相關能力</span>
+        <a href="/zh-tw/#cap-creative">創作指導與體驗設計</a>
+        <a href="/zh-tw/#cap-integration">AI應用與流程整合</a>
+        <a href="/zh-tw/#cap-delivery">專案推進與跨職能協作</a>
+      </div>
       <video class="shot" controls preload="metadata" playsinline poster="/assets/img/heart-apartment/09-showcase-poster.jpg" width="1600" height="900" aria-label="15 秒展示影片：標題畫面、思考雲選項、公園長椅、在家和電影院的小片刻，以及一場以笑聲收尾的爭吵。">
         <source src="/assets/video/heart-apartment/09-showcase-15s.mp4" type="video/mp4">
       </video>
@@ -254,6 +268,6 @@
     <small>© 2026 Sean Syue</small>
   </div>
 </footer>
-<script src="/assets/js/site.js?v=20260930n"></script>
+<script src="/assets/js/site.js?v=20261007e"></script>
 </body>
 </html>

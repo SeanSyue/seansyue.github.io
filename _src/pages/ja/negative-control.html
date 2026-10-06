@@ -7,7 +7,7 @@ description: コードをわざと壊し、それを検出すべきテストを�
   <div class="wrap">
     <p class="crumbs"><a href="{{link:/}}#work">プロジェクト</a> → negative-control</p>
     <section class="proj-head">
-      <span class="eyebrow">AIの仕事を検証する · テストツール</span>
+      <span class="eyebrow">AIワークフローとガバナンス · テストツール</span>
       <h1>negative-control</h1>
       <p class="lede">合格したテストは、一度失敗するところを見るまで証拠になりません。このツールはコードをわざと壊し、それを検出すべきテストを実行して、コードを元に戻します。テストが失敗すれば、そのテストは何かを守っていたことになります。合格のままなら、何も守っていなかったということで、それがはっきりします。</p>
       <dl class="facts">
@@ -16,6 +16,16 @@ description: コードをわざと壊し、それを検出すべきテストを�
         <div><dt>担当範囲</dt><dd>手法、判定の区分、安全のためのルール</dd></div>
         <div><dt>技術</dt><dd>Pythonファイル1つ · pytestのみ</dd></div>
       </dl>
+      <div class="case-brief">
+        <div><span class="eyebrow">課題</span><p>合格したテストが、守るはずの動作を一度も確認していないことがあります。実行できなかったテストも、有効な結果と誤認されかねません。</p></div>
+        <div><span class="eyebrow">私の貢献</span><p>手法、判定の区分、安全のためのルールを定義しました。「見逃し」と「実行されず」を分け、作業中のファイルはコピーから復元する設計です。ツールはAIコーディングエージェントが実装しました。</p></div>
+        <div><span class="eyebrow">成果・検証への入口</span><p><a href="#why">弱いテストの例</a>、<a href="#verdicts">3種類の判定</a>、<a href="#failures">安全ルールの根拠となった実際の失敗</a>から設計をたどれます。</p></div>
+      </div>
+      <div class="case-capabilities">
+        <span class="eyebrow">関連する能力</span>
+        <a href="{{link:/}}#cap-quality">検証設計と品質判断</a>
+        <a href="{{link:/}}#cap-systems">要件分析とシステム設計</a>
+      </div>
       <div class="numbers">
         <div><b>3</b><span>種類の判定（2種類ではない）：検出 · 見逃し · 実行されず</span></div>
         <div><b>6</b><span>件、以前のバージョンで実際に起きた失敗。どれも今はルールになっている</span></div>

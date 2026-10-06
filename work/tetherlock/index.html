@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,19 +13,21 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;family=Public+Sans:wght@400;500;600&amp;family=Zen+Maru+Gothic:wght@500;700&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/site.css?v=20260930n">
+<link rel="stylesheet" href="/assets/css/site.css?v=20261007e">
 <script>document.documentElement.classList.add("js");try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"dark"}catch(e){document.documentElement.dataset.theme="dark"}</script>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to content</a>
 
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="/">Sean Syue</a>
     <nav class="nav" aria-label="Main">
+      <a href="/#capabilities">Capabilities</a>
       <span class="nav-item">
         <a href="/#work" aria-current="page">Projects</a>
         <span class="nav-menu">
-          <span class="nav-group">Checking AI work</span>
+          <span class="nav-group">AI workflows & governance</span>
           <a href="/work/aicc/">AI Control Center<small>Desktop app · AI agents</small></a>
           <a href="/work/negative-control/">negative-control<small>Testing tool</small></a>
           <a href="/work/tetherlock/">Tetherlock<small>Security design study</small></a>
@@ -48,11 +50,12 @@
   </div>
 </header>
 
-<main>
+
+<main id="main-content" tabindex="-1">
   <div class="wrap">
     <p class="crumbs"><a href="/#work">Projects</a> → Tetherlock</p>
     <section class="proj-head">
-      <span class="eyebrow">Checking AI work · Security design study</span>
+      <span class="eyebrow">AI workflows &amp; governance · Security design study</span>
       <h1>Tetherlock</h1>
       <p class="lede">An access-control component for a local workspace. It lets the host application open the workspace only when three things are true at the same time: the person signed in is allowed in, a signed token is on the inserted drive, and the password matches. When a later check finds the drive gone, it tells the application to lock the workspace.</p>
       <dl class="facts">
@@ -62,6 +65,16 @@
         <div><dt>My role</dt><dd>Access rules, key design, lock lifecycle</dd></div>
         <div><dt>Stack</dt><dd>Python · cryptography (Ed25519, scrypt, AES-256-GCM) · command-line tool · no UI</dd></div>
       </dl>
+      <div class="case-brief">
+        <div><span class="eyebrow">Challenge</span><p>A local workspace needs both an opening rule and a rule for ending access when the required drive is no longer present.</p></div>
+        <div><span class="eyebrow">My contribution</span><p>For this personal project, I set the access rules, key design, and lock lifecycle, reviewed designs, and tested through use. AI coding agents implemented the module.</p></div>
+        <div><span class="eyebrow">Evidence</span><p>Inspect the <a href="#screens">real command and test output</a> and <a href="#decisions">key-design decisions</a>, alongside the <a href="#scope">host application's responsibilities and limits</a>.</p></div>
+      </div>
+      <div class="case-capabilities">
+        <span class="eyebrow">Related capabilities</span>
+        <a href="/#cap-systems">Requirements &amp; systems design</a>
+        <a href="/#cap-quality">Verification &amp; quality judgment</a>
+      </div>
       <figure class="diagram-img">
         <a class="theme-img" href="/assets/img/tetherlock/00-overview-dark.svg" target="_blank" rel="noopener" aria-label="Open this diagram full size"><img class="on-dark" src="/assets/img/tetherlock/00-overview-dark.svg" width="1200" height="440" alt="An allowed account, a signed USB drive and the password together open the workspace; pulling the drive locks it again."><img class="on-light" src="/assets/img/tetherlock/00-overview.svg" width="1200" height="440" alt="" loading="lazy"></a>
         <figcaption>Three conditions to open, one to close.</figcaption>
@@ -228,6 +241,6 @@
     <small>© 2026 Sean Syue</small>
   </div>
 </footer>
-<script src="/assets/js/site.js?v=20260930n"></script>
+<script src="/assets/js/site.js?v=20261007e"></script>
 </body>
 </html>

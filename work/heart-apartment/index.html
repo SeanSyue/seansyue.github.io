@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,19 +13,21 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;family=Public+Sans:wght@400;500;600&amp;family=Zen+Maru+Gothic:wght@500;700&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/site.css?v=20260930n">
+<link rel="stylesheet" href="/assets/css/site.css?v=20261007e">
 <script>document.documentElement.classList.add("js");try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"dark"}catch(e){document.documentElement.dataset.theme="dark"}</script>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to content</a>
 
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="/">Sean Syue</a>
     <nav class="nav" aria-label="Main">
+      <a href="/#capabilities">Capabilities</a>
       <span class="nav-item">
         <a href="/#work" aria-current="page">Projects</a>
         <span class="nav-menu">
-          <span class="nav-group">Checking AI work</span>
+          <span class="nav-group">AI workflows & governance</span>
           <a href="/work/aicc/">AI Control Center<small>Desktop app · AI agents</small></a>
           <a href="/work/negative-control/">negative-control<small>Testing tool</small></a>
           <a href="/work/tetherlock/">Tetherlock<small>Security design study</small></a>
@@ -48,7 +50,8 @@
   </div>
 </header>
 
-<main>
+
+<main id="main-content" tabindex="-1">
   <div class="wrap">
     <p class="crumbs"><a href="/#work">Projects</a> → Heart Apartment</p>
     <section class="proj-head">
@@ -62,6 +65,17 @@
         <div><dt>My role</dt><dd>Product owner &amp; director</dd></div>
         <div><dt>Stack</dt><dd>Godot 4.7 · GDScript · llama.cpp · Qwen3-4B</dd></div>
       </dl>
+      <div class="case-brief">
+        <div><span class="eyebrow">Challenge</span><p>Characters need room to act and remember, while player choices remain meaningful. AI suggestions must still obey the game's current state and rules.</p></div>
+        <div><span class="eyebrow">My contribution</span><p>I set the concept and art direction, selected the soundtrack, and playtested builds to define acceptance rules. AI collaborators implemented code, art, and story integration under that direction.</p></div>
+        <div><span class="eyebrow">Evidence</span><p>See the <a href="#demo">recorded gameplay</a>, the <a href="#design">rules that check AI proposals</a>, and the <a href="#testing">playtest that led to the no-face-overlap rule</a>.</p></div>
+      </div>
+      <div class="case-capabilities">
+        <span class="eyebrow">Related capabilities</span>
+        <a href="/#cap-creative">Creative direction &amp; experience design</a>
+        <a href="/#cap-integration">AI applications &amp; workflow integration</a>
+        <a href="/#cap-delivery">Project delivery &amp; cross-functional collaboration</a>
+      </div>
       <video class="shot" controls preload="metadata" playsinline poster="/assets/img/heart-apartment/09-showcase-poster.jpg" width="1600" height="900" aria-label="15-second showcase: title screen, a thought-cloud choice, the park bench, small moments at home and the cinema, and an argument that ends in laughter.">
         <source src="/assets/video/heart-apartment/09-showcase-15s.mp4" type="video/mp4">
       </video>
@@ -254,6 +268,6 @@
     <small>© 2026 Sean Syue</small>
   </div>
 </footer>
-<script src="/assets/js/site.js?v=20260930n"></script>
+<script src="/assets/js/site.js?v=20261007e"></script>
 </body>
 </html>

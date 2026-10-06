@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ja">
+<html lang="ja" data-theme="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,19 +13,21 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;family=Public+Sans:wght@400;500;600&amp;family=Zen+Maru+Gothic:wght@500;700&amp;family=Noto+Sans+JP:wght@400;500;700&amp;family=Noto+Serif+JP:wght@500;600&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/site.css?v=20260930n">
+<link rel="stylesheet" href="/assets/css/site.css?v=20261007e">
 <script>document.documentElement.classList.add("js");try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"dark"}catch(e){document.documentElement.dataset.theme="dark"}</script>
 </head>
 <body>
+<a class="skip-link" href="#main-content">本文へ移動</a>
 
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="/ja/">Sean Syue</a>
     <nav class="nav" aria-label="メインメニュー">
+      <a href="/ja/#capabilities">強み</a>
       <span class="nav-item">
         <a href="/ja/#work" aria-current="page">プロジェクト</a>
         <span class="nav-menu">
-          <span class="nav-group">AIの仕事を検証する</span>
+          <span class="nav-group">AIワークフローとガバナンス</span>
           <a href="/ja/work/aicc/">AI Control Center<small>デスクトップアプリ · AIエージェント</small></a>
           <a href="/ja/work/negative-control/">negative-control<small>テストツール</small></a>
           <a href="/ja/work/tetherlock/">Tetherlock<small>セキュリティ設計の研究</small></a>
@@ -48,7 +50,8 @@
   </div>
 </header>
 
-<main>
+
+<main id="main-content" tabindex="-1">
   <div class="wrap">
     <p class="crumbs"><a href="/ja/#work">プロジェクト</a> → Heart Apartment</p>
     <section class="proj-head">
@@ -62,6 +65,17 @@
         <div><dt>担当範囲</dt><dd>プロダクトオーナー兼ディレクター</dd></div>
         <div><dt>技術</dt><dd>Godot 4.7 · GDScript · llama.cpp · Qwen3-4B</dd></div>
       </dl>
+      <div class="case-brief">
+        <div><span class="eyebrow">課題</span><p>キャラクターが自ら行動し、経験を覚え、プレイヤーの選択にも意味があること。そのために、AIの提案もゲームの現在の状態とルールに従う必要があります。</p></div>
+        <div><span class="eyebrow">私の貢献</span><p>コンセプトと美術の方向性を決め、楽曲を選び、各ビルドのプレイテストから受け入れルールを定めました。AIの協力者が、その方針に沿ってコード、美術、ストーリーの統合を実装しました。</p></div>
+        <div><span class="eyebrow">成果・検証への入口</span><p><a href="#demo">ゲームプレイの録画</a>、<a href="#design">AIの提案をチェックするルール</a>、<a href="#testing">「顔を隠さない」ルールにつながったプレイテスト</a>を確認できます。</p></div>
+      </div>
+      <div class="case-capabilities">
+        <span class="eyebrow">関連する能力</span>
+        <a href="/ja/#cap-creative">制作ディレクションと体験設計</a>
+        <a href="/ja/#cap-integration">AI活用とワークフロー統合</a>
+        <a href="/ja/#cap-delivery">プロジェクト推進と職能横断の協働</a>
+      </div>
       <video class="shot" controls preload="metadata" playsinline poster="/assets/img/heart-apartment/09-showcase-poster.jpg" width="1600" height="900" aria-label="15秒のショーケース：タイトル画面、思考の吹き出しでの選択、公園のベンチ、家や映画館でのささやかな場面、そして笑って終わる口げんか。">
         <source src="/assets/video/heart-apartment/09-showcase-15s.mp4" type="video/mp4">
       </video>
@@ -254,6 +268,6 @@
     <small>© 2026 Sean Syue</small>
   </div>
 </footer>
-<script src="/assets/js/site.js?v=20260930n"></script>
+<script src="/assets/js/site.js?v=20261007e"></script>
 </body>
 </html>

@@ -5,7 +5,7 @@
   "nav.about": "About",
   "nav.resume": "Résumé",
   "nav.contact": "Contact",
-  "group.checking": "Checking AI work",
+  "group.checking": "AI workflows & governance",
   "group.media": "AI media workflows",
   "group.game": "AI game",
   "menu.aicc": "AI Control Center",
@@ -30,5 +30,7 @@
   "footer.contact": "Contact",
   "footer.looking": "Open to business systems, process automation and business analysis roles, in teams putting AI to work.",
   "lang.aria": "Language",
-  "scroll.hint": "Swipe sideways to see the whole diagram."
+  "scroll.hint": "Swipe sideways to see the whole diagram.",
+  "nav.skip": "Skip to content",
+  "nav.capabilities": "Capabilities"
 }

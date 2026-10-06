@@ -7,7 +7,7 @@ description: Tetherlock 只在允許的帳號、插入的隨身碟上簽過名�
   <div class="wrap">
     <p class="crumbs"><a href="{{link:/}}#work">作品</a> → Tetherlock</p>
     <section class="proj-head">
-      <span class="eyebrow">驗證 AI 的工作 · 安全設計研究</span>
+      <span class="eyebrow">AI工作流與治理 · 安全設計研究</span>
       <h1>Tetherlock</h1>
       <p class="lede">一個保護本機工作區的存取控制元件。只有三件事同時成立，它才讓應用程式打開工作區：登入的人被允許進入、插入的隨身碟上有簽過名的 token、密碼正確。之後某一次檢查發現隨身碟不見了，它就通知應用程式把工作區鎖上。</p>
       <dl class="facts">
@@ -17,6 +17,16 @@ description: Tetherlock 只在允許的帳號、插入的隨身碟上簽過名�
         <div><dt>我負責的部分</dt><dd>存取規則、金鑰設計、上鎖的完整流程</dd></div>
         <div><dt>技術</dt><dd>Python · cryptography（Ed25519、scrypt、AES-256-GCM）· 命令列工具 · 沒有使用者介面</dd></div>
       </dl>
+      <div class="case-brief">
+        <div><span class="eyebrow">挑戰</span><p>本機工作區除了需要開啟條件，也需要在必要的隨身碟不在時，結束存取的明確規則。</p></div>
+        <div><span class="eyebrow">我的貢獻</span><p>這是我的個人專案。我訂定存取規則、金鑰設計與上鎖流程，審閱設計並透過實際使用測試；模組由 AI 寫程式代理實作。</p></div>
+        <div><span class="eyebrow">證據入口</span><p>查看<a href="#screens">真實指令與測試輸出</a>、<a href="#decisions">金鑰設計的取捨</a>，並對照<a href="#scope">宿主應用程式的責任與限制</a>。</p></div>
+      </div>
+      <div class="case-capabilities">
+        <span class="eyebrow">相關能力</span>
+        <a href="{{link:/}}#cap-systems">需求分析與系統設計</a>
+        <a href="{{link:/}}#cap-quality">驗證設計與品質判斷</a>
+      </div>
       <figure class="diagram-img">
         <a class="theme-img" href="/assets/img/tetherlock/00-overview-dark.zh-tw.svg" target="_blank" rel="noopener" aria-label="以原尺寸開啟這張圖"><img class="on-dark" src="/assets/img/tetherlock/00-overview-dark.zh-tw.svg" width="1200" height="440" alt="允許的帳號、簽過名的 USB 隨身碟和密碼三者同時成立，工作區才會打開；拔掉隨身碟就再次上鎖。"><img class="on-light" src="/assets/img/tetherlock/00-overview.zh-tw.svg" width="1200" height="440" alt="" loading="lazy"></a>
         <figcaption>打開要三個條件，關上只要一個。</figcaption>

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,19 +13,21 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;family=Public+Sans:wght@400;500;600&amp;family=Zen+Maru+Gothic:wght@500;700&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/site.css?v=20260930n">
+<link rel="stylesheet" href="/assets/css/site.css?v=20261007e">
 <script>document.documentElement.classList.add("js");try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"dark"}catch(e){document.documentElement.dataset.theme="dark"}</script>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to content</a>
 
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="/">Sean Syue</a>
     <nav class="nav" aria-label="Main">
+      <a href="/#capabilities">Capabilities</a>
       <span class="nav-item">
         <a href="/#work" aria-current="page">Projects</a>
         <span class="nav-menu">
-          <span class="nav-group">Checking AI work</span>
+          <span class="nav-group">AI workflows & governance</span>
           <a href="/work/aicc/">AI Control Center<small>Desktop app · AI agents</small></a>
           <a href="/work/negative-control/">negative-control<small>Testing tool</small></a>
           <a href="/work/tetherlock/">Tetherlock<small>Security design study</small></a>
@@ -48,11 +50,12 @@
   </div>
 </header>
 
-<main>
+
+<main id="main-content" tabindex="-1">
   <div class="wrap">
     <p class="crumbs"><a href="/#work">Projects</a> → negative-control</p>
     <section class="proj-head">
-      <span class="eyebrow">Checking AI work · Testing tool</span>
+      <span class="eyebrow">AI workflows &amp; governance · Testing tool</span>
       <h1>negative-control</h1>
       <p class="lede">A green test is not evidence until you have seen it turn red. This tool breaks your code on purpose, runs the test that should catch it, and puts the code back. If the test turns red, it was guarding something. If it stays green, it wasn't, and now you know.</p>
       <dl class="facts">
@@ -61,6 +64,16 @@
         <div><dt>My role</dt><dd>The method, the verdicts, the safety rules</dd></div>
         <div><dt>Stack</dt><dd>One Python file · pytest, nothing else</dd></div>
       </dl>
+      <div class="case-brief">
+        <div><span class="eyebrow">Challenge</span><p>A passing test may never reach the behavior it claims to protect. A failed test run can also be mistaken for a meaningful result.</p></div>
+        <div><span class="eyebrow">My contribution</span><p>I defined the method, verdicts, and safety rules: distinguish a missed bug from a test that never ran, and restore the working file from a copy. AI coding agents implemented the tool.</p></div>
+        <div><span class="eyebrow">Evidence</span><p>Follow the <a href="#why">weak-test example</a>, the <a href="#verdicts">three verdicts</a>, and the <a href="#failures">real failures behind the safety rules</a>.</p></div>
+      </div>
+      <div class="case-capabilities">
+        <span class="eyebrow">Related capabilities</span>
+        <a href="/#cap-quality">Verification &amp; quality judgment</a>
+        <a href="/#cap-systems">Requirements &amp; systems design</a>
+      </div>
       <div class="numbers">
         <div><b>3</b><span>verdicts, not two: caught · no teeth · did not run</span></div>
         <div><b>6</b><span>real failures of earlier versions, each now a rule</span></div>
@@ -183,6 +196,6 @@ def test_small_order_has_a_fee():
     <small>© 2026 Sean Syue</small>
   </div>
 </footer>
-<script src="/assets/js/site.js?v=20260930n"></script>
+<script src="/assets/js/site.js?v=20261007e"></script>
 </body>
 </html>

@@ -7,7 +7,7 @@ description: 一個小工具：故意改壞你的程式，跑那個應該抓到�
   <div class="wrap">
     <p class="crumbs"><a href="{{link:/}}#work">作品</a> → negative-control</p>
     <section class="proj-head">
-      <span class="eyebrow">驗證 AI 的工作 · 測試工具</span>
+      <span class="eyebrow">AI工作流與治理 · 測試工具</span>
       <h1>negative-control</h1>
       <p class="lede">綠燈要先親眼看過它變紅，才算證據。這個工具會故意改壞你的程式，跑那個應該抓到錯的測試，再把程式還原。測試變紅，代表它真的守著某樣東西；如果還是綠的，就代表沒有——現在你知道了。</p>
       <dl class="facts">
@@ -16,6 +16,16 @@ description: 一個小工具：故意改壞你的程式，跑那個應該抓到�
         <div><dt>我負責的部分</dt><dd>方法、判定結果、安全規則</dd></div>
         <div><dt>技術</dt><dd>單一 Python 檔 · 只用 pytest</dd></div>
       </dl>
+      <div class="case-brief">
+        <div><span class="eyebrow">挑戰</span><p>測試通過，可能根本沒碰到它聲稱要保護的行為；測試沒跑起來，也可能被誤當成有意義的結果。</p></div>
+        <div><span class="eyebrow">我的貢獻</span><p>我定義方法、判定結果與安全規則：分清「沒抓到錯」和「根本沒跑」，並從副本還原工作中的檔案；工具由 AI 寫程式代理實作。</p></div>
+        <div><span class="eyebrow">證據入口</span><p>沿著<a href="#why">無效測試的範例</a>、<a href="#verdicts">三種判定</a>，以及<a href="#failures">安全規則背後的真實失敗</a>查看設計依據。</p></div>
+      </div>
+      <div class="case-capabilities">
+        <span class="eyebrow">相關能力</span>
+        <a href="{{link:/}}#cap-quality">驗證設計與品質判斷</a>
+        <a href="{{link:/}}#cap-systems">需求分析與系統設計</a>
+      </div>
       <div class="numbers">
         <div><b>3</b><span>種判定，不是兩種：抓到了 · 形同虛設 · 沒跑起來</span></div>
         <div><b>6</b><span>種早期版本真的出過的錯，現在各自變成一條規則</span></div>

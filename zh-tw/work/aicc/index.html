@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-Hant-TW">
+<html lang="zh-Hant-TW" data-theme="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,19 +13,21 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;family=Public+Sans:wght@400;500;600&amp;family=Zen+Maru+Gothic:wght@500;700&amp;family=Noto+Sans+TC:wght@400;500;700&amp;family=Noto+Serif+TC:wght@500;600&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/site.css?v=20260930n">
+<link rel="stylesheet" href="/assets/css/site.css?v=20261007e">
 <script>document.documentElement.classList.add("js");try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"dark"}catch(e){document.documentElement.dataset.theme="dark"}</script>
 </head>
 <body>
+<a class="skip-link" href="#main-content">跳到主要內容</a>
 
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="/zh-tw/">Sean Syue</a>
     <nav class="nav" aria-label="主選單">
+      <a href="/zh-tw/#capabilities">核心能力</a>
       <span class="nav-item">
         <a href="/zh-tw/#work" aria-current="page">作品</a>
         <span class="nav-menu">
-          <span class="nav-group">驗證 AI 的工作</span>
+          <span class="nav-group">AI工作流與治理</span>
           <a href="/zh-tw/work/aicc/">AI Control Center<small>桌面應用程式 · AI 代理</small></a>
           <a href="/zh-tw/work/negative-control/">negative-control<small>測試工具</small></a>
           <a href="/zh-tw/work/tetherlock/">Tetherlock<small>安全設計研究</small></a>
@@ -48,11 +50,12 @@
   </div>
 </header>
 
-<main>
+
+<main id="main-content" tabindex="-1">
   <div class="wrap">
     <p class="crumbs"><a href="/zh-tw/#work">作品</a> → AI Control Center</p>
     <section class="proj-head">
-      <span class="eyebrow">驗證 AI 的工作 · 桌面應用程式</span>
+      <span class="eyebrow">AI工作流與治理 · 桌面應用程式</span>
       <h1>做完了，<span class="keep">不代表做對了。</span></h1>
       <p class="lede">AI Control Center 是一套 Windows 應用程式，用明確的角色分工、驗證步驟和人工核准，協調多個 AI 寫程式代理。它要求 AI 拿出證據：每一步都留下紀錄，綁在它檢查的那個版本上；連測試本身，也要靠故意改壞程式，證明它抓得到錯。</p>
       <dl class="facts">
@@ -63,6 +66,17 @@
         <div><dt>技術</dt><dd>Python · PySide6 · pytest · Inno Setup</dd></div>
         <div><dt>原始碼</dt><dd><a href="https://github.com/SeanSyue/ai-control-center">GitHub · MIT</a></dd></div>
       </dl>
+      <div class="case-brief">
+        <div><span class="eyebrow">挑戰</span><p>一個人協調多個 AI 寫程式代理時，需要知道誰檢查過、檢查的是哪個版本，以及測試是否真的抓得到錯。</p></div>
+        <div><span class="eyebrow">我的貢獻</span><p>我定義產品規則與架構，在實作前審閱設計，並透過實際使用檢查成果；程式由 AI 寫程式代理實作。</p></div>
+        <div><span class="eyebrow">證據入口</span><p>從<a href="#evidence">證據綁定版本的流程圖</a>與<a href="#negative">故意改壞程式的驗證流程</a>開始。本頁提供設計示意與<a href="#status">附日期的審查結果及限制</a>，沒有產品操作 Demo。</p></div>
+      </div>
+      <div class="case-capabilities">
+        <span class="eyebrow">相關能力</span>
+        <a href="/zh-tw/#cap-systems">需求分析與系統設計</a>
+        <a href="/zh-tw/#cap-integration">AI應用與流程整合</a>
+        <a href="/zh-tw/#cap-quality">驗證設計與品質判斷</a>
+      </div>
       <div class="numbers">
         <div><b>30 → 0</b><span>一次全面掃描找到的假綠燈，已全部清除 · 2026 年 8 月 24–27 日</span></div>
         <div><b>868</b><span>筆有紀錄的故意破壞，分布在 115 個配方檔</span></div>
@@ -305,6 +319,6 @@
     <small>© 2026 Sean Syue</small>
   </div>
 </footer>
-<script src="/assets/js/site.js?v=20260930n"></script>
+<script src="/assets/js/site.js?v=20261007e"></script>
 </body>
 </html>

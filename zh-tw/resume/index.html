@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-Hant-TW">
+<html lang="zh-Hant-TW" data-theme="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,19 +13,21 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;family=Public+Sans:wght@400;500;600&amp;family=Zen+Maru+Gothic:wght@500;700&amp;family=Noto+Sans+TC:wght@400;500;700&amp;family=Noto+Serif+TC:wght@500;600&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/site.css?v=20260930n">
+<link rel="stylesheet" href="/assets/css/site.css?v=20261007e">
 <script>document.documentElement.classList.add("js");try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"dark"}catch(e){document.documentElement.dataset.theme="dark"}</script>
 </head>
 <body>
+<a class="skip-link" href="#main-content">跳到主要內容</a>
 
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="/zh-tw/">Sean Syue</a>
     <nav class="nav" aria-label="主選單">
+      <a href="/zh-tw/#capabilities">核心能力</a>
       <span class="nav-item">
         <a href="/zh-tw/#work">作品</a>
         <span class="nav-menu">
-          <span class="nav-group">驗證 AI 的工作</span>
+          <span class="nav-group">AI工作流與治理</span>
           <a href="/zh-tw/work/aicc/">AI Control Center<small>桌面應用程式 · AI 代理</small></a>
           <a href="/zh-tw/work/negative-control/">negative-control<small>測試工具</small></a>
           <a href="/zh-tw/work/tetherlock/">Tetherlock<small>安全設計研究</small></a>
@@ -48,7 +50,8 @@
   </div>
 </header>
 
-<main class="wrap resume">
+
+<main id="main-content" tabindex="-1" class="wrap resume">
 
   <section class="proj-head" style="padding-top: 48px;">
     <span class="eyebrow">履歷</span>
@@ -107,7 +110,7 @@
     </article>
   </section>
 
-  <section class="block">
+  <section class="block resume-projects">
     <div class="block-head"><h2>精選專案</h2></div>
 
     <article class="role">
@@ -147,11 +150,11 @@
     </dl>
   </section>
 
-  <section class="block">
+  <section class="block resume-education">
     <div class="block-head"><h2>學歷與證照</h2></div>
     <dl class="skills">
-      <div><dt>高雄醫學大學</dt><dd>生物科技學系碩士班肄業（修畢課程，未取得學位）· 2019/09 – 2022/06</dd></div>
-      <div><dt>長榮大學</dt><dd>生物科技學系學士 · 2015/09 – 2019/06</dd></div>
+      <div><dt>高雄醫學大學</dt><dd>生物科技學系碩士班肄業（修畢課程，未取得學位）· <span class="resume-date">2019/09 – 2022/06</span></dd></div>
+      <div><dt>長榮大學</dt><dd>生物科技學系學士 · <span class="resume-date">2015/09 – 2019/06</span></dd></div>
       <div><dt>證照</dt><dd>Google Gemini Certified Educator · 全民英檢中級（LTTC）</dd></div>
     </dl>
   </section>
@@ -173,6 +176,6 @@
     <small>© 2026 Sean Syue</small>
   </div>
 </footer>
-<script src="/assets/js/site.js?v=20260930n"></script>
+<script src="/assets/js/site.js?v=20261007e"></script>
 </body>
 </html>

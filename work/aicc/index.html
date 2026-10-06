@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,19 +13,21 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;family=Public+Sans:wght@400;500;600&amp;family=Zen+Maru+Gothic:wght@500;700&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/site.css?v=20260930n">
+<link rel="stylesheet" href="/assets/css/site.css?v=20261007e">
 <script>document.documentElement.classList.add("js");try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"dark"}catch(e){document.documentElement.dataset.theme="dark"}</script>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to content</a>
 
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="/">Sean Syue</a>
     <nav class="nav" aria-label="Main">
+      <a href="/#capabilities">Capabilities</a>
       <span class="nav-item">
         <a href="/#work" aria-current="page">Projects</a>
         <span class="nav-menu">
-          <span class="nav-group">Checking AI work</span>
+          <span class="nav-group">AI workflows & governance</span>
           <a href="/work/aicc/">AI Control Center<small>Desktop app · AI agents</small></a>
           <a href="/work/negative-control/">negative-control<small>Testing tool</small></a>
           <a href="/work/tetherlock/">Tetherlock<small>Security design study</small></a>
@@ -48,11 +50,12 @@
   </div>
 </header>
 
-<main>
+
+<main id="main-content" tabindex="-1">
   <div class="wrap">
     <p class="crumbs"><a href="/#work">Projects</a> → AI Control Center</p>
     <section class="proj-head">
-      <span class="eyebrow">Checking AI work · Desktop app</span>
+      <span class="eyebrow">AI workflows &amp; governance · Desktop app</span>
       <h1>Finished is not the same as correct.</h1>
       <p class="lede">AI Control Center is a Windows application that coordinates AI coding agents through defined roles, verification steps, and human approval. It makes AI prove its work: every step leaves evidence tied to the version it checked, and the tests themselves are proven by breaking the code on purpose.</p>
       <dl class="facts">
@@ -63,6 +66,17 @@
         <div><dt>Stack</dt><dd>Python · PySide6 · pytest · Inno Setup</dd></div>
         <div><dt>Source</dt><dd><a href="https://github.com/SeanSyue/ai-control-center">GitHub · MIT</a></dd></div>
       </dl>
+      <div class="case-brief">
+        <div><span class="eyebrow">Challenge</span><p>One person coordinating AI coding agents needs to know who checked the work, which version they checked, and whether the test could catch a mistake.</p></div>
+        <div><span class="eyebrow">My contribution</span><p>I defined the product rules and architecture, reviewed designs before implementation, and checked the app through use. AI coding agents wrote the code.</p></div>
+        <div><span class="eyebrow">Evidence</span><p>Start with the <a href="#evidence">version-bound evidence diagram</a> and <a href="#negative">deliberate-break verification flow</a>. This case presents design schematics and <a href="#status">dated review results and limits</a>; no product demo is provided.</p></div>
+      </div>
+      <div class="case-capabilities">
+        <span class="eyebrow">Related capabilities</span>
+        <a href="/#cap-systems">Requirements &amp; systems design</a>
+        <a href="/#cap-integration">AI applications &amp; workflow integration</a>
+        <a href="/#cap-quality">Verification &amp; quality judgment</a>
+      </div>
       <div class="numbers">
         <div><b>30 → 0</b><span>false greens found in one sweep, then cleared · Aug 24–27, 2026</span></div>
         <div><b>868</b><span>deliberate breaks on record, across 115 recipe files</span></div>
@@ -304,6 +318,6 @@
     <small>© 2026 Sean Syue</small>
   </div>
 </footer>
-<script src="/assets/js/site.js?v=20260930n"></script>
+<script src="/assets/js/site.js?v=20261007e"></script>
 </body>
 </html>

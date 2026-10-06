@@ -153,6 +153,9 @@ class Site:
 
     def page_html(self, lang, page):
         meta, body = self.source(lang, page["id"])
+        # One stable keyboard-skip destination, including legacy case sources.
+        if not re.search(r'<main\b[^>]*\bid=["\']main-content["\']', body):
+            body = re.sub(r'<main\b', '<main id="main-content" tabindex="-1"', body, count=1)
         info = self.langs[lang]
         ctx = {"lang": lang, "page": page, "vars": {
             "title": meta["title"], "description": meta["description"], "html_lang": info["html_lang"],
@@ -160,7 +163,7 @@ class Site:
             "canonical": self.config["origin"] + self.url(lang, page["path"]),
             "alternates": self.alternates(page), "lang_switch": self.lang_switch(page, lang),
         }}
-        return self.render(self.layout["page"], ctx)
+        return self.render(self.layout["page"], ctx).rstrip() + "\n"
 
     def outputs(self):
         """Yield (relative output path, html) for every page that has a source in some language."""

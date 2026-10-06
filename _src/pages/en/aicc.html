@@ -7,7 +7,7 @@ description: AI Control Center makes AI prove its work: every step leaves eviden
   <div class="wrap">
     <p class="crumbs"><a href="/#work">Projects</a> → AI Control Center</p>
     <section class="proj-head">
-      <span class="eyebrow">Checking AI work · Desktop app</span>
+      <span class="eyebrow">AI workflows &amp; governance · Desktop app</span>
       <h1>Finished is not the same as correct.</h1>
       <p class="lede">AI Control Center is a Windows application that coordinates AI coding agents through defined roles, verification steps, and human approval. It makes AI prove its work: every step leaves evidence tied to the version it checked, and the tests themselves are proven by breaking the code on purpose.</p>
       <dl class="facts">
@@ -18,6 +18,17 @@ description: AI Control Center makes AI prove its work: every step leaves eviden
         <div><dt>Stack</dt><dd>Python · PySide6 · pytest · Inno Setup</dd></div>
         <div><dt>Source</dt><dd><a href="https://github.com/SeanSyue/ai-control-center">GitHub · MIT</a></dd></div>
       </dl>
+      <div class="case-brief">
+        <div><span class="eyebrow">Challenge</span><p>One person coordinating AI coding agents needs to know who checked the work, which version they checked, and whether the test could catch a mistake.</p></div>
+        <div><span class="eyebrow">My contribution</span><p>I defined the product rules and architecture, reviewed designs before implementation, and checked the app through use. AI coding agents wrote the code.</p></div>
+        <div><span class="eyebrow">Evidence</span><p>Start with the <a href="#evidence">version-bound evidence diagram</a> and <a href="#negative">deliberate-break verification flow</a>. This case presents design schematics and <a href="#status">dated review results and limits</a>; no product demo is provided.</p></div>
+      </div>
+      <div class="case-capabilities">
+        <span class="eyebrow">Related capabilities</span>
+        <a href="{{link:/}}#cap-systems">Requirements &amp; systems design</a>
+        <a href="{{link:/}}#cap-integration">AI applications &amp; workflow integration</a>
+        <a href="{{link:/}}#cap-quality">Verification &amp; quality judgment</a>
+      </div>
       <div class="numbers">
         <div><b>{{f:aicc.false_greens}}</b><span>false greens found in one sweep, then cleared · {{f:aicc.false_greens_dates}}</span></div>
         <div><b>{{f:aicc.breaks}}</b><span>deliberate breaks on record, across {{f:aicc.recipe_files}} recipe files</span></div>

@@ -5,7 +5,7 @@
   "nav.about": "關於我",
   "nav.resume": "履歷",
   "nav.contact": "聯絡",
-  "group.checking": "驗證 AI 的工作",
+  "group.checking": "AI工作流與治理",
   "group.media": "AI 圖影音工作流程",
   "group.game": "AI 遊戲",
   "menu.aicc": "AI Control Center",
@@ -30,5 +30,7 @@
   "footer.contact": "聯絡",
   "footer.looking": "正在尋找商業系統、流程自動化與商業分析的職位，希望加入正在把 AI 用進工作的團隊。",
   "lang.aria": "語言",
-  "scroll.hint": "左右滑動可以看到整張圖。"
+  "scroll.hint": "左右滑動可以看到整張圖。",
+  "nav.skip": "跳到主要內容",
+  "nav.capabilities": "核心能力"
 }

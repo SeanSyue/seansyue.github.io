@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ja">
+<html lang="ja" data-theme="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,19 +13,21 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;family=Public+Sans:wght@400;500;600&amp;family=Zen+Maru+Gothic:wght@500;700&amp;family=Noto+Sans+JP:wght@400;500;700&amp;family=Noto+Serif+JP:wght@500;600&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/site.css?v=20260930n">
+<link rel="stylesheet" href="/assets/css/site.css?v=20261007e">
 <script>document.documentElement.classList.add("js");try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"dark"}catch(e){document.documentElement.dataset.theme="dark"}</script>
 </head>
 <body>
+<a class="skip-link" href="#main-content">本文へ移動</a>
 
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="/ja/">Sean Syue</a>
     <nav class="nav" aria-label="メインメニュー">
+      <a href="/ja/#capabilities">強み</a>
       <span class="nav-item">
         <a href="/ja/#work" aria-current="page">プロジェクト</a>
         <span class="nav-menu">
-          <span class="nav-group">AIの仕事を検証する</span>
+          <span class="nav-group">AIワークフローとガバナンス</span>
           <a href="/ja/work/aicc/">AI Control Center<small>デスクトップアプリ · AIエージェント</small></a>
           <a href="/ja/work/negative-control/">negative-control<small>テストツール</small></a>
           <a href="/ja/work/tetherlock/">Tetherlock<small>セキュリティ設計の研究</small></a>
@@ -48,11 +50,12 @@
   </div>
 </header>
 
-<main>
+
+<main id="main-content" tabindex="-1">
   <div class="wrap">
     <p class="crumbs"><a href="/ja/#work">プロジェクト</a> → negative-control</p>
     <section class="proj-head">
-      <span class="eyebrow">AIの仕事を検証する · テストツール</span>
+      <span class="eyebrow">AIワークフローとガバナンス · テストツール</span>
       <h1>negative-control</h1>
       <p class="lede">合格したテストは、一度失敗するところを見るまで証拠になりません。このツールはコードをわざと壊し、それを検出すべきテストを実行して、コードを元に戻します。テストが失敗すれば、そのテストは何かを守っていたことになります。合格のままなら、何も守っていなかったということで、それがはっきりします。</p>
       <dl class="facts">
@@ -61,6 +64,16 @@
         <div><dt>担当範囲</dt><dd>手法、判定の区分、安全のためのルール</dd></div>
         <div><dt>技術</dt><dd>Pythonファイル1つ · pytestのみ</dd></div>
       </dl>
+      <div class="case-brief">
+        <div><span class="eyebrow">課題</span><p>合格したテストが、守るはずの動作を一度も確認していないことがあります。実行できなかったテストも、有効な結果と誤認されかねません。</p></div>
+        <div><span class="eyebrow">私の貢献</span><p>手法、判定の区分、安全のためのルールを定義しました。「見逃し」と「実行されず」を分け、作業中のファイルはコピーから復元する設計です。ツールはAIコーディングエージェントが実装しました。</p></div>
+        <div><span class="eyebrow">成果・検証への入口</span><p><a href="#why">弱いテストの例</a>、<a href="#verdicts">3種類の判定</a>、<a href="#failures">安全ルールの根拠となった実際の失敗</a>から設計をたどれます。</p></div>
+      </div>
+      <div class="case-capabilities">
+        <span class="eyebrow">関連する能力</span>
+        <a href="/ja/#cap-quality">検証設計と品質判断</a>
+        <a href="/ja/#cap-systems">要件分析とシステム設計</a>
+      </div>
       <div class="numbers">
         <div><b>3</b><span>種類の判定（2種類ではない）：検出 · 見逃し · 実行されず</span></div>
         <div><b>6</b><span>件、以前のバージョンで実際に起きた失敗。どれも今はルールになっている</span></div>
@@ -183,6 +196,6 @@ def test_small_order_has_a_fee():
     <small>© 2026 Sean Syue</small>
   </div>
 </footer>
-<script src="/assets/js/site.js?v=20260930n"></script>
+<script src="/assets/js/site.js?v=20261007e"></script>
 </body>
 </html>

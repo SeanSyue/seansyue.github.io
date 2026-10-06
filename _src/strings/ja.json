@@ -5,7 +5,7 @@
   "nav.about": "自己紹介",
   "nav.resume": "レジュメ",
   "nav.contact": "連絡先",
-  "group.checking": "AIの仕事を検証する",
+  "group.checking": "AIワークフローとガバナンス",
   "group.media": "AIメディア制作フロー",
   "group.game": "AIゲーム",
   "menu.aicc": "AI Control Center",
@@ -30,5 +30,7 @@
   "footer.contact": "連絡先",
   "footer.looking": "ビジネスシステム、業務プロセスの自動化、ビジネスアナリシスの職種を探しています。AIを実務に取り入れているチームを希望しています。",
   "lang.aria": "言語",
-  "scroll.hint": "横にスワイプすると図の全体が見られます。"
+  "scroll.hint": "横にスワイプすると図の全体が見られます。",
+  "nav.skip": "本文へ移動",
+  "nav.capabilities": "強み"
 }

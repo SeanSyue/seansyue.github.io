@@ -7,7 +7,7 @@ description: AI Control Center 讓 AI 拿出證據：每一步都留下綁定所
   <div class="wrap">
     <p class="crumbs"><a href="{{link:/}}#work">作品</a> → AI Control Center</p>
     <section class="proj-head">
-      <span class="eyebrow">驗證 AI 的工作 · 桌面應用程式</span>
+      <span class="eyebrow">AI工作流與治理 · 桌面應用程式</span>
       <h1>做完了，<span class="keep">不代表做對了。</span></h1>
       <p class="lede">AI Control Center 是一套 Windows 應用程式，用明確的角色分工、驗證步驟和人工核准，協調多個 AI 寫程式代理。它要求 AI 拿出證據：每一步都留下紀錄，綁在它檢查的那個版本上；連測試本身，也要靠故意改壞程式，證明它抓得到錯。</p>
       <dl class="facts">
@@ -18,6 +18,17 @@ description: AI Control Center 讓 AI 拿出證據：每一步都留下綁定所
         <div><dt>技術</dt><dd>Python · PySide6 · pytest · Inno Setup</dd></div>
         <div><dt>原始碼</dt><dd><a href="https://github.com/SeanSyue/ai-control-center">GitHub · MIT</a></dd></div>
       </dl>
+      <div class="case-brief">
+        <div><span class="eyebrow">挑戰</span><p>一個人協調多個 AI 寫程式代理時，需要知道誰檢查過、檢查的是哪個版本，以及測試是否真的抓得到錯。</p></div>
+        <div><span class="eyebrow">我的貢獻</span><p>我定義產品規則與架構，在實作前審閱設計，並透過實際使用檢查成果；程式由 AI 寫程式代理實作。</p></div>
+        <div><span class="eyebrow">證據入口</span><p>從<a href="#evidence">證據綁定版本的流程圖</a>與<a href="#negative">故意改壞程式的驗證流程</a>開始。本頁提供設計示意與<a href="#status">附日期的審查結果及限制</a>，沒有產品操作 Demo。</p></div>
+      </div>
+      <div class="case-capabilities">
+        <span class="eyebrow">相關能力</span>
+        <a href="{{link:/}}#cap-systems">需求分析與系統設計</a>
+        <a href="{{link:/}}#cap-integration">AI應用與流程整合</a>
+        <a href="{{link:/}}#cap-quality">驗證設計與品質判斷</a>
+      </div>
       <div class="numbers">
         <div><b>{{f:aicc.false_greens}}</b><span>一次全面掃描找到的假綠燈，已全部清除 · {{f:aicc.false_greens_dates}}</span></div>
         <div><b>{{f:aicc.breaks}}</b><span>筆有紀錄的故意破壞，分布在 {{f:aicc.recipe_files}} 個配方檔</span></div>

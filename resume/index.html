@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,19 +13,21 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;family=Public+Sans:wght@400;500;600&amp;family=Zen+Maru+Gothic:wght@500;700&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/site.css?v=20260930n">
+<link rel="stylesheet" href="/assets/css/site.css?v=20261007e">
 <script>document.documentElement.classList.add("js");try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"dark"}catch(e){document.documentElement.dataset.theme="dark"}</script>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to content</a>
 
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="/">Sean Syue</a>
     <nav class="nav" aria-label="Main">
+      <a href="/#capabilities">Capabilities</a>
       <span class="nav-item">
         <a href="/#work">Projects</a>
         <span class="nav-menu">
-          <span class="nav-group">Checking AI work</span>
+          <span class="nav-group">AI workflows & governance</span>
           <a href="/work/aicc/">AI Control Center<small>Desktop app · AI agents</small></a>
           <a href="/work/negative-control/">negative-control<small>Testing tool</small></a>
           <a href="/work/tetherlock/">Tetherlock<small>Security design study</small></a>
@@ -48,7 +50,8 @@
   </div>
 </header>
 
-<main class="wrap resume">
+
+<main id="main-content" tabindex="-1" class="wrap resume">
 
   <section class="proj-head" style="padding-top: 48px;">
     <span class="eyebrow">Résumé</span>
@@ -107,7 +110,7 @@
     </article>
   </section>
 
-  <section class="block">
+  <section class="block resume-projects">
     <div class="block-head"><h2>Selected projects</h2></div>
 
     <article class="role">
@@ -147,11 +150,11 @@
     </dl>
   </section>
 
-  <section class="block">
+  <section class="block resume-education">
     <div class="block-head"><h2>Education &amp; certifications</h2></div>
     <dl class="skills">
-      <div><dt>Kaohsiung Medical University</dt><dd>M.S. programme, Biotechnology — coursework completed, degree not conferred · 09/2019 – 06/2022</dd></div>
-      <div><dt>Chang Jung Christian University</dt><dd>B.S., Biotechnology · 09/2015 – 06/2019</dd></div>
+      <div><dt>Kaohsiung Medical University</dt><dd>M.S. programme, Biotechnology — coursework completed, degree not conferred · <span class="resume-date">09/2019 – 06/2022</span></dd></div>
+      <div><dt>Chang Jung Christian University</dt><dd>B.S., Biotechnology · <span class="resume-date">09/2015 – 06/2019</span></dd></div>
       <div><dt>Certifications</dt><dd>Google Gemini Certified Educator · GEPT Intermediate (LTTC)</dd></div>
     </dl>
   </section>
@@ -173,6 +176,6 @@
     <small>© 2026 Sean Syue</small>
   </div>
 </footer>
-<script src="/assets/js/site.js?v=20260930n"></script>
+<script src="/assets/js/site.js?v=20261007e"></script>
 </body>
 </html>

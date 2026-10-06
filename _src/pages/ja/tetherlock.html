@@ -7,7 +7,7 @@ description: Tetherlockは、許可されたアカウント、差し込んだド
   <div class="wrap">
     <p class="crumbs"><a href="{{link:/}}#work">プロジェクト</a> → Tetherlock</p>
     <section class="proj-head">
-      <span class="eyebrow">AIの仕事を検証する · セキュリティ設計の研究</span>
+      <span class="eyebrow">AIワークフローとガバナンス · セキュリティ設計の研究</span>
       <h1>Tetherlock</h1>
       <p class="lede">ローカルのワークスペース向けのアクセス制御コンポーネントです。ホストアプリケーションがワークスペースを開けるのは、3つの条件が同時にそろったときだけです。サインインしている人に入る権限があること、差し込んだドライブに署名済みトークンがあること、パスワードが一致すること。その後のチェックでドライブがなくなっていれば、アプリケーションにワークスペースのロックを指示します。</p>
       <dl class="facts">
@@ -17,6 +17,16 @@ description: Tetherlockは、許可されたアカウント、差し込んだド
         <div><dt>担当範囲</dt><dd>アクセスのルール、鍵の設計、ロックのライフサイクル</dd></div>
         <div><dt>技術</dt><dd>Python · cryptography (Ed25519, scrypt, AES-256-GCM) · CLIツール · UIなし</dd></div>
       </dl>
+      <div class="case-brief">
+        <div><span class="eyebrow">課題</span><p>ローカルのワークスペースには、開く条件に加え、必要なドライブがなくなったときにアクセスを終了するルールも必要です。</p></div>
+        <div><span class="eyebrow">私の貢献</span><p>個人プロジェクトとして、アクセスのルール、鍵の設計、ロックのライフサイクルを定義し、設計レビューと実際の使用による確認を行いました。モジュールはAIコーディングエージェントが実装しました。</p></div>
+        <div><span class="eyebrow">成果・検証への入口</span><p><a href="#screens">実際のコマンドとテストの出力</a>、<a href="#decisions">鍵の設計判断</a>を、<a href="#scope">ホストアプリケーションの責任と制約</a>と併せて確認できます。</p></div>
+      </div>
+      <div class="case-capabilities">
+        <span class="eyebrow">関連する能力</span>
+        <a href="{{link:/}}#cap-systems">要件分析とシステム設計</a>
+        <a href="{{link:/}}#cap-quality">検証設計と品質判断</a>
+      </div>
       <figure class="diagram-img">
         <a class="theme-img" href="/assets/img/tetherlock/00-overview-dark.ja.svg" target="_blank" rel="noopener" aria-label="この図を原寸で開く"><img class="on-dark" src="/assets/img/tetherlock/00-overview-dark.ja.svg" width="1200" height="440" alt="許可されたアカウント、署名済みのUSBドライブ、パスワードの3つがそろうとワークスペースが開き、ドライブを抜くと再びロックされる。"><img class="on-light" src="/assets/img/tetherlock/00-overview.ja.svg" width="1200" height="440" alt="" loading="lazy"></a>
         <figcaption>開くには3つの条件、閉じるには1つ。</figcaption>

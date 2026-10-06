@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ja">
+<html lang="ja" data-theme="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,19 +13,21 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;family=Public+Sans:wght@400;500;600&amp;family=Zen+Maru+Gothic:wght@500;700&amp;family=Noto+Sans+JP:wght@400;500;700&amp;family=Noto+Serif+JP:wght@500;600&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/site.css?v=20260930n">
+<link rel="stylesheet" href="/assets/css/site.css?v=20261007e">
 <script>document.documentElement.classList.add("js");try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"dark"}catch(e){document.documentElement.dataset.theme="dark"}</script>
 </head>
 <body>
+<a class="skip-link" href="#main-content">本文へ移動</a>
 
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="/ja/">Sean Syue</a>
     <nav class="nav" aria-label="メインメニュー">
+      <a href="/ja/#capabilities">強み</a>
       <span class="nav-item">
         <a href="/ja/#work" aria-current="page">プロジェクト</a>
         <span class="nav-menu">
-          <span class="nav-group">AIの仕事を検証する</span>
+          <span class="nav-group">AIワークフローとガバナンス</span>
           <a href="/ja/work/aicc/">AI Control Center<small>デスクトップアプリ · AIエージェント</small></a>
           <a href="/ja/work/negative-control/">negative-control<small>テストツール</small></a>
           <a href="/ja/work/tetherlock/">Tetherlock<small>セキュリティ設計の研究</small></a>
@@ -48,11 +50,12 @@
   </div>
 </header>
 
-<main>
+
+<main id="main-content" tabindex="-1">
   <div class="wrap">
     <p class="crumbs"><a href="/ja/#work">プロジェクト</a> → AI Control Center</p>
     <section class="proj-head">
-      <span class="eyebrow">AIの仕事を検証する · デスクトップアプリ</span>
+      <span class="eyebrow">AIワークフローとガバナンス · デスクトップアプリ</span>
       <h1>完了したことと、正しくできたことは別。</h1>
       <p class="lede">AI Control Centerは、役割の分担、検証ステップ、人による承認を通じて、複数のAIコーディングエージェントを連携させるWindowsアプリケーションです。AIに証拠を示させるのが狙いです。各ステップの記録は確認した版に結びつき、テスト自体も、コードをわざと壊すことで誤りを検出できるかを証明します。</p>
       <dl class="facts">
@@ -63,6 +66,17 @@
         <div><dt>技術</dt><dd>Python · PySide6 · pytest · Inno Setup</dd></div>
         <div><dt>ソースコード</dt><dd><a href="https://github.com/SeanSyue/ai-control-center">GitHub · MIT</a></dd></div>
       </dl>
+      <div class="case-brief">
+        <div><span class="eyebrow">課題</span><p>一人で複数のAIコーディングエージェントを使うとき、誰がどの版を確認したのか、テストが本当に誤りを検出できるのかを確かめる必要があります。</p></div>
+        <div><span class="eyebrow">私の貢献</span><p>製品のルールとアーキテクチャを定義し、実装前に設計をレビューし、実際に使って成果を確認しました。コードはAIコーディングエージェントが実装しました。</p></div>
+        <div><span class="eyebrow">成果・検証への入口</span><p>まずは<a href="#evidence">証拠と版を結びつける図</a>と<a href="#negative">コードをわざと壊す検証フロー</a>へ。本ページでは設計図と<a href="#status">日付付きのレビュー結果・制約</a>を示しています。製品の操作デモは掲載していません。</p></div>
+      </div>
+      <div class="case-capabilities">
+        <span class="eyebrow">関連する能力</span>
+        <a href="/ja/#cap-systems">要件分析とシステム設計</a>
+        <a href="/ja/#cap-integration">AI活用とワークフロー統合</a>
+        <a href="/ja/#cap-quality">検証設計と品質判断</a>
+      </div>
       <div class="numbers">
         <div><b>30 → 0</b><span>一度の総点検で見つけた偽りの合格。すべて解消 · 2026年8月24日〜27日</span></div>
         <div><b>868</b><span>件の意図的な破壊を記録。115個のレシピファイルに収録</span></div>
@@ -305,6 +319,6 @@
     <small>© 2026 Sean Syue</small>
   </div>
 </footer>
-<script src="/assets/js/site.js?v=20260930n"></script>
+<script src="/assets/js/site.js?v=20261007e"></script>
 </body>
 </html>

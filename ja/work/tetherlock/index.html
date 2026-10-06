@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ja">
+<html lang="ja" data-theme="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,19 +13,21 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;family=Public+Sans:wght@400;500;600&amp;family=Zen+Maru+Gothic:wght@500;700&amp;family=Noto+Sans+JP:wght@400;500;700&amp;family=Noto+Serif+JP:wght@500;600&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/site.css?v=20260930n">
+<link rel="stylesheet" href="/assets/css/site.css?v=20261007e">
 <script>document.documentElement.classList.add("js");try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"dark"}catch(e){document.documentElement.dataset.theme="dark"}</script>
 </head>
 <body>
+<a class="skip-link" href="#main-content">本文へ移動</a>
 
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="/ja/">Sean Syue</a>
     <nav class="nav" aria-label="メインメニュー">
+      <a href="/ja/#capabilities">強み</a>
       <span class="nav-item">
         <a href="/ja/#work" aria-current="page">プロジェクト</a>
         <span class="nav-menu">
-          <span class="nav-group">AIの仕事を検証する</span>
+          <span class="nav-group">AIワークフローとガバナンス</span>
           <a href="/ja/work/aicc/">AI Control Center<small>デスクトップアプリ · AIエージェント</small></a>
           <a href="/ja/work/negative-control/">negative-control<small>テストツール</small></a>
           <a href="/ja/work/tetherlock/">Tetherlock<small>セキュリティ設計の研究</small></a>
@@ -48,11 +50,12 @@
   </div>
 </header>
 
-<main>
+
+<main id="main-content" tabindex="-1">
   <div class="wrap">
     <p class="crumbs"><a href="/ja/#work">プロジェクト</a> → Tetherlock</p>
     <section class="proj-head">
-      <span class="eyebrow">AIの仕事を検証する · セキュリティ設計の研究</span>
+      <span class="eyebrow">AIワークフローとガバナンス · セキュリティ設計の研究</span>
       <h1>Tetherlock</h1>
       <p class="lede">ローカルのワークスペース向けのアクセス制御コンポーネントです。ホストアプリケーションがワークスペースを開けるのは、3つの条件が同時にそろったときだけです。サインインしている人に入る権限があること、差し込んだドライブに署名済みトークンがあること、パスワードが一致すること。その後のチェックでドライブがなくなっていれば、アプリケーションにワークスペースのロックを指示します。</p>
       <dl class="facts">
@@ -62,6 +65,16 @@
         <div><dt>担当範囲</dt><dd>アクセスのルール、鍵の設計、ロックのライフサイクル</dd></div>
         <div><dt>技術</dt><dd>Python · cryptography (Ed25519, scrypt, AES-256-GCM) · CLIツール · UIなし</dd></div>
       </dl>
+      <div class="case-brief">
+        <div><span class="eyebrow">課題</span><p>ローカルのワークスペースには、開く条件に加え、必要なドライブがなくなったときにアクセスを終了するルールも必要です。</p></div>
+        <div><span class="eyebrow">私の貢献</span><p>個人プロジェクトとして、アクセスのルール、鍵の設計、ロックのライフサイクルを定義し、設計レビューと実際の使用による確認を行いました。モジュールはAIコーディングエージェントが実装しました。</p></div>
+        <div><span class="eyebrow">成果・検証への入口</span><p><a href="#screens">実際のコマンドとテストの出力</a>、<a href="#decisions">鍵の設計判断</a>を、<a href="#scope">ホストアプリケーションの責任と制約</a>と併せて確認できます。</p></div>
+      </div>
+      <div class="case-capabilities">
+        <span class="eyebrow">関連する能力</span>
+        <a href="/ja/#cap-systems">要件分析とシステム設計</a>
+        <a href="/ja/#cap-quality">検証設計と品質判断</a>
+      </div>
       <figure class="diagram-img">
         <a class="theme-img" href="/assets/img/tetherlock/00-overview-dark.ja.svg" target="_blank" rel="noopener" aria-label="この図を原寸で開く"><img class="on-dark" src="/assets/img/tetherlock/00-overview-dark.ja.svg" width="1200" height="440" alt="許可されたアカウント、署名済みのUSBドライブ、パスワードの3つがそろうとワークスペースが開き、ドライブを抜くと再びロックされる。"><img class="on-light" src="/assets/img/tetherlock/00-overview.ja.svg" width="1200" height="440" alt="" loading="lazy"></a>
         <figcaption>開くには3つの条件、閉じるには1つ。</figcaption>
@@ -227,6 +240,6 @@
     <small>© 2026 Sean Syue</small>
   </div>
 </footer>
-<script src="/assets/js/site.js?v=20260930n"></script>
+<script src="/assets/js/site.js?v=20261007e"></script>
 </body>
 </html>

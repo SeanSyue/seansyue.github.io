@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-Hant-TW">
+<html lang="zh-Hant-TW" data-theme="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,19 +13,21 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;family=Public+Sans:wght@400;500;600&amp;family=Zen+Maru+Gothic:wght@500;700&amp;family=Noto+Sans+TC:wght@400;500;700&amp;family=Noto+Serif+TC:wght@500;600&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/site.css?v=20260930n">
+<link rel="stylesheet" href="/assets/css/site.css?v=20261007e">
 <script>document.documentElement.classList.add("js");try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"dark"}catch(e){document.documentElement.dataset.theme="dark"}</script>
 </head>
 <body>
+<a class="skip-link" href="#main-content">跳到主要內容</a>
 
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="/zh-tw/">Sean Syue</a>
     <nav class="nav" aria-label="主選單">
+      <a href="/zh-tw/#capabilities">核心能力</a>
       <span class="nav-item">
         <a href="/zh-tw/#work" aria-current="page">作品</a>
         <span class="nav-menu">
-          <span class="nav-group">驗證 AI 的工作</span>
+          <span class="nav-group">AI工作流與治理</span>
           <a href="/zh-tw/work/aicc/">AI Control Center<small>桌面應用程式 · AI 代理</small></a>
           <a href="/zh-tw/work/negative-control/">negative-control<small>測試工具</small></a>
           <a href="/zh-tw/work/tetherlock/">Tetherlock<small>安全設計研究</small></a>
@@ -48,11 +50,12 @@
   </div>
 </header>
 
-<main>
+
+<main id="main-content" tabindex="-1">
   <div class="wrap">
     <p class="crumbs"><a href="/zh-tw/#work">作品</a> → negative-control</p>
     <section class="proj-head">
-      <span class="eyebrow">驗證 AI 的工作 · 測試工具</span>
+      <span class="eyebrow">AI工作流與治理 · 測試工具</span>
       <h1>negative-control</h1>
       <p class="lede">綠燈要先親眼看過它變紅，才算證據。這個工具會故意改壞你的程式，跑那個應該抓到錯的測試，再把程式還原。測試變紅，代表它真的守著某樣東西；如果還是綠的，就代表沒有——現在你知道了。</p>
       <dl class="facts">
@@ -61,6 +64,16 @@
         <div><dt>我負責的部分</dt><dd>方法、判定結果、安全規則</dd></div>
         <div><dt>技術</dt><dd>單一 Python 檔 · 只用 pytest</dd></div>
       </dl>
+      <div class="case-brief">
+        <div><span class="eyebrow">挑戰</span><p>測試通過，可能根本沒碰到它聲稱要保護的行為；測試沒跑起來，也可能被誤當成有意義的結果。</p></div>
+        <div><span class="eyebrow">我的貢獻</span><p>我定義方法、判定結果與安全規則：分清「沒抓到錯」和「根本沒跑」，並從副本還原工作中的檔案；工具由 AI 寫程式代理實作。</p></div>
+        <div><span class="eyebrow">證據入口</span><p>沿著<a href="#why">無效測試的範例</a>、<a href="#verdicts">三種判定</a>，以及<a href="#failures">安全規則背後的真實失敗</a>查看設計依據。</p></div>
+      </div>
+      <div class="case-capabilities">
+        <span class="eyebrow">相關能力</span>
+        <a href="/zh-tw/#cap-quality">驗證設計與品質判斷</a>
+        <a href="/zh-tw/#cap-systems">需求分析與系統設計</a>
+      </div>
       <div class="numbers">
         <div><b>3</b><span>種判定，不是兩種：抓到了 · 形同虛設 · 沒跑起來</span></div>
         <div><b>6</b><span>種早期版本真的出過的錯，現在各自變成一條規則</span></div>
@@ -184,6 +197,6 @@ def test_small_order_has_a_fee():
     <small>© 2026 Sean Syue</small>
   </div>
 </footer>
-<script src="/assets/js/site.js?v=20260930n"></script>
+<script src="/assets/js/site.js?v=20261007e"></script>
 </body>
 </html>
