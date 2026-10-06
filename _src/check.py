@@ -23,6 +23,8 @@ import build  # noqa: E402
 
 ROOT, SRC = build.ROOT, build.SRC
 PRIVATE = re.compile(r"C:[\\/]+Users|\\Users\\sean8|haiwo|海沃|KYC_Case", re.I)
+# Former employers are anonymous in all public languages.
+PRIVATE = re.compile(PRIVATE.pattern + r"|Cancer\x46ree|\u7cbe\u62d3|\x54aipei Medical University Hospital|[臺台]北[醫医][學学]大[學学]附[設属](?:[醫医]院|病院)", re.I)
 errors, warnings = [], []
 
 
