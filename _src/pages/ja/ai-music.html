@@ -3,24 +3,35 @@ description: 生活シミュレーションゲームのために、AIで生成�
 ---
 
 
-<main>
+<main class="case-page case-ai-music">
   <div class="wrap">
-    <p class="crumbs"><a href="{{link:/}}#work">プロジェクト</a> → AI音楽</p>
-    <section class="proj-head">
-      <span class="eyebrow">AIメディア制作フロー · 音楽</span>
-      <h1>ひとつの世界観で{{f:music.tracks}}曲</h1>
-      <p class="lede">生活シミュレーションゲーム<a href="{{link:/work/heart-apartment/}}">Heart Apartment</a>のために、AIで生成したサウンドトラックです。耳で方向を決め、数字でチェックし、2日で仕上げました。</p>
-      <dl class="facts">
+    <p class="crumbs"><a href="{{link:/projects/}}">プロジェクト一覧</a> → AI音楽</p>
+    <section class="proj-head case-hero">
+      <div class="case-kicker"><span class="eyebrow">AIメディア制作フロー · 音楽</span><span class="case-project-name">AI音楽</span></div>
+      <div class="case-title-block" data-motion-reveal>
+        <h1>ひとつの世界観で{{f:music.tracks}}曲</h1>
+        <div class="case-intro"><p class="lede">生活シミュレーションゲーム<a href="{{link:/work/heart-apartment/}}">Heart Apartment</a>のために、AIで生成したサウンドトラックです。耳で方向を決め、数字でチェックし、2日で仕上げました。</p></div>
+      </div>
+      <div class="case-stage case-stage-ai-music" data-motion-reveal>
+        <figure class="player case-listen-preview">
+          <figcaption><span class="eyebrow">スタイルの基準曲 · 家、夜</span><h3><span lang="zh-Hant">夜裡的小爵士</span> Little Night Jazz</h3><p class="muted">正式に公開されている作品と同等の完成度。</p></figcaption>
+          <audio controls preload="none" src="/assets/audio/ai-music/02-little-night-jazz-style-anchor.mp3"></audio>
+        </figure>
+<a class="case-listen-link" href="#demo">採用した曲をすべて聴く <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="case-context" data-motion-reveal>
+        <div class="case-brief case-dossier">
+<div class="case-challenge"><span class="eyebrow">課題</span><p>多くの場面を通じて、同じ世界観に聞こえるサウンドトラックが必要です。技術的なチェックだけでは、静かな部屋に合う曲か、口げんかの場面に合う曲かは判断できません。</p></div>
+<div class="case-contribution"><span class="eyebrow">私の貢献</span><p>場面ごとの制作指示を書き、すべての生成結果を聴き、各曲をゲームのどこで使うか決めました。制作スクリプトはAIエージェントが実装し、音楽は音声モデルが生成しました。</p></div>
+<div class="case-evidence"><span class="eyebrow">成果・検証への入口</span><p><a href="#demo">採用した曲の試聴</a>、<a href="#filter">自身のテストで不合格になったフィルター</a>、<a href="#ship">ゲームへの組み込みに向けたチェック</a>を確認できます。</p></div>
+</div>
+        <aside class="case-meta"><dl class="facts">
         <div><dt>種類</dt><dd>制作パイプライン</dd></div>
         <div><dt>状態</dt><dd><span class="status works">ゲームに{{f:music.tracks}}曲を収録</span></dd></div>
         <div><dt>時期</dt><dd>2026年9月14日〜15日</dd></div>
         <div><dt>担当範囲</dt><dd>ディレクター兼試聴者</dd></div>
         <div><dt>モデル</dt><dd>Stable Audio 3 Medium（ローカル、ComfyUI上）</dd></div>
-      </dl>
-      <div class="case-brief">
-        <div><span class="eyebrow">課題</span><p>多くの場面を通じて、同じ世界観に聞こえるサウンドトラックが必要です。技術的なチェックだけでは、静かな部屋に合う曲か、口げんかの場面に合う曲かは判断できません。</p></div>
-        <div><span class="eyebrow">私の貢献</span><p>場面ごとの制作指示を書き、すべての生成結果を聴き、各曲をゲームのどこで使うか決めました。制作スクリプトはAIエージェントが実装し、音楽は音声モデルが生成しました。</p></div>
-        <div><span class="eyebrow">成果・検証への入口</span><p><a href="#demo">採用した曲の試聴</a>、<a href="#filter">自身のテストで不合格になったフィルター</a>、<a href="#ship">ゲームへの組み込みに向けたチェック</a>を確認できます。</p></div>
+      </dl></aside>
       </div>
       <div class="case-capabilities">
         <span class="eyebrow">関連する能力</span>
@@ -28,12 +39,12 @@ description: 生活シミュレーションゲームのために、AIで生成�
         <a href="{{link:/}}#cap-quality">検証設計と品質判断</a>
         <a href="{{link:/}}#cap-delivery">プロジェクト推進と職能横断の協働</a>
       </div>
-      <div class="numbers">
+      <div class="case-hero-tail"><div class="numbers case-numbers">
         <div><b>{{f:music.tracks}}</b><span>曲をゲームに収録 · テーマ曲54、ストーリー用の短い曲15、環境音7</span></div>
         <div><b>{{f:music.renders}}</b><span>件の生成結果。すべて試聴し、評価をファイルの横に保存</span></div>
         <div><b>~1.5</b><span>日で、最初の企画メモからゲームへの組み込みまで</span></div>
         <div><b>0</b><span>件：自動チェックを通らずに試聴に回った生成結果</span></div>
-      </div>
+      </div></div>
     </section>
   </div>
 
@@ -49,8 +60,8 @@ description: 生活シミュレーションゲームのために、AIで生成�
   <div class="wrap">
 
     <!-- ============ OVERVIEW ============ -->
-    <section id="overview" class="block">
-      <div class="block-head"><span class="eyebrow">概要</span><h2>50曲の足並みをそろえる</h2></div>
+    <section id="overview" class="block case-section">
+      <div class="block-head" data-motion-reveal><span class="eyebrow">概要</span><h2>50曲の足並みをそろえる</h2></div>
       <div class="two wide-left">
         <div class="stack">
           <p class="lede">ほのぼのした生活シミュレーションには、ひとつの世界に聞こえて、しかも邪魔にならない音楽が何時間分も必要です。1曲だけなら、モデルはどんな曲でも作れます。難しいのは、50曲の足並みをそろえること。しかも品質を判断する方法は、ひとりの人間の「なんか違う」だけです。</p>
@@ -78,12 +89,12 @@ description: 生活シミュレーションゲームのために、AIで生成�
     </section>
 
     <!-- ============ HIGHLIGHTS ============ -->
-    <section id="design" class="block">
-      <div class="block-head"><span class="eyebrow">ハイライト</span><h2>感性と数字、そしてどちらを信じるか</h2></div>
+    <section id="design" class="block case-section">
+      <div class="block-head" data-motion-reveal><span class="eyebrow">ハイライト</span><h2>感性と数字、そしてどちらを信じるか</h2></div>
 
-      <article id="measure" class="chapter">
+      <article id="measure" class="chapter case-chapter">
         <h3>1 · 「なんか違う」を、書き出せるルールに</h3>
-        <div class="table-scroll">
+        <div class="table-scroll case-table">
           <table class="plain">
             <thead><tr><th>私の評価</th><th>数値</th><th>ルール</th></tr></thead>
             <tbody>
@@ -100,7 +111,7 @@ description: 生活シミュレーションゲームのために、AIで生成�
         <details class="more"><summary>「和声変化」が測っているもの</summary><p>曲を短い区間に分け、区間ごとのスペクトルを12の音名にまとめます。その音の分布が、区間から次の区間へどれだけ変わるかを測ります。ひとつのコードにとどまる曲は低く、コード進行に沿って動く曲は高くなります。</p></details>
       </article>
 
-      <article id="filter" class="chapter">
+      <article id="filter" class="chapter case-chapter">
         <h3>2 · 自作のフィルターを検証したら、不合格だった</h3>
         <div class="two wide-left">
           <div class="bars" role="img" aria-label="選別スクリプトの判定ごとに見た、気に入った生成結果の割合：合格は79件中48パーセント、カットは{{f:music.cut}}件中46パーセント、極端に明るいためのカットは11件中9パーセント。全体では47パーセント。">
@@ -117,7 +128,7 @@ description: 生活シミュレーションゲームのために、AIで生成�
         </div>
       </article>
 
-      <article id="process" class="chapter">
+      <article id="process" class="chapter case-chapter">
         <h3>3 · 証拠が出たら、プロセスを変えた</h3>
         <ul class="facts-list">
           <li><b>AIによるプロンプト拡張は失敗続き</b>：レコードのノイズやヒップホップのドラムを足し、「少し不安げ」をホラーに変えてしまう。今は、具体的な楽器とテンポを1文で指定している</li>
@@ -133,7 +144,7 @@ description: 生活シミュレーションゲームのために、AIで生成�
         </details>
       </article>
 
-      <article id="ship" class="chapter">
+      <article id="ship" class="chapter case-chapter">
         <h3>4 · デモ用ではなく、ゲームに載せるために</h3>
         <ul class="facts-list">
           <li><b>すべての生成結果を検証</b>してから試聴へ：シード、プロンプト、設定、実際の長さ、形式。95件のジョブを記録</li>
@@ -151,8 +162,8 @@ description: 生活シミュレーションゲームのために、AIで生成�
     </section>
 
     <!-- ============ LISTEN ============ -->
-    <section id="demo" class="block">
-      <div class="block-head"><span class="eyebrow">聴く</span><h2>基準曲、お気に入り、そして同じ説明文から生まれた3テイク</h2></div>
+    <section id="demo" class="block case-section">
+      <div class="block-head" data-motion-reveal><span class="eyebrow">聴く</span><h2>基準曲、お気に入り、そして同じ説明文から生まれた3テイク</h2></div>
       <p class="lede">新しいバッチは、白紙のプロンプトからは始めませんでした。各ジョブは、私がすでに承認した曲の生成設定をまるごと再利用しています。最初は下の夜のジャズ、のちに私がComfyUIで自作した朝の曲です。変えたのは説明文だけです。</p>
 
       <div class="players">
@@ -179,7 +190,7 @@ description: 生活シミュレーションゲームのために、AIで生成�
 
       <div class="stack">
         <h3>{{f:music.tracks}}曲が流れる場面</h3>
-        <div class="table-scroll">
+        <div class="table-scroll case-table">
           <table class="plain">
             <tbody>
               <tr><th scope="row">家・昼</th><td>朝 · 週末にソファでブランチ · 家事 · 午後の読書 · 一緒に料理と夕食</td></tr>
@@ -197,22 +208,26 @@ description: 生活シミュレーションゲームのために、AIで生成�
     </section>
 
     <!-- ============ STATUS ============ -->
-    <section id="status" class="block">
-      <div class="block-head"><span class="eyebrow">現状と制約</span><h2>できていること、証明できたこと、まだのこと</h2></div>
-      <div class="ledger">
+    <section id="status" class="block case-section">
+      <div class="block-head" data-motion-reveal><span class="eyebrow">現状と制約</span><h2>できていること、証明できたこと、まだのこと</h2></div>
+      <div class="ledger case-ledger">
         <div class="done"><h3>できていること</h3><ul><li>生成ごとのチェックつきバッチ実行ツール</li><li>選別スクリプト、ドラム除去、ラウドネス調整ツール</li><li>感想を記録できる試聴ページ</li></ul></div>
         <div class="verified"><h3>検証済み</h3><ul><li>{{f:music.tracks}}曲を承認し、ゲームに組み込み（<span class="date">2026-09-15</span>）</li><li>ラウドネスの目標を達成。静かな6曲はリミッターをかけず、目標をわずかに下回ったまま</li><li>選別スクリプトを{{f:music.rated}}件の評価と照合：選別の関門としては機能しない（<span class="date">2026-09-22</span>）</li></ul></div>
         <div class="notyet"><h3>制約と次のステップ</h3><ul><li>数値は不満の理由を説明できても、好みは予測できない</li><li>モデルは小節単位の構成に従えない。曲は作曲したのではなく、選んだもの</li><li>音楽と環境音の個別スライダー：仕様はあるが、未実装</li></ul></div>
       </div>
     </section>
 
-    <section class="next">
-      <span class="eyebrow">次へ</span>
-      <div class="btn-row">
-        <a class="btn btn-primary" href="{{link:/work/heart-apartment/}}">次へ：この音楽が作られたゲーム →</a>
-        <a class="btn btn-quiet" href="{{link:/work/ai-image/}}">← AI画像</a>
-      </div>
-    </section>
+    <nav class="case-pagination" aria-label="ほかのプロジェクトへ">
+      <a class="case-prev" data-case-prev href="{{link:/work/ai-image/}}">
+        <span class="eyebrow"><span aria-hidden="true">←</span> 前のケース</span>
+        <span class="case-nav-title">AI画像</span>
+      </a>
+      <a class="case-next" data-case-next href="{{link:/work/heart-apartment/}}">
+        <span class="eyebrow">次のケース <span aria-hidden="true">→</span></span>
+        <span class="case-nav-title">Heart Apartment</span>
+      </a>
+      <div class="case-pagination-footer"><a href="{{link:/projects/}}">プロジェクト一覧 <span aria-hidden="true">↗</span></a></div>
+    </nav>
   </div>
 </main>
 

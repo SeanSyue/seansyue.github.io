@@ -3,24 +3,34 @@ description: Ten days and six rounds of local experiments turned “make it look
 ---
 
 
-<main>
+<main class="case-page case-ai-image">
   <div class="wrap">
-    <p class="crumbs"><a href="/#work">Projects</a> → AI image</p>
-    <section class="proj-head">
-      <span class="eyebrow">AI media workflows · Image</span>
-      <h1>Deciding what “right” looks like</h1>
-      <p class="lede">Six rounds of local experiments turned “make it look good” — which no model can act on — into a written specification precise enough that the final render came back right the first time.</p>
-      <dl class="facts">
+    <p class="crumbs"><a href="{{link:/projects/}}">All projects</a> → AI image</p>
+    <section class="proj-head case-hero">
+      <div class="case-kicker"><span class="eyebrow">AI media workflows · Image</span><span class="case-project-name">AI image</span></div>
+      <div class="case-title-block" data-motion-reveal>
+        <h1>Deciding what “right” looks like</h1>
+        <div class="case-intro"><p class="lede">Six rounds of local experiments turned “make it look good” — which no model can act on — into a written specification precise enough that the final render came back right the first time.</p></div>
+      </div>
+      <div class="case-stage case-stage-ai-image" data-motion-reveal>
+        <div class="portraits">
+        <figure><img src="/assets/img/ai-image/resident-c.jpg" width="750" height="1000" alt="Resident C: honey-blonde side braid with a dark-green ribbon, cream oversized cardigan over a moss-green pinafore, standing with one hand at her braid."><figcaption class="muted">Resident C</figcaption></figure>
+        <figure><img src="/assets/img/ai-image/resident-d.jpg" width="750" height="1000" alt="Resident D: lavender-grey long hair, cream blouse with a blue sash bow and a long purple floral-hem skirt, standing with one hand touching her hair."><figcaption class="muted">Resident D</figcaption></figure>
+      </div>
+      </div>
+      <div class="case-context" data-motion-reveal>
+        <div class="case-brief case-dossier">
+<div class="case-challenge"><span class="eyebrow">Challenge</span><p>Changing a character's pose or proportions can also change their identity. A high similarity score can miss the wrong hair or clothing colour.</p></div>
+<div class="case-contribution"><span class="eyebrow">My contribution</span><p>I directed the experiments, specified identity and proportions, and set acceptance criteria from the results. Image models generated the artwork; the final illustrations used a hosted model.</p></div>
+<div class="case-evidence"><span class="eyebrow">Evidence</span><p>Read the <a href="#rounds">experiment findings</a>, the <a href="#spec">four-part character specification</a>, and the <a href="#check">palette check and its limits</a>.</p></div>
+</div>
+        <aside class="case-meta"><dl class="facts">
         <div><dt>Type</dt><dd>Specification through experiment</dd></div>
         <div><dt>Status</dt><dd><span class="status works">Characters delivered</span></dd></div>
         <div><dt>When</dt><dd>09/2026, six rounds over ten days</dd></div>
         <div><dt>My role</dt><dd>Experiments, specification, acceptance</dd></div>
         <div><dt>Tools</dt><dd>Local ComfyUI · Python · a hosted model for the final render</dd></div>
-      </dl>
-      <div class="case-brief">
-        <div><span class="eyebrow">Challenge</span><p>Changing a character's pose or proportions can also change their identity. A high similarity score can miss the wrong hair or clothing colour.</p></div>
-        <div><span class="eyebrow">My contribution</span><p>I directed the experiments, specified identity and proportions, and set acceptance criteria from the results. Image models generated the artwork; the final illustrations used a hosted model.</p></div>
-        <div><span class="eyebrow">Evidence</span><p>Read the <a href="#rounds">experiment findings</a>, the <a href="#spec">four-part character specification</a>, and the <a href="#check">palette check and its limits</a>.</p></div>
+      </dl></aside>
       </div>
       <div class="case-capabilities">
         <span class="eyebrow">Related capabilities</span>
@@ -28,11 +38,7 @@ description: Ten days and six rounds of local experiments turned “make it look
         <a href="{{link:/}}#cap-quality">Verification &amp; quality judgment</a>
         <a href="{{link:/}}#cap-integration">AI applications &amp; workflow integration</a>
       </div>
-      <div class="portraits">
-        <figure><img src="/assets/img/ai-image/resident-c.jpg" width="750" height="1000" alt="Resident C: honey-blonde side braid with a dark-green ribbon, cream oversized cardigan over a moss-green pinafore, standing with one hand at her braid."><figcaption class="muted">Resident C</figcaption></figure>
-        <figure><img src="/assets/img/ai-image/resident-d.jpg" width="750" height="1000" alt="Resident D: lavender-grey long hair, cream blouse with a blue sash bow and a long purple floral-hem skirt, standing with one hand touching her hair."><figcaption class="muted">Resident D</figcaption></figure>
-      </div>
-      <p class="note-band">The two finished illustrations were rendered by a hosted frontier image model. What the local work produced is the <b>specification</b> — the exact wording, proportions, materials and failure modes the render was given — and the measurements behind it.</p>
+      <div class="case-hero-tail"><p class="note-band">The two finished illustrations were rendered by a hosted frontier image model. What the local work produced is the <b>specification</b> — the exact wording, proportions, materials and failure modes the render was given — and the measurements behind it.</p></div>
     </section>
   </div>
 
@@ -48,9 +54,9 @@ description: Ten days and six rounds of local experiments turned “make it look
   <div class="wrap">
 
     <!-- ============ ROUNDS ============ -->
-    <section id="rounds" class="block">
-      <div class="block-head"><span class="eyebrow">The rounds</span><h2>Six experiments, one variable each</h2></div>
-      <div class="table-scroll">
+    <section id="rounds" class="block case-section">
+      <div class="block-head" data-motion-reveal><span class="eyebrow">The rounds</span><h2>Six experiments, one variable each</h2></div>
+      <div class="table-scroll case-table">
         <table class="plain">
           <thead><tr><th>#</th><th>Question</th><th>Answer</th><th>Into the spec</th></tr></thead>
           <tbody>
@@ -76,9 +82,9 @@ description: Ten days and six rounds of local experiments turned “make it look
     </section>
 
     <!-- ============ SPEC ============ -->
-    <section id="spec" class="block">
-      <div class="block-head"><span class="eyebrow">The specification</span><h2>Four blocks, so only one changes at a time</h2></div>
-      <div class="cards">
+    <section id="spec" class="block case-section">
+      <div class="block-head" data-motion-reveal><span class="eyebrow">The specification</span><h2>Four blocks, so only one changes at a time</h2></div>
+      <div class="cards case-cards">
         <div class="card"><span class="num">01</span><h3>Identity — exact</h3><p>Every defining element named: hairstyle and its ribbon, eye colour, each garment's cut, colour and details. Anything vague gets redrawn next time.</p></div>
         <div class="card"><span class="num">02</span><h3>Proportions — structure</h3><p>Seven to seven and a half heads; small head, long legs, defined waist; adult jaw, eyes at natural size. Not chibi, not fashion-elongated.</p></div>
         <div class="card"><span class="num">03</span><h3>Pose — one sentence</h3><p>Relaxed three-quarter stance, weight on one leg, one hand at her hair. Everything else stays byte-identical between poses.</p></div>
@@ -88,8 +94,8 @@ description: Ten days and six rounds of local experiments turned “make it look
     </section>
 
     <!-- ============ CHECK ============ -->
-    <section id="check" class="block">
-      <div class="block-head"><span class="eyebrow">The check that survived</span><h2>The score that couldn't see the error, and the one that could</h2></div>
+    <section id="check" class="block case-section">
+      <div class="block-head" data-motion-reveal><span class="eyebrow">The check that survived</span><h2>The score that couldn't see the error, and the one that could</h2></div>
       <div class="two">
         <div class="bars" role="img" aria-label="Palette distance: same character 3.8 to 6.6; different character 19.0 to 20.3.">
           <div class="bar-row"><span>Same character<small>palette distance</small></span><div class="bar-track"><div class="bar-fill" style="width: 28%;"></div></div><b>{{f:image.same_character}}</b></div>
@@ -106,22 +112,26 @@ description: Ten days and six rounds of local experiments turned “make it look
     </section>
 
     <!-- ============ STATUS ============ -->
-    <section id="status" class="block">
-      <div class="block-head"><span class="eyebrow">Status &amp; limits</span><h2>What exists, what's measured, what isn't claimed</h2></div>
-      <div class="ledger">
+    <section id="status" class="block case-section">
+      <div class="block-head" data-motion-reveal><span class="eyebrow">Status &amp; limits</span><h2>What exists, what's measured, what isn't claimed</h2></div>
+      <div class="ledger case-ledger">
         <div class="done"><h3>Built</h3><ul><li>A four-block character specification that reproduces the same character across poses</li><li>A palette check that flags design drift automatically</li><li>Six recorded rounds, one variable each, with parameters and conclusions</li></ul></div>
         <div class="verified"><h3>Measured</h3><ul><li>Denoise thresholds per image type (0.45 painted, 0.60 flat)</li><li>Encoder similarity ceiling: 0.98–0.996</li><li>Palette distance: {{f:image.same_character}} same character vs {{f:image.other_character}} different character</li></ul></div>
         <div class="notyet"><h3>Not claimed</h3><ul><li>The final illustrations were not rendered locally</li><li>The palette check is unusable on busy scene art</li><li>No public repo — the scripts stay private</li></ul></div>
       </div>
     </section>
 
-    <section class="next">
-      <span class="eyebrow">Next</span>
-      <div class="btn-row">
-        <a class="btn btn-primary" href="/work/ai-music/">Next project: AI music →</a>
-        <a class="btn btn-quiet" href="/work/tetherlock/">← Tetherlock</a>
-      </div>
-    </section>
+    <nav class="case-pagination" aria-label="Explore more projects">
+      <a class="case-prev" data-case-prev href="{{link:/work/tetherlock/}}">
+        <span class="eyebrow"><span aria-hidden="true">←</span> Previous case</span>
+        <span class="case-nav-title">Tetherlock</span>
+      </a>
+      <a class="case-next" data-case-next href="{{link:/work/ai-music/}}">
+        <span class="eyebrow">Next case <span aria-hidden="true">→</span></span>
+        <span class="case-nav-title">AI music</span>
+      </a>
+      <div class="case-pagination-footer"><a href="{{link:/projects/}}">All projects <span aria-hidden="true">↗</span></a></div>
+    </nav>
   </div>
 </main>
 

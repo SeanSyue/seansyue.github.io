@@ -32,5 +32,12 @@
   "lang.aria": "言語",
   "scroll.hint": "横にスワイプすると図の全体が見られます。",
   "nav.skip": "本文へ移動",
-  "nav.capabilities": "強み"
+  "nav.capabilities": "強み",
+  "motion.reduce": "動きを減らす",
+  "motion.reduced": "動きを軽減中",
+  "motion.skip": "紹介をスキップ",
+  "motion.replay": "紹介を再生",
+  "projects.all": "すべての作品",
+  "projects.explore": "作品を見る",
+  "projects.selected": "代表作品"
 }

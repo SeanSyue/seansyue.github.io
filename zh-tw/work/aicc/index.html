@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-Hant-TW" data-theme="dark">
+<html lang="zh-Hant-TW" data-theme="dark" data-design="motion03">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,8 +12,13 @@
 <link rel="alternate" hreflang="x-default" href="https://seansyue.github.io/work/aicc/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;family=Public+Sans:wght@400;500;600&amp;family=Zen+Maru+Gothic:wght@500;700&amp;family=Noto+Sans+TC:wght@400;500;700&amp;family=Noto+Serif+TC:wght@500;600&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/site.css?v=20261007e">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;family=Public+Sans:wght@400;500;600&amp;family=Zen+Maru+Gothic:wght@500;700&amp;family=Noto+Sans+TC:wght@400;500;700&amp;family=Noto+Serif+TC:wght@500;600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/site.css?v=20261007i">
+
+<link rel="stylesheet" href="/assets/css/experience.css?v=20261007i">
+<link rel="stylesheet" href="/assets/css/projects.css?v=20261007i">
+<link rel="stylesheet" href="/assets/css/cases.css?v=20261007i">
+<link rel="stylesheet" href="/assets/css/profile.css?v=20261007i">
 <script>document.documentElement.classList.add("js");try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"dark"}catch(e){document.documentElement.dataset.theme="dark"}</script>
 </head>
 <body>
@@ -24,25 +29,13 @@
     <a class="brand" href="/zh-tw/">Sean Syue</a>
     <nav class="nav" aria-label="主選單">
       <a href="/zh-tw/#capabilities">核心能力</a>
-      <span class="nav-item">
-        <a href="/zh-tw/#work" aria-current="page">作品</a>
-        <span class="nav-menu">
-          <span class="nav-group">AI工作流與治理</span>
-          <a href="/zh-tw/work/aicc/">AI Control Center<small>桌面應用程式 · AI 代理</small></a>
-          <a href="/zh-tw/work/negative-control/">negative-control<small>測試工具</small></a>
-          <a href="/zh-tw/work/tetherlock/">Tetherlock<small>安全設計研究</small></a>
-          <span class="nav-group">AI 圖影音工作流程</span>
-          <a href="/zh-tw/work/ai-image/">AI 圖像<small>角色規格</small></a>
-          <a href="/zh-tw/work/ai-music/">AI 音樂<small>76 首遊戲配樂</small></a>
-          <span class="nav-group">AI 遊戲</span>
-          <a href="/zh-tw/work/heart-apartment/">心動公寓<small>生活模擬遊戲</small></a>
-        </span>
-      </span>
+      <a href="/zh-tw/projects/" aria-current="page">作品</a>
       <a href="/zh-tw/about/">關於我</a>
       <a href="/zh-tw/resume/">履歷</a>
       <a href="/zh-tw/#contact">聯絡</a>
     </nav>
       <details class="lang-switch"><summary aria-label="語言"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 3 2.6 15 0 18M12 3c-2.6 3-2.6 15 0 18"/></svg><span>中文</span></summary><div class="lang-menu"><a href="/work/aicc/" hreflang="en" lang="en">English</a><a href="/zh-tw/work/aicc/" hreflang="zh-TW" lang="zh-Hant-TW" aria-current="true">繁體中文</a><a href="/ja/work/aicc/" hreflang="ja" lang="ja">日本語</a></div></details>
+      <button type="button" class="motion-toggle" id="motion-toggle" aria-pressed="false" data-reduce-label="減少動態" data-reduced-label="動態已減少">減少動態</button>
       <button class="theme-toggle" type="button" id="theme-toggle" aria-label="切換深色與淺色" title="深色／淺色" data-to-day="切換成淺色" data-to-night="切換成深色">
         <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.2 5.2l1.4 1.4M17.4 17.4l1.4 1.4M18.8 5.2l-1.4 1.4M6.6 17.4l-1.4 1.4"/></svg>
         <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.2A8.2 8.2 0 0 1 9.8 4a8.4 8.4 0 1 0 10.2 10.2z"/></svg>
@@ -51,25 +44,52 @@
 </header>
 
 
-<main id="main-content" tabindex="-1">
+<main id="main-content" tabindex="-1" class="case-page case-aicc">
   <div class="wrap">
-    <p class="crumbs"><a href="/zh-tw/#work">作品</a> → AI Control Center</p>
-    <section class="proj-head">
-      <span class="eyebrow">AI工作流與治理 · 桌面應用程式</span>
-      <h1>做完了，<span class="keep">不代表做對了。</span></h1>
-      <p class="lede">AI Control Center 是一套 Windows 應用程式，用明確的角色分工、驗證步驟和人工核准，協調多個 AI 寫程式代理。它要求 AI 拿出證據：每一步都留下紀錄，綁在它檢查的那個版本上；連測試本身，也要靠故意改壞程式，證明它抓得到錯。</p>
-      <dl class="facts">
+    <p class="crumbs"><a href="/zh-tw/projects/">作品總覽</a> → AI Control Center</p>
+    <section class="proj-head case-hero">
+      <div class="case-kicker"><span class="eyebrow">AI工作流與治理 · 桌面應用程式</span><span class="case-project-name">AI Control Center</span></div>
+      <div class="case-title-block" data-motion-reveal>
+        <h1>做完了，<span class="keep">不代表做對了。</span></h1>
+        <div class="case-intro"><p class="lede">AI Control Center 是一套 Windows 應用程式，用明確的角色分工、驗證步驟和人工核准，協調多個 AI 寫程式代理。它要求 AI 拿出證據：每一步都留下紀錄，綁在它檢查的那個版本上；連測試本身，也要靠故意改壞程式，證明它抓得到錯。</p></div>
+      </div>
+      <div class="case-stage case-stage-aicc" data-motion-reveal>
+        <figure class="case-blueprint" data-diagram-motion>
+<div class="case-blueprint-label">設計示意 · 非產品截圖</div>
+<div class="case-blueprint-scroll" tabindex="0" role="region" aria-label="左右滑動可以看到整張圖。">
+<svg viewBox="0 0 1000 390" role="img" aria-label="工作流程的設計示意。驗證由指令執行，核准由人決定。">
+<g class="case-diagram-step"><rect x="24" y="76" width="168" height="108" rx="20"/><text x="42" y="117" class="case-diagram-title">標準</text><text x="42" y="149" class="case-diagram-sub">訂定驗收標準</text></g>
+<path class="case-wire" d="M192 130 H215 m-7 -7 7 7 -7 7"/>
+<g class="case-diagram-step"><rect x="220" y="76" width="168" height="108" rx="20"/><text x="238" y="117" class="case-diagram-title">實作</text><text x="238" y="149" class="case-diagram-sub">完成工作</text></g>
+<path class="case-wire" d="M388 130 H411 m-7 -7 7 7 -7 7"/>
+<g class="case-diagram-step"><rect x="416" y="76" width="168" height="108" rx="20"/><text x="434" y="117" class="case-diagram-title">驗證</text><text x="434" y="149" class="case-diagram-sub">執行檢查指令</text></g>
+<path class="case-wire" d="M584 130 H607 m-7 -7 7 7 -7 7"/>
+<g class="case-diagram-step"><rect x="612" y="76" width="168" height="108" rx="20"/><text x="630" y="117" class="case-diagram-title">審查</text><text x="630" y="149" class="case-diagram-sub">閱讀證據</text></g>
+<path class="case-wire" d="M780 130 H803 m-7 -7 7 7 -7 7"/>
+<g class="case-diagram-step"><rect x="808" y="76" width="168" height="108" rx="20"/><text x="826" y="117" class="case-diagram-title">你決定</text><text x="826" y="149" class="case-diagram-sub">人工核准</text></g>
+<path class="case-wire" d="M108 184 V222 H892 V184 M500 222 V248"/>
+<rect class="case-diagram-record" x="140" y="250" width="720" height="76" rx="20"/>
+<text x="500" y="296" text-anchor="middle" class="case-diagram-title">工作成果 ＋ 證據 ＋ 所檢查的版本</text>
+<text x="500" y="361" text-anchor="middle" class="case-diagram-sub">核准只適用於它檢查過的版本。</text>
+</svg></div>
+<p class="case-swipe">左右滑動可以看到整張圖。</p>
+<figcaption>工作流程的設計示意。驗證由指令執行，核准由人決定。</figcaption>
+</figure>
+      </div>
+      <div class="case-context" data-motion-reveal>
+        <div class="case-brief case-dossier">
+<div class="case-challenge"><span class="eyebrow">挑戰</span><p>一個人協調多個 AI 寫程式代理時，需要知道誰檢查過、檢查的是哪個版本，以及測試是否真的抓得到錯。</p></div>
+<div class="case-contribution"><span class="eyebrow">我的貢獻</span><p>我定義產品規則與架構，在實作前審閱設計，並透過實際使用檢查成果；程式由 AI 寫程式代理實作。</p></div>
+<div class="case-evidence"><span class="eyebrow">證據入口</span><p>從<a href="#evidence">證據綁定版本的流程圖</a>與<a href="#negative">故意改壞程式的驗證流程</a>開始。本頁提供設計示意與<a href="#status">附日期的審查結果及限制</a>，沒有產品操作 Demo。</p></div>
+</div>
+        <aside class="case-meta"><dl class="facts">
         <div><dt>類型</dt><dd>獨立產品</dd></div>
         <div><dt>狀態</dt><dd><span class="status dev">開發中 · v0.9.4-dev</span></dd></div>
         <div><dt>更新</dt><dd>2026-09</dd></div>
         <div><dt>我負責的部分</dt><dd>產品規則、架構、驗證</dd></div>
         <div><dt>技術</dt><dd>Python · PySide6 · pytest · Inno Setup</dd></div>
         <div><dt>原始碼</dt><dd><a href="https://github.com/SeanSyue/ai-control-center">GitHub · MIT</a></dd></div>
-      </dl>
-      <div class="case-brief">
-        <div><span class="eyebrow">挑戰</span><p>一個人協調多個 AI 寫程式代理時，需要知道誰檢查過、檢查的是哪個版本，以及測試是否真的抓得到錯。</p></div>
-        <div><span class="eyebrow">我的貢獻</span><p>我定義產品規則與架構，在實作前審閱設計，並透過實際使用檢查成果；程式由 AI 寫程式代理實作。</p></div>
-        <div><span class="eyebrow">證據入口</span><p>從<a href="#evidence">證據綁定版本的流程圖</a>與<a href="#negative">故意改壞程式的驗證流程</a>開始。本頁提供設計示意與<a href="#status">附日期的審查結果及限制</a>，沒有產品操作 Demo。</p></div>
+      </dl></aside>
       </div>
       <div class="case-capabilities">
         <span class="eyebrow">相關能力</span>
@@ -77,12 +97,12 @@
         <a href="/zh-tw/#cap-integration">AI應用與流程整合</a>
         <a href="/zh-tw/#cap-quality">驗證設計與品質判斷</a>
       </div>
-      <div class="numbers">
+      <div class="case-hero-tail"><div class="numbers case-numbers">
         <div><b>30 → 0</b><span>一次全面掃描找到的假綠燈，已全部清除 · 2026 年 8 月 24–27 日</span></div>
         <div><b>868</b><span>筆有紀錄的故意破壞，分布在 115 個配方檔</span></div>
         <div><b>2,200</b><span>條測試通過（共 2,219 條），AI 協助的發布前審查，0 條跳過 · <span class="date">2026-09-24</span></span></div>
         <div><b>3</b><span>種結果，不是兩種：通過 · 失敗 · 無法驗證</span></div>
-      </div>
+      </div></div>
     </section>
   </div>
 
@@ -102,14 +122,14 @@
   <div class="wrap">
 
     <!-- ============ THE GAP ============ -->
-    <section id="problem" class="block">
-      <div class="block-head"><span class="eyebrow">落差</span><h2>在報告上，「做完了」和「做對了」看起來一模一樣</h2></div>
+    <section id="problem" class="block case-section">
+      <div class="block-head" data-motion-reveal><span class="eyebrow">落差</span><h2>在報告上，「做完了」和「做對了」看起來一模一樣</h2></div>
       <div class="two">
         <div class="stack">
           <p class="lede">AI 代理很擅長把看得見的任務做完。一個永遠會通過的測試、一個算出來推到畫面上卻沒有人讀的數值、一個蓋在已經改過的版本上的審查——這些全都顯示綠燈。這個專案一次掃描就找到 <b>30 個</b>。</p>
           <p class="lede">所以整個產品圍繞著一個問題：<b>要怎樣才能真的確定？</b></p>
         </div>
-        <div class="table-scroll">
+        <div class="table-scroll case-table">
           <table class="plain compare">
             <thead><tr><th>要避免的風險</th><th>AICC 的做法</th></tr></thead>
             <tbody>
@@ -125,9 +145,9 @@
     </section>
 
     <!-- ============ EVIDENCE ============ -->
-    <section id="evidence" class="block">
-      <div class="block-head"><span class="eyebrow">綁定版本的證據</span><h2>一筆確認紀錄的價值，取決於它確認的是哪個版本</h2></div>
-      <figure style="--diagram-min: 900px" class="diagram wide">
+    <section id="evidence" class="block case-section">
+      <div class="block-head" data-motion-reveal><span class="eyebrow">綁定版本的證據</span><h2>一筆確認紀錄的價值，取決於它確認的是哪個版本</h2></div>
+      <figure style="--diagram-min: 900px" class="diagram wide case-media" data-motion-reveal data-diagram-motion>
         <svg viewBox="0 0 900 300" role="img" aria-label="三筆確認紀錄——驗證、審查、核准——都在內容版本 A 上。內容改成版本 B 之後，A 上的紀錄失效，工作回到審查。機器的確認沒有證據就不能成立；審查的確認不能附帶結果。">
           <defs><marker id="ahe" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--ink-3)"/></marker></defs>
           <g class="d-box"><rect x="30" y="40" width="360" height="150" rx="14"/><text x="50" y="68" class="d-t">內容 · 版本 A</text><text x="50" y="90" class="d-s">指紋 7f3a…</text></g>
@@ -157,10 +177,10 @@
     </section>
 
     <!-- ============ NEGATIVE CONTROL ============ -->
-    <section id="negative" class="block">
-      <div class="block-head"><span class="eyebrow">被測試的測試</span><h2>綠燈要先被變紅過，才算數</h2></div>
-      <div class="two wide-left">
-        <figure style="--diagram-min: 560px" class="diagram">
+    <section id="negative" class="block case-section">
+      <div class="block-head" data-motion-reveal><span class="eyebrow">被測試的測試</span><h2>綠燈要先被變紅過，才算數</h2></div>
+      <div class="two wide-left case-evidence-layout">
+        <figure style="--diagram-min: 560px" class="diagram case-media" data-motion-reveal data-diagram-motion>
           <svg viewBox="0 0 560 210" role="img" aria-label="負向驗證的循環：測試通過；故意改壞一行程式；跑測試，必須失敗；從副本還原並確認還原成功，這時綠燈才算數。改壞了還是通過，代表測試什麼都沒抓到；沒跑起來，結果就是未知。">
             <defs><marker id="ahn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--ink-3)"/></marker></defs>
             <rect x="20" y="30" width="96" height="40" rx="8" class="d-green"/><text x="68" y="55" text-anchor="middle" class="d-tag">通過</text>
@@ -191,10 +211,10 @@
     </section>
 
     <!-- ============ DUTIES ============ -->
-    <section id="duties" class="block">
-      <div class="block-head"><span class="eyebrow">職責分立</span><h2>做事的角色，永遠不訂驗收標準</h2></div>
+    <section id="duties" class="block case-section">
+      <div class="block-head" data-motion-reveal><span class="eyebrow">職責分立</span><h2>做事的角色，永遠不訂驗收標準</h2></div>
       <div class="two">
-        <div class="table-scroll">
+        <div class="table-scroll case-table">
           <table class="plain matrix" aria-label="每種職責能做什麼">
             <thead><tr><th>職責</th><th>讀取</th><th>寫入檔案</th><th>訂驗收標準</th><th>核准</th></tr></thead>
             <tbody>
@@ -218,8 +238,8 @@
     </section>
 
     <!-- ============ STOPS FOR YOUR CALL ============ -->
-    <section id="decide" class="block">
-      <div class="block-head"><span class="eyebrow">該你決定時才停</span><h2>大多數工具賣的是更自動。這一個是設計來停下來的。</h2></div>
+    <section id="decide" class="block case-section">
+      <div class="block-head" data-motion-reveal><span class="eyebrow">該你決定時才停</span><h2>大多數工具賣的是更自動。這一個是設計來停下來的。</h2></div>
       <div class="flow" aria-label="AI 一直工作，直到遇到只有你能決定的事；這次執行在你的待決清單裡等；你做決定；接著繼續，你的決定留下紀錄。">
         <span>AI 工作</span><i>→</i>
         <span>遇到只有你能決定的事</span><i>→</i>
@@ -227,7 +247,7 @@
         <span>你決定</span><i>→</i>
         <span>繼續進行，你的決定留下紀錄</span>
       </div>
-      <div class="cards">
+      <div class="cards case-cards">
         <div class="card"><h3>權力不會預設發出去</h3><p>會給出權力的職責絕不自動指派。你沒有安排，引擎就不會替你挑一個。</p></div>
         <div class="card"><h3>「無法驗證」不等於「壞了」</h3><p>沒有宣告檢查方式的任務，會被標成無法驗證。它不算失敗，所以不會派代理去修沒壞的東西。</p></div>
         <div class="card"><h3>你的核准推翻不了檢查結果</h3><p>機器檢查沒過，你按下核准也不會讓它變成通過。核准者只能讀，不能改寫結果。</p></div>
@@ -237,10 +257,10 @@
     <!-- Product screenshots go here once clean captures exist (fake project name, no local paths). -->
 
     <!-- ============ GRAPH ============ -->
-    <section id="graph" class="block">
-      <div class="block-head"><span class="eyebrow">五層</span><h2>它是一張圖——而每個節點裡，仍然有那四層</h2></div>
-      <div class="two wide-left">
-        <figure style="--diagram-min: 640px" class="diagram">
+    <section id="graph" class="block case-section">
+      <div class="block-head" data-motion-reveal><span class="eyebrow">五層</span><h2>它是一張圖——而每個節點裡，仍然有那四層</h2></div>
+      <div class="two wide-left case-evidence-layout">
+        <figure style="--diagram-min: 640px" class="diagram case-media" data-motion-reveal data-diagram-motion>
           <svg viewBox="0 0 640 330" role="img" aria-label="五層由內而外：中間是一次 AI 呼叫，外面依序包著 prompt、context、harness、loop，最外層是 graph。右邊是一張小圖：其中一個節點打開來，裡面同樣有四層；另一個節點有自己的迴圈。">
             <defs><marker id="ahg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--ink-3)"/></marker></defs>
             <g class="d-ring"><rect x="16" y="16" width="300" height="298" rx="20"/><text x="34" y="42" class="d-t">Graph</text><text x="34" y="60" class="d-s">誰做什麼 · 怎麼交接 · 在哪裡檢查</text></g>
@@ -265,7 +285,7 @@
           <p class="lede">Prompt、context、harness、loop、graph——這五層，現在常被統稱為 graph engineering。它們不是彼此取代的階段；AICC 的每一次執行同時用到五層，修復迴圈就在單一節點裡面。</p>
           <details class="more">
             <summary>每一層在程式裡的位置</summary>
-            <div class="table-scroll"><table class="plain">
+            <div class="table-scroll case-table"><table class="plain">
               <tbody>
                 <tr><th scope="row">Prompt</th><td>要做什麼、限制、成功標準、回傳格式——<code>prompt_builder</code></td></tr>
                 <tr><th scope="row">Context</th><td>這一步剛好需要的內容：每種職責只收到自己的規則層，加上共用的專案記憶</td></tr>
@@ -280,9 +300,9 @@
     </section>
 
     <!-- ============ NOT ============ -->
-    <section id="not" class="block">
-      <div class="block-head"><span class="eyebrow">它不做的事</span><h2>三件事，直說</h2></div>
-      <div class="cards">
+    <section id="not" class="block case-section">
+      <div class="block-head" data-motion-reveal><span class="eyebrow">它不做的事</span><h2>三件事，直說</h2></div>
+      <div class="cards case-cards">
         <div class="card"><span class="num">01</span><h3>不拿你沒交給它的東西</h3><p>你的 Claude 或 Codex 登入不經過 AICC——它只會打開廠商自己的登入畫面，不讀瀏覽器或其他程式的快取。憑證模組裡只要出現任何新的收下 API key 的方式，就會有測試失敗。</p></div>
         <div class="card"><span class="num">02</span><h3>不轉賣模型</h3><p>你用自己的 Claude 和 Codex 帳號，受它們各自的用量限制。AICC 不在你付給它們的費用上加價。</p></div>
         <div class="card"><span class="num">03</span><h3>沒有自己的伺服器</h3><p>不用帳號、不用註冊，也沒有 AICC 的伺服器。專案紀錄是你資料夾裡的純文字檔，AICC 本身就是它管理的第一個專案。提示詞確實會經由 Claude 或 Codex 自己的命令列工具送出；可選的 LINE 和 Google Drive 功能，也有各自的資料路徑。</p></div>
@@ -290,9 +310,9 @@
     </section>
 
     <!-- ============ STATUS ============ -->
-    <section id="status" class="block">
-      <div class="block-head"><span class="eyebrow">現況與限制</span><h2>有什麼、證明了什麼、還沒有什麼</h2></div>
-      <div class="ledger">
+    <section id="status" class="block case-section">
+      <div class="block-head" data-motion-reveal><span class="eyebrow">現況與限制</span><h2>有什麼、證明了什麼、還沒有什麼</h2></div>
+      <div class="ledger case-ledger">
         <div class="done"><h3>已完成</h3><ul><li>Windows 桌面應用程式；早期版本在 Windows 上實際安裝、啟動、解除安裝過兩次</li><li>職責綁定權限的角色、確認紀錄鏈、時間軸、可匯出的決策紀錄</li><li>一個人同時管理多個並行專案</li></ul></div>
         <div class="verified"><h3>已驗證</h3><ul><li>AI 協助的發布前審查跑了 2,219 條測試：2,200 條通過、19 條失敗、0 條跳過；每一條失敗在 repo 裡都有說明</li><li>同一次審查跑了 853 筆故意破壞，沒抓到的也一併公開</li><li>找到 30 個假綠燈，並清到 0（2026 年 8 月 24–27 日）</li></ul></div>
         <div class="notyet"><h3>下一步</h3><ul><li>下一個測試版的擁有者驗收</li><li>公開的 repo 只放原始碼；目前的安裝程式還需要完整的升級測試。已知限制列在 <a href="https://github.com/SeanSyue/ai-control-center/blob/main/SECURITY.md">SECURITY.md</a></li><li>原始碼在 <a href="https://github.com/SeanSyue/ai-control-center">GitHub</a>；負責改壞程式的工具也獨立成 <a href="/zh-tw/work/negative-control/">negative-control</a></li></ul></div>
@@ -300,17 +320,21 @@
       <p class="muted" style="font-size: 14px;">GitHub 上的 repo 與說明文件是英文。</p>
     </section>
 
-    <section class="next">
-      <span class="eyebrow">下一個</span>
-      <div class="btn-row">
-        <a class="btn btn-primary" href="/zh-tw/work/negative-control/">下一個作品：negative-control →</a>
-        <a class="btn btn-quiet" href="/zh-tw/#contact">聯絡我</a>
-      </div>
-    </section>
+    <nav class="case-pagination" aria-label="繼續探索作品">
+      <a class="case-prev" data-case-prev href="/zh-tw/work/heart-apartment/">
+        <span class="eyebrow"><span aria-hidden="true">←</span> 上一個案例</span>
+        <span class="case-nav-title">心動公寓</span>
+      </a>
+      <a class="case-next" data-case-next href="/zh-tw/work/negative-control/">
+        <span class="eyebrow">下一個案例 <span aria-hidden="true">→</span></span>
+        <span class="case-nav-title">negative-control</span>
+      </a>
+      <div class="case-pagination-footer"><a href="/zh-tw/projects/">作品總覽 <span aria-hidden="true">↗</span></a><a class="btn btn-quiet" href="/zh-tw/#contact">聯絡我</a></div>
+    </nav>
   </div>
 </main>
 
-<footer class="site-footer">
+<footer data-motion-reveal class="site-footer">
   <div class="wrap">
     <div class="btn-row">
       <a class="btn btn-quiet" href="https://www.linkedin.com/in/sean-syue-171a132b6">LinkedIn</a>
@@ -319,6 +343,7 @@
     <small>© 2026 Sean Syue</small>
   </div>
 </footer>
-<script src="/assets/js/site.js?v=20261007e"></script>
+<script src="/assets/js/site.js?v=20261007i"></script>
+<script type="module" src="/assets/js/experience.js?v=20261007i"></script>
 </body>
 </html>

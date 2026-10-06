@@ -29,6 +29,7 @@
 // A short introduction is an enhancement to the already readable home page.
 // Nothing is scroll-locked, and any intent to read immediately finishes it.
 (function () {
+  if (document.documentElement.dataset.design === 'motion03') return;
   var hero = document.querySelector('.personal-hero');
   if (!hero) return;
   var target = hero.querySelector('[data-intro-target]');
@@ -160,6 +161,7 @@
 (function () {
   var navs = document.querySelectorAll('.capability-nav, .section-nav');
   navs.forEach(function (nav) {
+    if (document.documentElement.dataset.design === 'motion03' && nav.matches('.capability-nav')) return;
     var links = Array.from(nav.querySelectorAll('a[href^="#"]'));
     var pairs = links.map(function (link) {
       return {link:link, section:document.getElementById(link.getAttribute('href').slice(1))};
@@ -195,6 +197,7 @@
     });
   }
 
+  if (document.documentElement.dataset.design === 'motion03') { document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('is-in');}); return; }
   var items = document.querySelectorAll('.reveal');
   if (reduce || !('IntersectionObserver' in window)) {
     items.forEach(function (el) { el.classList.add('is-in'); });

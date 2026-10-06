@@ -3,35 +3,42 @@ description: Tetherlock 只在允許的帳號、插入的隨身碟上簽過名�
 ---
 
 
-<main>
+<main class="case-page case-tetherlock">
   <div class="wrap">
-    <p class="crumbs"><a href="{{link:/}}#work">作品</a> → Tetherlock</p>
-    <section class="proj-head">
-      <span class="eyebrow">AI工作流與治理 · 安全設計研究</span>
-      <h1>Tetherlock</h1>
-      <p class="lede">一個保護本機工作區的存取控制元件。只有三件事同時成立，它才讓應用程式打開工作區：登入的人被允許進入、插入的隨身碟上有簽過名的 token、密碼正確。之後某一次檢查發現隨身碟不見了，它就通知應用程式把工作區鎖上。</p>
-      <dl class="facts">
+    <p class="crumbs"><a href="{{link:/projects/}}">作品總覽</a> → Tetherlock</p>
+    <section class="proj-head case-hero">
+      <div class="case-kicker"><span class="eyebrow">AI工作流與治理 · 安全設計研究</span><span class="case-project-name">Tetherlock</span></div>
+      <div class="case-title-block" data-motion-reveal>
+        <h1>Tetherlock</h1>
+        <div class="case-intro"><p class="lede">一個保護本機工作區的存取控制元件。只有三件事同時成立，它才讓應用程式打開工作區：登入的人被允許進入、插入的隨身碟上有簽過名的 token、密碼正確。之後某一次檢查發現隨身碟不見了，它就通知應用程式把工作區鎖上。</p></div>
+      </div>
+      <div class="case-stage case-stage-tetherlock" data-motion-reveal>
+        <figure class="diagram-img">
+        <a class="theme-img" href="/assets/img/tetherlock/00-overview-dark.zh-tw.svg" target="_blank" rel="noopener" aria-label="以原尺寸開啟這張圖"><img class="on-dark" src="/assets/img/tetherlock/00-overview-dark.zh-tw.svg" width="1200" height="440" alt="允許的帳號、簽過名的 USB 隨身碟和密碼三者同時成立，工作區才會打開；拔掉隨身碟就再次上鎖。"><img class="on-light" src="/assets/img/tetherlock/00-overview.zh-tw.svg" width="1200" height="440" alt="" loading="lazy"></a>
+        <figcaption>打開要三個條件，關上只要一個。</figcaption>
+        <p class="case-swipe">{{s:scroll.hint}}</p>
+      </figure>
+      </div>
+      <div class="case-context" data-motion-reveal>
+        <div class="case-brief case-dossier">
+<div class="case-challenge"><span class="eyebrow">挑戰</span><p>本機工作區除了需要開啟條件，也需要在必要的隨身碟不在時，結束存取的明確規則。</p></div>
+<div class="case-contribution"><span class="eyebrow">我的貢獻</span><p>這是我的個人專案。我訂定存取規則、金鑰設計與上鎖流程，審閱設計並透過實際使用測試；模組由 AI 寫程式代理實作。</p></div>
+<div class="case-evidence"><span class="eyebrow">證據入口</span><p>查看<a href="#screens">真實指令與測試輸出</a>、<a href="#decisions">金鑰設計的取捨</a>，並對照<a href="#scope">宿主應用程式的責任與限制</a>。</p></div>
+</div>
+        <aside class="case-meta"><dl class="facts">
         <div><dt>類型</dt><dd>獨立模組</dd></div>
         <div><dt>原始碼</dt><dd><a href="https://github.com/SeanSyue/tetherlock">GitHub · MIT</a></dd></div>
         <div><dt>更新</dt><dd>2026-09</dd></div>
         <div><dt>我負責的部分</dt><dd>存取規則、金鑰設計、上鎖的完整流程</dd></div>
         <div><dt>技術</dt><dd>Python · cryptography（Ed25519、scrypt、AES-256-GCM）· 命令列工具 · 沒有使用者介面</dd></div>
-      </dl>
-      <div class="case-brief">
-        <div><span class="eyebrow">挑戰</span><p>本機工作區除了需要開啟條件，也需要在必要的隨身碟不在時，結束存取的明確規則。</p></div>
-        <div><span class="eyebrow">我的貢獻</span><p>這是我的個人專案。我訂定存取規則、金鑰設計與上鎖流程，審閱設計並透過實際使用測試；模組由 AI 寫程式代理實作。</p></div>
-        <div><span class="eyebrow">證據入口</span><p>查看<a href="#screens">真實指令與測試輸出</a>、<a href="#decisions">金鑰設計的取捨</a>，並對照<a href="#scope">宿主應用程式的責任與限制</a>。</p></div>
+      </dl></aside>
       </div>
       <div class="case-capabilities">
         <span class="eyebrow">相關能力</span>
         <a href="{{link:/}}#cap-systems">需求分析與系統設計</a>
         <a href="{{link:/}}#cap-quality">驗證設計與品質判斷</a>
       </div>
-      <figure class="diagram-img">
-        <a class="theme-img" href="/assets/img/tetherlock/00-overview-dark.zh-tw.svg" target="_blank" rel="noopener" aria-label="以原尺寸開啟這張圖"><img class="on-dark" src="/assets/img/tetherlock/00-overview-dark.zh-tw.svg" width="1200" height="440" alt="允許的帳號、簽過名的 USB 隨身碟和密碼三者同時成立，工作區才會打開；拔掉隨身碟就再次上鎖。"><img class="on-light" src="/assets/img/tetherlock/00-overview.zh-tw.svg" width="1200" height="440" alt="" loading="lazy"></a>
-        <figcaption>打開要三個條件，關上只要一個。</figcaption>
-      </figure>
-      <p class="note-band">這是一份設計說明，附上真實的指令與測試輸出。原始碼在 GitHub 上；沒有錄影，也沒有第三方稽核。只設計了、還沒證明的地方，本頁都會直接寫出來。</p>
+      <div class="case-hero-tail"><p class="note-band">這是一份設計說明，附上真實的指令與測試輸出。原始碼在 GitHub 上；沒有錄影，也沒有第三方稽核。只設計了、還沒證明的地方，本頁都會直接寫出來。</p></div>
     </section>
   </div>
 
@@ -48,8 +55,8 @@ description: Tetherlock 只在允許的帳號、插入的隨身碟上簽過名�
   <div class="wrap">
 
     <!-- ============ OVERVIEW ============ -->
-    <section id="overview" class="block">
-      <div class="block-head"><span class="eyebrow">概要</span><h2>三個都成立才打開，少了一個就關上</h2></div>
+    <section id="overview" class="block case-section">
+      <div class="block-head" data-motion-reveal><span class="eyebrow">概要</span><h2>三個都成立才打開，少了一個就關上</h2></div>
 
       <div class="two wide-left">
         <div class="stack">
@@ -72,7 +79,7 @@ description: Tetherlock 只在允許的帳號、插入的隨身碟上簽過名�
         </div>
       </div>
 
-      <div class="cards">
+      <div class="cards case-cards">
         <div class="card lift"><span class="num">01</span><h3>三道檢查，順序固定</h3><p>帳號必須被允許、隨身碟上必須有簽過名的 token、密碼必須正確。帳號不被允許的話，密碼視窗根本不會出現。</p></div>
         <div class="card lift"><span class="num">02</span><h3>拔掉隨身碟，就上鎖</h3><p>每一輪檢查都會重新確認每個已打開的工作區。token 不見了、被換掉或已經失效，就鎖上那個工作區，只鎖那一個。</p></div>
         <div class="card lift"><span class="num">03</span><h3>維護不必交出管理員密碼</h3><p>另一種維護用的 token 會明確列出它允許做的事。維護時段預設 30 分鐘後自動結束，隨身碟一拔掉也會立刻結束。</p></div>
@@ -80,11 +87,12 @@ description: Tetherlock 只在允許的帳號、插入的隨身碟上簽過名�
     </section>
 
     <!-- ============ HOW IT WORKS ============ -->
-    <section id="how" class="block">
-      <div class="block-head"><span class="eyebrow">運作方式</span><h2>一輪檢查怎麼跑，一個區域怎麼開關</h2></div>
-      <figure class="diagram-img">
+    <section id="how" class="block case-section">
+      <div class="block-head" data-motion-reveal><span class="eyebrow">運作方式</span><h2>一輪檢查怎麼跑，一個區域怎麼開關</h2></div>
+      <figure class="diagram-img case-media" data-motion-reveal>
         <a class="theme-img" href="/assets/img/tetherlock/08-three-gates-dark.zh-tw.svg" target="_blank" rel="noopener" aria-label="以原尺寸開啟這張圖"><img class="on-dark" src="/assets/img/tetherlock/08-three-gates-dark.zh-tw.svg" width="1200" height="560" alt="一輪檢查：先查帳號，再查隨身碟上簽過名的 token，接著是密碼，打開任何東西之前再檢查一次 token。每道關卡都有自己的拒絕路徑。"><img class="on-light" src="/assets/img/tetherlock/08-three-gates.zh-tw.svg" width="1200" height="560" alt="" loading="lazy"></a>
         <figcaption>一輪檢查，一關一關來。前一關通過，才會問到下一關。</figcaption>
+        <p class="case-swipe">{{s:scroll.hint}}</p>
       </figure>
       <ol class="steps">
         <li><div><b>帳號必須被允許。</b>應用程式回答一個問題：這個帳號可以打開受保護的區域嗎？每一輪都最先問這一題。答案是「不行」，就不會跳出密碼視窗，已經打開的也會上鎖。</div></li>
@@ -92,16 +100,17 @@ description: Tetherlock 只在允許的帳號、插入的隨身碟上簽過名�
         <li><div><b>密碼必須正確。</b>密碼是拿來和儲存的驗證值比對；token 裡從來不含密碼。</div></li>
         <li><div><b>輸入密碼後，再檢查一次隨身碟。</b>重新讀取 token，而且必須和跳出密碼視窗之前找到的是同一個；所以有人打字時隨身碟被拔掉或換掉，什麼都不會打開。</div></li>
       </ol>
-      <figure class="diagram-img">
+      <figure class="diagram-img case-media" data-motion-reveal>
         <a class="theme-img" href="/assets/img/tetherlock/09-lock-lifecycle-dark.zh-tw.svg" target="_blank" rel="noopener" aria-label="以原尺寸開啟這張圖"><img class="on-dark" src="/assets/img/tetherlock/09-lock-lifecycle-dark.zh-tw.svg" width="1200" height="600" alt="一個受保護區域的生命週期：已上鎖、詢問中、已打開，以及每一條回到已上鎖的路。"><img class="on-light" src="/assets/img/tetherlock/09-lock-lifecycle.zh-tw.svg" width="1200" height="600" alt="" loading="lazy"></a>
         <figcaption>一個受保護區域的生命週期。多個區域可以同時打開，各自綁在自己的隨身碟上。</figcaption>
+        <p class="case-swipe">{{s:scroll.hint}}</p>
       </figure>
       <div class="two">
-        <article class="chapter">
+        <article class="chapter case-chapter">
           <h3>保持打開，以及關上</h3>
           <p>已打開的區域每一輪都會重新檢查。只要隨身碟被拔掉、token 被換掉、過期或是由已淘汰的金鑰簽的，或帳號不再被允許，那個區域就會上鎖，並通知應用程式關閉它。其他隨身碟打開的區域維持打開。關閉畫面、拒絕資料操作是應用程式的工作；Tetherlock 負責告訴它什麼時候該做。</p>
         </article>
-        <article class="chapter">
+        <article class="chapter case-chapter">
           <h3>委派維護</h3>
           <p>另一種 token 會列出它允許的權限項目，而且只有應用程式認得的項目才會被授予。維護時段只存在記憶體裡，預設持續 30 分鐘；每次使用都會重新檢查時間和 token。拔掉隨身碟，下一個動作之前就會結束。</p>
         </article>
@@ -109,9 +118,9 @@ description: Tetherlock 只在允許的帳號、插入的隨身碟上簽過名�
     </section>
 
     <!-- ============ IN ACTION ============ -->
-    <section id="screens" class="block">
-      <div class="block-head"><span class="eyebrow">實際畫面</span><h2>獨立版本的七個畫面</h2></div>
-      <div class="slideshow" aria-roledescription="輪播" aria-label="Tetherlock 截圖">
+    <section id="screens" class="block case-section">
+      <div class="block-head" data-motion-reveal><span class="eyebrow">實際畫面</span><h2>獨立版本的七個畫面</h2></div>
+      <div class="slideshow case-media" aria-roledescription="輪播" aria-label="Tetherlock 截圖" data-motion-reveal>
         <div class="slides" tabindex="0">
           <figure class="slide" aria-roledescription="投影片" aria-label="第 1 張，共 7 張">
             <a class="slide-zoom" href="/assets/img/tetherlock/01-issue-a-token.png" target="_blank" rel="noopener" aria-label="以原尺寸開啟這個畫面"><img src="/assets/img/tetherlock/01-issue-a-token.png" width="1600" height="900" loading="eager" alt="終端機：tetherlock init-keys、add-trusted-key 和 issue-token 都執行成功。"></a>
@@ -152,9 +161,9 @@ description: Tetherlock 只在允許的帳號、插入的隨身碟上簽過名�
     </section>
 
     <!-- ============ DECISIONS ============ -->
-    <section id="decisions" class="block">
-      <div class="block-head"><span class="eyebrow">設計決策</span><h2>三個決定與否決的做法</h2></div>
-      <div class="cards">
+    <section id="decisions" class="block case-section">
+      <div class="block-head" data-motion-reveal><span class="eyebrow">設計決策</span><h2>三個決定與否決的做法</h2></div>
+      <div class="cards case-cards">
         <div class="card"><span class="num">01</span><h3>輸入密碼之後，再查一次隨身碟</h3><p>輸入密碼要花幾秒，這段時間裡，隨身碟可能被拔掉，或換成另一支、用同一個磁碟機代號的隨身碟。所以在輸入密碼之後、打開任何東西之前，會重新讀取並驗證 token。</p><p class="muted">否決的做法：只在跳出密碼視窗前檢查一次隨身碟，之後一直相信那次的結果。</p></div>
         <div class="card"><span class="num">02</span><h3>沒有萬能鑰匙</h3><p>沒有復原金鑰，也沒有繞過的方法。唯一會給出存取權的程式碼，在密碼檢查之後才執行。代價也接受了：所有簽署金鑰都遺失時，信任關係必須從頭重新建立。</p><p class="muted">否決的做法：「為了永遠救得回來」而設的緊急繞過機制。後門會變成最容易進來的路。</p></div>
         <div class="card"><span class="num">03</span><h3>拿不準，就先上鎖</h3><p>檢查時發生預期外的錯誤，或區域打開期間 token 變得讀不出來，就先把區域鎖上，再回報錯誤。擁有者偶爾可能得重新解鎖一次。</p><p class="muted">反過來，維持打開、等有人來看，只要沒人發現，門就一直開著。</p></div>
@@ -162,10 +171,10 @@ description: Tetherlock 只在允許的帳號、插入的隨身碟上簽過名�
     </section>
 
     <!-- ============ SCOPE ============ -->
-    <section id="scope" class="block">
-      <div class="block-head"><span class="eyebrow">範圍與限制</span><h2>它自己做的，和留給別人的</h2></div>
+    <section id="scope" class="block case-section">
+      <div class="block-head" data-motion-reveal><span class="eyebrow">範圍與限制</span><h2>它自己做的，和留給別人的</h2></div>
       <p class="lede">Tetherlock 決定受保護的工作區<b>能不能</b>打開，也負責再把它關上。它不加密裡面的檔案：工作區密碼會被檢查，但它不是加密金鑰。讓隨身碟的內容無法被讀取，是全磁碟加密的工作。它也分不出一支隨身碟，和逐位元完整複製的副本。</p>
-      <div class="ledger">
+      <div class="ledger case-ledger">
         <div class="done"><h3>已完成</h3><ul><li>簽過名的 token、密碼驗證值、隨身碟綁定</li><li>可以輪替金鑰的信任清單</li><li>解鎖與上鎖的監控</li><li>委派維護</li><li>解鎖後才載入模組</li><li>加密的交接封包，以及管理用的命令列工具</li></ul></div>
         <div class="verified"><h3>已驗證 · <span class="date">2026-09-26</span></h3><ul><li>{{f:tl.tests_passed}} 個測試通過、1 個跳過（Python 3.10 與 3.14）</li><li>全新安裝後，README 的快速上手從頭到尾跑完</li><li>把監控裡的每一項保護逐一拿掉，每一次都有測試失敗</li></ul></div>
         <div class="notyet"><h3>還沒有</h3><ul><li>工作區檔案的加密</li><li>撤銷清單</li><li>第三方資安稽核</li><li>使用者介面；畫面由應用程式自己提供</li><li>實際環境中，拔掉隨身碟後多久上鎖：沒有量測</li></ul></div>
@@ -173,14 +182,17 @@ description: Tetherlock 只在允許的帳號、插入的隨身碟上簽過名�
       <p class="muted">如果你的團隊需要這種思考方式，同樣的思路也出現在 <a href="{{link:/work/aicc/}}">AI Control Center</a>：一次核准，只對它當初核准的那個版本有效。</p>
     </section>
 
-    <section class="next">
-      <span class="eyebrow">下一個</span>
-      <div class="btn-row">
-        <a class="btn btn-primary" href="{{link:/work/ai-image/}}">下一個作品：AI 圖像 →</a>
-        <a class="btn btn-quiet" href="{{link:/work/negative-control/}}">← negative-control</a>
-        <a class="btn btn-quiet" href="{{link:/}}#contact">聯絡我</a>
-      </div>
-    </section>
+    <nav class="case-pagination" aria-label="繼續探索作品">
+      <a class="case-prev" data-case-prev href="{{link:/work/negative-control/}}">
+        <span class="eyebrow"><span aria-hidden="true">←</span> 上一個案例</span>
+        <span class="case-nav-title">negative-control</span>
+      </a>
+      <a class="case-next" data-case-next href="{{link:/work/ai-image/}}">
+        <span class="eyebrow">下一個案例 <span aria-hidden="true">→</span></span>
+        <span class="case-nav-title">AI 圖片</span>
+      </a>
+      <div class="case-pagination-footer"><a href="{{link:/projects/}}">作品總覽 <span aria-hidden="true">↗</span></a><a class="btn btn-quiet" href="{{link:/}}#contact">聯絡我</a></div>
+    </nav>
   </div>
 </main>
 

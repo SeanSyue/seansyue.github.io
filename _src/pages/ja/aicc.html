@@ -3,25 +3,52 @@ description: AI Control Centerは、AIに証拠を示させます。各ステッ
 ---
 
 
-<main>
+<main class="case-page case-aicc">
   <div class="wrap">
-    <p class="crumbs"><a href="{{link:/}}#work">プロジェクト</a> → AI Control Center</p>
-    <section class="proj-head">
-      <span class="eyebrow">AIワークフローとガバナンス · デスクトップアプリ</span>
-      <h1>完了したことと、正しくできたことは別。</h1>
-      <p class="lede">AI Control Centerは、役割の分担、検証ステップ、人による承認を通じて、複数のAIコーディングエージェントを連携させるWindowsアプリケーションです。AIに証拠を示させるのが狙いです。各ステップの記録は確認した版に結びつき、テスト自体も、コードをわざと壊すことで誤りを検出できるかを証明します。</p>
-      <dl class="facts">
+    <p class="crumbs"><a href="{{link:/projects/}}">プロジェクト一覧</a> → AI Control Center</p>
+    <section class="proj-head case-hero">
+      <div class="case-kicker"><span class="eyebrow">AIワークフローとガバナンス · デスクトップアプリ</span><span class="case-project-name">AI Control Center</span></div>
+      <div class="case-title-block" data-motion-reveal>
+        <h1>完了したことと、正しくできたことは別。</h1>
+        <div class="case-intro"><p class="lede">AI Control Centerは、役割の分担、検証ステップ、人による承認を通じて、複数のAIコーディングエージェントを連携させるWindowsアプリケーションです。AIに証拠を示させるのが狙いです。各ステップの記録は確認した版に結びつき、テスト自体も、コードをわざと壊すことで誤りを検出できるかを証明します。</p></div>
+      </div>
+      <div class="case-stage case-stage-aicc" data-motion-reveal>
+        <figure class="case-blueprint" data-diagram-motion>
+<div class="case-blueprint-label">設計図 · 製品のスクリーンショットではありません</div>
+<div class="case-blueprint-scroll" tabindex="0" role="region" aria-label="{{s:scroll.hint}}">
+<svg viewBox="0 0 1000 390" role="img" aria-label="ワークフローの設計図です。検証はコマンドで実行し、承認は人が判断します。">
+<g class="case-diagram-step"><rect x="24" y="76" width="168" height="108" rx="20"/><text x="42" y="117" class="case-diagram-title">基準</text><text x="42" y="149" class="case-diagram-sub">受け入れ基準</text></g>
+<path class="case-wire" d="M192 130 H215 m-7 -7 7 7 -7 7"/>
+<g class="case-diagram-step"><rect x="220" y="76" width="168" height="108" rx="20"/><text x="238" y="117" class="case-diagram-title">実装</text><text x="238" y="149" class="case-diagram-sub">作業を進める</text></g>
+<path class="case-wire" d="M388 130 H411 m-7 -7 7 7 -7 7"/>
+<g class="case-diagram-step"><rect x="416" y="76" width="168" height="108" rx="20"/><text x="434" y="117" class="case-diagram-title">検証</text><text x="434" y="149" class="case-diagram-sub">チェックを実行</text></g>
+<path class="case-wire" d="M584 130 H607 m-7 -7 7 7 -7 7"/>
+<g class="case-diagram-step"><rect x="612" y="76" width="168" height="108" rx="20"/><text x="630" y="117" class="case-diagram-title">レビュー</text><text x="630" y="149" class="case-diagram-sub">証拠を読む</text></g>
+<path class="case-wire" d="M780 130 H803 m-7 -7 7 7 -7 7"/>
+<g class="case-diagram-step"><rect x="808" y="76" width="168" height="108" rx="20"/><text x="826" y="117" class="case-diagram-title">人の判断</text><text x="826" y="149" class="case-diagram-sub">承認</text></g>
+<path class="case-wire" d="M108 184 V222 H892 V184 M500 222 V248"/>
+<rect class="case-diagram-record" x="140" y="250" width="720" height="76" rx="20"/>
+<text x="500" y="296" text-anchor="middle" class="case-diagram-title">成果 ＋ 証拠 ＋ 確認した版</text>
+<text x="500" y="361" text-anchor="middle" class="case-diagram-sub">承認は確認した版にのみ適用されます。</text>
+</svg></div>
+<p class="case-swipe">{{s:scroll.hint}}</p>
+<figcaption>ワークフローの設計図です。検証はコマンドで実行し、承認は人が判断します。</figcaption>
+</figure>
+      </div>
+      <div class="case-context" data-motion-reveal>
+        <div class="case-brief case-dossier">
+<div class="case-challenge"><span class="eyebrow">課題</span><p>一人で複数のAIコーディングエージェントを使うとき、誰がどの版を確認したのか、テストが本当に誤りを検出できるのかを確かめる必要があります。</p></div>
+<div class="case-contribution"><span class="eyebrow">私の貢献</span><p>製品のルールとアーキテクチャを定義し、実装前に設計をレビューし、実際に使って成果を確認しました。コードはAIコーディングエージェントが実装しました。</p></div>
+<div class="case-evidence"><span class="eyebrow">成果・検証への入口</span><p>まずは<a href="#evidence">証拠と版を結びつける図</a>と<a href="#negative">コードをわざと壊す検証フロー</a>へ。本ページでは設計図と<a href="#status">日付付きのレビュー結果・制約</a>を示しています。製品の操作デモは掲載していません。</p></div>
+</div>
+        <aside class="case-meta"><dl class="facts">
         <div><dt>種類</dt><dd>個人開発の製品</dd></div>
         <div><dt>状態</dt><dd><span class="status dev">開発中 · {{f:aicc.version}}</span></dd></div>
         <div><dt>更新</dt><dd>2026-09</dd></div>
         <div><dt>担当範囲</dt><dd>製品のルール、アーキテクチャ、検証</dd></div>
         <div><dt>技術</dt><dd>Python · PySide6 · pytest · Inno Setup</dd></div>
         <div><dt>ソースコード</dt><dd><a href="https://github.com/SeanSyue/ai-control-center">GitHub · MIT</a></dd></div>
-      </dl>
-      <div class="case-brief">
-        <div><span class="eyebrow">課題</span><p>一人で複数のAIコーディングエージェントを使うとき、誰がどの版を確認したのか、テストが本当に誤りを検出できるのかを確かめる必要があります。</p></div>
-        <div><span class="eyebrow">私の貢献</span><p>製品のルールとアーキテクチャを定義し、実装前に設計をレビューし、実際に使って成果を確認しました。コードはAIコーディングエージェントが実装しました。</p></div>
-        <div><span class="eyebrow">成果・検証への入口</span><p>まずは<a href="#evidence">証拠と版を結びつける図</a>と<a href="#negative">コードをわざと壊す検証フロー</a>へ。本ページでは設計図と<a href="#status">日付付きのレビュー結果・制約</a>を示しています。製品の操作デモは掲載していません。</p></div>
+      </dl></aside>
       </div>
       <div class="case-capabilities">
         <span class="eyebrow">関連する能力</span>
@@ -29,12 +56,12 @@ description: AI Control Centerは、AIに証拠を示させます。各ステッ
         <a href="{{link:/}}#cap-integration">AI活用とワークフロー統合</a>
         <a href="{{link:/}}#cap-quality">検証設計と品質判断</a>
       </div>
-      <div class="numbers">
+      <div class="case-hero-tail"><div class="numbers case-numbers">
         <div><b>{{f:aicc.false_greens}}</b><span>一度の総点検で見つけた偽りの合格。すべて解消 · {{f:aicc.false_greens_dates}}</span></div>
         <div><b>{{f:aicc.breaks}}</b><span>件の意図的な破壊を記録。{{f:aicc.recipe_files}}個のレシピファイルに収録</span></div>
         <div><b>{{f:aicc.review_passed}}</b><span>件のテストが合格（全{{f:aicc.review_total}}件）。AIを活用したリリース前レビュー、スキップ0件 · <span class="date">2026-09-24</span></span></div>
         <div><b>3</b><span>種類の結果（2種類ではない）：合格 · 失敗 · 検証不能</span></div>
-      </div>
+      </div></div>
     </section>
   </div>
 
@@ -54,14 +81,14 @@ description: AI Control Centerは、AIに証拠を示させます。各ステッ
   <div class="wrap">
 
     <!-- ============ THE GAP ============ -->
-    <section id="problem" class="block">
-      <div class="block-head"><span class="eyebrow">ギャップ</span><h2>報告書の上では、「終わった」と「正しく終わった」は見分けがつかない</h2></div>
+    <section id="problem" class="block case-section">
+      <div class="block-head" data-motion-reveal><span class="eyebrow">ギャップ</span><h2>報告書の上では、「終わった」と「正しく終わった」は見分けがつかない</h2></div>
       <div class="two">
         <div class="stack">
           <p class="lede">AIエージェントは、目に見えるタスクを終わらせるのが得意です。常に合格するテスト、計算して画面に送ったのに誰も読まない値、その後に変更された版に付いたままのレビュー――どれも「合格」と表示されます。このプロジェクトでは、一度の点検で<b>30件</b>見つかりました。</p>
           <p class="lede">だからこの製品は、ひとつの問いを軸にしています。<b>本当に確かめるには、何が必要か？</b></p>
         </div>
-        <div class="table-scroll">
+        <div class="table-scroll case-table">
           <table class="plain compare">
             <thead><tr><th>避けたいリスク</th><th>AICCの対応</th></tr></thead>
             <tbody>
@@ -77,9 +104,9 @@ description: AI Control Centerは、AIに証拠を示させます。各ステッ
     </section>
 
     <!-- ============ EVIDENCE ============ -->
-    <section id="evidence" class="block">
-      <div class="block-head"><span class="eyebrow">版に結びつく証拠</span><h2>確認記録の価値は、どの版を確認したかで決まる</h2></div>
-      <figure style="--diagram-min: 900px" class="diagram wide">
+    <section id="evidence" class="block case-section">
+      <div class="block-head" data-motion-reveal><span class="eyebrow">版に結びつく証拠</span><h2>確認記録の価値は、どの版を確認したかで決まる</h2></div>
+      <figure style="--diagram-min: 900px" class="diagram wide case-media" data-motion-reveal data-diagram-motion>
         <svg viewBox="0 0 900 300" role="img" aria-label="検証・レビュー・承認の3つの記録が内容の版Aに付いている。内容が版Bに変わると、版Aの記録は失効し、作業はレビューに戻る。機械による記録は証拠なしには作れず、レビューの記録は結果を持てない。">
           <defs><marker id="ahe" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--ink-3)"/></marker></defs>
           <g class="d-box"><rect x="30" y="40" width="360" height="150" rx="14"/><text x="50" y="68" class="d-t">内容 · 版A</text><text x="50" y="90" class="d-s">ダイジェスト 7f3a…</text></g>
@@ -109,10 +136,10 @@ description: AI Control Centerは、AIに証拠を示させます。各ステッ
     </section>
 
     <!-- ============ NEGATIVE CONTROL ============ -->
-    <section id="negative" class="block">
-      <div class="block-head"><span class="eyebrow">テストをテストする</span><h2>合格は、一度失敗させてから、はじめて意味を持つ</h2></div>
-      <div class="two wide-left">
-        <figure style="--diagram-min: 560px" class="diagram">
+    <section id="negative" class="block case-section">
+      <div class="block-head" data-motion-reveal><span class="eyebrow">テストをテストする</span><h2>合格は、一度失敗させてから、はじめて意味を持つ</h2></div>
+      <div class="two wide-left case-evidence-layout">
+        <figure style="--diagram-min: 560px" class="diagram case-media" data-motion-reveal data-diagram-motion>
           <svg viewBox="0 0 560 210" role="img" aria-label="ネガティブコントロールの流れ：合格しているテスト、コードを1行わざと壊す、テストを実行、失敗しなければならない、コピーから復元して復元を確認、そこで初めて合格が意味を持つ。壊しても合格のままなら、そのテストは何も検出できていない。実行されなければ、結果は不明。">
             <defs><marker id="ahn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--ink-3)"/></marker></defs>
             <rect x="20" y="30" width="96" height="40" rx="8" class="d-green"/><text x="68" y="55" text-anchor="middle" class="d-tag">合格</text>
@@ -143,10 +170,10 @@ description: AI Control Centerは、AIに証拠を示させます。各ステッ
     </section>
 
     <!-- ============ DUTIES ============ -->
-    <section id="duties" class="block">
-      <div class="block-head"><span class="eyebrow">職責の分離</span><h2>作業する役割は、決して合格基準を決めない</h2></div>
+    <section id="duties" class="block case-section">
+      <div class="block-head" data-motion-reveal><span class="eyebrow">職責の分離</span><h2>作業する役割は、決して合格基準を決めない</h2></div>
       <div class="two">
-        <div class="table-scroll">
+        <div class="table-scroll case-table">
           <table class="plain matrix" aria-label="職責ごとにできること">
             <thead><tr><th>職責</th><th>読み取り</th><th>ファイルの書き込み</th><th>合格基準の設定</th><th>承認</th></tr></thead>
             <tbody>
@@ -170,8 +197,8 @@ description: AI Control Centerは、AIに証拠を示させます。各ステッ
     </section>
 
     <!-- ============ STOPS FOR YOUR CALL ============ -->
-    <section id="decide" class="block">
-      <div class="block-head"><span class="eyebrow">判断は人に戻す</span><h2>多くのツールは「もっと自動化」を売る。これは、止まるように作られている。</h2></div>
+    <section id="decide" class="block case-section">
+      <div class="block-head" data-motion-reveal><span class="eyebrow">判断は人に戻す</span><h2>多くのツールは「もっと自動化」を売る。これは、止まるように作られている。</h2></div>
       <div class="flow" aria-label="AIは作業を続け、あなたにしか決められない判断に行き当たると、実行はあなたの判断待ちリストで待機する。あなたが判断すると、判断を記録に残して続行する。">
         <span>AIが作業</span><i>→</i>
         <span>あなたにしか決められない判断に行き当たる</span><i>→</i>
@@ -179,7 +206,7 @@ description: AI Control Centerは、AIに証拠を示させます。各ステッ
         <span>あなたが判断</span><i>→</i>
         <span>判断を記録に残して続行</span>
       </div>
-      <div class="cards">
+      <div class="cards case-cards">
         <div class="card"><h3>権限は初期設定で渡さない</h3><p>権限を与える職責は自動では割り当てません。あなたが配置していなければ、エンジンが代わりに選ぶことはありません。</p></div>
         <div class="card"><h3>「検証できない」は「壊れている」ではない</h3><p>確認方法が宣言されていないタスクは「検証不能」になります。失敗としては扱わないので、壊れていないものを直しにエージェントを送ることはありません。</p></div>
         <div class="card"><h3>承認でチェック結果は覆せない</h3><p>機械のチェックが失敗していれば、承認しても合格にはなりません。承認者は読むことはできても、結果を書き換えることはできません。</p></div>
@@ -189,10 +216,10 @@ description: AI Control Centerは、AIに証拠を示させます。各ステッ
     <!-- Product screenshots go here once clean captures exist (fake project name, no local paths). -->
 
     <!-- ============ GRAPH ============ -->
-    <section id="graph" class="block">
-      <div class="block-head"><span class="eyebrow">5つの層</span><h2>全体はグラフ。そして各ノードの中にも、同じ4つの層がある</h2></div>
-      <div class="two wide-left">
-        <figure style="--diagram-min: 640px" class="diagram">
+    <section id="graph" class="block case-section">
+      <div class="block-head" data-motion-reveal><span class="eyebrow">5つの層</span><h2>全体はグラフ。そして各ノードの中にも、同じ4つの層がある</h2></div>
+      <div class="two wide-left case-evidence-layout">
+        <figure style="--diagram-min: 640px" class="diagram case-media" data-motion-reveal data-diagram-motion>
           <svg viewBox="0 0 640 330" role="img" aria-label="入れ子になった5つの層：中心に1回のAI呼び出しがあり、その外側をprompt、context、harness、loopが包み、いちばん外側がgraph。右側は小さなグラフで、1つのノードを開くと同じ4つの層が入っており、別のノードは自分のループを持つ。">
             <defs><marker id="ahg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--ink-3)"/></marker></defs>
             <g class="d-ring"><rect x="16" y="16" width="300" height="298" rx="20"/><text x="34" y="42" class="d-t">Graph</text><text x="34" y="60" class="d-s">誰が何をするか · 引き継ぎ · 確認する場所</text></g>
@@ -217,7 +244,7 @@ description: AI Control Centerは、AIに証拠を示させます。各ステッ
           <p class="lede">Prompt、context、harness、loop、graph――この5つの層は、いまgraph engineeringと呼ばれています。互いに置き換わる段階ではなく、AICCの実行は毎回5つすべてを同時に使い、修正ループは1つのノードの中にあります。</p>
           <details class="more">
             <summary>各層がコードのどこにあるか</summary>
-            <div class="table-scroll"><table class="plain">
+            <div class="table-scroll case-table"><table class="plain">
               <tbody>
                 <tr><th scope="row">Prompt</th><td>何をするか、制約、成功の基準、返す形式――<code>prompt_builder</code></td></tr>
                 <tr><th scope="row">Context</th><td>このステップに必要な分だけ：各職責には、自分のルール層と共有のプロジェクト記憶だけを渡す</td></tr>
@@ -232,9 +259,9 @@ description: AI Control Centerは、AIに証拠を示させます。各ステッ
     </section>
 
     <!-- ============ NOT ============ -->
-    <section id="not" class="block">
-      <div class="block-head"><span class="eyebrow">しないこと</span><h2>しない3つのことを、はっきり</h2></div>
-      <div class="cards">
+    <section id="not" class="block case-section">
+      <div class="block-head" data-motion-reveal><span class="eyebrow">しないこと</span><h2>しない3つのことを、はっきり</h2></div>
+      <div class="cards case-cards">
         <div class="card"><span class="num">01</span><h3>渡されていないものは取らない</h3><p>ClaudeやCodexへのログインはAICCを経由しません。AICCはベンダー自身のサインイン画面を開くだけで、ブラウザや他のアプリのキャッシュも読みません。認証情報のモジュールにAPIキーを受け取る新しい経路が加わると、テストが失敗します。</p></div>
         <div class="card"><span class="num">02</span><h3>モデルを転売しない</h3><p>ご自身のClaudeとCodexのアカウントを、それぞれの利用上限の範囲で使います。AICCが利用料に上乗せすることはありません。</p></div>
         <div class="card"><span class="num">03</span><h3>独自のサーバーを持たない</h3><p>アカウント登録は不要で、AICCのサーバーもありません。プロジェクトの記録は手元のフォルダにあるプレーンテキストで、AICC自身が最初の管理対象プロジェクトです。なお、プロンプトはClaudeやCodex自身のコマンドラインツールを通じて送信され、オプションのLINE通知とGoogle Drive連携にはそれぞれのデータの流れがあります。</p></div>
@@ -242,9 +269,9 @@ description: AI Control Centerは、AIに証拠を示させます。各ステッ
     </section>
 
     <!-- ============ STATUS ============ -->
-    <section id="status" class="block">
-      <div class="block-head"><span class="eyebrow">現状と制約</span><h2>できていること、証明できたこと、まだのこと</h2></div>
-      <div class="ledger">
+    <section id="status" class="block case-section">
+      <div class="block-head" data-motion-reveal><span class="eyebrow">現状と制約</span><h2>できていること、証明できたこと、まだのこと</h2></div>
+      <div class="ledger case-ledger">
         <div class="done"><h3>できていること</h3><ul><li>Windowsデスクトップアプリ。以前のビルドでは、Windows上でインストール・起動・アンインストールを2回実施</li><li>職責に応じた権限を持つ役割、確認記録のチェーン、タイムライン、エクスポートできる判断記録</li><li>1人で複数のプロジェクトを並行して管理</li></ul></div>
         <div class="verified"><h3>検証済み</h3><ul><li>AIを活用したリリース前レビューで{{f:aicc.review_total}}件のテストを実行：合格{{f:aicc.review_passed}}件、失敗19件、スキップ0件。失敗はすべてリポジトリで説明</li><li>同じレビューで{{f:aicc.review_breaks_run}}件の意図的な破壊を実行し、検出できなかったものも公開</li><li>偽りの合格を30件見つけ、0件まで解消（{{f:aicc.false_greens_dates}}）</li></ul></div>
         <div class="notyet"><h3>次のステップ</h3><ul><li>次のベータ版でのオーナーによる受け入れテスト</li><li>公開リポジトリはソースコードのみ。現在のインストーラーは、アップグレードまで含めた検証がまだ必要です。既知の制約は<a href="https://github.com/SeanSyue/ai-control-center/blob/main/SECURITY.md">SECURITY.md</a>に記載</li><li>ソースコードは<a href="https://github.com/SeanSyue/ai-control-center">GitHub</a>で公開。コードを壊すツールも<a href="{{link:/work/negative-control/}}">negative-control</a>として独立</li></ul></div>
@@ -252,13 +279,17 @@ description: AI Control Centerは、AIに証拠を示させます。各ステッ
       <p class="muted" style="font-size: 14px;">GitHubのリポジトリと文書は英語です。</p>
     </section>
 
-    <section class="next">
-      <span class="eyebrow">次へ</span>
-      <div class="btn-row">
-        <a class="btn btn-primary" href="{{link:/work/negative-control/}}">次のプロジェクト：negative-control →</a>
-        <a class="btn btn-quiet" href="{{link:/}}#contact">連絡する</a>
-      </div>
-    </section>
+    <nav class="case-pagination" aria-label="ほかのプロジェクトへ">
+      <a class="case-prev" data-case-prev href="{{link:/work/heart-apartment/}}">
+        <span class="eyebrow"><span aria-hidden="true">←</span> 前のケース</span>
+        <span class="case-nav-title">Heart Apartment</span>
+      </a>
+      <a class="case-next" data-case-next href="{{link:/work/negative-control/}}">
+        <span class="eyebrow">次のケース <span aria-hidden="true">→</span></span>
+        <span class="case-nav-title">negative-control</span>
+      </a>
+      <div class="case-pagination-footer"><a href="{{link:/projects/}}">プロジェクト一覧 <span aria-hidden="true">↗</span></a><a class="btn btn-quiet" href="{{link:/}}#contact">連絡する</a></div>
+    </nav>
   </div>
 </main>
 

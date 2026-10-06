@@ -3,24 +3,34 @@ description: 10日間・6回のローカル実験で、「いい感じに描い�
 ---
 
 
-<main>
+<main class="case-page case-ai-image">
   <div class="wrap">
-    <p class="crumbs"><a href="{{link:/}}#work">プロジェクト</a> → AI画像</p>
-    <section class="proj-head">
-      <span class="eyebrow">AIメディア制作フロー · 画像</span>
-      <h1>「正しい」とは何かを決める</h1>
-      <p class="lede">「いい感じに描いて」という指示には、どのモデルも従えません。6回のローカル実験で、それを文章の仕様に変えました。最終的な画像が一度で狙いどおりに仕上がるほど、精密な仕様です。</p>
-      <dl class="facts">
+    <p class="crumbs"><a href="{{link:/projects/}}">プロジェクト一覧</a> → AI画像</p>
+    <section class="proj-head case-hero">
+      <div class="case-kicker"><span class="eyebrow">AIメディア制作フロー · 画像</span><span class="case-project-name">AI画像</span></div>
+      <div class="case-title-block" data-motion-reveal>
+        <h1>「正しい」とは何かを決める</h1>
+        <div class="case-intro"><p class="lede">「いい感じに描いて」という指示には、どのモデルも従えません。6回のローカル実験で、それを文章の仕様に変えました。最終的な画像が一度で狙いどおりに仕上がるほど、精密な仕様です。</p></div>
+      </div>
+      <div class="case-stage case-stage-ai-image" data-motion-reveal>
+        <div class="portraits">
+        <figure><img src="/assets/img/ai-image/resident-c.jpg" width="750" height="1000" alt="キャラクターC：はちみつ色の髪をサイドで三つ編みにし、濃い緑のリボンを結んでいる。クリーム色のオーバーサイズのカーディガンに、モスグリーンのジャンパースカート。片手を三つ編みに添えて立っている。"><figcaption class="muted">キャラクターC</figcaption></figure>
+        <figure><img src="/assets/img/ai-image/resident-d.jpg" width="750" height="1000" alt="キャラクターD：ラベンダーグレーのロングヘア。クリーム色のブラウスに青いサッシュのリボン、裾に花柄の入った紫のロングスカート。片手で髪に触れて立っている。"><figcaption class="muted">キャラクターD</figcaption></figure>
+      </div>
+      </div>
+      <div class="case-context" data-motion-reveal>
+        <div class="case-brief case-dossier">
+<div class="case-challenge"><span class="eyebrow">課題</span><p>ポーズや体の比率を変えると、キャラクターの特徴まで変わることがあります。類似度が高くても、髪や服の色の誤りを見逃す場合があります。</p></div>
+<div class="case-contribution"><span class="eyebrow">私の貢献</span><p>実験の方針を決め、キャラクターの特徴と比率を仕様にし、結果から受け入れ基準を定めました。画像はモデルが生成し、完成イラストにはクラウドのモデルを使いました。</p></div>
+<div class="case-evidence"><span class="eyebrow">成果・検証への入口</span><p><a href="#rounds">各実験の結果</a>、<a href="#spec">4つの要素からなるキャラクター仕様</a>、<a href="#check">色のチェックと適用範囲</a>を確認できます。</p></div>
+</div>
+        <aside class="case-meta"><dl class="facts">
         <div><dt>種類</dt><dd>実験による仕様づくり</dd></div>
         <div><dt>状態</dt><dd><span class="status works">キャラクター完成</span></dd></div>
         <div><dt>時期</dt><dd>2026年9月、10日間で6回</dd></div>
         <div><dt>担当範囲</dt><dd>実験、仕様書、受け入れ判定</dd></div>
         <div><dt>ツール</dt><dd>ローカルのComfyUI · Python · 最終生成はクラウドのモデル</dd></div>
-      </dl>
-      <div class="case-brief">
-        <div><span class="eyebrow">課題</span><p>ポーズや体の比率を変えると、キャラクターの特徴まで変わることがあります。類似度が高くても、髪や服の色の誤りを見逃す場合があります。</p></div>
-        <div><span class="eyebrow">私の貢献</span><p>実験の方針を決め、キャラクターの特徴と比率を仕様にし、結果から受け入れ基準を定めました。画像はモデルが生成し、完成イラストにはクラウドのモデルを使いました。</p></div>
-        <div><span class="eyebrow">成果・検証への入口</span><p><a href="#rounds">各実験の結果</a>、<a href="#spec">4つの要素からなるキャラクター仕様</a>、<a href="#check">色のチェックと適用範囲</a>を確認できます。</p></div>
+      </dl></aside>
       </div>
       <div class="case-capabilities">
         <span class="eyebrow">関連する能力</span>
@@ -28,11 +38,7 @@ description: 10日間・6回のローカル実験で、「いい感じに描い�
         <a href="{{link:/}}#cap-quality">検証設計と品質判断</a>
         <a href="{{link:/}}#cap-integration">AI活用とワークフロー統合</a>
       </div>
-      <div class="portraits">
-        <figure><img src="/assets/img/ai-image/resident-c.jpg" width="750" height="1000" alt="キャラクターC：はちみつ色の髪をサイドで三つ編みにし、濃い緑のリボンを結んでいる。クリーム色のオーバーサイズのカーディガンに、モスグリーンのジャンパースカート。片手を三つ編みに添えて立っている。"><figcaption class="muted">キャラクターC</figcaption></figure>
-        <figure><img src="/assets/img/ai-image/resident-d.jpg" width="750" height="1000" alt="キャラクターD：ラベンダーグレーのロングヘア。クリーム色のブラウスに青いサッシュのリボン、裾に花柄の入った紫のロングスカート。片手で髪に触れて立っている。"><figcaption class="muted">キャラクターD</figcaption></figure>
-      </div>
-      <p class="note-band">完成した2枚のイラストは、クラウドで提供されている最先端の画像モデルで生成しました。ローカルでの作業が生み出したのは<b>仕様</b>――生成時に渡した正確な言葉づかい、プロポーション、素材、失敗のパターン――と、その裏付けとなる測定結果です。</p>
+      <div class="case-hero-tail"><p class="note-band">完成した2枚のイラストは、クラウドで提供されている最先端の画像モデルで生成しました。ローカルでの作業が生み出したのは<b>仕様</b>――生成時に渡した正確な言葉づかい、プロポーション、素材、失敗のパターン――と、その裏付けとなる測定結果です。</p></div>
     </section>
   </div>
 
@@ -48,9 +54,9 @@ description: 10日間・6回のローカル実験で、「いい感じに描い�
   <div class="wrap">
 
     <!-- ============ ROUNDS ============ -->
-    <section id="rounds" class="block">
-      <div class="block-head"><span class="eyebrow">実験の記録</span><h2>6回の実験、毎回変える変数は1つだけ</h2></div>
-      <div class="table-scroll">
+    <section id="rounds" class="block case-section">
+      <div class="block-head" data-motion-reveal><span class="eyebrow">実験の記録</span><h2>6回の実験、毎回変える変数は1つだけ</h2></div>
+      <div class="table-scroll case-table">
         <table class="plain">
           <thead><tr><th>#</th><th>問い</th><th>結果</th><th>仕様に反映したこと</th></tr></thead>
           <tbody>
@@ -76,9 +82,9 @@ description: 10日間・6回のローカル実験で、「いい感じに描い�
     </section>
 
     <!-- ============ SPEC ============ -->
-    <section id="spec" class="block">
-      <div class="block-head"><span class="eyebrow">仕様</span><h2>4つのブロックに分け、変えるのは一度に1つだけ</h2></div>
-      <div class="cards">
+    <section id="spec" class="block case-section">
+      <div class="block-head" data-motion-reveal><span class="eyebrow">仕様</span><h2>4つのブロックに分け、変えるのは一度に1つだけ</h2></div>
+      <div class="cards case-cards">
         <div class="card"><span class="num">01</span><h3>キャラクターの特徴は、正確に</h3><p>キャラクターを決める要素をすべて名指しで書きます。髪型とそのリボン、目の色、服それぞれの形・色・細部。曖昧なところは、次の生成で描き直されてしまいます。</p></div>
         <div class="card"><span class="num">02</span><h3>プロポーションは、構造で</h3><p>7〜7.5頭身。小さな頭、長い脚、くびれたウエスト。大人のあごの線と、自然な大きさの目。ちびキャラでも、ファッションモデルのような引き伸ばしでもありません。</p></div>
         <div class="card"><span class="num">03</span><h3>ポーズは、1文で</h3><p>力を抜いた斜め向きの立ち姿、片脚に重心、片手を髪に。ポーズを変えても、それ以外の記述は1バイトも変えません。</p></div>
@@ -88,8 +94,8 @@ description: 10日間・6回のローカル実験で、「いい感じに描い�
     </section>
 
     <!-- ============ CHECK ============ -->
-    <section id="check" class="block">
-      <div class="block-head"><span class="eyebrow">残ったチェック</span><h2>誤りを見抜けなかったスコアと、見抜けたスコア</h2></div>
+    <section id="check" class="block case-section">
+      <div class="block-head" data-motion-reveal><span class="eyebrow">残ったチェック</span><h2>誤りを見抜けなかったスコアと、見抜けたスコア</h2></div>
       <div class="two">
         <div class="bars" role="img" aria-label="配色の距離：同じキャラクターは3.8〜6.6、別のキャラクターは19.0〜20.3。">
           <div class="bar-row"><span>同じキャラクター<small>配色の距離</small></span><div class="bar-track"><div class="bar-fill" style="width: 28%;"></div></div><b>{{f:image.same_character}}</b></div>
@@ -106,22 +112,26 @@ description: 10日間・6回のローカル実験で、「いい感じに描い�
     </section>
 
     <!-- ============ STATUS ============ -->
-    <section id="status" class="block">
-      <div class="block-head"><span class="eyebrow">現状と制約</span><h2>できていること、測ったこと、主張しないこと</h2></div>
-      <div class="ledger">
+    <section id="status" class="block case-section">
+      <div class="block-head" data-motion-reveal><span class="eyebrow">現状と制約</span><h2>できていること、測ったこと、主張しないこと</h2></div>
+      <div class="ledger case-ledger">
         <div class="done"><h3>できていること</h3><ul><li>ポーズが変わっても同じキャラクターを再現できる、4ブロックのキャラクター仕様</li><li>デザインのずれを自動で検出する配色チェック</li><li>6回分の実験記録。毎回変数は1つで、パラメータと結論つき</li></ul></div>
         <div class="verified"><h3>測定したこと</h3><ul><li>画像の種類ごとのdenoiseのしきい値（絵画調0.45、フラット塗り0.60）</li><li>エンコーダーによる類似度の上限：0.98–0.996</li><li>配色の距離：同じキャラクター{{f:image.same_character}}、別のキャラクター{{f:image.other_character}}</li></ul></div>
         <div class="notyet"><h3>主張しないこと</h3><ul><li>最終的なイラストは、ローカルで生成したものではない</li><li>配色チェックは、情報量の多い場面のイラストには使えない</li><li>公開リポジトリはなし。スクリプトは非公開</li></ul></div>
       </div>
     </section>
 
-    <section class="next">
-      <span class="eyebrow">次へ</span>
-      <div class="btn-row">
-        <a class="btn btn-primary" href="{{link:/work/ai-music/}}">次のプロジェクト：AI音楽 →</a>
-        <a class="btn btn-quiet" href="{{link:/work/tetherlock/}}">← Tetherlock</a>
-      </div>
-    </section>
+    <nav class="case-pagination" aria-label="ほかのプロジェクトへ">
+      <a class="case-prev" data-case-prev href="{{link:/work/tetherlock/}}">
+        <span class="eyebrow"><span aria-hidden="true">←</span> 前のケース</span>
+        <span class="case-nav-title">Tetherlock</span>
+      </a>
+      <a class="case-next" data-case-next href="{{link:/work/ai-music/}}">
+        <span class="eyebrow">次のケース <span aria-hidden="true">→</span></span>
+        <span class="case-nav-title">AI音楽</span>
+      </a>
+      <div class="case-pagination-footer"><a href="{{link:/projects/}}">プロジェクト一覧 <span aria-hidden="true">↗</span></a></div>
+    </nav>
   </div>
 </main>
 

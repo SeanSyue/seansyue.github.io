@@ -32,5 +32,12 @@
   "lang.aria": "Language",
   "scroll.hint": "Swipe sideways to see the whole diagram.",
   "nav.skip": "Skip to content",
-  "nav.capabilities": "Capabilities"
+  "nav.capabilities": "Capabilities",
+  "motion.reduce": "Reduce motion",
+  "motion.reduced": "Motion reduced",
+  "motion.skip": "Skip introduction",
+  "motion.replay": "Replay introduction",
+  "projects.all": "All projects",
+  "projects.explore": "Explore selected work",
+  "projects.selected": "Selected work"
 }

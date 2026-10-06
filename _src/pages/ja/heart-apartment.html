@@ -3,24 +3,34 @@ description: ルームメイト2人の暮らしをただ見守ることも、迷
 ---
 
 
-<main>
+<main class="case-page case-heart-apartment">
   <div class="wrap">
-    <p class="crumbs"><a href="{{link:/}}#work">プロジェクト</a> → Heart Apartment</p>
-    <section class="proj-head">
-      <span class="eyebrow">AIゲーム · Godot 4</span>
-      <h1>Heart Apartment <small lang="zh-Hant">心動公寓</small></h1>
-      <p class="lede">Windows向けの、ほのぼのとした生活シミュレーションです。ルームメイト2人の暮らしをただ見守ることも、2人が迷った瞬間に手を差し伸べることもできます。選択のあとも続いていく、小さな「人生の映画」です。</p>
-      <dl class="facts">
+    <p class="crumbs"><a href="{{link:/projects/}}">プロジェクト一覧</a> → Heart Apartment</p>
+    <section class="proj-head case-hero">
+      <div class="case-kicker"><span class="eyebrow">AIゲーム · Godot 4</span><span class="case-project-name">Heart Apartment</span></div>
+      <div class="case-title-block" data-motion-reveal>
+        <h1>Heart Apartment <small lang="zh-Hant">心動公寓</small></h1>
+        <div class="case-intro"><p class="lede">Windows向けの、ほのぼのとした生活シミュレーションです。ルームメイト2人の暮らしをただ見守ることも、2人が迷った瞬間に手を差し伸べることもできます。選択のあとも続いていく、小さな「人生の映画」です。</p></div>
+      </div>
+      <div class="case-stage case-stage-heart-apartment" data-motion-reveal>
+        <video class="shot" controls preload="metadata" playsinline poster="/assets/img/heart-apartment/09-showcase-poster.jpg" width="1600" height="900" aria-label="15秒のショーケース：タイトル画面、思考の吹き出しでの選択、公園のベンチ、家や映画館でのささやかな場面、そして笑って終わる口げんか。">
+        <source src="/assets/video/heart-apartment/09-showcase-15s.mp4" type="video/mp4">
+      </video>
+<p class="muted" style="font-size: 14px;">ゲーム本編のタイトル曲を使った15秒のショーケース。<span class="date">2026-09-22</span>に現在のビルドから録画。</p>
+      </div>
+      <div class="case-context" data-motion-reveal>
+        <div class="case-brief case-dossier">
+<div class="case-challenge"><span class="eyebrow">課題</span><p>キャラクターが自ら行動し、経験を覚え、プレイヤーの選択にも意味があること。そのために、AIの提案もゲームの現在の状態とルールに従う必要があります。</p></div>
+<div class="case-contribution"><span class="eyebrow">私の貢献</span><p>コンセプトと美術の方向性を決め、楽曲を選び、各ビルドのプレイテストから受け入れルールを定めました。AIの協力者が、その方針に沿ってコード、美術、ストーリーの統合を実装しました。</p></div>
+<div class="case-evidence"><span class="eyebrow">成果・検証への入口</span><p><a href="#demo">ゲームプレイの録画</a>、<a href="#design">AIの提案をチェックするルール</a>、<a href="#testing">「顔を隠さない」ルールにつながったプレイテスト</a>を確認できます。</p></div>
+</div>
+        <aside class="case-meta"><dl class="facts">
         <div><dt>種類</dt><dd>ゲームのプロトタイプ</dd></div>
         <div><dt>状態</dt><dd><span class="status works">Windowsでプレイ可能 · 開発中</span></dd></div>
         <div><dt>更新</dt><dd>2026-09</dd></div>
         <div><dt>担当範囲</dt><dd>プロダクトオーナー兼ディレクター</dd></div>
         <div><dt>技術</dt><dd>Godot 4.7 · GDScript · llama.cpp · Qwen3-4B</dd></div>
-      </dl>
-      <div class="case-brief">
-        <div><span class="eyebrow">課題</span><p>キャラクターが自ら行動し、経験を覚え、プレイヤーの選択にも意味があること。そのために、AIの提案もゲームの現在の状態とルールに従う必要があります。</p></div>
-        <div><span class="eyebrow">私の貢献</span><p>コンセプトと美術の方向性を決め、楽曲を選び、各ビルドのプレイテストから受け入れルールを定めました。AIの協力者が、その方針に沿ってコード、美術、ストーリーの統合を実装しました。</p></div>
-        <div><span class="eyebrow">成果・検証への入口</span><p><a href="#demo">ゲームプレイの録画</a>、<a href="#design">AIの提案をチェックするルール</a>、<a href="#testing">「顔を隠さない」ルールにつながったプレイテスト</a>を確認できます。</p></div>
+      </dl></aside>
       </div>
       <div class="case-capabilities">
         <span class="eyebrow">関連する能力</span>
@@ -28,10 +38,7 @@ description: ルームメイト2人の暮らしをただ見守ることも、迷
         <a href="{{link:/}}#cap-integration">AI活用とワークフロー統合</a>
         <a href="{{link:/}}#cap-delivery">プロジェクト推進と職能横断の協働</a>
       </div>
-      <video class="shot" controls preload="metadata" playsinline poster="/assets/img/heart-apartment/09-showcase-poster.jpg" width="1600" height="900" aria-label="15秒のショーケース：タイトル画面、思考の吹き出しでの選択、公園のベンチ、家や映画館でのささやかな場面、そして笑って終わる口げんか。">
-        <source src="/assets/video/heart-apartment/09-showcase-15s.mp4" type="video/mp4">
-      </video>
-      <p class="muted" style="font-size: 14px;">ゲーム本編のタイトル曲を使った15秒のショーケース。<span class="date">2026-09-22</span>に現在のビルドから録画。</p>
+      <div class="case-hero-tail"></div>
     </section>
   </div>
 
@@ -47,10 +54,10 @@ description: ルームメイト2人の暮らしをただ見守ることも、迷
   <div class="wrap">
 
     <!-- ============ OVERVIEW ============ -->
-    <section id="overview" class="block">
-      <div class="block-head"><span class="eyebrow">概要</span><h2>見守り、介入し、その結果があとで効いてくる</h2></div>
+    <section id="overview" class="block case-section">
+      <div class="block-head" data-motion-reveal><span class="eyebrow">概要</span><h2>見守り、介入し、その結果があとで効いてくる</h2></div>
 
-      <div class="loop3">
+      <div class="loop3 case-media" data-motion-reveal>
         <figure class="loop-panel">
           <video class="loop-media" autoplay muted loop playsinline preload="metadata" poster="/assets/img/heart-apartment/01-home-day.jpg" aria-label="ソファに座ったルームメイト2人が、互いに反応している。">
             <source src="/assets/video/heart-apartment/11-loop-feelings.mp4" type="video/mp4">
@@ -71,7 +78,7 @@ description: ルームメイト2人の暮らしをただ見守ることも、迷
         </figure>
       </div>
 
-      <div class="numbers">
+      <div class="numbers case-numbers">
         <div><b>10</b><span>か所の舞台</span></div>
         <div><b>2 + 9</b><span>主人公 ＋ サブキャラクター</span></div>
         <div><b>{{f:heart.moments}}</b><span>件のストーリー場面（手作業で執筆）</span></div>
@@ -86,7 +93,7 @@ description: ルームメイト2人の暮らしをただ見守ることも、迷
             <li><b>プロダクトオーナー兼ディレクター：</b>コンセプト、主人公2人、アートディレクションのすべての判断</li>
             <li>台湾の街並みのバージョンではなく、すっきりした日本風の町を選択</li>
             <li>サウンドトラックを制作し、すべての曲を耳で選んだ。すべてのビルドをテストプレイし、チームが守るルールを決めた</li>
-            <li>サブキャラクターのイラストとサウンドトラックは、私の<a href="{{link:/}}#media">AIメディア制作フロー</a>から生まれたもの</li>
+            <li>サブキャラクターのイラストとサウンドトラックは、私の<a href="{{link:/projects/}}">AIメディア制作フロー</a>から生まれたもの</li>
             <li><b>チームはAI：</b>Codexが主人公を描き、コードを共同で執筆。Claudeがコード、ストーリー、シーンを統合。GPTが受け入れレビューを担当。ローカルモデルがサブキャラクターのイラストを生成し、チャットを動かす</li>
           </ul>
         </div>
@@ -100,8 +107,8 @@ description: ルームメイト2人の暮らしをただ見守ることも、迷
     </section>
 
     <!-- ============ GAMEPLAY ============ -->
-    <section id="demo" class="block">
-      <div class="block-head"><span class="eyebrow">ゲームプレイ</span><h2>2人と、2人が暮らす町</h2></div>
+    <section id="demo" class="block case-section">
+      <div class="block-head" data-motion-reveal><span class="eyebrow">ゲームプレイ</span><h2>2人と、2人が暮らす町</h2></div>
 
       <div class="two">
         <article class="card lead-card">
@@ -126,7 +133,7 @@ description: ルームメイト2人の暮らしをただ見守ることも、迷
 
       <div class="stack">
         <h3>10か所の舞台、ひとつの町</h3>
-        <div class="places">
+        <div class="places case-media" data-motion-reveal>
           <figure><img src="/assets/img/heart-apartment/01-home-day.jpg" width="1600" height="900" loading="lazy" alt="土曜の朝の家。2人ともソファにいる。"><figcaption>家、土曜の朝</figcaption></figure>
           <figure><img src="/assets/img/heart-apartment/03-home-night.jpg" width="1600" height="900" loading="lazy" alt="温かみのある照明の、夜の家。"><figcaption>夜の家</figcaption></figure>
           <figure><img src="/assets/img/heart-apartment/04-supermarket.jpg" width="1600" height="900" loading="lazy" alt="売り場ごとに表示のある通路と、レジに立つ店員がいるスーパー。"><figcaption>スーパー：かごに入れて、会計して。未会計の商品を持ったままでは店を出られない</figcaption></figure>
@@ -140,16 +147,16 @@ description: ルームメイト2人の暮らしをただ見守ることも、迷
     </section>
 
     <!-- ============ DESIGN ============ -->
-    <section id="design" class="block">
-      <div class="block-head"><span class="eyebrow">ゲームとAIの設計</span><h2>キャラクターはどう考えるか</h2></div>
+    <section id="design" class="block case-section">
+      <div class="block-head" data-motion-reveal><span class="eyebrow">ゲームとAIの設計</span><h2>キャラクターはどう考えるか</h2></div>
 
-      <div class="cards">
+      <div class="cards case-cards">
         <div class="card"><span class="num">01</span><h3>モデルが提案し、ルールが決める</h3><p>実際に却下された例：モデルは、アルバムをかけてお茶をいれることを提案しました。ゲームはこれを拒否しました――<em>「キャラクターの状態が変わったため、この古い提案は無効です。」</em></p></div>
         <div class="card"><span class="num">02</span><h3>見たか、聞いたか</h3><p>ストーリー場面ごとに、その場にいた本人には1行、話を聞いただけのルームメイトには別の1行の記憶が書き込まれます。のちの場面は、どちらの記憶かを確かめます。</p></div>
         <div class="card"><span class="num">03</span><h3>広さより深さ</h3><p>キャラクターごとに5つのテスト：理由があるか、矛盾を抱えているか、時間をまたいで続くか、違いがあるか（ルームメイトとの違い、疲れたときの自分との違い）、そしてプレイヤーに見えるか。</p></div>
       </div>
 
-      <article id="model" class="chapter">
+      <article id="model" class="chapter case-chapter">
         <h3>モデルの選定</h3>
         <div class="two">
           <div class="bars" role="img" aria-label="応答時間の中央値：Qwen3-4Bは{{f:heart.reply_4b}}秒、Qwen3.5-9Bは{{f:heart.reply_9b}}秒。">
@@ -165,7 +172,7 @@ description: ルームメイト2人の暮らしをただ見守ることも、迷
         </div>
       </article>
 
-      <article id="testing" class="chapter">
+      <article id="testing" class="chapter case-chapter">
         <h3>テストプレイから生まれたルール：顔を隠すものは置かない</h3>
         <ul class="facts-list">
           <li><b>見たこと</b>：録画したビルドで、字幕やパネルがキャラクターの顔に重なっていた（<span class="date">2026-09-15</span>）</li>
@@ -175,7 +182,7 @@ description: ルームメイト2人の暮らしをただ見守ることも、迷
       </article>
 
       <details class="more"><summary>アートと音楽の出典</summary>
-        <div class="table-scroll">
+        <div class="table-scroll case-table">
           <table class="plain">
             <thead><tr><th>項目</th><th>制作方法</th><th>ライセンス</th></tr></thead>
             <tbody>
@@ -192,22 +199,26 @@ description: ルームメイト2人の暮らしをただ見守ることも、迷
     </section>
 
     <!-- ============ STATUS ============ -->
-    <section id="status" class="block">
-      <div class="block-head"><span class="eyebrow">現状</span><h2>できていること、証明できたこと、次にやること</h2></div>
-      <div class="ledger">
+    <section id="status" class="block case-section">
+      <div class="block-head" data-motion-reveal><span class="eyebrow">現状</span><h2>できていること、証明できたこと、次にやること</h2></div>
+      <div class="ledger case-ledger">
         <div class="done"><h3>できていること</h3><ul><li>10か所の舞台。出勤日と休日、給料。実際に会計できるスーパーのレジ。買い物と映画のチケット</li><li>主人公2人、サブキャラクター9人、表情8種</li><li>{{f:heart.moments}}件のストーリー場面と、キャラクターごとの記憶</li><li>オプションのローカルAIチャット（テキスト代替つき）</li><li>{{f:music.tracks}}曲のサウンドトラック、天気</li></ul></div>
         <div class="verified"><h3>検証済み</h3><ul><li>レジ：実際の入力による47.5秒の通しテストに合格（<span class="date">2026-09-16</span>）</li><li>録画したすべてのシーンで、顔への重なりはゼロ（<span class="date">2026-09-22</span>）</li><li>実際の4BモデルでAIチャットをテスト（<span class="date">2026-09-14</span>）</li></ul></div>
         <div class="notyet"><h3>次のステップ</h3><ul><li>現在の{{f:heart.moments}}件の場面の先へ続くストーリー展開</li><li>新しい8方向のキャラクターリグ</li><li>一般公開</li></ul></div>
       </div>
     </section>
 
-    <section class="next">
-      <span class="eyebrow">次へ</span>
-      <div class="btn-row">
-        <a class="btn btn-primary" href="{{link:/}}#work">プロジェクト一覧に戻る →</a>
-        <a class="btn btn-quiet" href="{{link:/work/ai-music/}}">← このゲームのサウンドトラック</a>
-      </div>
-    </section>
+    <nav class="case-pagination" aria-label="ほかのプロジェクトへ">
+      <a class="case-prev" data-case-prev href="{{link:/work/ai-music/}}">
+        <span class="eyebrow"><span aria-hidden="true">←</span> 前のケース</span>
+        <span class="case-nav-title">AI音楽</span>
+      </a>
+      <a class="case-next" data-case-next href="{{link:/work/aicc/}}">
+        <span class="eyebrow">次のケース <span aria-hidden="true">→</span></span>
+        <span class="case-nav-title">AI Control Center</span>
+      </a>
+      <div class="case-pagination-footer"><a href="{{link:/projects/}}">プロジェクト一覧 <span aria-hidden="true">↗</span></a></div>
+    </nav>
   </div>
 </main>
 

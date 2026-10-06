@@ -32,5 +32,12 @@
   "lang.aria": "語言",
   "scroll.hint": "左右滑動可以看到整張圖。",
   "nav.skip": "跳到主要內容",
-  "nav.capabilities": "核心能力"
+  "nav.capabilities": "核心能力",
+  "motion.reduce": "減少動態",
+  "motion.reduced": "動態已減少",
+  "motion.skip": "略過開場",
+  "motion.replay": "重播開場",
+  "projects.all": "所有專案",
+  "projects.explore": "探索精選作品",
+  "projects.selected": "精選作品"
 }

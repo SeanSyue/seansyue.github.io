@@ -1,0 +1,145 @@
+title: プロジェクト — Sean Syue
+description: 個人で取り組むソフトウェア、制作フロー、ゲーム。方向性、判断、検証の根拠を紹介します。
+---
+
+<main class="projects-page wrap" id="main-content" tabindex="-1">
+  <header class="projects-hero" data-motion-reveal>
+    <p class="projects-kicker">個人プロジェクト / Sean Syue</p>
+    <h1>プロジェクト</h1>
+    <div class="projects-hero-copy">
+      <p class="projects-lede">システムのルールから、共に暮らす世界の感覚まで。</p>
+      <p class="projects-authorship">私は方向性と成果を判断し、コードの大半はAIコーディングエージェントが書いています。各事例で担当範囲と検証できたことを説明しています。</p>
+    </div>
+  </header>
+
+  <div class="projects-filters" role="group" aria-label="カテゴリでプロジェクトを絞り込む">
+    <button type="button" data-project-filter="all" aria-pressed="true" aria-controls="projects-grid">すべて</button>
+    <button type="button" data-project-filter="workflows" aria-pressed="false" aria-controls="projects-grid">ワークフローとガバナンス</button>
+    <button type="button" data-project-filter="media" aria-pressed="false" aria-controls="projects-grid">画像と音楽</button>
+    <button type="button" data-project-filter="games" aria-pressed="false" aria-controls="projects-grid">ゲーム</button>
+  </div>
+
+  <section class="projects-grid" id="projects-grid" aria-label="個人プロジェクト">
+    <article class="project-tile project-tile--aicc" data-project-group="workflows" data-motion-reveal>
+      <a class="project-tile-link" href="{{link:/work/aicc/}}" aria-labelledby="project-aicc-title project-aicc-entry">
+        <div class="project-tile-media project-tile-media--aicc">
+          <div class="project-tile-art"><svg class="project-tile-diagram" viewBox="0 0 800 560" role="img" aria-label="設計の図解。製品のスクリーンショットではありません。実行、検証、レビュー、人による承認をつなぎ、検証した版に根拠を対応させます。" xmlns="http://www.w3.org/2000/svg">
+              <g class="project-diagram-path" fill="none" stroke="currentColor" stroke-width="3"><path d="M304 154H448m-18-10 18 10-18 10M556 218V346m-10-18 10 18 10-18M448 410H304m18-10-18 10 18 10"/></g>
+              <g class="project-diagram-node project-diagram-node-0"><rect x="88" y="90" width="216" height="128" rx="28"/><text x="196" y="162" text-anchor="middle">実行</text></g>
+              <g class="project-diagram-node project-diagram-node-1"><rect x="448" y="90" width="216" height="128" rx="28"/><text x="556" y="162" text-anchor="middle">検証</text></g>
+              <g class="project-diagram-node project-diagram-node-2"><rect x="448" y="346" width="216" height="128" rx="28"/><text x="556" y="418" text-anchor="middle">レビュー</text></g>
+              <g class="project-diagram-node project-diagram-node-3"><rect x="88" y="346" width="216" height="128" rx="28"/><text x="196" y="418" text-anchor="middle">人による承認</text></g>
+              <text class="project-diagram-note" x="400" y="284" text-anchor="middle">検証した版に根拠を対応</text>
+              </svg></div>
+          <span class="project-tile-caption">設計の図解 / AICC</span>
+        </div>
+        <div class="project-tile-copy">
+          <p class="project-tile-meta"><span class="project-tile-category">ワークフローとガバナンス</span><span class="project-tile-status">デスクトップアプリ / 開発中</span></p>
+          <h2 id="project-aicc-title">AI Control Center</h2>
+          <p class="project-tile-summary">AIの作業を役割、検証、人による承認につなぎ、検証した版に根拠を対応させます。</p>
+          <p class="project-tile-role">担当：製品ルール、システムアーキテクチャ、検証設計。</p>
+          <span class="project-tile-entry" id="project-aicc-entry"><span>システム設計を見る</span><span class="project-tile-arrow" aria-hidden="true">↗</span></span>
+        </div>
+      </a>
+    </article>
+
+    <article class="project-tile project-tile--control" data-project-group="workflows" data-motion-reveal>
+      <a class="project-tile-link" href="{{link:/work/negative-control/}}" aria-labelledby="project-negative-control-title project-negative-control-entry">
+        <div class="project-tile-media project-tile-media--control">
+          <div class="project-tile-art"><svg class="project-tile-diagram" viewBox="0 0 800 560" role="img" aria-label="手法の図解：意図的にコードを壊し、チェックを実行し、判定を確認してから復元します。" xmlns="http://www.w3.org/2000/svg">
+              <g class="project-diagram-path" fill="none" stroke="currentColor" stroke-width="3"><path d="M132 178H334m132 0H668M668 190V416H132v-54"/><path d="M388 134l-25 47 40-8-20 42m58-75-25 47 40-8-20 42"/></g>
+              <g class="project-diagram-node"><circle cx="132" cy="178" r="44"/><circle cx="400" cy="178" r="58"/><circle cx="668" cy="178" r="44"/></g>
+              <g class="project-diagram-icon" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M120 166l24 24m0-24-24 24M379 178l14 14 27-30M652 178a16 16 0 1 1 6 12m-6-12v-13m0 13h13"/></g>
+              <g class="project-diagram-label" text-anchor="middle"><text x="132" y="267">壊す</text><text x="400" y="267">検証</text><text x="668" y="267">復元</text></g>
+              <text class="project-diagram-question" x="400" y="342" text-anchor="middle">テストは気づいた？</text><text class="project-diagram-note" x="400" y="462" text-anchor="middle">検出した · 検出しなかった · 実行できなかった</text>
+              </svg></div>
+          <span class="project-tile-caption">設計の図解 / negative-control</span>
+        </div>
+        <div class="project-tile-copy">
+          <p class="project-tile-meta"><span class="project-tile-category">ワークフローとガバナンス</span><span class="project-tile-status">テストツール</span></p>
+          <h2 id="project-negative-control-title">negative-control</h2>
+          <p class="project-tile-summary">意図的にコードを壊し、成功するテストが失敗も検出できるか確かめます。</p>
+          <p class="project-tile-role">担当：検証手法、判定、安全な復元のルール。</p>
+          <span class="project-tile-entry" id="project-negative-control-entry"><span>検証手法を見る</span><span class="project-tile-arrow" aria-hidden="true">↗</span></span>
+        </div>
+      </a>
+    </article>
+
+    <article class="project-tile project-tile--lock" data-project-group="workflows" data-motion-reveal>
+      <a class="project-tile-link" href="{{link:/work/tetherlock/}}" aria-labelledby="project-tetherlock-title project-tetherlock-entry">
+        <div class="project-tile-media project-tile-media--lock">
+          <div class="project-tile-art"><svg class="project-tile-diagram" viewBox="0 0 800 560" role="img" aria-label="アクセスモデルの図解：アカウント権限、署名付きUSB、パスワードでワークスペースを開き、USBを抜くとロックします。" xmlns="http://www.w3.org/2000/svg">
+              <g class="project-diagram-path" fill="none" stroke="currentColor" stroke-width="3"><path d="M235 108h100v106m-100 20h100m-100 126h100v-86"/></g>
+              <g class="project-diagram-node"><rect x="54" y="69" width="181" height="78" rx="22"/><rect x="54" y="195" width="181" height="78" rx="22"/><rect x="54" y="321" width="181" height="78" rx="22"/><rect class="project-diagram-lock" x="335" y="186" width="327" height="206" rx="40"/></g>
+              <g class="project-diagram-icon" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"><path d="M427 186v-54a72 72 0 0 1 144 0v54"/><circle cx="499" cy="266" r="16"/><path d="M499 282v29"/></g>
+              <g class="project-diagram-label" text-anchor="middle"><text x="145" y="117">アカウント</text><text x="145" y="243">署名付きUSB</text><text x="145" y="369">パスワード</text><text class="project-diagram-lock-label" x="499" y="359">ワークスペース</text></g>
+              <text class="project-diagram-note" x="400" y="478" text-anchor="middle">USBを抜く → ロック</text>
+              </svg></div>
+          <span class="project-tile-caption">設計の図解 / Tetherlock</span>
+        </div>
+        <div class="project-tile-copy">
+          <p class="project-tile-meta"><span class="project-tile-category">ワークフローとガバナンス</span><span class="project-tile-status">個人で設計したアクセス制御</span></p>
+          <h2 id="project-tetherlock-title">Tetherlock</h2>
+          <p class="project-tile-summary">アカウント権限、署名付きUSBデバイス、パスワードを組み合わせたローカルワークスペースのアクセスモデル。</p>
+          <p class="project-tile-role">担当：アクセスルール、鍵の設計、ロックのライフサイクル。</p>
+          <span class="project-tile-entry" id="project-tetherlock-entry"><span>設計と限界を読む</span><span class="project-tile-arrow" aria-hidden="true">↗</span></span>
+        </div>
+      </a>
+    </article>
+
+    <article class="project-tile project-tile--image" data-project-group="media" data-motion-reveal>
+      <a class="project-tile-link" href="{{link:/work/ai-image/}}" aria-labelledby="project-ai-image-title project-ai-image-entry">
+        <div class="project-tile-media project-tile-media--image">
+          <div class="project-tile-art"><img src="/assets/img/ai-image/resident-c.jpg" width="750" height="1000" loading="lazy" decoding="async" alt="文書化したビジュアル仕様から生成したオリジナルキャラクター。蜂蜜色のサイドブレードと苔色のジャンパースカート。"></div>
+          <span class="project-tile-caption">オリジナルキャラクター / ビジュアル仕様から画像へ</span>
+        </div>
+        <div class="project-tile-copy">
+          <p class="project-tile-meta"><span class="project-tile-category">画像と音楽</span><span class="project-tile-status">画像制作フロー</span></p>
+          <h2 id="project-ai-image-title">「これでよい」の基準を作る</h2>
+          <p class="project-tile-summary">キャラクターの方向性をビジュアル仕様にまとめ、品質チェックが違いを識別できるか確かめます。</p>
+          <p class="project-tile-role">担当：アートディレクション、条件を揃えた実験、受け入れ基準。</p>
+          <span class="project-tile-entry" id="project-ai-image-entry"><span>画像制作フローを見る</span><span class="project-tile-arrow" aria-hidden="true">↗</span></span>
+        </div>
+      </a>
+    </article>
+
+    <article class="project-tile project-tile--music" data-project-group="media" data-motion-reveal>
+      <a class="project-tile-link" href="{{link:/work/ai-music/}}" aria-labelledby="project-ai-music-title project-ai-music-entry">
+        <div class="project-tile-media project-tile-media--music">
+          <div class="project-tile-art"><img src="/assets/img/ai-music/harmonic-change.png" class="project-music-chart" width="1920" height="624" loading="lazy" decoding="async" alt="不採用のテイクとスタイルの基準曲を比較した和声ヒートマップ。"></div>
+          <span class="project-tile-caption">和声の比較 / 不採用テイクと基準曲</span>
+        </div>
+        <div class="project-tile-copy">
+          <p class="project-tile-meta"><span class="project-tile-category">画像と音楽</span><span class="project-tile-status">音楽制作フロー</span></p>
+          <h2 id="project-ai-music-title">ひとつの世界、{{f:music.tracks}}曲</h2>
+          <p class="project-tile-summary">試聴、評価の記録、チェックを通じて生成音楽を選び、採用曲をゲームに組み込みました。</p>
+          <p class="project-tile-role">担当：制作要件、試聴による判断、最終選曲。</p>
+          <span class="project-tile-entry" id="project-ai-music-entry"><span>試聴と制作過程を見る</span><span class="project-tile-arrow" aria-hidden="true">↗</span></span>
+        </div>
+      </a>
+    </article>
+
+    <article class="project-tile project-tile--game" data-project-group="games" data-motion-reveal>
+      <a class="project-tile-link" href="{{link:/work/heart-apartment/}}" aria-labelledby="project-heart-apartment-title project-heart-apartment-entry">
+        <div class="project-tile-media project-tile-media--game">
+          <div class="project-tile-art"><img src="/assets/img/heart-apartment/02-choice-thought-cloud.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="Heart Apartment：斜め上から見た共同生活の部屋で、キャラクターの上に選択肢が表示されています。"></div>
+          <span class="project-tile-caption">ゲーム画面 / 選択と記憶</span>
+        </div>
+        <div class="project-tile-copy">
+          <p class="project-tile-meta"><span class="project-tile-category">ゲーム</span><span class="project-tile-status">生活シミュレーションゲーム / 開発中</span></p>
+          <h2 id="project-heart-apartment-title">Heart Apartment <small lang="zh-Hant">心動公寓</small></h2>
+          <p class="project-tile-summary">ルームメイトを見守り、迷ったときに関わり、記憶がその後のやり取りにどう影響するかを見る。ローカルモデルが提案し、ゲームのルールが判断します。</p>
+          <p class="project-tile-role">担当：プロダクトオーナー兼ディレクター。キャラクター、対話ルール、美術、音楽の方向性を定めました。</p>
+          <span class="project-tile-entry" id="project-heart-apartment-entry"><span>ゲームを見る</span><span class="project-tile-arrow" aria-hidden="true">↗</span></span>
+        </div>
+      </a>
+    </article>
+
+  </section>
+
+  <aside class="projects-outro" data-motion-reveal>
+    <p class="projects-kicker">作品を作る人について</p>
+    <h2>作品での判断は、これまでの経験につながっています。</h2>
+    <a class="projects-about-link" href="{{link:/about/}}">Seanについて <span aria-hidden="true">↗</span></a>
+  </aside>
+</main>

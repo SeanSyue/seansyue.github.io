@@ -6,9 +6,15 @@ Portfolio site of Sean Syue. Static HTML and CSS, generated from `_src/` by a sm
 _src/                         sources: pages, strings, facts, layout, build and check scripts
 index.html                    home (generated)
 work/<project>/index.html     one page per project (Overview · Demo · Design & Verification · Status)
-about/  resume/
-assets/css/site.css           all styles
-assets/js/site.js             theme, introduction, section navigation and media controls
+projects/ about/ resume/
+assets/css/site.css           base styles and résumé print layout
+assets/css/experience.css     shared screen design and home composition
+assets/css/projects.css       projects overview
+assets/css/cases.css          six case pages
+assets/css/profile.css        About and web résumé
+assets/js/site.js             theme, section navigation and media controls
+assets/js/experience.js        opening, motion preference, reveals and page transitions
+assets/js/gallery.js           selected work: buttons, keys, pointer drag and swipe
 assets/img/                   images
 ```
 
@@ -20,13 +26,13 @@ python -m http.server 8765
 
 ## Cache busting
 
-`site.css` and `site.js` are linked with `?v=<token>`. `python _src/build.py` changes the token by itself whenever either file changes, so returning visitors never keep an old copy.
+All CSS and JavaScript assets are linked with `?v=<token>`. `python _src/build.py` updates the token whenever a file in `assets/css/` or `assets/js/` changes. The gallery import uses that same version.
 
 ## Portfolio structure and motion
 
-The home page introduces Sean, maps five capabilities to work evidence, then groups the six project cases into AI workflows and governance, AI media workflows, and AI games. Each case starts with context, personal contribution, evidence and related capabilities. English, Traditional Chinese and Japanese use the same structure.
+The home page introduces Sean, maps five capabilities to work evidence, and presents three selected projects. `/projects/` contains all six cases, with filters for AI workflows and governance, AI media workflows, and AI games. Each case starts with context, personal contribution, evidence and related capabilities. English, Traditional Chinese and Japanese use the same structure: 30 generated pages in total.
 
-The first home-page visit in a browser session shows a short greeting and moves the positioning headline into its final place (about 2.3 seconds). Skip and Replay are available. Scrolling, keyboard input, navigation or resizing ends the animation immediately. Deep links and return visits skip it; reduced-motion preferences and browsers without JavaScript receive the full static content. No content depends on completing an animation. The default theme is dark, with a saved light-mode choice supported.
+The first home-page visit in a browser session shows a greeting, reveals the large positioning words one line at a time, moves them into place, then reveals the capability cloud (about 4.2 seconds). Skip and Replay are available. Scrolling, Escape, navigation or resizing ends the opening immediately. Deep links and return visits skip it. The shared Reduce motion control and the operating system preference disable motion; without JavaScript the full static content remains available. Selected work supports buttons, arrow keys and pointer drag or swipe, without autoplay. Inner pages use scroll reveals and a short transition between ordinary static URLs. The default theme is neutral dark, with a saved light-mode choice supported. Screen design does not change the résumé print layout.
 
 ## Résumé PDF
 

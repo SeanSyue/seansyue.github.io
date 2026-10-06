@@ -2,52 +2,59 @@ title: 自己紹介 — Sean Syue
 description: Sean Syueの研究・AI製品プロジェクトから業務システム、個人開発、AI制作フローへの歩み。担当範囲、判断、協働の進め方を紹介します。
 ---
 
-<main class="portfolio wrap" id="main-content" tabindex="-1">
-  <section class="about-intro proj-head">
+<main class="portfolio wrap profile-page about-screen" id="main-content" tabindex="-1">
+  <section class="about-intro proj-head profile-heading profile-about-heading">
     <span class="eyebrow">自己紹介 / Sean Syue（薛 文鈞）</span>
-    <h1>次の一歩を、<br>より明確に。</h1>
-    <p class="lede">台北を拠点に活動するSean Syue（薛 文鈞）です。業務上のニーズ、技術的な判断、それを実現する人をつなぐ仕事をしています。研究での学び、プロジェクト支援、AI製品のマネジメント、自分でシステムを作る経験を重ねてきました。</p>
-    <div class="btn-row"><a class="btn btn-primary" href="{{link:/resume/}}">レジュメ</a><a class="btn btn-quiet" href="{{link:/}}#capabilities">得意分野と実例</a></div>
+    <h1 class="profile-about-display"><span class="profile-heading-line" data-motion-reveal>次の一歩を、</span>
+      <span class="profile-heading-line" data-motion-reveal>より明確に。</span></h1>
+    <p class="lede" data-motion-reveal>台北を拠点に活動するSean Syue（薛 文鈞）です。業務上のニーズ、技術的な判断、それを実現する人をつなぐ仕事をしています。研究での学び、プロジェクト支援、AI製品のマネジメント、自分でシステムを作る経験を重ねてきました。</p>
+    <div class="btn-row"><a class="btn btn-primary" href="{{link:/resume/}}">レジュメ</a><a class="btn btn-quiet" href="{{link:/}}#capabilities">得意分野と実例</a><a class="btn btn-quiet" href="{{link:/projects/}}">プロジェクトを見る</a></div>
   </section>
 
-  <section class="block" id="background">
-    <div class="block-head"><span class="eyebrow">経歴</span><h2>問題を研究することから、<br>仕事を組み立てることへ。</h2></div>
-    <div class="two">
-      <div class="stack"><p class="lede">生物学を学ぶなかで、根拠から考え、問題を分解し、仮説を確かめる習慣が身につきました。大学附属病院の研究助手として、報告書、研究計画の実施、統計分析を支援しました。</p><p>バイオテック企業では、営業・事務支援から製品・プロジェクト管理へ役割を広げました。データ分析、SOP、社内システムのテスト、中国語・英語・日本語での技術コミュニケーションでプロジェクトを支援しました。</p><p>Prometheus Lab AIでは、AI・エンジニアリング担当、経営層、外部パートナー間を調整し、要件、技術連携、進捗、提案、コンテスト提出物を担当しました。在籍中に製品がQualcomm Innovate in Taiwan Challenge 2025の決勝ラウンドへ進みました。</p></div>
-      <div class="stack about-timeline">
-        <p><span class="eyebrow">03/2023–04/2023</span><br><strong>研究助手</strong><br>大学附属病院 · 研究支援と分析。</p>
-        <p><span class="eyebrow">03/2024–02/2025</span><br><strong>営業・事務アシスタント</strong><br>バイオテック企業 · プロジェクト支援、データ整理、コミュニケーション。</p>
-        <p><span class="eyebrow">03/2025–10/2025</span><br><strong>プロダクト／プロジェクトマネージャー</strong><br>バイオテック企業 · AI製品の調整と業務自動化。</p>
+  <nav class="profile-nav no-print" aria-label="このページの内容"><a href="#background">経歴</a><a href="#building">システムづくり</a><a href="#principles">仕事の原則</a><a href="#ai-collaboration">AIとの協働</a><a href="#next-role">これから</a></nav>
+
+
+  <section class="block profile-section profile-story" id="background">
+    <div class="block-head profile-section-heading"><span class="eyebrow">経歴</span><h2 data-motion-reveal>問題を研究することから、<br>仕事を組み立てることへ。</h2></div>
+    <div class="profile-prose-grid">
+      <div class="stack profile-copy"><p class="lede" data-motion-reveal>生物学を学ぶなかで、根拠から考え、問題を分解し、仮説を確かめる習慣が身につきました。大学附属病院の研究助手として、報告書、研究計画の実施、統計分析を支援しました。</p><p>バイオテック企業では、営業・事務支援から製品・プロジェクト管理へ役割を広げました。データ分析、SOP、社内システムのテスト、中国語・英語・日本語での技術コミュニケーションでプロジェクトを支援しました。</p><p>Prometheus Lab AIでは、AI・エンジニアリング担当、経営層、外部パートナー間を調整し、要件、技術連携、進捗、提案、コンテスト提出物を担当しました。在籍中に製品がQualcomm Innovate in Taiwan Challenge 2025の決勝ラウンドへ進みました。</p></div>
+      <aside class="profile-timeline" aria-label="経歴">
+        <p class="eyebrow profile-timeline-label no-print">研究 / プロジェクト支援 / 製品管理</p>
+        <ol>
+          <li><span class="profile-timeline-date">03/2023–04/2023</span><div><h3 data-motion-reveal>研究助手</h3><p>大学附属病院 · 研究支援と分析。</p></div></li>
+          <li><span class="profile-timeline-date">03/2024–02/2025</span><div><h3 data-motion-reveal>営業・事務アシスタント</h3><p>バイオテック企業 · プロジェクト支援、データ整理、コミュニケーション。</p></div></li>
+          <li><span class="profile-timeline-date">03/2025–10/2025</span><div><h3 data-motion-reveal>プロダクト／プロジェクトマネージャー</h3><p>バイオテック企業 · AI製品の調整と業務自動化。</p></div></li>
+        </ol>
         <a class="text-link" href="{{link:/resume/}}">担当業務の詳細をレジュメで見る →</a>
-      </div>
+      </aside>
     </div>
   </section>
 
-  <section class="block" id="building">
-    <div class="block-head"><span class="eyebrow">仕事への向き合い方の変化</span><h2>工程が何度も止まるなら、<br>その構造を理解したい。</h2></div>
-    <div class="two">
-      <p class="lede">業務でn8nを使い、Ragic、Outlook、Excel、公開APIを連携し始めました。対象は事務、AIプロジェクト、マーケティングです。工程間を流れる情報と判断に注目し、引き継ぎ条件を明確にするようになりました。</p>
-      <div class="stack"><p>2025年11月から2026年6月までは、方向性を見直し、次の仕事に備えるキャリア転換期間を設けました。その後、2026年7〜8月に企業向けCRM・KYC・案件管理システムに取り組みました。</p><p>最近は個人開発のソフトウェアとAI制作フローに取り組んでいます。AICCの職責設計、Tetherlockのアクセスルール、Heart Apartmentの会話の感触など、具体的な部分を通してアイデアを確かめています。</p><p>プロトタイプを作ることで、要件をより具体的に書くようになりました。フロー、データ構造、小さな実験を共有し、次の判断に具体的な根拠を持たせます。</p></div>
+  <section class="block profile-section profile-story" id="building">
+    <div class="block-head profile-section-heading"><span class="eyebrow">仕事への向き合い方の変化</span><h2 data-motion-reveal>工程が何度も止まるなら、<br>その構造を理解したい。</h2></div>
+    <div class="profile-prose-grid">
+      <p class="lede" data-motion-reveal>業務でn8nを使い、Ragic、Outlook、Excel、公開APIを連携し始めました。対象は事務、AIプロジェクト、マーケティングです。工程間を流れる情報と判断に注目し、引き継ぎ条件を明確にするようになりました。</p>
+      <div class="stack profile-copy"><p>2025年11月から2026年6月までは、方向性を見直し、次の仕事に備えるキャリア転換期間を設けました。その後、2026年7〜8月に企業向けCRM・KYC・案件管理システムに取り組みました。</p><p>最近は個人開発のソフトウェアとAI制作フローに取り組んでいます。AICCの職責設計、Tetherlockのアクセスルール、Heart Apartmentの会話の感触など、具体的な部分を通してアイデアを確かめています。</p><p>プロトタイプを作ることで、要件をより具体的に書くようになりました。フロー、データ構造、小さな実験を共有し、次の判断に具体的な根拠を持たせます。</p></div>
     </div>
   </section>
 
-  <section class="about-principles block" id="principles">
-    <div class="block-head"><span class="eyebrow">仕事で大切にすること</span><h2>私が気を配ること。</h2></div>
-    <div class="cards">
-      <article class="card"><span class="num">01</span><h3>要件を具体的な形にする</h3><p>成果物に必要なこと、変えてよい部分、判断基準を書き出します。使える仕様は、暗黙の判断を減らしてくれます。</p><a class="text-link" href="{{link:/work/ai-image/}}">アートの方向性をビジュアル仕様にする →</a></article>
-      <article class="card"><span class="num">02</span><h3>トレードオフを具体化する</h3><p>使う場面に合わせて、絞り込んだ選択肢を比較します。キャラクターの返答を待つ人にとって、応答時間も対話の質も体験の一部です。</p><a class="text-link" href="{{link:/work/heart-apartment/}}#design">ゲーム用のローカルモデルを選ぶ →</a></article>
-      <article class="card"><span class="num">03</span><h3>責任を明確にする</h3><p>誰が作り、誰がレビューし、どの判断を人が担うかを定めます。引き継ぎも設計に含めます。</p><a class="text-link" href="{{link:/work/aicc/}}#duties">AICCの役割と職責 →</a></article>
-      <article class="card"><span class="num">04</span><h3>結果に応じて方法を変える</h3><p>チェックは役立ってこそ工程に残す意味があります。音楽の順位付けスクリプトが私の試聴判断を予測できなかったときは、結果を記録して方法を見直しました。</p><a class="text-link" href="{{link:/work/ai-music/}}#filter">検証で有効性を示せなかったフィルター →</a></article>
+  <section class="about-principles block profile-section profile-principles" id="principles">
+    <div class="block-head profile-section-heading"><span class="eyebrow">仕事で大切にすること</span><h2 data-motion-reveal>私が気を配ること。</h2></div>
+    <div class="profile-principle-list">
+      <article class="profile-principle"><span class="profile-principle-number" aria-hidden="true">01</span><h3 data-motion-reveal>要件を具体的な形にする</h3><div class="profile-principle-copy"><p>成果物に必要なこと、変えてよい部分、判断基準を書き出します。使える仕様は、暗黙の判断を減らしてくれます。</p><a class="text-link" href="{{link:/work/ai-image/}}">アートの方向性をビジュアル仕様にする →</a></div></article>
+      <article class="profile-principle"><span class="profile-principle-number" aria-hidden="true">02</span><h3 data-motion-reveal>トレードオフを具体化する</h3><div class="profile-principle-copy"><p>使う場面に合わせて、絞り込んだ選択肢を比較します。キャラクターの返答を待つ人にとって、応答時間も対話の質も体験の一部です。</p><a class="text-link" href="{{link:/work/heart-apartment/}}#design">ゲーム用のローカルモデルを選ぶ →</a></div></article>
+      <article class="profile-principle"><span class="profile-principle-number" aria-hidden="true">03</span><h3 data-motion-reveal>責任を明確にする</h3><div class="profile-principle-copy"><p>誰が作り、誰がレビューし、どの判断を人が担うかを定めます。引き継ぎも設計に含めます。</p><a class="text-link" href="{{link:/work/aicc/}}#duties">AICCの役割と職責 →</a></div></article>
+      <article class="profile-principle"><span class="profile-principle-number" aria-hidden="true">04</span><h3 data-motion-reveal>結果に応じて方法を変える</h3><div class="profile-principle-copy"><p>チェックは役立ってこそ工程に残す意味があります。音楽の順位付けスクリプトが私の試聴判断を予測できなかったときは、結果を記録して方法を見直しました。</p><a class="text-link" href="{{link:/work/ai-music/}}#filter">検証で有効性を示せなかったフィルター →</a></div></article>
     </div>
   </section>
 
-  <section class="block" id="ai-collaboration">
-    <div class="block-head"><span class="eyebrow">AIとの協働</span><h2>判断は自分で。実装はAIと。</h2></div>
-    <div class="two"><p class="lede">個人のソフトウェアプロジェクトでは、コードの大半をAIが書いています。私は問題、アーキテクチャ、ルール、受け入れ基準を定め、実装を指示し、結果をレビューします。</p><div class="stack"><p>創作では、ビジュアルや音楽の方向性を定め、生成された各版を比較し、体験に合うものを選びます。画像と音楽は、その工程を通じて選択・調整した生成素材です。</p><p>事例では、私の担当、検証した内容、残る限界を区別しています。うまくいかなかった選択も含め、判断の過程をたどれるようにしています。</p><a class="text-link" href="{{link:/work/negative-control/}}">実例：テストが失敗を検出できるか確かめる →</a></div></div>
+  <section class="block profile-section profile-story" id="ai-collaboration" data-profile-section="collaboration">
+    <div class="block-head profile-section-heading"><span class="eyebrow">AIとの協働</span><h2 data-motion-reveal>判断は自分で。実装はAIと。</h2></div>
+    <div class="profile-prose-grid"><p class="lede" data-motion-reveal>個人のソフトウェアプロジェクトでは、コードの大半をAIが書いています。私は問題、アーキテクチャ、ルール、受け入れ基準を定め、実装を指示し、結果をレビューします。</p><div class="stack profile-copy"><p>創作では、ビジュアルや音楽の方向性を定め、生成された各版を比較し、体験に合うものを選びます。画像と音楽は、その工程を通じて選択・調整した生成素材です。</p><p>事例では、私の担当、検証した内容、残る限界を区別しています。うまくいかなかった選択も含め、判断の過程をたどれるようにしています。</p><a class="text-link" href="{{link:/work/negative-control/}}">実例：テストが失敗を検出できるか確かめる →</a></div></div>
   </section>
 
-  <section class="block" id="next-role">
-    <div class="block-head"><span class="eyebrow">これから</span><h2>ニーズを、<br>使えるシステムへ。</h2></div>
-    <div class="two"><p class="lede">業務システム、ビジネスアナリシス、AI自動化の仕事を探しています。問題と要件の定義から、フロー設計、プロトタイプ、検証、導入まで関わりたいと考えています。</p><div class="stack"><p>Business Analyst、Business Systems Analyst、Product Operations、Solutions Consultant、Automation Leadを中心に考えています。</p><p>AI SaaS、FinTech、B2B SaaS、DXに取り組むチームに関心があり、国際的なチームも歓迎です。業務のニーズを技術的な判断につなげ、関係者と調整してきた経験を生かしたいと考えています。</p><a class="text-link" href="{{link:/}}#contact">仕事について話す →</a></div></div>
+  <section class="block profile-section profile-story" id="next-role" data-profile-section="next">
+    <div class="block-head profile-section-heading"><span class="eyebrow">これから</span><h2 data-motion-reveal>ニーズを、<br>使えるシステムへ。</h2></div>
+    <div class="profile-prose-grid"><p class="lede" data-motion-reveal>業務システム、ビジネスアナリシス、AI自動化の仕事を探しています。問題と要件の定義から、フロー設計、プロトタイプ、検証、導入まで関わりたいと考えています。</p><div class="stack profile-copy"><p>Business Analyst、Business Systems Analyst、Product Operations、Solutions Consultant、Automation Leadを中心に考えています。</p><p>AI SaaS、FinTech、B2B SaaS、DXに取り組むチームに関心があり、国際的なチームも歓迎です。業務のニーズを技術的な判断につなげ、関係者と調整してきた経験を生かしたいと考えています。</p><a class="text-link" href="{{link:/}}#contact">仕事について話す →</a></div></div>
   </section>
 </main>

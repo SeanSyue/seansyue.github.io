@@ -10,7 +10,7 @@ Inputs (all under _src/):
     facts.json         numbers and dates that must read the same in every language
     layout/*.html      the page frame, header and the footer variants
     pages/<lang>/<id>.html   one file per page and language: a few "key: value" lines, "---", then the body
-    assets.json        cache token for site.css / site.js; bumped automatically when either file changes
+    assets.json        cache token for all assets/css and assets/js files; updated automatically
 
 Template markers:
     {{s:key}}          interface string in the page's language (may itself contain {{f:...}})
@@ -50,13 +50,14 @@ class Site:
         self.layout = {p.stem: p.read_text(encoding="utf-8") for p in (SRC / "layout").glob("*.html")}
         self.token = self.cache_token()
 
-    # --- cache token: changes only when site.css or site.js change -------------------------
+    # --- cache token: changes when a CSS or JavaScript asset changes -----------------------
     def cache_token(self, write=True):
         path = SRC / "assets.json"
         state = load_json(path)
         digest = hashlib.sha256()
-        for rel in ("assets/css/site.css", "assets/js/site.js"):
-            digest.update((ROOT / rel).read_bytes())
+        for asset in sorted((ROOT / "assets").glob("css/*.css")) + sorted((ROOT / "assets").glob("js/*.js")):
+            digest.update(asset.relative_to(ROOT).as_posix().encode())
+            digest.update(asset.read_bytes())
         sha = digest.hexdigest()[:16]
         if sha != state["sha"]:
             today = datetime.date.today().strftime("%Y%m%d")

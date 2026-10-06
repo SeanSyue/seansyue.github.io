@@ -3,35 +3,42 @@ description: Tetherlock opens a local workspace only when an allowed account, a 
 ---
 
 
-<main>
+<main class="case-page case-tetherlock">
   <div class="wrap">
-    <p class="crumbs"><a href="/#work">Projects</a> → Tetherlock</p>
-    <section class="proj-head">
-      <span class="eyebrow">AI workflows &amp; governance · Security design study</span>
-      <h1>Tetherlock</h1>
-      <p class="lede">An access-control component for a local workspace. It lets the host application open the workspace only when three things are true at the same time: the person signed in is allowed in, a signed token is on the inserted drive, and the password matches. When a later check finds the drive gone, it tells the application to lock the workspace.</p>
-      <dl class="facts">
+    <p class="crumbs"><a href="{{link:/projects/}}">All projects</a> → Tetherlock</p>
+    <section class="proj-head case-hero">
+      <div class="case-kicker"><span class="eyebrow">AI workflows &amp; governance · Security design study</span><span class="case-project-name">Tetherlock</span></div>
+      <div class="case-title-block" data-motion-reveal>
+        <h1>Tetherlock</h1>
+        <div class="case-intro"><p class="lede">An access-control component for a local workspace. It lets the host application open the workspace only when three things are true at the same time: the person signed in is allowed in, a signed token is on the inserted drive, and the password matches. When a later check finds the drive gone, it tells the application to lock the workspace.</p></div>
+      </div>
+      <div class="case-stage case-stage-tetherlock" data-motion-reveal>
+        <figure class="diagram-img">
+        <a class="theme-img" href="/assets/img/tetherlock/00-overview-dark.svg" target="_blank" rel="noopener" aria-label="Open this diagram full size"><img class="on-dark" src="/assets/img/tetherlock/00-overview-dark.svg" width="1200" height="440" alt="An allowed account, a signed USB drive and the password together open the workspace; pulling the drive locks it again."><img class="on-light" src="/assets/img/tetherlock/00-overview.svg" width="1200" height="440" alt="" loading="lazy"></a>
+        <figcaption>Three conditions to open, one to close.</figcaption>
+        <p class="case-swipe">{{s:scroll.hint}}</p>
+      </figure>
+      </div>
+      <div class="case-context" data-motion-reveal>
+        <div class="case-brief case-dossier">
+<div class="case-challenge"><span class="eyebrow">Challenge</span><p>A local workspace needs both an opening rule and a rule for ending access when the required drive is no longer present.</p></div>
+<div class="case-contribution"><span class="eyebrow">My contribution</span><p>For this personal project, I set the access rules, key design, and lock lifecycle, reviewed designs, and tested through use. AI coding agents implemented the module.</p></div>
+<div class="case-evidence"><span class="eyebrow">Evidence</span><p>Inspect the <a href="#screens">real command and test output</a> and <a href="#decisions">key-design decisions</a>, alongside the <a href="#scope">host application's responsibilities and limits</a>.</p></div>
+</div>
+        <aside class="case-meta"><dl class="facts">
         <div><dt>Type</dt><dd>Standalone module</dd></div>
         <div><dt>Source</dt><dd><a href="https://github.com/SeanSyue/tetherlock">GitHub · MIT</a></dd></div>
         <div><dt>Updated</dt><dd>2026-09</dd></div>
         <div><dt>My role</dt><dd>Access rules, key design, lock lifecycle</dd></div>
         <div><dt>Stack</dt><dd>Python · cryptography (Ed25519, scrypt, AES-256-GCM) · command-line tool · no UI</dd></div>
-      </dl>
-      <div class="case-brief">
-        <div><span class="eyebrow">Challenge</span><p>A local workspace needs both an opening rule and a rule for ending access when the required drive is no longer present.</p></div>
-        <div><span class="eyebrow">My contribution</span><p>For this personal project, I set the access rules, key design, and lock lifecycle, reviewed designs, and tested through use. AI coding agents implemented the module.</p></div>
-        <div><span class="eyebrow">Evidence</span><p>Inspect the <a href="#screens">real command and test output</a> and <a href="#decisions">key-design decisions</a>, alongside the <a href="#scope">host application's responsibilities and limits</a>.</p></div>
+      </dl></aside>
       </div>
       <div class="case-capabilities">
         <span class="eyebrow">Related capabilities</span>
         <a href="{{link:/}}#cap-systems">Requirements &amp; systems design</a>
         <a href="{{link:/}}#cap-quality">Verification &amp; quality judgment</a>
       </div>
-      <figure class="diagram-img">
-        <a class="theme-img" href="/assets/img/tetherlock/00-overview-dark.svg" target="_blank" rel="noopener" aria-label="Open this diagram full size"><img class="on-dark" src="/assets/img/tetherlock/00-overview-dark.svg" width="1200" height="440" alt="An allowed account, a signed USB drive and the password together open the workspace; pulling the drive locks it again."><img class="on-light" src="/assets/img/tetherlock/00-overview.svg" width="1200" height="440" alt="" loading="lazy"></a>
-        <figcaption>Three conditions to open, one to close.</figcaption>
-      </figure>
-      <p class="note-band">A design write-up with real command and test output. The source is on GitHub; there is no recording or third-party audit. Where something is designed but unproven, this page says so.</p>
+      <div class="case-hero-tail"><p class="note-band">A design write-up with real command and test output. The source is on GitHub; there is no recording or third-party audit. Where something is designed but unproven, this page says so.</p></div>
     </section>
   </div>
 
@@ -48,8 +55,8 @@ description: Tetherlock opens a local workspace only when an allowed account, a 
   <div class="wrap">
 
     <!-- ============ OVERVIEW ============ -->
-    <section id="overview" class="block">
-      <div class="block-head"><span class="eyebrow">Overview</span><h2>Open when all three hold, close when one stops</h2></div>
+    <section id="overview" class="block case-section">
+      <div class="block-head" data-motion-reveal><span class="eyebrow">Overview</span><h2>Open when all three hold, close when one stops</h2></div>
 
       <div class="two wide-left">
         <div class="stack">
@@ -72,7 +79,7 @@ description: Tetherlock opens a local workspace only when an allowed account, a 
         </div>
       </div>
 
-      <div class="cards">
+      <div class="cards case-cards">
         <div class="card lift"><span class="num">01</span><h3>Three checks, one order</h3><p>The account must be allowed in, a signed token must be on the drive, and the password must match. If the account is not allowed in, the password prompt never appears.</p></div>
         <div class="card lift"><span class="num">02</span><h3>Pull the drive, it locks</h3><p>Every open workspace is re-checked on each cycle. A missing, replaced or no-longer-valid token locks that workspace, and only that one.</p></div>
         <div class="card lift"><span class="num">03</span><h3>Help without the admin password</h3><p>A separate maintenance token lists exactly what it allows. The session ends on its own after 30 minutes by default, or the moment the drive is removed.</p></div>
@@ -80,11 +87,12 @@ description: Tetherlock opens a local workspace only when an allowed account, a 
     </section>
 
     <!-- ============ HOW IT WORKS ============ -->
-    <section id="how" class="block">
-      <div class="block-head"><span class="eyebrow">How it works</span><h2>One check cycle, and the life of one area</h2></div>
-      <figure class="diagram-img">
+    <section id="how" class="block case-section">
+      <div class="block-head" data-motion-reveal><span class="eyebrow">How it works</span><h2>One check cycle, and the life of one area</h2></div>
+      <figure class="diagram-img case-media" data-motion-reveal>
         <a class="theme-img" href="/assets/img/tetherlock/08-three-gates-dark.svg" target="_blank" rel="noopener" aria-label="Open this diagram full size"><img class="on-dark" src="/assets/img/tetherlock/08-three-gates-dark.svg" width="1200" height="560" alt="One check cycle: account, then a signed token on a drive, then the password, then the token is checked again before anything opens. Each gate has its own refusal path."><img class="on-light" src="/assets/img/tetherlock/08-three-gates.svg" width="1200" height="560" alt="" loading="lazy"></a>
         <figcaption>One check cycle, gate by gate. Each gate must pass before the next one is even asked.</figcaption>
+        <p class="case-swipe">{{s:scroll.hint}}</p>
       </figure>
       <ol class="steps">
         <li><div><b>The account must be allowed in.</b> The host application answers one question: may this account open protected areas? It is asked first, on every cycle. “No” means no prompt, and anything open is locked.</div></li>
@@ -92,16 +100,17 @@ description: Tetherlock opens a local workspace only when an allowed account, a 
         <li><div><b>The password must match.</b> It is checked against a stored verifier; the token never contains the password.</div></li>
         <li><div><b>The drive is checked again, after the password.</b> The token is re-read and must be the same one found before the prompt, so a drive pulled or swapped while someone types opens nothing.</div></li>
       </ol>
-      <figure class="diagram-img">
+      <figure class="diagram-img case-media" data-motion-reveal>
         <a class="theme-img" href="/assets/img/tetherlock/09-lock-lifecycle-dark.svg" target="_blank" rel="noopener" aria-label="Open this diagram full size"><img class="on-dark" src="/assets/img/tetherlock/09-lock-lifecycle-dark.svg" width="1200" height="600" alt="Lifecycle of one protected area: Locked, Asking, Open, and every way back to Locked."><img class="on-light" src="/assets/img/tetherlock/09-lock-lifecycle.svg" width="1200" height="600" alt="" loading="lazy"></a>
         <figcaption>The life of one protected area. Several areas can be open at once, each tied to its own drive.</figcaption>
+        <p class="case-swipe">{{s:scroll.hint}}</p>
       </figure>
       <div class="two">
-        <article class="chapter">
+        <article class="chapter case-chapter">
           <h3>Staying open, and closing</h3>
           <p>An open area is re-checked on every cycle. If the drive is removed, the token is replaced, expires or was signed by a key that has been phased out, or the account is no longer allowed in, that area locks and the application is told to close it. Areas opened by other drives stay open. Closing screens and refusing data operations is the application's job; Tetherlock tells it when.</p>
         </article>
-        <article class="chapter">
+        <article class="chapter case-chapter">
           <h3>Delegated maintenance</h3>
           <p>A separate token lists the capabilities it allows, and only ones the application recognises are granted. The session lives in memory, lasts 30 minutes by default, and every use re-checks the clock and the token. Removing the drive ends it before the next action.</p>
         </article>
@@ -109,9 +118,9 @@ description: Tetherlock opens a local workspace only when an allowed account, a 
     </section>
 
     <!-- ============ IN ACTION ============ -->
-    <section id="screens" class="block">
-      <div class="block-head"><span class="eyebrow">In action</span><h2>Seven screens from the standalone version</h2></div>
-      <div class="slideshow" aria-roledescription="carousel" aria-label="Tetherlock screenshots">
+    <section id="screens" class="block case-section">
+      <div class="block-head" data-motion-reveal><span class="eyebrow">In action</span><h2>Seven screens from the standalone version</h2></div>
+      <div class="slideshow case-media" aria-roledescription="carousel" aria-label="Tetherlock screenshots" data-motion-reveal>
         <div class="slides" tabindex="0">
           <figure class="slide" aria-roledescription="slide" aria-label="1 of 7">
             <a class="slide-zoom" href="/assets/img/tetherlock/01-issue-a-token.png" target="_blank" rel="noopener" aria-label="Open this screen full size"><img src="/assets/img/tetherlock/01-issue-a-token.png" width="1600" height="900" loading="eager" alt="Terminal: tetherlock init-keys, add-trusted-key and issue-token succeed."></a>
@@ -152,9 +161,9 @@ description: Tetherlock opens a local workspace only when an allowed account, a 
     </section>
 
     <!-- ============ DECISIONS ============ -->
-    <section id="decisions" class="block">
-      <div class="block-head"><span class="eyebrow">Design decisions</span><h2>Three calls, and what was rejected</h2></div>
-      <div class="cards">
+    <section id="decisions" class="block case-section">
+      <div class="block-head" data-motion-reveal><span class="eyebrow">Design decisions</span><h2>Three calls, and what was rejected</h2></div>
+      <div class="cards case-cards">
         <div class="card"><span class="num">01</span><h3>Check the drive again after the password</h3><p>Typing a password takes seconds, and in that time the drive can be pulled or swapped for another at the same drive letter. So the token is re-read and re-verified after the password and before anything opens.</p><p class="muted">Rejected: checking the drive once, before the prompt, and trusting that result afterwards.</p></div>
         <div class="card"><span class="num">02</span><h3>No master key</h3><p>There is no recovery key and no bypass. The only code that grants access runs after the password check. The cost is accepted: lose every signing key, and trust has to be set up again from scratch.</p><p class="muted">Rejected: an emergency override “so it can always be recovered”. A backdoor becomes the easiest way in.</p></div>
         <div class="card"><span class="num">03</span><h3>When in doubt, lock</h3><p>If a check fails with an unexpected error, or a token turns unreadable while the area is open, the area is locked first and the error is reported after. The owner may occasionally have to unlock again.</p><p class="muted">The other way round, staying open until someone looks, leaves the door open for as long as nobody notices.</p></div>
@@ -162,10 +171,10 @@ description: Tetherlock opens a local workspace only when an allowed account, a 
     </section>
 
     <!-- ============ SCOPE ============ -->
-    <section id="scope" class="block">
-      <div class="block-head"><span class="eyebrow">Scope &amp; limits</span><h2>What it does, and what it leaves to others</h2></div>
+    <section id="scope" class="block case-section">
+      <div class="block-head" data-motion-reveal><span class="eyebrow">Scope &amp; limits</span><h2>What it does, and what it leaves to others</h2></div>
       <p class="lede">Tetherlock decides <b>whether</b> a protected workspace may open, and closes it again. It does not encrypt the files inside: the workspace password is checked, but it is not an encryption key. Keeping the drive's contents unreadable is the job of full-disk encryption. It also cannot tell a drive from an exact bit-for-bit copy of it.</p>
-      <div class="ledger">
+      <div class="ledger case-ledger">
         <div class="done"><h3>Built</h3><ul><li>Signed tokens, password verifier, drive binding</li><li>Trust store with key rotation</li><li>Unlock and lock monitor</li><li>Delegated maintenance</li><li>Module loading after unlock</li><li>Encrypted hand-over packages and an admin command-line tool</li></ul></div>
         <div class="verified"><h3>Verified · 2026-09-26</h3><ul><li>{{f:tl.tests_passed}} tests passed, 1 skipped, on Python 3.10 and 3.14</li><li>A fresh install and the README quick start ran end to end</li><li>Removing each protection from the monitor in turn made a test fail</li></ul></div>
         <div class="notyet"><h3>Not yet</h3><ul><li>Encryption of workspace files</li><li>A revocation list</li><li>A third-party security audit</li><li>A user interface; the application supplies its own screens</li><li>Real-world timing of lock after removal: not measured</li></ul></div>
@@ -173,14 +182,17 @@ description: Tetherlock opens a local workspace only when an allowed account, a 
       <p class="muted">If this is the kind of thinking you want on your team, the same reasoning shows up in <a href="/work/aicc/">AI Control Center</a>, where an approval only counts against the exact version of the work it was given for.</p>
     </section>
 
-    <section class="next">
-      <span class="eyebrow">Next</span>
-      <div class="btn-row">
-        <a class="btn btn-primary" href="/work/ai-image/">Next project: AI image →</a>
-        <a class="btn btn-quiet" href="/work/negative-control/">← negative-control</a>
-        <a class="btn btn-quiet" href="/#contact">Contact me</a>
-      </div>
-    </section>
+    <nav class="case-pagination" aria-label="Explore more projects">
+      <a class="case-prev" data-case-prev href="{{link:/work/negative-control/}}">
+        <span class="eyebrow"><span aria-hidden="true">←</span> Previous case</span>
+        <span class="case-nav-title">negative-control</span>
+      </a>
+      <a class="case-next" data-case-next href="{{link:/work/ai-image/}}">
+        <span class="eyebrow">Next case <span aria-hidden="true">→</span></span>
+        <span class="case-nav-title">AI image</span>
+      </a>
+      <div class="case-pagination-footer"><a href="{{link:/projects/}}">All projects <span aria-hidden="true">↗</span></a><a class="btn btn-quiet" href="/#contact">Contact me</a></div>
+    </nav>
   </div>
 </main>
 

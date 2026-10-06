@@ -19,6 +19,24 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://seansyue.github.io/ja/"/>
   </url>
   <url>
+    <loc>https://seansyue.github.io/projects/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://seansyue.github.io/projects/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://seansyue.github.io/zh-tw/projects/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://seansyue.github.io/ja/projects/"/>
+  </url>
+  <url>
+    <loc>https://seansyue.github.io/zh-tw/projects/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://seansyue.github.io/projects/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://seansyue.github.io/zh-tw/projects/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://seansyue.github.io/ja/projects/"/>
+  </url>
+  <url>
+    <loc>https://seansyue.github.io/ja/projects/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://seansyue.github.io/projects/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://seansyue.github.io/zh-tw/projects/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://seansyue.github.io/ja/projects/"/>
+  </url>
+  <url>
     <loc>https://seansyue.github.io/about/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://seansyue.github.io/about/"/>
     <xhtml:link rel="alternate" hreflang="zh-TW" href="https://seansyue.github.io/zh-tw/about/"/>

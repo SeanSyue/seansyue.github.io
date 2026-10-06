@@ -1,0 +1,391 @@
+/* About and résumé compositions. Every rule is screen-only so the existing
+   two-page résumé print layout remains the sole authority for PDF output.
+   Motion hooks stay visible until the shared script progressively enhances them. */
+@media screen {
+  .profile-page {
+    --profile-ground: #101010;
+    --profile-ink: #f7f7f5;
+    --profile-copy: #c4c4c1;
+    --profile-muted: #a1a19d;
+    --profile-rule: #ffffff24;
+    --profile-wash: #ffffff09;
+    --profile-font: Inter, "Noto Sans TC", "Noto Sans JP", Arial, sans-serif;
+    color: var(--profile-ink);
+    background: var(--profile-ground);
+    font-family: var(--profile-font);
+    padding-bottom: clamp(72px, 10vw, 160px);
+  }
+
+  :root[data-theme="light"] .profile-page {
+    --profile-ground: #f7f7f5;
+    --profile-ink: #101010;
+    --profile-copy: #43433f;
+    --profile-muted: #646460;
+    --profile-rule: #10101026;
+    --profile-wash: #10101005;
+  }
+
+  .profile-page:lang(zh-Hant-TW) { --profile-font: Inter, "Noto Sans TC", Arial, sans-serif; }
+  .profile-page:lang(ja) { --profile-font: Inter, "Noto Sans JP", Arial, sans-serif; }
+  .profile-page :is(h1, h2, h3, .lede, .eyebrow, .text-link, .btn, dt, dd) {
+    font-family: var(--profile-font);
+  }
+  .profile-page :is(h1, h2, h3) { color: var(--profile-ink); font-weight: 600; }
+  .profile-page :is(p, ul, dd) { color: var(--profile-copy); }
+  .profile-page :is(strong, b) { color: var(--profile-ink); }
+  .profile-page :is(.eyebrow, .muted) { color: var(--profile-muted); }
+  .profile-page a { color: var(--profile-ink); }
+  .profile-page a:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 5px;
+  }
+  .profile-page .eyebrow { font-size: 11px; line-height: 1.8; letter-spacing: .1em; }
+  .profile-page .text-link {
+    font-size: 14px;
+    line-height: 1.7;
+    font-weight: 500;
+    text-decoration: underline;
+    text-decoration-color: var(--profile-rule);
+    text-underline-offset: 6px;
+  }
+  .profile-page .text-link:hover { text-decoration-color: currentColor; }
+  .profile-page .btn-row { gap: 12px 20px; flex-wrap: wrap; }
+  .profile-page .btn {
+    min-height: 48px;
+    padding: 13px 20px;
+    font-size: 13px;
+    line-height: 1.6;
+    white-space: normal;
+    text-align: center;
+    border: 0;
+    border-radius: 4px;
+    box-shadow: none;
+    background: transparent;
+    color: var(--profile-ink);
+  }
+  .profile-page .btn-primary { background: var(--profile-ink); color: var(--profile-ground); }
+  .profile-page .btn-primary:hover { background: var(--profile-copy); color: var(--profile-ground); }
+  .profile-page .btn-quiet {
+    padding-inline: 0;
+    text-decoration: underline;
+    text-decoration-color: var(--profile-rule);
+    text-underline-offset: 6px;
+  }
+  .profile-page .btn-quiet:hover { background: transparent; text-decoration-color: currentColor; }
+
+  /* The résumé header uses its original print children in a new screen grid. */
+  .profile-page .profile-heading {
+    display: grid;
+    padding: clamp(64px, 8vw, 124px) 0 54px;
+    gap: 24px;
+  }
+  .profile-page .profile-resume-heading {
+    grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+    grid-template-areas: "display display" "name actions" "position actions" "contact languages";
+    column-gap: 8%;
+    padding-top: clamp(64px, 8vw, 124px) !important;
+  }
+  .profile-page .profile-display {
+    grid-area: display;
+    margin: 0 0 44px -.045em;
+    font-size: clamp(96px, 17.2vw, 248px);
+    font-weight: 600;
+    line-height: 1.08;
+    letter-spacing: -.085em;
+    overflow-wrap: normal;
+  }
+  .profile-page .profile-resume-heading > .eyebrow { display: none; }
+  .profile-page .profile-resume-heading h1 {
+    grid-area: name;
+    font-size: clamp(32px, 4vw, 56px);
+    line-height: 1.2;
+    letter-spacing: -.045em;
+    max-width: none;
+  }
+  .profile-page .profile-resume-heading > .lede {
+    grid-area: position;
+    font-size: clamp(17px, 1.8vw, 22px);
+    line-height: 1.6;
+    margin: 0;
+    max-width: 45ch;
+  }
+  .profile-page .contact-line {
+    grid-area: contact;
+    font-size: 12px;
+    line-height: 1.9;
+    color: var(--profile-muted);
+    overflow-wrap: anywhere;
+    margin: 0;
+  }
+  .profile-page .profile-resume-heading > .btn-row {
+    grid-area: actions;
+    align-content: start;
+    justify-content: flex-end;
+    align-items: start;
+  }
+  .profile-page .pdf-langs {
+    grid-area: languages;
+    justify-self: end;
+    align-self: end;
+    font-size: 12px;
+    line-height: 1.9;
+    margin: 0;
+    text-align: right;
+    color: var(--profile-muted);
+  }
+
+  .profile-page .profile-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 28px;
+    padding-block: 18px;
+    border-block: 1px solid var(--profile-rule);
+    margin-block: 0 12px;
+  }
+  .profile-page .profile-nav a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-size: 13px;
+    text-decoration: none;
+    color: var(--profile-copy);
+  }
+  .profile-page .profile-nav a:hover {
+    color: var(--profile-ink);
+    text-decoration: underline;
+    text-underline-offset: 6px;
+  }
+  .profile-page .profile-section {
+    display: grid;
+    padding-block: clamp(64px, 9vw, 128px) 0;
+    gap: 44px;
+    scroll-margin-top: 112px;
+  }
+  .profile-page .profile-section-heading {
+    display: grid;
+    align-items: start;
+    justify-content: start;
+    border: 0;
+    padding: 0;
+    gap: 14px;
+  }
+  .profile-page .profile-section-heading h2 {
+    font-size: clamp(36px, 4.7vw, 66px);
+    line-height: 1.12;
+    letter-spacing: -.055em;
+    max-width: 25ch;
+  }
+  .profile-page .profile-section-number {
+    color: var(--profile-muted);
+    font-size: 12px;
+    letter-spacing: .04em;
+  }
+  .profile-page .profile-summary {
+    grid-template-columns: minmax(0, .7fr) minmax(0, 1.6fr);
+    gap: 8%;
+  }
+  .profile-page .profile-summary > .lede {
+    font-size: clamp(20px, 2.2vw, 29px);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* Dates and role titles form a stable left column. Long evidence stays open. */
+  .profile-page .profile-role {
+    display: grid;
+    grid-template-columns: 30px minmax(0, .85fr) minmax(0, 1.45fr);
+    gap: 5%;
+    padding-block: 34px 42px;
+    border-top: 1px solid var(--profile-rule);
+    align-items: start;
+  }
+  .profile-page .profile-role-index {
+    color: var(--profile-muted);
+    font-size: 12px;
+    line-height: 2;
+    padding-top: 4px;
+  }
+  .profile-page .profile-role .role-head { display: block; }
+  .profile-page .profile-role .role-head h3 {
+    font-size: clamp(23px, 2.4vw, 34px);
+    line-height: 1.22;
+    letter-spacing: -.035em;
+    overflow-wrap: anywhere;
+  }
+  .profile-page .profile-role .role-head span {
+    display: block;
+    margin-top: 20px;
+    font-size: 12px;
+    line-height: 1.9;
+    color: var(--profile-muted);
+  }
+  .profile-page .profile-role ul {
+    font-size: 16px;
+    line-height: 1.85;
+    gap: 18px;
+    padding-left: 1.1em;
+    color: var(--profile-copy);
+  }
+  .profile-page .profile-role li { padding-left: .3em; }
+  .profile-page .profile-role li::marker { color: var(--profile-muted); font-size: .75em; }
+  .profile-page .skills { gap: 0; }
+  .profile-page .skills > div {
+    display: grid;
+    grid-template-columns: minmax(0, .85fr) minmax(0, 1.45fr);
+    gap: 5%;
+    padding-block: 26px;
+    padding-left: calc(30px + 5%);
+    border-top: 1px solid var(--profile-rule);
+  }
+  .profile-page .skills dt {
+    font-size: 19px;
+    line-height: 1.6;
+    color: var(--profile-ink);
+    text-transform: none;
+    letter-spacing: -.02em;
+    font-weight: 500;
+  }
+  .profile-page .skills dd { font-size: 16px; line-height: 1.85; }
+  .profile-page .next {
+    margin-top: clamp(64px, 8vw, 100px);
+    padding-top: 32px;
+    border-top: 1px solid var(--profile-rule);
+    border-radius: 0;
+    background: transparent;
+  }
+
+  /* About: a text portrait, followed by evidence and a chronological sidebar. */
+  .profile-page .profile-about-heading { grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 20px; }
+  .profile-page .profile-about-heading > .eyebrow { grid-column: 1 / -1; }
+  .profile-page .profile-about-display {
+    grid-column: 1 / -1;
+    font-size: clamp(50px, 8.9vw, 128px);
+    line-height: 1.1;
+    letter-spacing: -.068em;
+    max-width: none;
+    margin: 12px 0 36px;
+    text-wrap: initial;
+  }
+  .profile-page .profile-heading-line { display: block; }
+  .profile-page .profile-heading-line + .profile-heading-line { padding-left: 6%; }
+  .profile-page .profile-about-heading > .lede {
+    grid-column: 6 / -1;
+    font-size: clamp(19px, 2.1vw, 28px);
+    line-height: 1.65;
+    max-width: 46ch;
+    margin: 0;
+  }
+  .profile-page .profile-about-heading > .btn-row { grid-column: 6 / -1; margin-top: 12px; }
+  .profile-page .profile-story { gap: 44px; }
+  .profile-page .profile-prose-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    gap: 9%;
+    align-items: start;
+  }
+  .profile-page .profile-copy { gap: 24px; }
+  .profile-page .profile-prose-grid p {
+    font-size: 17px;
+    line-height: 1.9;
+    margin: 0;
+    max-width: 62ch;
+  }
+  .profile-page .profile-prose-grid .lede { font-size: clamp(20px, 2vw, 26px); line-height: 1.7; }
+  .profile-page .profile-timeline { padding-top: 4px; }
+  .profile-page .profile-timeline-label { margin: 0 0 24px; font-size: 11px; color: var(--profile-muted); }
+  .profile-page .profile-timeline ol { display: grid; list-style: none; margin: 0; padding: 0; }
+  .profile-page .profile-timeline li {
+    display: grid;
+    grid-template-columns: 110px minmax(0, 1fr);
+    gap: 24px;
+    padding-block: 26px;
+    border-top: 1px solid var(--profile-rule);
+  }
+  .profile-page .profile-timeline-date { font-size: 11px; line-height: 1.8; color: var(--profile-muted); white-space: nowrap; }
+  .profile-page .profile-timeline h3 { font-size: 21px; line-height: 1.4; letter-spacing: -.025em; margin-bottom: 12px; }
+  .profile-page .profile-timeline p { font-size: 14px; line-height: 1.8; }
+  .profile-page .profile-timeline > .text-link { display: inline-block; margin-top: 18px; }
+  .profile-page .profile-principle-list { display: grid; }
+  .profile-page .profile-principle {
+    display: grid;
+    grid-template-columns: 30px minmax(0, .9fr) minmax(0, 1.4fr);
+    gap: 5%;
+    align-items: start;
+    padding-block: 38px 44px;
+    border-top: 1px solid var(--profile-rule);
+  }
+  .profile-page .profile-principle-number { font-size: 12px; line-height: 2; color: var(--profile-muted); }
+  .profile-page .profile-principle h3 { font-size: clamp(24px, 3vw, 40px); line-height: 1.22; letter-spacing: -.045em; }
+  .profile-page .profile-principle-copy p { font-size: 17px; line-height: 1.85; margin: 0 0 22px; }
+  .profile-page [data-profile-section="collaboration"] .profile-section-heading h2 { max-width: 21ch; }
+  .profile-page [data-profile-section="next"] { margin-top: 40px; border-top: 1px solid var(--profile-rule); }
+  .profile-page [data-profile-section="next"] .profile-section-heading h2 { font-size: clamp(44px, 6vw, 84px); }
+
+  /* CJK titles need a wider rhythm and smaller display sizes than Latin text. */
+  .profile-page:lang(zh-Hant-TW) .profile-about-display,
+  .profile-page:lang(ja) .profile-about-display { font-size: clamp(40px, 6.8vw, 96px); line-height: 1.28; letter-spacing: -.055em; }
+  .profile-page:lang(zh-Hant-TW) .profile-section-heading h2,
+  .profile-page:lang(ja) .profile-section-heading h2 { font-size: clamp(30px, 3.9vw, 54px); line-height: 1.4; letter-spacing: -.045em; }
+  .profile-page:lang(zh-Hant-TW) .profile-role .role-head h3,
+  .profile-page:lang(ja) .profile-role .role-head h3 { font-size: clamp(23px, 2.1vw, 30px); line-height: 1.5; }
+  .profile-page:lang(zh-Hant-TW) .profile-principle h3,
+  .profile-page:lang(ja) .profile-principle h3 { font-size: clamp(24px, 2.5vw, 35px); line-height: 1.5; }
+  .profile-page:lang(zh-Hant-TW) .profile-display { letter-spacing: -.075em; }
+  .profile-page:lang(ja) .profile-display { font-size: clamp(70px, 14vw, 200px); letter-spacing: -.07em; }
+}
+
+@media screen and (max-width: 1000px) {
+  .profile-page .profile-resume-heading { column-gap: 5%; }
+  .profile-page .profile-role { grid-template-columns: 24px minmax(0, .9fr) minmax(0, 1.35fr); gap: 4%; }
+  .profile-page .profile-role ul { font-size: 15px; }
+  .profile-page .profile-prose-grid { gap: 6%; }
+  .profile-page .profile-timeline li { grid-template-columns: 1fr; gap: 10px; }
+  .profile-page .profile-about-heading > .lede,
+  .profile-page .profile-about-heading > .btn-row { grid-column: 4 / -1; }
+}
+
+@media screen and (max-width: 720px) {
+  .profile-page .profile-heading { padding-top: 54px; padding-bottom: 36px; }
+  .profile-page .profile-resume-heading {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "display" "name" "position" "contact" "actions" "languages";
+    gap: 20px;
+    padding-top: 54px !important;
+  }
+  .profile-page .profile-display { font-size: clamp(72px, 18vw, 130px); margin-bottom: 22px; }
+  .profile-page:lang(ja) .profile-display { font-size: clamp(56px, 15vw, 108px); }
+  .profile-page .profile-resume-heading h1 { font-size: clamp(28px, 7vw, 40px); }
+  .profile-page .profile-resume-heading > .btn-row { justify-content: flex-start; padding-top: 12px; }
+  .profile-page .pdf-langs { justify-self: start; text-align: left; }
+  .profile-page .profile-nav { gap: 2px 22px; padding-block: 12px; }
+  .profile-page .profile-section { gap: 30px; padding-top: 64px; scroll-margin-top: 100px; }
+  .profile-page .profile-summary { grid-template-columns: minmax(0, 1fr); }
+  .profile-page .profile-role { grid-template-columns: 22px minmax(0, 1fr); gap: 24px 18px; padding-block: 28px 38px; }
+  .profile-page .profile-role ul { grid-column: 2; font-size: 16px; gap: 16px; }
+  .profile-page .profile-role .role-head h3 { font-size: 26px; }
+  .profile-page .profile-role .role-head span { margin-top: 14px; }
+  .profile-page .skills > div { grid-template-columns: minmax(0, 1fr); gap: 12px; padding-left: 0; }
+  .profile-page .skills dt { font-size: 20px; }
+  .profile-page .profile-about-heading { grid-template-columns: minmax(0, 1fr); gap: 26px; }
+  .profile-page .profile-about-heading > :is(.eyebrow, .profile-about-display, .lede, .btn-row) { grid-column: 1; }
+  .profile-page .profile-about-display { font-size: clamp(42px, 8.4vw, 64px); line-height: 1.13; letter-spacing: -.06em; margin: 4px 0 14px; }
+  .profile-page .profile-heading-line + .profile-heading-line { padding-left: 4%; }
+  .profile-page:lang(zh-Hant-TW) .profile-about-display,
+  .profile-page:lang(ja) .profile-about-display { font-size: clamp(34px, 6.7vw, 48px); line-height: 1.35; letter-spacing: -.055em; }
+  .profile-page .profile-prose-grid { grid-template-columns: minmax(0, 1fr); gap: 36px; }
+  .profile-page .profile-timeline li { grid-template-columns: 112px minmax(0, 1fr); gap: 18px; }
+  .profile-page .profile-timeline h3 { font-size: 20px; }
+  .profile-page .profile-principle { grid-template-columns: 22px minmax(0, 1fr); gap: 20px 18px; padding-block: 28px 38px; }
+  .profile-page .profile-principle-copy { grid-column: 2; }
+  .profile-page .profile-principle h3 { font-size: 28px; }
+  .profile-page .profile-principle-copy p { font-size: 16px; }
+  .profile-page [data-profile-section="next"] { margin-top: 30px; }
+}
+
+@media screen and (max-width: 380px) {
+  .profile-page .profile-timeline li { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .profile-page .profile-heading-line + .profile-heading-line { padding-left: 0; }
+  .profile-page .profile-about-display { font-size: 39px; }
+  .profile-page:lang(zh-Hant-TW) .profile-about-display,
+  .profile-page:lang(ja) .profile-about-display { font-size: 32px; }
+}
