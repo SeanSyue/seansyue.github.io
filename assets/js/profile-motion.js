@@ -3,7 +3,7 @@
 export function initProfileMotion({isReduced = () => false} = {}) {
   const page = document.querySelector('.profile-page');
   if (!page) return null;
-  const groups = [], units = [], claimed = new Set();
+  const groups = [], units = [], cards = [], claimed = new Set();
   const clamp = value => Math.max(0, Math.min(1, value));
   const ease = value => value * value * (3 - 2 * value);
   let frame = 0, needsMeasure = true, printing = false;
@@ -58,21 +58,39 @@ export function initProfileMotion({isReduced = () => false} = {}) {
   const next = page.querySelector('.next');
   if (next) group(next, [], list(next, '.btn-row'), {short:true});
 
+  // Move the paper container too, using the same rise/fade/scale vocabulary
+  // as project cards, while leaving technical and career text upright.
+  list(page, '.profile-role, .profile-principle, .skills > div, .profile-summary > .lede, .profile-prose-grid > *').forEach(element => {
+    element.classList.add('profile-motion-card');
+    cards.push({element, top:0, height:0});
+  });
+
   const nav = page.querySelector('.profile-nav');
   const sections = nav && !document.documentElement.dataset.innerStudy ? list(nav, 'a[href^="#"]').map(link => ({link,
     section:document.getElementById(link.hash.slice(1))})).filter(row => row.section) : [];
   const header = document.querySelector('.site-header');
 
+  function flowTop(element) {
+    const sheet = element.closest('.folio-sheet');
+    if (sheet) {
+      // offset geometry excludes both the card scale and child text shifts.
+      // Rectangles would feed the current animated position back into layout.
+      let top = 0, node = element;
+      while (node && node !== sheet) { top += node.offsetTop; node = node.offsetParent; }
+      const marker = document.querySelector(`[data-folio-anchor="${sheet.dataset.folioChapter}"]`);
+      if (node === sheet && marker) return marker.getBoundingClientRect().top + scrollY + (innerWidth <= 700 ? -16 : -24) + top;
+    }
+    return element.getBoundingClientRect().top + scrollY;
+  }
+
   function measure() {
     // Anchors are untransformed containers, so the current effect cannot feed
     // back into its own geometry. Font loading/resize re-measure the originals.
     groups.forEach(row => {
-      const rect = row.anchor.getBoundingClientRect();
-      const sheet = row.anchor.closest('.folio-sheet');
-      const marker = sheet && document.querySelector(`[data-folio-anchor="${sheet.dataset.folioChapter}"]`);
-      row.top = marker ? marker.getBoundingClientRect().top + scrollY + (innerWidth <= 700 ? -16 : -24) + rect.top - sheet.getBoundingClientRect().top : rect.top + window.scrollY;
-      row.height = rect.height;
+      row.top = flowTop(row.anchor);
+      row.height = row.anchor.offsetHeight;
     });
+    cards.forEach(row => { row.top = flowTop(row.element); row.height = row.element.offsetHeight; });
     needsMeasure = false;
   }
   function set(unit, value) {
@@ -87,6 +105,14 @@ export function initProfileMotion({isReduced = () => false} = {}) {
     const disabled = isReduced() || printing;
     page.classList.toggle('profile-motion-ready', !disabled);
     const vh = window.innerHeight, y = window.scrollY;
+    cards.forEach(row => {
+      const span = Math.min(vh * .44, Math.max(vh * .24, row.height * .85));
+      const progress = clamp((y + vh * .91 - row.top) / span);
+      const value = disabled || row.element.contains(document.activeElement) ? 1 : ease(clamp(progress/.28));
+      row.element.style.setProperty('--profile-card-opacity', (.15+.85*value).toFixed(4));
+      row.element.style.setProperty('--profile-card-shift', `${((1-value)*(innerWidth<=700?40:75)).toFixed(2)}px`);
+      row.element.style.setProperty('--profile-card-scale', (.96+.04*value).toFixed(4));
+    });
     groups.forEach(row => {
       const span = Math.min(vh * (row.short ? .28 : .44), Math.max(vh * .24, row.height * .85));
       const progress = clamp((y + vh * .91 - row.top) / span);

@@ -5,6 +5,12 @@
     transform: translateY(var(--profile-shift, 0px));
     transition: none;
   }
+  .profile-page.profile-motion-ready .profile-motion-card {
+    opacity: calc(var(--profile-card-opacity, 1) * var(--profile-reveal, 1));
+    transform: translateY(calc(var(--profile-card-shift, 0px) + var(--profile-shift, 0px))) scale(var(--profile-card-scale, 1));
+    transform-origin: center top;
+    transition: none;
+  }
   .profile-page.profile-motion-ready :is(.profile-about-display, .profile-display) {
     translate: 0 var(--profile-hero-shift, 0px);
   }
@@ -24,8 +30,8 @@
   /* html already reserves the header. Account for the section's own padding
      instead of adding a second full header gap to an anchor jump. */
   .profile-page .profile-section { scroll-margin-top: calc(70px - clamp(64px, 9vw, 128px)); }
-  :root[data-reduce=true] .profile-page .profile-motion-unit,
-  .profile-page .profile-motion-unit:focus-within {
+  :root[data-reduce=true] .profile-page :is(.profile-motion-unit, .profile-motion-card),
+  .profile-page :is(.profile-motion-unit, .profile-motion-card):focus-within {
     opacity: 1 !important;
     transform: none !important;
   }
@@ -37,7 +43,7 @@
     .profile-page .profile-nav a { min-height: 36px; font-size: 12px; }
   }
   @media(prefers-reduced-motion:reduce) {
-    .profile-page .profile-motion-unit { opacity:1 !important; transform:none !important; }
+    .profile-page :is(.profile-motion-unit, .profile-motion-card) { opacity:1 !important; transform:none !important; }
     .profile-page :is(.profile-about-display, .profile-display) { translate:none !important; }
   }
 }
