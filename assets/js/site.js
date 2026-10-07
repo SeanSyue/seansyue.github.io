@@ -1,6 +1,6 @@
 // Fade sections in once as they scroll into view, and stop looping preview
 // videos for visitors who ask for reduced motion (they keep the poster frame).
-// Day / night toggle. The page defaults to dark and remembers an explicit choice.
+// Day / night toggle. The page defaults to light and remembers an explicit choice.
 (function () {
   var btn = document.getElementById('theme-toggle');
   if (!btn) return;
@@ -8,7 +8,7 @@
   var systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
 
   function current() {
-    return root.dataset.theme || 'dark';
+    return root.dataset.theme || 'light';
   }
   function sync() {
     var dark = current() === 'dark';

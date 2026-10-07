@@ -63,7 +63,16 @@ class Site:
             today = datetime.date.today().strftime("%Y%m%d")
             letter = "a"
             if state["token"].startswith(today):
-                letter = chr(ord(state["token"][-1]) + 1)
+                # Continue after z as aa, ab... rather than punctuation.
+                suffix = state["token"][len(today):]
+                sequence = 0
+                for char in suffix:
+                    sequence = sequence * 26 + ord(char) - ord("a") + 1
+                sequence += 1
+                letter = ""
+                while sequence:
+                    sequence, digit = divmod(sequence - 1, 26)
+                    letter = chr(ord("a") + digit) + letter
             state = {"sha": sha, "token": today + letter}
             if write:
                 path.write_text(json.dumps(state, indent=2) + "\n", encoding="utf-8")
