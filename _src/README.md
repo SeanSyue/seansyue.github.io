@@ -42,3 +42,4 @@ Hand-edited output, unresolved markers, unknown or unused facts, missing pages i
 
 - `<link rel="canonical">` on every page, pointing at the page itself in its own language.
 - `sitemap.xml`: every page in every published language, with its language alternates.
+- External `http`/`https` links receive `target="_blank"`, `noopener noreferrer`, and a localized screen-reader note. Site links, PDFs and email links keep their normal behavior.

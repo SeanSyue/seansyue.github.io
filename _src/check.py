@@ -107,6 +107,23 @@ def main(argv):
                 path = alt.replace(site.config["origin"], "")
                 if resolve(out, path)[0] is None:
                     errors.append(f"{rel}: hreflang points at missing page {path}")
+            external = []
+            for attrs in re.findall(r'<a\b([^>]*)>', html, re.I):
+                href = re.search(r'\bhref="(https?://[^"]+)"', attrs, re.I)
+                if not href or href.group(1) == site.config["origin"] or href.group(1).startswith(site.config["origin"].rstrip("/") + "/"):
+                    continue
+                external.append(href.group(1))
+                target = re.search(r'\btarget="([^"]+)"', attrs, re.I)
+                rel_tokens = set((re.search(r'\brel="([^"]+)"', attrs, re.I) or [None, ""])[1].split())
+                described = set((re.search(r'\baria-describedby="([^"]+)"', attrs, re.I) or [None, ""])[1].split())
+                if not target or target.group(1) != "_blank":
+                    errors.append(f"{rel}: external link does not open a new tab: {href.group(1)}")
+                if not {"noopener", "noreferrer"} <= rel_tokens:
+                    errors.append(f"{rel}: external link lacks noopener/noreferrer: {href.group(1)}")
+                if "external-link-note" not in described:
+                    errors.append(f"{rel}: external link lacks its new-tab description: {href.group(1)}")
+            if external and 'id="external-link-note"' not in html:
+                errors.append(f"{rel}: missing the localized external-link note")
 
         # 4b. every sitemap entry is a built page
         for loc in re.findall(r'<loc>([^<]+)</loc>|href="([^"]+)"', built.get("sitemap.xml", "")):

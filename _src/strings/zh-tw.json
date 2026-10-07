@@ -41,5 +41,6 @@
   "projects.explore": "探索精選作品",
   "projects.selected": "精選作品",
   "contact.heading": "<span>聊聊下一個</span><span>合作機會。</span>",
-  "contact.email_action": "寄信給我"
+  "contact.email_action": "寄信給我",
+  "external.new_tab": "在新分頁開啟"
 }

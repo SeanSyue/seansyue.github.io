@@ -41,5 +41,6 @@
   "projects.explore": "作品を見る",
   "projects.selected": "代表作品",
   "contact.heading": "<span>次の機会について、</span><span>お話ししましょう。</span>",
-  "contact.email_action": "メールで連絡"
+  "contact.email_action": "メールで連絡",
+  "external.new_tab": "新しいタブで開きます"
 }

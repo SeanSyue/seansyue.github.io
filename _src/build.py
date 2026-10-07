@@ -30,15 +30,67 @@ import json
 import pathlib
 import re
 import sys
+from html import escape
 from papers import decorate as paper_layout
 
 SRC = pathlib.Path(__file__).resolve().parent
 ROOT = SRC.parent
 MARK = re.compile(r"\{\{\s*(>\s*[\w-]+|[\w-]+(?::[^}]*)?)\s*\}\}")
+ANCHOR = re.compile(r"<a\b(?P<attrs>[^>]*)>", re.I)
 
 
 def load_json(path):
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def mark_external_links(page, origin, note):
+    """Keep this site open when a visitor follows a link to another website."""
+    note_id = "external-link-note"
+    site_origin = origin.rstrip("/")
+    changed = False
+
+    def decorate(match):
+        nonlocal changed
+        attrs = match.group("attrs")
+        href_match = re.search(r'\bhref=(["\'])(.*?)\1', attrs, re.I)
+        if not href_match:
+            return match.group(0)
+        href = href_match.group(2)
+        if not href.startswith(("https://", "http://")):
+            return match.group(0)
+        if href == site_origin or href.startswith(site_origin + "/"):
+            return match.group(0)
+
+        changed = True
+        if re.search(r'\btarget=', attrs, re.I):
+            attrs = re.sub(r'\btarget=(["\']).*?\1', 'target="_blank"', attrs, count=1, flags=re.I)
+        else:
+            attrs += ' target="_blank"'
+
+        rel_match = re.search(r'\brel=(["\'])(.*?)\1', attrs, re.I)
+        rel = set(rel_match.group(2).split()) if rel_match else set()
+        rel.update(("noopener", "noreferrer"))
+        rel_value = " ".join(sorted(rel))
+        if rel_match:
+            attrs = attrs[:rel_match.start()] + f'rel="{rel_value}"' + attrs[rel_match.end():]
+        else:
+            attrs += f' rel="{rel_value}"'
+
+        described = re.search(r'\baria-describedby=(["\'])(.*?)\1', attrs, re.I)
+        ids = described.group(2).split() if described else []
+        if note_id not in ids:
+            ids.append(note_id)
+        if described:
+            attrs = attrs[:described.start()] + f'aria-describedby="{" ".join(ids)}"' + attrs[described.end():]
+        else:
+            attrs += f' aria-describedby="{note_id}"'
+        return f"<a{attrs}>"
+
+    page = ANCHOR.sub(decorate, page)
+    if changed:
+        label = f'<span id="{note_id}" class="sr-only no-print">{escape(note)}</span>'
+        page = page.replace("</body>", label + "\n</body>", 1)
+    return page
 
 
 class Site:
@@ -177,6 +229,7 @@ class Site:
         html = self.render(self.layout["page"], ctx)
         if getattr(self, 'paper_design', True):
             html = paper_layout(html, page["id"], lang, self.token, self.strings[lang])
+        html = mark_external_links(html, self.config["origin"], self.strings[lang]["external.new_tab"])
         return html.rstrip() + "\n"
 
     def outputs(self):

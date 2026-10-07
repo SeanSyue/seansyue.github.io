@@ -41,5 +41,6 @@
   "projects.explore": "Explore selected work",
   "projects.selected": "Selected work",
   "contact.heading": "<span>Let’s talk about</span><span>the next opportunity.</span>",
-  "contact.email_action": "Email me"
+  "contact.email_action": "Email me",
+  "external.new_tab": "Opens in a new tab"
 }
