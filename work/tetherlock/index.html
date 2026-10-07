@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="light" data-design="motion03">
+<html lang="en" data-theme="light" data-design="motion03" data-section-study="d" data-inner-study="cases">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,15 +13,16 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;family=Public+Sans:wght@400;500;600&amp;family=Zen+Maru+Gothic:wght@500;700&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/site.css?v=20261007aa">
+<link rel="stylesheet" href="/assets/css/site.css?v=20261007ad">
 
-<link rel="stylesheet" href="/assets/css/experience.css?v=20261007aa">
-<link rel="stylesheet" href="/assets/css/projects.css?v=20261007aa">
-<link rel="stylesheet" href="/assets/css/cases.css?v=20261007aa">
-<link rel="stylesheet" href="/assets/css/profile.css?v=20261007aa">
-<link rel="stylesheet" href="/assets/css/profile-motion.css?v=20261007aa">
-<link rel="stylesheet" href="/assets/css/warm-light.css?v=20261007aa">
+<link rel="stylesheet" href="/assets/css/experience.css?v=20261007ad">
+<link rel="stylesheet" href="/assets/css/projects.css?v=20261007ad">
+<link rel="stylesheet" href="/assets/css/cases.css?v=20261007ad">
+<link rel="stylesheet" href="/assets/css/profile.css?v=20261007ad">
+<link rel="stylesheet" href="/assets/css/profile-motion.css?v=20261007ad">
+<link rel="stylesheet" href="/assets/css/warm-light.css?v=20261007ad">
 <script>document.documentElement.classList.add("js");try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
+<link rel="stylesheet" href="/assets/css/papers.css?v=20261007ad"><link rel="stylesheet" href="/assets/css/papers-inner.css?v=20261007ad"><link rel="stylesheet" href="/assets/css/papers-cases.css?v=20261007ad">
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to content</a>
@@ -46,7 +47,7 @@
 </header>
 
 
-<main id="main-content" tabindex="-1" class="case-page case-tetherlock">
+<main id="main-content" tabindex="-1" class="case-page case-tetherlock folio-shell">
   <div class="wrap">
     <p class="crumbs"><a href="/projects/">All projects</a> → Tetherlock</p>
     <section class="proj-head case-hero">
@@ -85,7 +86,7 @@
     </section>
   </div>
 
-  <nav class="section-nav" aria-label="On this page">
+  <nav class="section-nav folio-nav" aria-label="On this page">
     <div class="wrap">
       <a href="#overview">Overview</a>
       <a href="#how">How it works</a>
@@ -95,10 +96,10 @@
     </div>
   </nav>
 
-  <div class="wrap">
+  <div class="wrap folio-case-flow">
 
     <!-- ============ OVERVIEW ============ -->
-    <section id="overview" class="block case-section">
+    <span class="folio-anchor" data-folio-anchor="overview" aria-hidden="true"></span><div class="folio-sheet folio-case" data-folio-chapter="overview"><aside class="folio-rail" aria-hidden="true"><span class="folio-number">01</span><span class="folio-label">Overview</span></aside><div class="folio-body"><section id="overview" class="block case-section">
       <div class="block-head" data-motion-reveal><span class="eyebrow">Overview</span><h2>Open when all three hold, close when one stops</h2></div>
 
       <div class="two wide-left">
@@ -127,10 +128,10 @@
         <div class="card lift"><span class="num">02</span><h3>Pull the drive, it locks</h3><p>Every open workspace is re-checked on each cycle. A missing, replaced or no-longer-valid token locks that workspace, and only that one.</p></div>
         <div class="card lift"><span class="num">03</span><h3>Help without the admin password</h3><p>A separate maintenance token lists exactly what it allows. The session ends on its own after 30 minutes by default, or the moment the drive is removed.</p></div>
       </div>
-    </section>
+    </section></div></div>
 
     <!-- ============ HOW IT WORKS ============ -->
-    <section id="how" class="block case-section">
+    <span class="folio-anchor" data-folio-anchor="how" aria-hidden="true"></span><div class="folio-sheet folio-case" data-folio-chapter="how"><aside class="folio-rail" aria-hidden="true"><span class="folio-number">02</span><span class="folio-label">How it works</span></aside><div class="folio-body"><section id="how" class="block case-section">
       <div class="block-head" data-motion-reveal><span class="eyebrow">How it works</span><h2>One check cycle, and the life of one area</h2></div>
       <figure class="diagram-img case-media" data-motion-reveal>
         <a class="theme-img" href="/assets/img/tetherlock/08-three-gates-dark.svg" target="_blank" rel="noopener" aria-label="Open this diagram full size"><img class="on-dark" src="/assets/img/tetherlock/08-three-gates-dark.svg" width="1200" height="560" alt="One check cycle: account, then a signed token on a drive, then the password, then the token is checked again before anything opens. Each gate has its own refusal path."><img class="on-light" src="/assets/img/tetherlock/08-three-gates.svg" width="1200" height="560" alt="" loading="lazy"></a>
@@ -158,10 +159,10 @@
           <p>A separate token lists the capabilities it allows, and only ones the application recognises are granted. The session lives in memory, lasts 30 minutes by default, and every use re-checks the clock and the token. Removing the drive ends it before the next action.</p>
         </article>
       </div>
-    </section>
+    </section></div></div>
 
     <!-- ============ IN ACTION ============ -->
-    <section id="screens" class="block case-section">
+    <span class="folio-anchor" data-folio-anchor="screens" aria-hidden="true"></span><div class="folio-sheet folio-case" data-folio-chapter="screens"><aside class="folio-rail" aria-hidden="true"><span class="folio-number">03</span><span class="folio-label">In action</span></aside><div class="folio-body"><section id="screens" class="block case-section">
       <div class="block-head" data-motion-reveal><span class="eyebrow">In action</span><h2>Seven screens from the standalone version</h2></div>
       <div class="slideshow case-media" aria-roledescription="carousel" aria-label="Tetherlock screenshots" data-motion-reveal>
         <div class="slides" tabindex="0">
@@ -201,20 +202,20 @@
         </div>
       </div>
       <p class="muted" style="font-size: 14px;">Real command and test output with freshly generated demo keys, captured 2026-09-22 and 2026-09-26. Paths are shortened and the drive serial number is hidden. Tap a screen to open it full size.</p>
-    </section>
+    </section></div></div>
 
     <!-- ============ DECISIONS ============ -->
-    <section id="decisions" class="block case-section">
+    <span class="folio-anchor" data-folio-anchor="decisions" aria-hidden="true"></span><div class="folio-sheet folio-case" data-folio-chapter="decisions"><aside class="folio-rail" aria-hidden="true"><span class="folio-number">04</span><span class="folio-label">Design decisions</span></aside><div class="folio-body"><section id="decisions" class="block case-section">
       <div class="block-head" data-motion-reveal><span class="eyebrow">Design decisions</span><h2>Three calls, and what was rejected</h2></div>
       <div class="cards case-cards">
         <div class="card"><span class="num">01</span><h3>Check the drive again after the password</h3><p>Typing a password takes seconds, and in that time the drive can be pulled or swapped for another at the same drive letter. So the token is re-read and re-verified after the password and before anything opens.</p><p class="muted">Rejected: checking the drive once, before the prompt, and trusting that result afterwards.</p></div>
         <div class="card"><span class="num">02</span><h3>No master key</h3><p>There is no recovery key and no bypass. The only code that grants access runs after the password check. The cost is accepted: lose every signing key, and trust has to be set up again from scratch.</p><p class="muted">Rejected: an emergency override “so it can always be recovered”. A backdoor becomes the easiest way in.</p></div>
         <div class="card"><span class="num">03</span><h3>When in doubt, lock</h3><p>If a check fails with an unexpected error, or a token turns unreadable while the area is open, the area is locked first and the error is reported after. The owner may occasionally have to unlock again.</p><p class="muted">The other way round, staying open until someone looks, leaves the door open for as long as nobody notices.</p></div>
       </div>
-    </section>
+    </section></div></div>
 
     <!-- ============ SCOPE ============ -->
-    <section id="scope" class="block case-section">
+    <span class="folio-anchor" data-folio-anchor="scope" aria-hidden="true"></span><div data-folio-last="true" data-folio-ending="true" class="folio-sheet folio-case" data-folio-chapter="scope"><aside class="folio-rail" aria-hidden="true"><span class="folio-number">05</span><span class="folio-label">Scope &amp; limits</span></aside><div class="folio-body"><section id="scope" class="block case-section">
       <div class="block-head" data-motion-reveal><span class="eyebrow">Scope &amp; limits</span><h2>What it does, and what it leaves to others</h2></div>
       <p class="lede">Tetherlock decides <b>whether</b> a protected workspace may open, and closes it again. It does not encrypt the files inside: the workspace password is checked, but it is not an encryption key. Keeping the drive's contents unreadable is the job of full-disk encryption. It also cannot tell a drive from an exact bit-for-bit copy of it.</p>
       <div class="ledger case-ledger">
@@ -223,7 +224,7 @@
         <div class="notyet"><h3>Not yet</h3><ul><li>Encryption of workspace files</li><li>A revocation list</li><li>A third-party security audit</li><li>A user interface; the application supplies its own screens</li><li>Real-world timing of lock after removal: not measured</li></ul></div>
       </div>
       <p class="muted">If this is the kind of thinking you want on your team, the same reasoning shows up in <a href="/work/aicc/">AI Control Center</a>, where an approval only counts against the exact version of the work it was given for.</p>
-    </section>
+    </section></div><div class="folio-ending">
 
     <nav class="case-pagination" aria-label="Explore more projects">
       <a class="case-prev" data-case-prev href="/work/negative-control/">
@@ -237,7 +238,7 @@
       <div class="case-pagination-footer"><a href="/projects/">All projects <span aria-hidden="true">↗</span></a><a class="btn btn-quiet" href="/#contact">Contact me</a></div>
     </nav>
   </div>
-</main>
+</div></div></main>
 
 <footer data-motion-reveal class="site-footer">
   <div class="wrap">
@@ -248,7 +249,8 @@
     <small>© 2026 Sean Syue</small>
   </div>
 </footer>
-<script src="/assets/js/site.js?v=20261007aa"></script>
-<script type="module" src="/assets/js/experience.js?v=20261007aa"></script>
+<script src="/assets/js/site.js?v=20261007ad"></script>
+<script type="module" src="/assets/js/experience.js?v=20261007ad"></script>
+<script type="module" src="/assets/js/papers-inner.js?v=20261007ad"></script>
 </body>
 </html>

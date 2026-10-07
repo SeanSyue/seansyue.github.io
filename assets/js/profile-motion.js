@@ -62,7 +62,7 @@ export function initProfileMotion({isReduced = () => false} = {}) {
   if (next) group(next, [], list(next, '.btn-row'), {short:true});
 
   const nav = page.querySelector('.profile-nav');
-  const sections = nav ? list(nav, 'a[href^="#"]').map(link => ({link,
+  const sections = nav && !document.documentElement.dataset.innerStudy ? list(nav, 'a[href^="#"]').map(link => ({link,
     section:document.getElementById(link.hash.slice(1))})).filter(row => row.section) : [];
   const hero = page.querySelector('.profile-about-display, .profile-display');
   const header = document.querySelector('.site-header');
@@ -72,7 +72,9 @@ export function initProfileMotion({isReduced = () => false} = {}) {
     // back into its own geometry. Font loading/resize re-measure the originals.
     groups.forEach(row => {
       const rect = row.anchor.getBoundingClientRect();
-      row.top = rect.top + window.scrollY;
+      const sheet = row.anchor.closest('.folio-sheet');
+      const marker = sheet && document.querySelector(`[data-folio-anchor="${sheet.dataset.folioChapter}"]`);
+      row.top = marker ? marker.getBoundingClientRect().top + scrollY + (innerWidth <= 700 ? -16 : -24) + rect.top - sheet.getBoundingClientRect().top : rect.top + window.scrollY;
       row.height = rect.height;
     });
     needsMeasure = false;

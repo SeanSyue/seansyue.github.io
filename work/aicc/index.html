@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="light" data-design="motion03">
+<html lang="en" data-theme="light" data-design="motion03" data-section-study="d" data-inner-study="cases">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,15 +13,16 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;family=Public+Sans:wght@400;500;600&amp;family=Zen+Maru+Gothic:wght@500;700&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/site.css?v=20261007aa">
+<link rel="stylesheet" href="/assets/css/site.css?v=20261007ad">
 
-<link rel="stylesheet" href="/assets/css/experience.css?v=20261007aa">
-<link rel="stylesheet" href="/assets/css/projects.css?v=20261007aa">
-<link rel="stylesheet" href="/assets/css/cases.css?v=20261007aa">
-<link rel="stylesheet" href="/assets/css/profile.css?v=20261007aa">
-<link rel="stylesheet" href="/assets/css/profile-motion.css?v=20261007aa">
-<link rel="stylesheet" href="/assets/css/warm-light.css?v=20261007aa">
+<link rel="stylesheet" href="/assets/css/experience.css?v=20261007ad">
+<link rel="stylesheet" href="/assets/css/projects.css?v=20261007ad">
+<link rel="stylesheet" href="/assets/css/cases.css?v=20261007ad">
+<link rel="stylesheet" href="/assets/css/profile.css?v=20261007ad">
+<link rel="stylesheet" href="/assets/css/profile-motion.css?v=20261007ad">
+<link rel="stylesheet" href="/assets/css/warm-light.css?v=20261007ad">
 <script>document.documentElement.classList.add("js");try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
+<link rel="stylesheet" href="/assets/css/papers.css?v=20261007ad"><link rel="stylesheet" href="/assets/css/papers-inner.css?v=20261007ad"><link rel="stylesheet" href="/assets/css/papers-cases.css?v=20261007ad">
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to content</a>
@@ -46,7 +47,7 @@
 </header>
 
 
-<main id="main-content" tabindex="-1" class="case-page case-aicc">
+<main id="main-content" tabindex="-1" class="case-page case-aicc folio-shell">
   <div class="wrap">
     <p class="crumbs"><a href="/projects/">All projects</a> → AI Control Center</p>
     <section class="proj-head case-hero">
@@ -108,7 +109,7 @@
     </section>
   </div>
 
-  <nav class="section-nav" aria-label="On this page">
+  <nav class="section-nav folio-nav" aria-label="On this page">
     <div class="wrap">
       <a href="#problem">The gap</a>
       <a href="#evidence">Evidence tied to a version</a>
@@ -121,10 +122,10 @@
     </div>
   </nav>
 
-  <div class="wrap">
+  <div class="wrap folio-case-flow">
 
     <!-- ============ THE GAP ============ -->
-    <section id="problem" class="block case-section">
+    <span class="folio-anchor" data-folio-anchor="problem" aria-hidden="true"></span><div class="folio-sheet folio-case" data-folio-chapter="problem"><aside class="folio-rail" aria-hidden="true"><span class="folio-number">01</span><span class="folio-label">The gap</span></aside><div class="folio-body"><section id="problem" class="block case-section">
       <div class="block-head" data-motion-reveal><span class="eyebrow">The gap</span><h2>On a report, “done” and “done right” look identical</h2></div>
       <div class="two">
         <div class="stack">
@@ -144,10 +145,10 @@
           </table>
         </div>
       </div>
-    </section>
+    </section></div></div>
 
     <!-- ============ EVIDENCE ============ -->
-    <section id="evidence" class="block case-section">
+    <span class="folio-anchor" data-folio-anchor="evidence" aria-hidden="true"></span><div class="folio-sheet folio-case" data-folio-chapter="evidence"><aside class="folio-rail" aria-hidden="true"><span class="folio-number">02</span><span class="folio-label">Evidence tied to a version</span></aside><div class="folio-body"><section id="evidence" class="block case-section">
       <div class="block-head" data-motion-reveal><span class="eyebrow">Evidence tied to a version</span><h2>A stamp is worth exactly as much as the version it was stamped on</h2></div>
       <figure style="--diagram-min: 900px" class="diagram wide case-media" data-motion-reveal data-diagram-motion>
         <svg viewBox="0 0 900 300" role="img" aria-label="Three stamps — verify, review, approve — sit on content version A. When the content changes to version B, the stamps on A expire and the work returns to review. A machine stamp cannot exist without evidence; a review stamp may not carry a result.">
@@ -176,10 +177,10 @@
           <p>Decisions are recorded as a hash chain that can be exported and checked with a standalone verifier that needs nothing from the app. It detects any altered or deleted entry in the middle of the chain; it does not claim to detect a chain rewritten end to end.</p>
         </div>
       </details>
-    </section>
+    </section></div></div>
 
     <!-- ============ NEGATIVE CONTROL ============ -->
-    <section id="negative" class="block case-section">
+    <span class="folio-anchor" data-folio-anchor="negative" aria-hidden="true"></span><div class="folio-sheet folio-case" data-folio-chapter="negative"><aside class="folio-rail" aria-hidden="true"><span class="folio-number">03</span><span class="folio-label">Tests that are tested</span></aside><div class="folio-body"><section id="negative" class="block case-section">
       <div class="block-head" data-motion-reveal><span class="eyebrow">Tests that are tested</span><h2>A green test only counts after something has turned it red</h2></div>
       <div class="two wide-left case-evidence-layout">
         <figure style="--diagram-min: 560px" class="diagram case-media" data-motion-reveal data-diagram-motion>
@@ -210,10 +211,10 @@
           <p><a class="text-link" href="/work/negative-control/">The breaking tool now stands on its own: negative-control →</a></p>
         </div>
       </div>
-    </section>
+    </section></div></div>
 
     <!-- ============ DUTIES ============ -->
-    <section id="duties" class="block case-section">
+    <span class="folio-anchor" data-folio-anchor="duties" aria-hidden="true"></span><div class="folio-sheet folio-case" data-folio-chapter="duties"><aside class="folio-rail" aria-hidden="true"><span class="folio-number">04</span><span class="folio-label">Separation of duties</span></aside><div class="folio-body"><section id="duties" class="block case-section">
       <div class="block-head" data-motion-reveal><span class="eyebrow">Separation of duties</span><h2>Whoever does the work never sets the bar</h2></div>
       <div class="two">
         <div class="table-scroll case-table">
@@ -237,10 +238,10 @@
           <p class="muted" style="font-size: 14px;">Under the hood: Claude Code runs read-only duties in plan mode; Codex runs them in a read-only sandbox. Only Work gets write access. These are the vendor tools' own permission modes: AICC asks for them, and is not an operating-system sandbox itself.</p>
         </div>
       </div>
-    </section>
+    </section></div></div>
 
     <!-- ============ STOPS FOR YOUR CALL ============ -->
-    <section id="decide" class="block case-section">
+    <span class="folio-anchor" data-folio-anchor="decide" aria-hidden="true"></span><div class="folio-sheet folio-case" data-folio-chapter="decide"><aside class="folio-rail" aria-hidden="true"><span class="folio-number">05</span><span class="folio-label">Stops for your call</span></aside><div class="folio-body"><section id="decide" class="block case-section">
       <div class="block-head" data-motion-reveal><span class="eyebrow">Stops for your call</span><h2>Most tools sell more automation. This one is built to stop.</h2></div>
       <div class="flow" aria-label="The AI works until it reaches a call only you can make; the run waits in your decision list; you decide; it continues with your decision on the record.">
         <span>AI works</span><i>→</i>
@@ -254,12 +255,12 @@
         <div class="card"><h3>“Can't verify” is not “broken”</h3><p>A task that declares no way to check it is marked not verifiable. It isn't treated as a failure, so no agent is sent to fix what isn't broken.</p></div>
         <div class="card"><h3>Your approval can't overrule a check</h3><p>If the machine check failed, approving doesn't make it pass. The approver reads; it can't rewrite the result.</p></div>
       </div>
-    </section>
+    </section></div></div>
 
     <!-- Product screenshots go here once clean captures exist (fake project name, no local paths). -->
 
     <!-- ============ GRAPH ============ -->
-    <section id="graph" class="block case-section">
+    <span class="folio-anchor" data-folio-anchor="graph" aria-hidden="true"></span><div class="folio-sheet folio-case" data-folio-chapter="graph"><aside class="folio-rail" aria-hidden="true"><span class="folio-number">06</span><span class="folio-label">Five layers</span></aside><div class="folio-body"><section id="graph" class="block case-section">
       <div class="block-head" data-motion-reveal><span class="eyebrow">Five layers</span><h2>It's a graph — and each node still has the four layers inside it</h2></div>
       <div class="two wide-left case-evidence-layout">
         <figure style="--diagram-min: 640px" class="diagram case-media" data-motion-reveal data-diagram-motion>
@@ -299,27 +300,27 @@
           </details>
         </div>
       </div>
-    </section>
+    </section></div></div>
 
     <!-- ============ NOT ============ -->
-    <section id="not" class="block case-section">
+    <span class="folio-anchor" data-folio-anchor="not" aria-hidden="true"></span><div class="folio-sheet folio-case" data-folio-chapter="not"><aside class="folio-rail" aria-hidden="true"><span class="folio-number">07</span><span class="folio-label">What it doesn&#x27;t do</span></aside><div class="folio-body"><section id="not" class="block case-section">
       <div class="block-head" data-motion-reveal><span class="eyebrow">What it doesn't do</span><h2>Three things, stated plainly</h2></div>
       <div class="cards case-cards">
         <div class="card"><span class="num">01</span><h3>It doesn't take what you didn't give it</h3><p>Your Claude or Codex login never passes through AICC — it only opens the vendor's own sign-in. No browser or app caches are read. A test fails if any new way to accept an API key appears in the credential module.</p></div>
         <div class="card"><span class="num">02</span><h3>It doesn't resell the model</h3><p>You use your own Claude and Codex accounts, under their own usage limits. AICC adds nothing on top of what you pay them.</p></div>
         <div class="card"><span class="num">03</span><h3>It has no server of its own</h3><p>No account, no sign-up, no AICC server. Project records are plain-text files in your own folder, and AICC is itself the first project it manages. Prompts do go to Claude or Codex through their own command-line tools, and the optional LINE and Google Drive features have their own data paths.</p></div>
       </div>
-    </section>
+    </section></div></div>
 
     <!-- ============ STATUS ============ -->
-    <section id="status" class="block case-section">
+    <span class="folio-anchor" data-folio-anchor="status" aria-hidden="true"></span><div data-folio-last="true" data-folio-ending="true" class="folio-sheet folio-case" data-folio-chapter="status"><aside class="folio-rail" aria-hidden="true"><span class="folio-number">08</span><span class="folio-label">Status</span></aside><div class="folio-body"><section id="status" class="block case-section">
       <div class="block-head" data-motion-reveal><span class="eyebrow">Status &amp; limits</span><h2>What exists, what's proven, what isn't</h2></div>
       <div class="ledger case-ledger">
         <div class="done"><h3>Built</h3><ul><li>Windows desktop app; an earlier build was installed, launched and uninstalled twice on Windows</li><li>Roles with duty-bound permissions, stamp chain, timeline, exportable decision log</li><li>One person running several projects side by side</li></ul></div>
         <div class="verified"><h3>Verified</h3><ul><li>An AI-assisted pre-release review ran 2,219 tests: 2,200 passed, 19 failed, 0 skipped; the repository explains each failure</li><li>The same review ran 853 deliberate breaks and published the misses too</li><li>30 false greens found and cleared to 0 (Aug 24–27, 2026)</li></ul></div>
         <div class="notyet"><h3>Next</h3><ul><li>Owner acceptance run for the next beta</li><li>The public repository ships source only; the current installer still needs a full upgrade test. Known limits are listed in <a href="https://github.com/SeanSyue/ai-control-center/blob/main/SECURITY.md">SECURITY.md</a></li><li>The source is on <a href="https://github.com/SeanSyue/ai-control-center">GitHub</a>; the breaking tool also stands on its own as <a href="/work/negative-control/">negative-control</a></li></ul></div>
       </div>
-    </section>
+    </section></div><div class="folio-ending">
 
     <nav class="case-pagination" aria-label="Explore more projects">
       <a class="case-prev" data-case-prev href="/work/heart-apartment/">
@@ -333,7 +334,7 @@
       <div class="case-pagination-footer"><a href="/projects/">All projects <span aria-hidden="true">↗</span></a><a class="btn btn-quiet" href="/#contact">Contact me</a></div>
     </nav>
   </div>
-</main>
+</div></div></main>
 
 <footer data-motion-reveal class="site-footer">
   <div class="wrap">
@@ -344,7 +345,8 @@
     <small>© 2026 Sean Syue</small>
   </div>
 </footer>
-<script src="/assets/js/site.js?v=20261007aa"></script>
-<script type="module" src="/assets/js/experience.js?v=20261007aa"></script>
+<script src="/assets/js/site.js?v=20261007ad"></script>
+<script type="module" src="/assets/js/experience.js?v=20261007ad"></script>
+<script type="module" src="/assets/js/papers-inner.js?v=20261007ad"></script>
 </body>
 </html>

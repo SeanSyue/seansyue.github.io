@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ja" data-theme="light" data-design="motion03">
+<html lang="ja" data-theme="light" data-design="motion03" data-section-study="d" data-inner-study="cases">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,15 +13,16 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;family=Public+Sans:wght@400;500;600&amp;family=Zen+Maru+Gothic:wght@500;700&amp;family=Noto+Sans+JP:wght@400;500;700&amp;family=Noto+Serif+JP:wght@500;600&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/site.css?v=20261007aa">
+<link rel="stylesheet" href="/assets/css/site.css?v=20261007ad">
 
-<link rel="stylesheet" href="/assets/css/experience.css?v=20261007aa">
-<link rel="stylesheet" href="/assets/css/projects.css?v=20261007aa">
-<link rel="stylesheet" href="/assets/css/cases.css?v=20261007aa">
-<link rel="stylesheet" href="/assets/css/profile.css?v=20261007aa">
-<link rel="stylesheet" href="/assets/css/profile-motion.css?v=20261007aa">
-<link rel="stylesheet" href="/assets/css/warm-light.css?v=20261007aa">
+<link rel="stylesheet" href="/assets/css/experience.css?v=20261007ad">
+<link rel="stylesheet" href="/assets/css/projects.css?v=20261007ad">
+<link rel="stylesheet" href="/assets/css/cases.css?v=20261007ad">
+<link rel="stylesheet" href="/assets/css/profile.css?v=20261007ad">
+<link rel="stylesheet" href="/assets/css/profile-motion.css?v=20261007ad">
+<link rel="stylesheet" href="/assets/css/warm-light.css?v=20261007ad">
 <script>document.documentElement.classList.add("js");try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
+<link rel="stylesheet" href="/assets/css/papers.css?v=20261007ad"><link rel="stylesheet" href="/assets/css/papers-inner.css?v=20261007ad"><link rel="stylesheet" href="/assets/css/papers-cases.css?v=20261007ad">
 </head>
 <body>
 <a class="skip-link" href="#main-content">本文へ移動</a>
@@ -46,7 +47,7 @@
 </header>
 
 
-<main id="main-content" tabindex="-1" class="case-page case-tetherlock">
+<main id="main-content" tabindex="-1" class="case-page case-tetherlock folio-shell">
   <div class="wrap">
     <p class="crumbs"><a href="/ja/projects/">プロジェクト一覧</a> → Tetherlock</p>
     <section class="proj-head case-hero">
@@ -85,7 +86,7 @@
     </section>
   </div>
 
-  <nav class="section-nav" aria-label="このページの内容">
+  <nav class="section-nav folio-nav" aria-label="このページの内容">
     <div class="wrap">
       <a href="#overview">概要</a>
       <a href="#how">仕組み</a>
@@ -95,10 +96,10 @@
     </div>
   </nav>
 
-  <div class="wrap">
+  <div class="wrap folio-case-flow">
 
     <!-- ============ OVERVIEW ============ -->
-    <section id="overview" class="block case-section">
+    <span class="folio-anchor" data-folio-anchor="overview" aria-hidden="true"></span><div class="folio-sheet folio-case" data-folio-chapter="overview"><aside class="folio-rail" aria-hidden="true"><span class="folio-number">01</span><span class="folio-label">概要</span></aside><div class="folio-body"><section id="overview" class="block case-section">
       <div class="block-head" data-motion-reveal><span class="eyebrow">概要</span><h2>3つがそろえば開き、1つでも崩れれば閉じる</h2></div>
 
       <div class="two wide-left">
@@ -127,10 +128,10 @@
         <div class="card lift"><span class="num">02</span><h3>ドライブを抜けば、ロック</h3><p>開いているワークスペースは、チェックのたびに確認し直します。トークンがない、差し替えられた、または有効でなくなった場合は、そのワークスペースだけをロックします。</p></div>
         <div class="card lift"><span class="num">03</span><h3>管理者パスワードを渡さずに保守を頼む</h3><p>別の保守用トークンに、許可する内容をそのまま列挙します。セッションは初期設定では30分後に、またはドライブを抜いた時点で、自動的に終わります。</p></div>
       </div>
-    </section>
+    </section></div></div>
 
     <!-- ============ HOW IT WORKS ============ -->
-    <section id="how" class="block case-section">
+    <span class="folio-anchor" data-folio-anchor="how" aria-hidden="true"></span><div class="folio-sheet folio-case" data-folio-chapter="how"><aside class="folio-rail" aria-hidden="true"><span class="folio-number">02</span><span class="folio-label">仕組み</span></aside><div class="folio-body"><section id="how" class="block case-section">
       <div class="block-head" data-motion-reveal><span class="eyebrow">仕組み</span><h2>1回のチェックサイクルと、1つの領域のライフサイクル</h2></div>
       <figure class="diagram-img case-media" data-motion-reveal>
         <a class="theme-img" href="/assets/img/tetherlock/08-three-gates-dark.ja.svg" target="_blank" rel="noopener" aria-label="この図を原寸で開く"><img class="on-dark" src="/assets/img/tetherlock/08-three-gates-dark.ja.svg" width="1200" height="560" alt="1回のチェックサイクル：アカウント、ドライブ上の署名済みトークン、パスワードの順に確認し、何かを開く前にトークンをもう一度確認する。ゲートごとに拒否の経路がある。"><img class="on-light" src="/assets/img/tetherlock/08-three-gates.ja.svg" width="1200" height="560" alt="" loading="lazy"></a>
@@ -158,10 +159,10 @@
           <p>別のトークンに許可する権限を列挙し、そのうちアプリケーションが認識するものだけを付与します。セッションはメモリ上にだけ存在し、初期設定では30分続きます。使うたびに時刻とトークンを確認し直し、ドライブを抜くと、次の操作の前にセッションは終わります。</p>
         </article>
       </div>
-    </section>
+    </section></div></div>
 
     <!-- ============ IN ACTION ============ -->
-    <section id="screens" class="block case-section">
+    <span class="folio-anchor" data-folio-anchor="screens" aria-hidden="true"></span><div class="folio-sheet folio-case" data-folio-chapter="screens"><aside class="folio-rail" aria-hidden="true"><span class="folio-number">03</span><span class="folio-label">実際の画面</span></aside><div class="folio-body"><section id="screens" class="block case-section">
       <div class="block-head" data-motion-reveal><span class="eyebrow">実際の画面</span><h2>独立版の7つの画面</h2></div>
       <div class="slideshow case-media" aria-roledescription="カルーセル" aria-label="Tetherlockのスクリーンショット" data-motion-reveal>
         <div class="slides" tabindex="0">
@@ -201,20 +202,20 @@
         </div>
       </div>
       <p class="muted" style="font-size: 14px;">新しく生成したデモ用の鍵で実行した、実際のコマンドとテストの出力です。撮影は<span class="date">2026-09-22</span>と<span class="date">2026-09-26</span>。パスは短縮し、ドライブのシリアル番号は隠しています。画面をタップすると原寸で開きます。</p>
-    </section>
+    </section></div></div>
 
     <!-- ============ DECISIONS ============ -->
-    <section id="decisions" class="block case-section">
+    <span class="folio-anchor" data-folio-anchor="decisions" aria-hidden="true"></span><div class="folio-sheet folio-case" data-folio-chapter="decisions"><aside class="folio-rail" aria-hidden="true"><span class="folio-number">04</span><span class="folio-label">設計の判断</span></aside><div class="folio-body"><section id="decisions" class="block case-section">
       <div class="block-head" data-motion-reveal><span class="eyebrow">設計の判断</span><h2>3つの判断と、採らなかった案</h2></div>
       <div class="cards case-cards">
         <div class="card"><span class="num">01</span><h3>パスワードの後に、ドライブをもう一度確認する</h3><p>パスワードの入力には数秒かかり、その間にドライブが抜かれたり、同じドライブ文字の別のドライブに差し替えられたりするおそれがあります。そこで、パスワードの後、何かを開く前に、トークンを読み直して検証し直します。</p><p class="muted">採らなかった案：入力画面の前に一度だけドライブを確認し、その結果をあとまで信用する。</p></div>
         <div class="card"><span class="num">02</span><h3>マスターキーを作らない</h3><p>復旧用の鍵も、迂回する経路もありません。アクセスを許可するコードは、パスワード確認の後にしか実行されません。その代償は受け入れています。署名鍵をすべて失えば、信頼の設定を一からやり直すことになります。</p><p class="muted">採らなかった案：「いつでも復旧できるように」という緊急用の解除手段。バックドアは、いちばん簡単な侵入口になります。</p></div>
         <div class="card"><span class="num">03</span><h3>迷ったらロック</h3><p>チェックが想定外のエラーで失敗したり、領域が開いている間にトークンが読めなくなったりしたら、まず領域をロックし、エラーはその後で報告します。そのため持ち主が、たまにロックを解除し直すことになるかもしれません。</p><p class="muted">逆に、誰かが確認するまで開いたままにすると、誰も気づかない間ずっと扉が開いたままになります。</p></div>
       </div>
-    </section>
+    </section></div></div>
 
     <!-- ============ SCOPE ============ -->
-    <section id="scope" class="block case-section">
+    <span class="folio-anchor" data-folio-anchor="scope" aria-hidden="true"></span><div data-folio-last="true" data-folio-ending="true" class="folio-sheet folio-case" data-folio-chapter="scope"><aside class="folio-rail" aria-hidden="true"><span class="folio-number">05</span><span class="folio-label">範囲と制約</span></aside><div class="folio-body"><section id="scope" class="block case-section">
       <div class="block-head" data-motion-reveal><span class="eyebrow">範囲と制約</span><h2>すること、ほかに任せること</h2></div>
       <p class="lede">Tetherlockが決めるのは、保護されたワークスペースを開いて<b>よいかどうか</b>です。そして、それを再び閉じます。中のファイルは暗号化しません。ワークスペースのパスワードは確認しますが、暗号鍵ではありません。ドライブの中身を読めないようにするのは、ディスク全体の暗号化の役目です。また、ドライブと、それをビット単位で完全に複製したものとを見分けることもできません。</p>
       <div class="ledger case-ledger">
@@ -223,7 +224,7 @@
         <div class="notyet"><h3>まだのこと</h3><ul><li>ワークスペースのファイルの暗号化</li><li>失効リスト</li><li>第三者によるセキュリティ監査</li><li>ユーザーインターフェース。画面はアプリケーション側が用意する</li><li>抜いてからロックまでの実際の時間：未計測</li></ul></div>
       </div>
       <p class="muted">こうした考え方をチームに求めているなら、同じ発想は<a href="/ja/work/aicc/">AI Control Center</a>にも表れています。そこでは承認は、承認したときとまったく同じ版に対してだけ有効です。</p>
-    </section>
+    </section></div><div class="folio-ending">
 
     <nav class="case-pagination" aria-label="ほかのプロジェクトへ">
       <a class="case-prev" data-case-prev href="/ja/work/negative-control/">
@@ -237,7 +238,7 @@
       <div class="case-pagination-footer"><a href="/ja/projects/">プロジェクト一覧 <span aria-hidden="true">↗</span></a><a class="btn btn-quiet" href="/ja/#contact">連絡する</a></div>
     </nav>
   </div>
-</main>
+</div></div></main>
 <footer data-motion-reveal class="site-footer">
   <div class="wrap">
     <div class="btn-row">
@@ -247,7 +248,8 @@
     <small>© 2026 Sean Syue</small>
   </div>
 </footer>
-<script src="/assets/js/site.js?v=20261007aa"></script>
-<script type="module" src="/assets/js/experience.js?v=20261007aa"></script>
+<script src="/assets/js/site.js?v=20261007ad"></script>
+<script type="module" src="/assets/js/experience.js?v=20261007ad"></script>
+<script type="module" src="/assets/js/papers-inner.js?v=20261007ad"></script>
 </body>
 </html>

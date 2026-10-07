@@ -159,7 +159,7 @@
 // The marker follows the section nearest the top reading line, including at
 // the end of a long section, where intersection-ratio heuristics tend to fail.
 (function () {
-  var navs = document.querySelectorAll('.capability-nav, .section-nav');
+  var navs = document.querySelectorAll('.capability-nav, .section-nav:not(.folio-nav)');
   navs.forEach(function (nav) {
     if (document.documentElement.dataset.design === 'motion03' && nav.matches('.capability-nav')) return;
     var links = Array.from(nav.querySelectorAll('a[href^="#"]'));

@@ -39,5 +39,7 @@
   "motion.replay": "Replay introduction",
   "projects.all": "All projects",
   "projects.explore": "Explore selected work",
-  "projects.selected": "Selected work"
+  "projects.selected": "Selected work",
+  "contact.heading": "<span>Let’s talk about</span><span>the next opportunity.</span>",
+  "contact.email_action": "Email me"
 }

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-Hant-TW" data-theme="light" data-design="motion03">
+<html lang="zh-Hant-TW" data-theme="light" data-design="motion03" data-section-study="d" data-inner-study="cases">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,15 +13,16 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;family=Public+Sans:wght@400;500;600&amp;family=Zen+Maru+Gothic:wght@500;700&amp;family=Noto+Sans+TC:wght@400;500;700&amp;family=Noto+Serif+TC:wght@500;600&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/site.css?v=20261007aa">
+<link rel="stylesheet" href="/assets/css/site.css?v=20261007ad">
 
-<link rel="stylesheet" href="/assets/css/experience.css?v=20261007aa">
-<link rel="stylesheet" href="/assets/css/projects.css?v=20261007aa">
-<link rel="stylesheet" href="/assets/css/cases.css?v=20261007aa">
-<link rel="stylesheet" href="/assets/css/profile.css?v=20261007aa">
-<link rel="stylesheet" href="/assets/css/profile-motion.css?v=20261007aa">
-<link rel="stylesheet" href="/assets/css/warm-light.css?v=20261007aa">
+<link rel="stylesheet" href="/assets/css/experience.css?v=20261007ad">
+<link rel="stylesheet" href="/assets/css/projects.css?v=20261007ad">
+<link rel="stylesheet" href="/assets/css/cases.css?v=20261007ad">
+<link rel="stylesheet" href="/assets/css/profile.css?v=20261007ad">
+<link rel="stylesheet" href="/assets/css/profile-motion.css?v=20261007ad">
+<link rel="stylesheet" href="/assets/css/warm-light.css?v=20261007ad">
 <script>document.documentElement.classList.add("js");try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
+<link rel="stylesheet" href="/assets/css/papers.css?v=20261007ad"><link rel="stylesheet" href="/assets/css/papers-inner.css?v=20261007ad"><link rel="stylesheet" href="/assets/css/papers-cases.css?v=20261007ad">
 </head>
 <body>
 <a class="skip-link" href="#main-content">跳到主要內容</a>
@@ -46,7 +47,7 @@
 </header>
 
 
-<main id="main-content" tabindex="-1" class="case-page case-negative-control">
+<main id="main-content" tabindex="-1" class="case-page case-negative-control folio-shell">
   <div class="wrap">
     <p class="crumbs"><a href="/zh-tw/projects/">作品總覽</a> → negative-control</p>
     <section class="proj-head case-hero">
@@ -107,7 +108,7 @@
     </section>
   </div>
 
-  <nav class="section-nav" aria-label="本頁內容">
+  <nav class="section-nav folio-nav" aria-label="本頁內容">
     <div class="wrap">
       <a href="#why">綠燈為什麼不算證據</a>
       <a href="#how">運作方式</a>
@@ -117,10 +118,10 @@
     </div>
   </nav>
 
-  <div class="wrap">
+  <div class="wrap folio-case-flow">
 
     <!-- ============ WHY ============ -->
-    <section id="why" class="block case-section">
+    <span class="folio-anchor" data-folio-anchor="why" aria-hidden="true"></span><div class="folio-sheet folio-case" data-folio-chapter="why"><aside class="folio-rail" aria-hidden="true"><span class="folio-number">01</span><span class="folio-label">綠燈為什麼不算證據</span></aside><div class="folio-body"><section id="why" class="block case-section">
       <div class="block-head" data-motion-reveal><span class="eyebrow">綠燈為什麼不算證據</span><h2>測試通過的理由，可能是錯的</h2></div>
       <div class="two wide-left case-evidence-layout">
         <figure class="term" aria-label="弱測試在運費設成 0 時照樣通過；修正後的測試會檢查真正的金額。">
@@ -139,10 +140,10 @@ def test_small_order_has_a_fee():
           <p class="lede">唯一分辨得出來的方法，是把測試聲稱在守的程式改壞，然後看結果。大家通常手動做：改一行、跑測試、再改回來。出錯的，就是最後那一步。</p>
         </div>
       </div>
-    </section>
+    </section></div></div>
 
     <!-- ============ HOW ============ -->
-    <section id="how" class="block case-section">
+    <span class="folio-anchor" data-folio-anchor="how" aria-hidden="true"></span><div class="folio-sheet folio-case" data-folio-chapter="how"><aside class="folio-rail" aria-hidden="true"><span class="folio-number">02</span><span class="folio-label">運作方式</span></aside><div class="folio-body"><section id="how" class="block case-section">
       <div class="block-head" data-motion-reveal><span class="eyebrow">運作方式</span><h2>你負責寫出破壞，其餘由工具小心做</h2></div>
       <div class="flow" aria-label="寫一份配方，工具改壞一行、跑指定的測試、從副本還原檔案，然後給出判定結果。">
         <span>寫一份配方</span><i>→</i><span>改壞一行</span><i>→</i><span>跑指定的測試</span><i>→</i><span>從副本還原</span><i>→</i><span class="human">判定結果</span>
@@ -164,10 +165,10 @@ def test_small_order_has_a_fee():
           </ul>
         </div>
       </div>
-    </section>
+    </section></div></div>
 
     <!-- ============ VERDICTS ============ -->
-    <section id="verdicts" class="block case-section">
+    <span class="folio-anchor" data-folio-anchor="verdicts" aria-hidden="true"></span><div class="folio-sheet folio-case" data-folio-chapter="verdicts"><aside class="folio-rail" aria-hidden="true"><span class="folio-number">03</span><span class="folio-label">三種判定</span></aside><div class="folio-body"><section id="verdicts" class="block case-section">
       <div class="block-head" data-motion-reveal><span class="eyebrow">三種判定</span><h2>「沒跑起來」不等於「什麼都沒找到」</h2></div>
       <div class="cards case-cards">
         <div class="card"><span class="num">red ✓</span><h3>抓到了</h3><p>測試在原本的程式上通過，改壞之後失敗。什麼都不用做：這就是目標。</p></div>
@@ -175,10 +176,10 @@ def test_small_order_has_a_fee():
         <div class="card"><span class="num">broken ?</span><h3>沒跑起來</h3><p>找不到要改的文字、目標指到專案外面、測試在改壞之前就已經失敗，或是逾時。這不算結果，也絕不會被當成綠燈。</p></div>
       </div>
       <p class="note-band">第三種判定最重要。在一長串結果裡，什麼都沒量到的執行，看起來就跟什麼都沒找到的執行一樣；而大家接下來通常會做的，就是把那個測試刪掉。</p>
-    </section>
+    </section></div></div>
 
     <!-- ============ FAILURES ============ -->
-    <section id="failures" class="block case-section">
+    <span class="folio-anchor" data-folio-anchor="failures" aria-hidden="true"></span><div class="folio-sheet folio-case" data-folio-chapter="failures"><aside class="folio-rail" aria-hidden="true"><span class="folio-number">04</span><span class="folio-label">從失敗來的規則</span></aside><div class="folio-body"><section id="failures" class="block case-section">
       <div class="block-head" data-motion-reveal><span class="eyebrow">從失敗來的規則</span><h2>每一條安全規則，都來自真實的錯誤</h2></div>
       <div class="four case-failures">
         <div><b>從副本還原</b><p>早期版本用 <code>git checkout</code> 還原。這會拿回上一次 commit 的內容，結果把同一個檔案裡還沒 commit 的重構整段丟掉。</p></div>
@@ -188,10 +189,10 @@ def test_small_order_has_a_fee():
         <div><b>不離開專案</b><p>像 <code>../x</code> 這樣的路徑，或專案裡的資料夾捷徑，會讓破壞改到專案外的檔案。現在判斷目標時，看的是它實際指到哪裡。</p></div>
         <div><b>測試要先通過</b><p>本來就失敗的測試，不管怎麼改壞都是紅的，卻被算成「抓到了」。現在每個測試都會先在原本的程式上跑一次。</p></div>
       </div>
-    </section>
+    </section></div></div>
 
     <!-- ============ STATUS ============ -->
-    <section id="status" class="block case-section">
+    <span class="folio-anchor" data-folio-anchor="status" aria-hidden="true"></span><div data-folio-last="true" data-folio-ending="true" class="folio-sheet folio-case" data-folio-chapter="status"><aside class="folio-rail" aria-hidden="true"><span class="folio-number">05</span><span class="folio-label">現況與範圍</span></aside><div class="folio-body"><section id="status" class="block case-section">
       <div class="block-head" data-motion-reveal><span class="eyebrow">現況與範圍</span><h2>有什麼、證明了什麼，以及做到哪裡為止</h2></div>
       <div class="ledger case-ledger">
         <div class="done"><h3>已完成</h3><ul><li>單一 Python 檔，除了 pytest 不依賴其他套件</li><li>配方格式、檢查過時配方的 <code>--check</code>、一次只允許一個執行的鎖</li><li>一個完整範例，裡面藏了一個等你找出來的弱測試</li></ul></div>
@@ -199,7 +200,7 @@ def test_small_order_has_a_fee():
         <div class="notyet"><h3>範圍</h3><ul><li>它只涵蓋有人想到的破壞；它證明測試<i>能夠</i>失敗，但不會告訴你哪些東西從來沒被測過</li><li>它會執行你的測試，所以它不是沙箱：只用在你信任的程式碼上</li><li>被跳過的測試仍然會被當成綠燈；程式被強制終止時，也沒辦法還原檔案。遇到時該怎麼做，README 有寫</li></ul></div>
       </div>
       <p class="muted" style="font-size: 14px;">GitHub 上的 repo 與說明文件是英文。</p>
-    </section>
+    </section></div><div class="folio-ending">
 
     <nav class="case-pagination" aria-label="繼續探索作品">
       <a class="case-prev" data-case-prev href="/zh-tw/work/aicc/">
@@ -213,7 +214,7 @@ def test_small_order_has_a_fee():
       <div class="case-pagination-footer"><a href="/zh-tw/projects/">作品總覽 <span aria-hidden="true">↗</span></a></div>
     </nav>
   </div>
-</main>
+</div></div></main>
 
 <footer data-motion-reveal class="site-footer">
   <div class="wrap">
@@ -224,7 +225,8 @@ def test_small_order_has_a_fee():
     <small>© 2026 Sean Syue</small>
   </div>
 </footer>
-<script src="/assets/js/site.js?v=20261007aa"></script>
-<script type="module" src="/assets/js/experience.js?v=20261007aa"></script>
+<script src="/assets/js/site.js?v=20261007ad"></script>
+<script type="module" src="/assets/js/experience.js?v=20261007ad"></script>
+<script type="module" src="/assets/js/papers-inner.js?v=20261007ad"></script>
 </body>
 </html>

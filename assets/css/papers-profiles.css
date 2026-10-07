@@ -1,0 +1,340 @@
+/* Shared paper composition; screen and print rules are kept separate. */
+@media screen {
+:root[data-inner-study] .profile-page {
+--profile-ground: #f4f1ea;
+    --profile-ink: #24231f;
+    --profile-copy: #45433e;
+    --profile-muted: #66625b;
+    --profile-rule: rgb(36 35 31 / .14);
+    --profile-wash: #e8e1d4;
+    --profile-panel: #faf8f1;
+    --profile-panel-alt: #f1ece2;
+    background: transparent;
+}
+:root[data-inner-study][data-theme="dark"] .profile-page {
+--profile-ground: #101010;
+    --profile-ink: #f2f1ee;
+    --profile-copy: #d0ceca;
+    --profile-muted: #aaa7a2;
+    --profile-rule: rgb(255 255 255 / .14);
+    --profile-wash: #1c1c1c;
+    --profile-panel: #252525;
+    --profile-panel-alt: #2c2c2c;
+}
+:root[data-inner-study] .profile-page .profile-heading {
+margin-inline: auto;
+    width: min(1200px, calc(100% - 96px));
+    min-width: 0;
+    padding-bottom: clamp(44px, 6vw, 80px);
+}
+:root[data-inner-study] .profile-page .profile-heading > * {
+min-width: 0;
+}
+:root[data-inner-study] .profile-page .profile-display {
+font-size: clamp(80px, 13vw, 190px);
+    letter-spacing: -.065em;
+}
+:root[data-inner-study] .profile-page .profile-about-display {
+font-size: clamp(44px, 6.4vw, 92px);
+    line-height: 1.16;
+    letter-spacing: -.05em;
+}
+:root[data-inner-study] .profile-page .btn {
+border-radius: 999px;
+}
+:root[data-inner-study] .profile-page .profile-section {
+display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: clamp(24px, 3vw, 40px);
+    padding: 0;
+    margin: 0;
+    border: 0;
+    min-width: 0;
+}
+:root[data-inner-study] .profile-page .profile-section > * {
+min-width: 0;
+}
+:root[data-inner-study] .profile-page .profile-section-heading {
+gap: 12px;
+    margin: 0;
+    padding: 0;
+}
+:root[data-inner-study] .profile-page .profile-section-heading h2 {
+font-size: clamp(30px, 3.5vw, 50px);
+    line-height: 1.25;
+    letter-spacing: -.035em;
+    margin: 0;
+    max-width: 28ch;
+}
+:root[data-inner-study] .profile-page .profile-section-number {
+display: none;
+}
+:root[data-inner-study] .profile-page .profile-summary > .lede {
+padding: clamp(24px, 3vw, 40px);
+    border-radius: 24px;
+    background: var(--profile-panel);
+    font-size: clamp(19px, 1.7vw, 24px);
+    line-height: 1.8;
+    margin: 0;
+    box-sizing: border-box;
+}
+:root[data-inner-study] .profile-page .profile-role {
+grid-template-columns: 26px minmax(0, .85fr) minmax(0, 1.45fr);
+    gap: 18px clamp(18px, 2.4vw, 36px);
+    align-items: start;
+    padding: clamp(24px, 3vw, 40px);
+    margin: 0;
+    border: 0;
+    border-radius: 26px;
+    background: var(--profile-panel);
+}
+:root[data-inner-study] .profile-page .profile-role-index {
+font-size: 13px;
+    font-variant-numeric: tabular-nums;
+    color: var(--profile-muted);
+}
+:root[data-inner-study] .profile-page .profile-role .role-head h3 {
+font-size: clamp(22px, 2vw, 29px);
+    line-height: 1.4;
+    letter-spacing: -.025em;
+    overflow-wrap: normal;
+    margin: 0;
+}
+:root[data-inner-study] .profile-page .profile-role .role-head span {
+font-size: 13px;
+    line-height: 1.9;
+    margin-top: 18px;
+    overflow-wrap: anywhere;
+}
+:root[data-inner-study] .profile-page .profile-role ul {
+display: grid;
+    gap: 18px;
+    font-size: 16px;
+    line-height: 1.85;
+    padding: 0 0 0 1.1em;
+    margin: 0;
+}
+:root[data-inner-study] .profile-page .profile-role li {
+margin: 0;
+    padding-left: .25em;
+}
+:root[data-inner-study] .profile-page .skills {
+display: grid;
+    gap: 12px;
+    margin: 0;
+}
+:root[data-inner-study] .profile-page .skills > div {
+grid-template-columns: minmax(0, .85fr) minmax(0, 1.45fr);
+    gap: 14px 32px;
+    padding: 24px 32px;
+    border: 0;
+    border-radius: 22px;
+    background: var(--profile-panel);
+}
+:root[data-inner-study] .profile-page .skills :is(dt, dd) {
+margin: 0;
+    min-width: 0;
+    line-height: 1.85;
+}
+:root[data-inner-study] .profile-page .skills dt {
+font-size: 18px;
+}
+:root[data-inner-study] .profile-page .skills dd {
+font-size: 16px;
+}
+:root[data-inner-study] .profile-page .resume-date {
+white-space: normal;
+}
+:root[data-inner-study] .profile-page .profile-prose-grid {
+grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: 22px;
+    align-items: start;
+}
+:root[data-inner-study] .profile-page .profile-prose-grid > * {
+padding: clamp(24px, 2.8vw, 36px);
+    border-radius: 24px;
+    background: var(--profile-panel);
+    min-width: 0;
+    box-sizing: border-box;
+}
+:root[data-inner-study] .profile-page .profile-prose-grid .profile-timeline {
+background: var(--profile-panel-alt);
+}
+:root[data-inner-study] .profile-page .profile-prose-grid p {
+font-size: 17px;
+    line-height: 1.85;
+}
+:root[data-inner-study] .profile-page .profile-prose-grid .lede {
+font-size: clamp(19px, 1.8vw, 24px);
+    line-height: 1.75;
+}
+:root[data-inner-study] .profile-page .profile-timeline li {
+grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+    padding-block: 22px;
+    border-top-color: var(--profile-rule);
+}
+:root[data-inner-study] .profile-page .profile-timeline-date {
+font-size: 12px;
+    font-variant-numeric: tabular-nums;
+    white-space: normal;
+}
+:root[data-inner-study] .profile-page .profile-timeline h3 {
+font-size: 21px;
+    line-height: 1.45;
+}
+:root[data-inner-study] .profile-page .profile-timeline p {
+font-size: 15px;
+    line-height: 1.8;
+}
+:root[data-inner-study] .profile-page .profile-principle-list {
+gap: 18px;
+}
+:root[data-inner-study] .profile-page .profile-principle {
+grid-template-columns: 26px minmax(0, .9fr) minmax(0, 1.4fr);
+    gap: 18px 28px;
+    padding: clamp(24px, 3vw, 40px);
+    border: 0;
+    border-radius: 26px;
+    background: var(--profile-panel);
+}
+:root[data-inner-study] .profile-page .profile-principle h3 {
+font-size: clamp(23px, 2.4vw, 32px);
+    line-height: 1.4;
+    letter-spacing: -.025em;
+    margin: 0;
+}
+:root[data-inner-study] .profile-page .profile-principle-copy p {
+font-size: 17px;
+    line-height: 1.85;
+    margin-bottom: 20px;
+}
+:root[data-inner-study] .profile-page [data-profile-section="next"] .profile-section-heading h2 {
+font-size: clamp(32px, 4vw, 58px);
+    line-height: 1.3;
+}
+:root[data-inner-study] .profile-page .next {
+width: min(1200px, calc(100% - 96px));
+    margin-inline: auto;
+    border-color: var(--profile-rule);
+}
+:root[data-inner-study][data-design]:is(:lang(zh-Hant-TW), :lang(ja)) .profile-page :is(h1, h2, h3, dt) {
+letter-spacing: 0;
+}
+:root[data-inner-study][data-design]:is(:lang(zh-Hant-TW), :lang(ja)) .profile-page .profile-about-display {
+font-size: clamp(36px, 5.6vw, 80px);
+    line-height: 1.4;
+}
+:root[data-inner-study][data-design]:is(:lang(zh-Hant-TW), :lang(ja)) .profile-page .profile-display {
+font-size: clamp(70px, 12vw, 180px);
+    letter-spacing: 0;
+    line-height: 1.25;
+}
+:root[data-inner-study][data-design]:is(:lang(zh-Hant-TW), :lang(ja)) .profile-page .profile-section-heading h2 {
+font-size: clamp(28px, 3.1vw, 44px);
+    line-height: 1.5;
+}
+:root[data-inner-study][data-design]:is(:lang(zh-Hant-TW), :lang(ja)) .profile-page :is(.role-head h3, .profile-principle h3) {
+font-size: clamp(22px, 2vw, 28px);
+    line-height: 1.55;
+}
+@media (max-width: 1100px) {
+:root[data-inner-study] .profile-page .profile-prose-grid {
+grid-template-columns: minmax(0, 1fr);
+}
+:root[data-inner-study] .profile-page :is(.profile-role, .profile-principle) {
+grid-template-columns: 26px minmax(0, 1fr);
+      gap: 20px;
+}
+:root[data-inner-study] .profile-page :is(.profile-role > ul, .profile-principle-copy) {
+grid-column: 2;
+}
+:root[data-inner-study] .profile-page .skills > div {
+grid-template-columns: minmax(0, 1fr);
+}
+}
+@media (max-width: 720px) {
+:root[data-inner-study] .profile-page :is(.profile-heading, .next) {
+width: calc(100% - 40px);
+}
+:root[data-inner-study] .profile-page .folio-profile {
+grid-template-columns: 45px minmax(0, 1fr);
+      column-gap: 12px;
+}
+:root[data-inner-study] .profile-page .profile-section {
+gap: 24px;
+}
+:root[data-inner-study] .profile-page .profile-section-heading h2 {
+font-size: clamp(26px, 5.8vw, 36px);
+}
+:root[data-inner-study] .profile-page :is(.profile-role, .profile-principle) {
+grid-template-columns: minmax(0, 1fr);
+      gap: 16px;
+      padding: 20px 18px;
+      border-radius: 20px;
+}
+:root[data-inner-study] .profile-page :is(.profile-role > ul, .profile-principle-copy) {
+grid-column: 1;
+}
+:root[data-inner-study] .profile-page :is(.profile-role-index, .profile-principle-number) {
+padding: 0;
+      line-height: 1;
+}
+:root[data-inner-study] .profile-page .profile-role .role-head h3 {
+font-size: 23px;
+}
+:root[data-inner-study] .profile-page .profile-role .role-head span {
+margin-top: 12px;
+}
+:root[data-inner-study] .profile-page .profile-role ul {
+font-size: 16px;
+}
+:root[data-inner-study] .profile-page :is(.profile-prose-grid > *, .profile-summary > .lede, .skills > div) {
+padding: 20px 18px;
+      border-radius: 20px;
+}
+:root[data-inner-study] .profile-page .profile-prose-grid {
+gap: 18px;
+}
+:root[data-inner-study] .profile-page .profile-principle h3 {
+font-size: 24px;
+}
+:root[data-inner-study] .profile-page .profile-prose-grid p {
+font-size: 16px;
+}
+:root[data-inner-study] .profile-page .profile-prose-grid .lede {
+font-size: 19px;
+}
+:root[data-inner-study] .profile-page .profile-about-display {
+font-size: clamp(36px, 8vw, 58px);
+}
+:root[data-inner-study] .profile-page .profile-display {
+font-size: clamp(66px, 16vw, 112px);
+}
+:root[data-inner-study][data-design]:is(:lang(zh-Hant-TW), :lang(ja)) .profile-page .profile-about-display {
+font-size: clamp(30px, 6.8vw, 46px);
+}
+:root[data-inner-study][data-design]:is(:lang(zh-Hant-TW), :lang(ja)) .profile-page .profile-display {
+font-size: clamp(56px, 14vw, 96px);
+}
+:root[data-inner-study][data-design]:is(:lang(zh-Hant-TW), :lang(ja)) .profile-page .profile-section-heading h2 {
+font-size: clamp(25px, 5.4vw, 34px);
+}
+}
+:root[data-inner-study][data-reduce="true"] .profile-page .profile-motion-unit {
+opacity: 1 !important;
+    transform: none !important;
+}
+:root[data-inner-study][data-reduce="true"] .profile-page :is(.profile-about-display, .profile-display) {
+translate: none !important;
+}
+@media (prefers-reduced-motion: reduce) {
+:root[data-inner-study] .profile-page .profile-motion-unit {
+opacity: 1 !important;
+      transform: none !important;
+}
+:root[data-inner-study] .profile-page :is(.profile-about-display, .profile-display) {
+translate: none !important;
+}
+}
+}

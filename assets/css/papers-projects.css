@@ -1,0 +1,245 @@
+/* Shared paper composition; screen and print rules are kept separate. */
+@media screen {
+:root[data-inner-study] .projects-page,
+:root[data-inner-study][data-theme="light"] .projects-page {
+--projects-ground: #f4f1ea;
+    --projects-ink: #35322c;
+    --projects-muted: #655b4e;
+    --projects-surface: #e8e1d4;
+    --projects-surface-raised: #ded5c6;
+    --folio-project-panel: #faf8f1;
+    --folio-project-rule: #d6cebf;
+    color: var(--projects-ink);
+    background: var(--projects-ground);
+}
+:root[data-inner-study][data-theme="dark"] .projects-page {
+--projects-ground: #101010;
+    --projects-ink: #f4f4f0;
+    --projects-muted: #b9b9b3;
+    --projects-surface: #242424;
+    --projects-surface-raised: #383838;
+    --folio-project-panel: #1b1b1b;
+    --folio-project-rule: #414141;
+}
+:root[data-inner-study] .projects-page #projects-grid {
+display: block;
+    margin: 0;
+}
+:root[data-inner-study] .projects-page .projects-hero {
+width: min(1320px,calc(100% - 112px)); margin-inline: auto;
+    padding-block: 64px 58px;
+}
+:root[data-inner-study] .projects-page .projects-tools {
+position: sticky; top: var(--folio-nav-top); z-index: 40;
+    padding: 12px clamp(24px,4.8vw,76px) 24px; margin: 0 0 36px;
+    background: var(--ground); box-shadow: 0 5px 24px var(--study-shadow);
+}
+:root[data-inner-study] .projects-page .projects-outro {
+padding-inline: clamp(24px,4.8vw,76px);
+}
+:root[data-inner-study] .projects-page .folio-project-chapter {
+min-width: 0;
+    margin: 0;
+    padding: 0;
+}
+:root[data-inner-study] .projects-page .folio-project-grid {
+display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: clamp(20px, 3vw, 40px);
+    align-items: start;
+}
+:root[data-inner-study] .projects-page #projects-grid .project-tile {
+grid-column: 1 / -1;
+    min-width: 0;
+    margin: 0;
+    padding: clamp(20px, 3vw, 36px);
+    border: 0;
+    border-radius: 24px;
+    background: var(--folio-project-panel);
+}
+:root[data-inner-study] .projects-page #projects-grid .project-tile[hidden] {
+display: none !important;
+}
+:root[data-inner-study] .projects-page .project-tile-link {
+min-width: 0;
+}
+:root[data-inner-study] .projects-page .project-tile-link:focus-visible {
+outline-offset: 6px;
+    border-radius: 12px;
+}
+:root[data-inner-study] .projects-page .project-tile-copy {
+min-width: 0;
+}
+:root[data-inner-study] .projects-page .project-tile-media {
+aspect-ratio: auto;
+    overflow: visible;
+    clip-path: none;
+    background: none;
+    box-shadow: none;
+}
+:root[data-inner-study] .projects-page .project-tile-art {
+position: relative;
+    inset: auto;
+}
+:root[data-inner-study] .projects-page .project-tile-caption {
+position: static;
+    display: block;
+    width: auto;
+    max-width: none;
+    margin-top: 12px;
+    padding: 0;
+    color: var(--projects-muted);
+    background: none;
+    font-weight: 400;
+    letter-spacing: 0;
+}
+:root[data-inner-study] .projects-page .project-tile-art :is(svg, img) {
+display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+:root[data-inner-study] .projects-page .project-tile-diagram {
+border: 1px solid var(--folio-project-rule);
+    border-radius: 18px;
+    background: var(--projects-ground);
+}
+:root[data-inner-study] .projects-page .project-diagram-note {
+font-size: 24px;
+}
+:root[data-inner-study] .projects-page .project-tile:not(.project-tile--image)
+  .project-tile-art,
+:root[data-inner-study] .projects-page .project-tile:not(.project-tile--image)
+  .project-tile-link:hover .project-tile-art {
+transform: none;
+}
+:root[data-inner-study] .projects-page .project-tile-link:hover .project-tile-media {
+clip-path: none;
+}
+:root[data-inner-study] .projects-page .project-tile-media--music img,
+:root[data-inner-study] .projects-page .project-tile-media--game img {
+padding: 0;
+    transform: none;
+    object-position: center;
+    box-shadow: none;
+}
+:root[data-inner-study] .projects-page .project-tile--image .project-tile-link {
+display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(20px, 3vw, 40px);
+    align-items: center;
+}
+:root[data-inner-study] .projects-page .project-tile-media--image {
+padding: 14px 20px 0;
+}
+:root[data-inner-study] .projects-page .project-tile-media--image .project-tile-art {
+width: 82%;
+    max-width: 320px;
+    margin: 0 auto 22px;
+}
+:root[data-inner-study] .projects-page .project-tile-media--image img {
+background: var(--projects-surface);
+}
+:root[data-inner-study] .projects-page[data-project-view="large"]
+  .project-tile--image .project-tile-link {
+grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+}
+:root[data-inner-study] .projects-page[data-project-view="large"]
+  .project-tile-media--image .project-tile-art {
+width: 100%;
+    max-width: 750px;
+}
+:root[data-inner-study] .projects-page .project-tile-media--game .project-tile-art {
+width: 82%;
+    max-width: 800px;
+    margin-inline: auto;
+}
+:root[data-inner-study] .projects-page[data-project-view="large"]
+  .project-tile-media--game .project-tile-art {
+width: 100%;
+    max-width: none;
+}
+:root[data-inner-study] .projects-page .project-tile--game .project-tile-copy {
+max-width: 760px;
+}
+:root[data-inner-study] .projects-page .project-tile--music .project-tile-art {
+width: 82%; max-width: 680px; margin-inline: auto;
+}
+@supports selector(:has(*)) {
+:root[data-inner-study] #projects-grid .folio-project-sheet[data-folio-project-group]:not(:has(.project-tile:not([hidden]))) {
+display: none;
+}
+:root[data-inner-study] #projects-grid:not(:has(.project-tile[data-project-group="workflows"]:not([hidden])))
+    [data-folio-project-anchor="workflows"],
+:root[data-inner-study] #projects-grid:not(:has(.project-tile[data-project-group="media"]:not([hidden])))
+    [data-folio-project-anchor="media"],
+:root[data-inner-study] #projects-grid:not(:has(.project-tile[data-project-group="games"]:not([hidden])))
+    [data-folio-project-anchor="games"] {
+display: none;
+}
+}
+@media (min-width: 1200px) {
+:root[data-inner-study] .projects-page .project-tile[data-project-group="workflows"] .project-tile-link {
+display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+      gap: clamp(24px, 3vw, 48px);
+      align-items: center;
+}
+:root[data-inner-study] .projects-page .project-tile[data-project-group="workflows"] .project-tile-copy {
+padding-top: 0;
+}
+}
+@media (max-width: 900px) {
+:root[data-inner-study] .projects-page .project-tile--image .project-tile-link,
+:root[data-inner-study] .projects-page[data-project-view="large"] .project-tile--image .project-tile-link {
+grid-template-columns: minmax(0, 1fr);
+      gap: 0;
+}
+:root[data-inner-study] .projects-page .project-tile-media--game .project-tile-art {
+width: 90%;
+}
+:root[data-inner-study] .projects-page[data-project-view="large"] .project-tile-media--game .project-tile-art {
+width: 100%;
+}
+}
+@media (max-width: 700px) {
+:root[data-inner-study] .projects-page .projects-hero {
+width: calc(100% - 40px); padding-block: 38px 40px;
+}
+:root[data-inner-study] .projects-page .projects-tools {
+padding: 8px 16px 20px; gap: 8px;
+}
+:root[data-inner-study] .projects-page .projects-filters {
+flex-wrap: nowrap; overflow-x: auto; width: 100%; gap: 5px;
+}
+:root[data-inner-study] .projects-page .projects-filters button {
+flex-shrink: 0; font-size: 11px; padding-inline: 12px;
+}
+:root[data-inner-study] .projects-page .projects-viewer {
+justify-self: start;
+}
+:root[data-inner-study] .projects-page .project-tile--music .project-tile-art {
+width: 100%;
+}
+:root[data-inner-study] .projects-page #projects-grid .project-tile {
+padding: 16px;
+      border-radius: 18px;
+}
+:root[data-inner-study] .projects-page .project-tile-media--image {
+padding-inline: 12px;
+}
+:root[data-inner-study] .projects-page .project-tile-art :is(svg, img) {
+border-radius: 12px;
+}
+}
+:root[data-inner-study]:is([data-reduce="true"], .motion-reduced) .projects-page .project-tile-art,
+:root[data-inner-study]:is([data-reduce="true"], .motion-reduced) .projects-page .project-tile-link:hover .project-tile-art {
+transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+:root[data-inner-study] .projects-page .project-tile-art,
+:root[data-inner-study] .projects-page .project-tile-link:hover .project-tile-art {
+transform: none;
+}
+}
+}

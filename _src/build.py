@@ -30,6 +30,7 @@ import json
 import pathlib
 import re
 import sys
+from papers import decorate as paper_layout
 
 SRC = pathlib.Path(__file__).resolve().parent
 ROOT = SRC.parent
@@ -173,7 +174,10 @@ class Site:
             "canonical": self.config["origin"] + self.url(lang, page["path"]),
             "alternates": self.alternates(page), "lang_switch": self.lang_switch(page, lang),
         }}
-        return self.render(self.layout["page"], ctx).rstrip() + "\n"
+        html = self.render(self.layout["page"], ctx)
+        if getattr(self, 'paper_design', True):
+            html = paper_layout(html, page["id"], lang, self.token, self.strings[lang])
+        return html.rstrip() + "\n"
 
     def outputs(self):
         """Yield (relative output path, html) for every page that has a source in some language."""

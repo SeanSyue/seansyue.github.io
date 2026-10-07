@@ -150,6 +150,14 @@ function selectCapability(key, animated = true) {
   });
   if (animated) animate(panel,[{opacity:.2,transform:'translateY(45px)'},{opacity:1,transform:'none'}],{duration:650,fill:'both'});
 }
+function goToCapabilityChapter(instant = false) {
+  const anchor = $('#capability-chapter-start');
+  if (!anchor) return;
+  const overlap = innerWidth <= 700 ? 16 : 24;
+  const headerBottom = $('.site-header').getBoundingClientRect().bottom;
+  const top = anchor.getBoundingClientRect().top + scrollY - overlap - headerBottom - 12;
+  window.scrollTo({top: Math.max(0,top), behavior: reduced || instant ? 'instant' : 'smooth'});
+}
 if (home) {
   opening = document.createElement('div');
   opening.className = 'motion-opening'; opening.id = 'opening-overlay'; opening.hidden = true;
@@ -166,10 +174,16 @@ if (home) {
     const key = el.dataset.cap || el.getAttribute('href').slice(5);
     selectCapability(key); if (workForCap[key]) gallery?.showProject(workForCap[key]);
     history.replaceState(null,'',`#cap-${key}`);
-    $(`#cap-${key}`).scrollIntoView({behavior:reduced?'instant':'smooth',block:'start'});
+    if (root.dataset.sectionStudy === 'd') {
+      // Hero links enter the whole chapter. Within it, a choice does not
+      // consume any of the scroll distance that brings paper 02 on top.
+      if (el.matches('[data-cap]')) goToCapabilityChapter();
+    } else {
+      $(`#cap-${key}`).scrollIntoView({behavior:reduced?'instant':'smooth',block:'start'});
+    }
   }));
   window.addEventListener('hashchange',() => {
-    if (location.hash.startsWith('#cap-')) selectCapability(location.hash.slice(5));
+    if (location.hash.startsWith('#cap-')) { selectCapability(location.hash.slice(5)); if (root.dataset.sectionStudy === 'd') goToCapabilityChapter(); }
     finishOpening();
   });
   const version = new URL(import.meta.url).search;
@@ -183,6 +197,7 @@ if (home) {
   let visited = false;
   try { visited = sessionStorage.getItem('sean-opening-seen') === 'true'; sessionStorage.setItem('sean-opening-seen','true'); } catch {}
   if (!visited && !location.hash && !reduced) playOpening();
+  if (root.dataset.sectionStudy === 'd' && location.hash.startsWith('#cap-')) document.fonts.ready.then(() => requestAnimationFrame(() => goToCapabilityChapter(true)));
   const field = $('.word-field');
   field.addEventListener('pointermove',event => {
     if (reduced || event.pointerType === 'touch' || root.dataset.motion !== 'done') return;
@@ -203,7 +218,7 @@ const observer = new IntersectionObserver(entries => entries.forEach(({target,is
     {opacity:1,transform:'none',clipPath:'inset(0 0 0 0)'}],{duration:950,fill:'both'});
   if (target.matches('[data-diagram-motion]')) drawDiagram(target);
 }),{threshold:.08});
-$$('[data-motion-reveal],[data-diagram-motion]').filter(el => !el.closest('.profile-page')).forEach(el => observer.observe(el));
+$$('[data-motion-reveal],[data-diagram-motion]').filter(el => !el.closest('.profile-page') && !(root.dataset.innerStudy === 'cases' && el.closest('.case-section') && !el.matches('[data-diagram-motion]'))).forEach(el => observer.observe(el));
 
 const motionVersion = new URL(import.meta.url).search;
 if ($('.profile-page')) {

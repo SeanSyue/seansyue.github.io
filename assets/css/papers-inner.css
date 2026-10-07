@@ -1,0 +1,176 @@
+/* Shared paper composition; screen and print rules are kept separate. */
+@media screen {
+:root[data-inner-study] {
+--folio-surface: var(--study-cap);
+    --folio-panel: var(--study-work);
+    --folio-rule: rgb(53 50 44 / .12);
+    --folio-nav-height: 58px;
+    --folio-nav-top: var(--header-h);
+    --folio-reading-top: calc(var(--header-h) + var(--folio-nav-height) + 22px);
+}
+:root[data-inner-study][data-theme="dark"] {
+--folio-rule: rgb(255 255 255 / .12);
+}
+:root[data-inner-study] main.folio-shell {
+width: 100%; max-width: none; padding: 0; margin: 0;
+    background: var(--ground); isolation: isolate;
+}
+:root[data-inner-study] .folio-anchor {
+display: flow-root; position: relative; height: 0;
+}
+:root[data-inner-study] .folio-sheet {
+display: grid; grid-template-columns: 128px minmax(0,1fr); gap: 48px;
+    padding: 56px clamp(24px,4.8vw,76px) 90px; margin: -24px 16px 0;
+    position: sticky; top: var(--folio-pin, var(--folio-reading-top));
+    z-index: var(--folio-layer,1); border-radius: 36px 36px 0 0;
+    background: var(--folio-surface); box-shadow: 0 -16px 46px var(--study-shadow);
+    overflow: visible; align-items: start; min-width: 0;
+}
+:root[data-inner-study] .folio-sheet:nth-of-type(even) {
+--folio-surface: var(--study-note);
+}
+:root[data-inner-study] .folio-sheet[data-folio-last] {
+min-height: calc(100svh - var(--folio-nav-top) - var(--folio-nav-height) - 12px);
+}
+:root[data-inner-study] .folio-sheet[data-folio-ending] {
+grid-template-rows: auto auto; align-content: start;
+}
+:root[data-inner-study] .folio-sheet[data-folio-ending] > .folio-rail {
+grid-row: 1 / span 2;
+}
+:root[data-inner-study] .folio-ending {
+position: relative; z-index: 30; display: flow-root; grid-column: 2;
+    background: transparent; padding: 0; margin: 0; min-width: 0;
+}
+:root[data-inner-study] .folio-ending > :is(.next,.projects-outro,.case-pagination) {
+margin-top: 0; background: transparent;
+}
+:root[data-inner-study] .folio-ending > .next {
+width: 100%; margin-inline: 0; padding: 0; border: 0;
+}
+:root[data-inner-study] .folio-body {
+min-width: 0; max-width: 1260px;
+}
+:root[data-inner-study] .folio-rail {
+position: sticky; top: calc(var(--folio-reading-top) + 28px); align-self: start;
+    min-width: 0; display: grid; gap: 22px;
+    color: var(--ink); font-family: var(--sans); transform: translateZ(0);
+}
+:root[data-inner-study] .folio-number {
+font: 500 clamp(82px,8.5vw,122px)/1 Inter,Arial,sans-serif;
+    letter-spacing: -.075em; display: block; white-space: nowrap; overflow-wrap: normal;
+}
+:root[data-inner-study] .folio-label {
+font-size: 14px; line-height: 1.7; max-width: 11em; overflow-wrap: anywhere;
+}
+:root[data-inner-study] .folio-nav {
+position: sticky; top: var(--folio-nav-top); z-index: 40; margin: 0 0 36px;
+    padding: 8px clamp(24px,4.8vw,76px); border: 0;
+    background: color-mix(in srgb,var(--ground) 96%,transparent); backdrop-filter: blur(12px);
+    box-shadow: 0 12px 0 var(--ground), 0 16px 24px var(--study-shadow);
+}
+:root[data-inner-study] .folio-nav > .wrap {
+padding: 0; max-width: none; margin: 0; width: 100%;
+}
+:root[data-inner-study] .folio-nav,
+:root[data-inner-study] .folio-nav > .wrap {
+display: flex; gap: 6px; flex-wrap: nowrap; align-items: center;
+    overflow-x: auto; scrollbar-width: thin; overscroll-behavior-x: contain;
+}
+:root[data-inner-study] .folio-nav a {
+min-height: 42px; display: inline-flex; align-items: center; flex-shrink: 0;
+    padding: 10px 14px; color: var(--ink-2); border: 0; border-radius: 10px;
+    font: 500 12px/1.5 var(--sans); text-decoration: none; white-space: nowrap;
+}
+:root[data-inner-study] .folio-nav a[aria-current] {
+color: var(--ground); background: var(--ink); text-decoration: none;
+}
+:root[data-inner-study] :is(a,button,summary):focus-visible {
+outline: 2px solid var(--ink); outline-offset: 4px;
+}
+:root[data-inner-study] .folio-body :is(img,svg,table,audio) {
+max-width: 100%;
+}
+:root[data-inner-study] .site-footer {
+position: relative; z-index: 50;
+}
+:root[data-inner-study] :is(.case-pagination,.projects-outro,.resume-screen > .next) {
+position: relative; z-index: 30; background: var(--ground);
+}
+:root[data-inner-study] .folio-motion-unit {
+opacity: var(--folio-reveal,1); transform: translateY(var(--folio-shift,0px));
+}
+:root[data-inner-study][data-reduce="true"] .folio-sheet {
+position: relative; top: auto;
+}
+:root[data-inner-study][data-reduce="true"] .folio-sheet[data-folio-last] {
+min-height: 0;
+}
+:root[data-inner-study]:not(.js) .folio-sheet {
+position: relative; top: auto; min-height: 0;
+}
+:root[data-inner-study]:not(.js) .folio-motion-unit,
+:root[data-inner-study][data-reduce="true"] .folio-motion-unit {
+opacity: 1; transform: none;
+}
+:root[data-inner-study] .folio-motion-unit:focus-within {
+opacity: 1 !important; transform: none !important;
+}
+@media(max-width:1050px) {
+:root[data-inner-study] .folio-sheet {
+grid-template-columns: 92px minmax(0,1fr); gap: 30px; padding-inline: 32px;
+}
+:root[data-inner-study] .folio-number {
+font-size: 86px;
+}
+}
+@media(max-width:700px) {
+:root[data-inner-study] .folio-sheet[data-folio-last] {
+min-height: 0;
+}
+:root[data-inner-study] .folio-ending {
+padding: 0; margin: 0;
+}
+:root[data-inner-study] .folio-sheet {
+position: relative; top: auto; grid-template-columns: 44px minmax(0,1fr);
+      gap: 14px; padding: 34px 16px 64px; margin: -16px 6px 0; border-radius: 24px 24px 0 0;
+}
+:root[data-inner-study] .folio-number {
+font-size: 42px; letter-spacing: -.08em;
+}
+:root[data-inner-study] .folio-rail {
+top: calc(var(--folio-reading-top) + 12px); gap: 12px;
+}
+:root[data-inner-study] .folio-label {
+font-size: 9px; line-height: 1.7;
+}
+:root[data-inner-study] .folio-nav {
+padding: 6px 16px;
+}
+:root[data-inner-study] .folio-nav a {
+padding: 9px 11px; min-height: 40px; font-size: 11px;
+}
+}
+@media(prefers-reduced-motion:reduce) {
+:root[data-inner-study] .folio-sheet {
+position: relative; top: auto;
+}
+:root[data-inner-study] .folio-sheet[data-folio-last] {
+min-height: 0;
+}
+:root[data-inner-study] .folio-motion-unit {
+opacity: 1; transform: none;
+}
+}
+}
+@media print {
+.folio-rail,
+.folio-anchor {
+display: none !important;
+}
+.folio-sheet,
+.folio-body,
+.folio-ending {
+display: contents;
+}
+}

@@ -18,6 +18,7 @@ Only the Python standard library is needed. GitHub Pages serves the generated HT
 | `strings/<lang>.json` | Interface text: navigation, menu, theme button, footer |
 | `facts.json` | Numbers and dates shared by every language, each with a note and where it comes from |
 | `layout/` | Page frame, header, language switch, footer variants |
+| `papers/` | Approved chapter and paper composition; wraps resolved page content without changing facts or routes |
 | `assets.json` | Cache token for all files in `assets/css/` and `assets/js/`; the build updates it when any asset changes |
 
 ## Template markers

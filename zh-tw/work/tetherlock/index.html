@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-Hant-TW" data-theme="light" data-design="motion03">
+<html lang="zh-Hant-TW" data-theme="light" data-design="motion03" data-section-study="d" data-inner-study="cases">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,15 +13,16 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;family=Public+Sans:wght@400;500;600&amp;family=Zen+Maru+Gothic:wght@500;700&amp;family=Noto+Sans+TC:wght@400;500;700&amp;family=Noto+Serif+TC:wght@500;600&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/site.css?v=20261007aa">
+<link rel="stylesheet" href="/assets/css/site.css?v=20261007ad">
 
-<link rel="stylesheet" href="/assets/css/experience.css?v=20261007aa">
-<link rel="stylesheet" href="/assets/css/projects.css?v=20261007aa">
-<link rel="stylesheet" href="/assets/css/cases.css?v=20261007aa">
-<link rel="stylesheet" href="/assets/css/profile.css?v=20261007aa">
-<link rel="stylesheet" href="/assets/css/profile-motion.css?v=20261007aa">
-<link rel="stylesheet" href="/assets/css/warm-light.css?v=20261007aa">
+<link rel="stylesheet" href="/assets/css/experience.css?v=20261007ad">
+<link rel="stylesheet" href="/assets/css/projects.css?v=20261007ad">
+<link rel="stylesheet" href="/assets/css/cases.css?v=20261007ad">
+<link rel="stylesheet" href="/assets/css/profile.css?v=20261007ad">
+<link rel="stylesheet" href="/assets/css/profile-motion.css?v=20261007ad">
+<link rel="stylesheet" href="/assets/css/warm-light.css?v=20261007ad">
 <script>document.documentElement.classList.add("js");try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
+<link rel="stylesheet" href="/assets/css/papers.css?v=20261007ad"><link rel="stylesheet" href="/assets/css/papers-inner.css?v=20261007ad"><link rel="stylesheet" href="/assets/css/papers-cases.css?v=20261007ad">
 </head>
 <body>
 <a class="skip-link" href="#main-content">跳到主要內容</a>
@@ -46,7 +47,7 @@
 </header>
 
 
-<main id="main-content" tabindex="-1" class="case-page case-tetherlock">
+<main id="main-content" tabindex="-1" class="case-page case-tetherlock folio-shell">
   <div class="wrap">
     <p class="crumbs"><a href="/zh-tw/projects/">作品總覽</a> → Tetherlock</p>
     <section class="proj-head case-hero">
@@ -85,7 +86,7 @@
     </section>
   </div>
 
-  <nav class="section-nav" aria-label="本頁內容">
+  <nav class="section-nav folio-nav" aria-label="本頁內容">
     <div class="wrap">
       <a href="#overview">概要</a>
       <a href="#how">運作方式</a>
@@ -95,10 +96,10 @@
     </div>
   </nav>
 
-  <div class="wrap">
+  <div class="wrap folio-case-flow">
 
     <!-- ============ OVERVIEW ============ -->
-    <section id="overview" class="block case-section">
+    <span class="folio-anchor" data-folio-anchor="overview" aria-hidden="true"></span><div class="folio-sheet folio-case" data-folio-chapter="overview"><aside class="folio-rail" aria-hidden="true"><span class="folio-number">01</span><span class="folio-label">概要</span></aside><div class="folio-body"><section id="overview" class="block case-section">
       <div class="block-head" data-motion-reveal><span class="eyebrow">概要</span><h2>三個都成立才打開，少了一個就關上</h2></div>
 
       <div class="two wide-left">
@@ -127,10 +128,10 @@
         <div class="card lift"><span class="num">02</span><h3>拔掉隨身碟，就上鎖</h3><p>每一輪檢查都會重新確認每個已打開的工作區。token 不見了、被換掉或已經失效，就鎖上那個工作區，只鎖那一個。</p></div>
         <div class="card lift"><span class="num">03</span><h3>維護不必交出管理員密碼</h3><p>另一種維護用的 token 會明確列出它允許做的事。維護時段預設 30 分鐘後自動結束，隨身碟一拔掉也會立刻結束。</p></div>
       </div>
-    </section>
+    </section></div></div>
 
     <!-- ============ HOW IT WORKS ============ -->
-    <section id="how" class="block case-section">
+    <span class="folio-anchor" data-folio-anchor="how" aria-hidden="true"></span><div class="folio-sheet folio-case" data-folio-chapter="how"><aside class="folio-rail" aria-hidden="true"><span class="folio-number">02</span><span class="folio-label">運作方式</span></aside><div class="folio-body"><section id="how" class="block case-section">
       <div class="block-head" data-motion-reveal><span class="eyebrow">運作方式</span><h2>一輪檢查怎麼跑，一個區域怎麼開關</h2></div>
       <figure class="diagram-img case-media" data-motion-reveal>
         <a class="theme-img" href="/assets/img/tetherlock/08-three-gates-dark.zh-tw.svg" target="_blank" rel="noopener" aria-label="以原尺寸開啟這張圖"><img class="on-dark" src="/assets/img/tetherlock/08-three-gates-dark.zh-tw.svg" width="1200" height="560" alt="一輪檢查：先查帳號，再查隨身碟上簽過名的 token，接著是密碼，打開任何東西之前再檢查一次 token。每道關卡都有自己的拒絕路徑。"><img class="on-light" src="/assets/img/tetherlock/08-three-gates.zh-tw.svg" width="1200" height="560" alt="" loading="lazy"></a>
@@ -158,10 +159,10 @@
           <p>另一種 token 會列出它允許的權限項目，而且只有應用程式認得的項目才會被授予。維護時段只存在記憶體裡，預設持續 30 分鐘；每次使用都會重新檢查時間和 token。拔掉隨身碟，下一個動作之前就會結束。</p>
         </article>
       </div>
-    </section>
+    </section></div></div>
 
     <!-- ============ IN ACTION ============ -->
-    <section id="screens" class="block case-section">
+    <span class="folio-anchor" data-folio-anchor="screens" aria-hidden="true"></span><div class="folio-sheet folio-case" data-folio-chapter="screens"><aside class="folio-rail" aria-hidden="true"><span class="folio-number">03</span><span class="folio-label">實際畫面</span></aside><div class="folio-body"><section id="screens" class="block case-section">
       <div class="block-head" data-motion-reveal><span class="eyebrow">實際畫面</span><h2>獨立版本的七個畫面</h2></div>
       <div class="slideshow case-media" aria-roledescription="輪播" aria-label="Tetherlock 截圖" data-motion-reveal>
         <div class="slides" tabindex="0">
@@ -201,20 +202,20 @@
         </div>
       </div>
       <p class="muted" style="font-size: 14px;">用新產生的示範金鑰跑出來的真實指令與測試輸出，擷取於 <span class="date">2026-09-22</span> 和 <span class="date">2026-09-26</span>。路徑已縮短，隨身碟序號已隱藏。點一下畫面，可以用原尺寸開啟。</p>
-    </section>
+    </section></div></div>
 
     <!-- ============ DECISIONS ============ -->
-    <section id="decisions" class="block case-section">
+    <span class="folio-anchor" data-folio-anchor="decisions" aria-hidden="true"></span><div class="folio-sheet folio-case" data-folio-chapter="decisions"><aside class="folio-rail" aria-hidden="true"><span class="folio-number">04</span><span class="folio-label">設計決策</span></aside><div class="folio-body"><section id="decisions" class="block case-section">
       <div class="block-head" data-motion-reveal><span class="eyebrow">設計決策</span><h2>三個決定與否決的做法</h2></div>
       <div class="cards case-cards">
         <div class="card"><span class="num">01</span><h3>輸入密碼之後，再查一次隨身碟</h3><p>輸入密碼要花幾秒，這段時間裡，隨身碟可能被拔掉，或換成另一支、用同一個磁碟機代號的隨身碟。所以在輸入密碼之後、打開任何東西之前，會重新讀取並驗證 token。</p><p class="muted">否決的做法：只在跳出密碼視窗前檢查一次隨身碟，之後一直相信那次的結果。</p></div>
         <div class="card"><span class="num">02</span><h3>沒有萬能鑰匙</h3><p>沒有復原金鑰，也沒有繞過的方法。唯一會給出存取權的程式碼，在密碼檢查之後才執行。代價也接受了：所有簽署金鑰都遺失時，信任關係必須從頭重新建立。</p><p class="muted">否決的做法：「為了永遠救得回來」而設的緊急繞過機制。後門會變成最容易進來的路。</p></div>
         <div class="card"><span class="num">03</span><h3>拿不準，就先上鎖</h3><p>檢查時發生預期外的錯誤，或區域打開期間 token 變得讀不出來，就先把區域鎖上，再回報錯誤。擁有者偶爾可能得重新解鎖一次。</p><p class="muted">反過來，維持打開、等有人來看，只要沒人發現，門就一直開著。</p></div>
       </div>
-    </section>
+    </section></div></div>
 
     <!-- ============ SCOPE ============ -->
-    <section id="scope" class="block case-section">
+    <span class="folio-anchor" data-folio-anchor="scope" aria-hidden="true"></span><div data-folio-last="true" data-folio-ending="true" class="folio-sheet folio-case" data-folio-chapter="scope"><aside class="folio-rail" aria-hidden="true"><span class="folio-number">05</span><span class="folio-label">範圍與限制</span></aside><div class="folio-body"><section id="scope" class="block case-section">
       <div class="block-head" data-motion-reveal><span class="eyebrow">範圍與限制</span><h2>它自己做的，和留給別人的</h2></div>
       <p class="lede">Tetherlock 決定受保護的工作區<b>能不能</b>打開，也負責再把它關上。它不加密裡面的檔案：工作區密碼會被檢查，但它不是加密金鑰。讓隨身碟的內容無法被讀取，是全磁碟加密的工作。它也分不出一支隨身碟，和逐位元完整複製的副本。</p>
       <div class="ledger case-ledger">
@@ -223,7 +224,7 @@
         <div class="notyet"><h3>還沒有</h3><ul><li>工作區檔案的加密</li><li>撤銷清單</li><li>第三方資安稽核</li><li>使用者介面；畫面由應用程式自己提供</li><li>實際環境中，拔掉隨身碟後多久上鎖：沒有量測</li></ul></div>
       </div>
       <p class="muted">如果你的團隊需要這種思考方式，同樣的思路也出現在 <a href="/zh-tw/work/aicc/">AI Control Center</a>：一次核准，只對它當初核准的那個版本有效。</p>
-    </section>
+    </section></div><div class="folio-ending">
 
     <nav class="case-pagination" aria-label="繼續探索作品">
       <a class="case-prev" data-case-prev href="/zh-tw/work/negative-control/">
@@ -237,7 +238,7 @@
       <div class="case-pagination-footer"><a href="/zh-tw/projects/">作品總覽 <span aria-hidden="true">↗</span></a><a class="btn btn-quiet" href="/zh-tw/#contact">聯絡我</a></div>
     </nav>
   </div>
-</main>
+</div></div></main>
 
 <footer data-motion-reveal class="site-footer">
   <div class="wrap">
@@ -248,7 +249,8 @@
     <small>© 2026 Sean Syue</small>
   </div>
 </footer>
-<script src="/assets/js/site.js?v=20261007aa"></script>
-<script type="module" src="/assets/js/experience.js?v=20261007aa"></script>
+<script src="/assets/js/site.js?v=20261007ad"></script>
+<script type="module" src="/assets/js/experience.js?v=20261007ad"></script>
+<script type="module" src="/assets/js/papers-inner.js?v=20261007ad"></script>
 </body>
 </html>

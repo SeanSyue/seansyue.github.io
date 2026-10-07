@@ -1,0 +1,231 @@
+/* Shared paper composition; screen and print rules are kept separate. */
+@media screen {
+:root[data-inner-study] .case-page {
+--case-surface: #faf8f1;
+    --case-surface-strong: #e8e1d4;
+    --case-gap: clamp(24px, 3.2vw, 48px);
+    --case-radius: 18px;
+    --sage: var(--ink);
+    --sage-deep: var(--ink);
+    --sage-wash: var(--case-surface-strong);
+    --terracotta: var(--ink-2);
+    --wood: var(--ink-2);
+    background: transparent;
+}
+:root[data-inner-study][data-theme="dark"] .case-page {
+--case-surface: #262626;
+    --case-surface-strong: #333;
+}
+:root[data-inner-study] .case-page > .wrap.folio-case-flow {
+display: flow-root;
+    width: 100%;
+    max-width: none;
+    margin-inline: 0;
+    padding-inline: 0;
+    overflow: visible;
+}
+:root[data-inner-study] .case-page .folio-body,
+:root[data-inner-study] .case-page .case-section,
+:root[data-inner-study] .case-page .case-section :is(.two, .stack, .card, .case-chapter, .case-media, .player) {
+min-width: 0;
+}
+:root[data-inner-study] .case-page .folio-body > .case-section {
+padding: 0;
+    margin: 0;
+    gap: clamp(24px, 3vw, 40px);
+}
+:root[data-inner-study] .case-page .folio-body .block-head {
+grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+}
+:root[data-inner-study] .case-page .folio-body .block-head .eyebrow {
+padding-top: 0;
+}
+:root[data-inner-study] .case-page .folio-body .block-head h2 {
+font-size: clamp(30px, 3.5vw, 52px);
+    line-height: 1.2;
+    max-width: 29ch;
+    overflow-wrap: anywhere;
+}
+:root[data-inner-study] .case-page .folio-body .lede {
+font-size: clamp(16px, 1.25vw, 19px);
+    line-height: 1.85;
+}
+:root[data-inner-study] .case-page .folio-body .case-evidence-layout > .stack {
+margin-left: 0;
+    max-width: none;
+    background: var(--case-surface);
+    padding: clamp(20px, 2.5vw, 32px);
+    border-radius: 18px;
+}
+:root[data-inner-study] .case-page .folio-body .case-chapter {
+border: 0;
+    padding: clamp(22px, 2.8vw, 36px);
+    background: var(--case-surface);
+    border-radius: 20px;
+    gap: 24px;
+}
+:root[data-inner-study] .case-page .folio-body .case-chapter > h3 {
+font-size: clamp(24px, 2.4vw, 34px);
+    line-height: 1.35;
+    max-width: 38ch;
+}
+:root[data-inner-study] .case-page .folio-body .case-chapter :is(.bars, .case-table, details.more) {
+background: var(--case-surface-strong);
+}
+:root[data-inner-study] .case-page .case-cards {
+grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+    gap: 20px;
+}
+:root[data-inner-study] .case-page .case-cards > .card:nth-child(even) {
+margin-top: 0;
+}
+:root[data-inner-study] .case-page :is(.card, .case-ledger > div, .player, .loop-panel) {
+border: 0;
+    box-shadow: none;
+    background: var(--case-surface);
+}
+:root[data-inner-study] .case-page .case-ledger {
+grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+    gap: 20px;
+}
+:root[data-inner-study] .case-page .case-ledger .notyet {
+background: var(--case-surface);
+}
+:root[data-inner-study] .case-page .case-failures {
+gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(min(230px, 100%), 1fr));
+}
+:root[data-inner-study] .case-page .case-failures > div {
+background: var(--case-surface);
+    padding: 24px;
+    border-radius: 18px;
+}
+:root[data-inner-study] .case-page .decision {
+padding-block: 18px;
+    border-top-color: var(--rule);
+}
+:root[data-inner-study] .case-page :is(.num, .memory-card b),
+:root[data-inner-study] .case-page .steps li::before {
+color: var(--ink-2);
+}
+:root[data-inner-study] .case-page .status::before {
+background: var(--ink-3);
+}
+:root[data-inner-study] .case-page .steps li {
+background: var(--case-surface);
+}
+:root[data-inner-study] .case-page :is(.case-blueprint, .diagram, .diagram-img, .chart-plate) {
+transform: none !important;
+    rotate: none !important;
+    scale: none !important;
+    perspective: none;
+    box-shadow: none;
+}
+:root[data-inner-study] .case-page :is(.diagram, .diagram-img .theme-img) {
+overflow-x: auto;
+    overscroll-behavior-x: contain;
+}
+:root[data-inner-study] .case-page .diagram {
+padding: clamp(16px, 2.2vw, 28px);
+}
+:root[data-inner-study] .case-page .diagram svg {
+min-width: var(--diagram-min, 560px);
+}
+:root[data-inner-study] .case-page .diagram-img .theme-img {
+border-radius: 12px;
+}
+:root[data-inner-study] .case-page .diagram-img .theme-img img {
+min-width: 680px;
+}
+:root[data-inner-study] .case-page :is(.d-stamp circle, .d-stamps circle, .d-inner) {
+fill: var(--case-surface-strong);
+    stroke: var(--ink-3);
+}
+:root[data-inner-study] .case-page :is(.d-open rect:first-child, .d-stamps path) {
+stroke: var(--ink-3);
+}
+:root[data-inner-study] .case-page .d-loop {
+stroke: var(--ink-3);
+}
+:root[data-inner-study] .case-page .case-table {
+max-width: 100%;
+}
+:root[data-inner-study] .case-page table.matrix td.yes {
+color: var(--ink);
+}
+:root[data-inner-study] .case-page .term pre {
+overflow-x: auto;
+}
+:root[data-inner-study] .case-page :is(details.more summary, .slide-controls button) {
+min-height: 44px;
+}
+:root[data-inner-study] .case-page audio {
+width: 100%; max-width: 100%;
+}
+:root[data-inner-study] .case-page a:focus-visible,
+:root[data-inner-study] .case-page button:focus-visible,
+:root[data-inner-study] .case-page [tabindex]:focus-visible,
+:root[data-inner-study] .case-page summary:focus-visible {
+outline: 2px solid var(--ink);
+    outline-offset: 4px;
+}
+:root[data-inner-study] .case-page :is(img.shot, video.shot, img.loop-media, video.loop-media, .slide img, .places img) {
+width: 100%;
+    height: auto;
+    aspect-ratio: auto;
+    object-fit: contain;
+    transform: none !important;
+    rotate: none !important;
+    scale: none !important;
+}
+:root[data-inner-study] .case-page .memory-card {
+aspect-ratio: auto;
+    height: auto;
+    min-height: 180px;
+    color: var(--ink);
+}
+:root[data-inner-study] .case-page .loop3 {
+grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+    gap: 20px;
+}
+:root[data-inner-study] .case-page .places figure:first-child {
+width: 100%; margin-left: 0;
+}
+:root[data-inner-study] .case-page .places figure:nth-child(odd):not(:first-child) {
+margin-top: 0;
+}
+:root[data-inner-study] .case-page .folio-case-flow > .case-pagination {
+max-width: 1600px;
+    margin-inline: auto;
+    padding-inline: clamp(20px, 4.8vw, 76px);
+}
+@media (max-width: 1100px) {
+:root[data-inner-study] .case-page .folio-body .two {
+grid-template-columns: minmax(0, 1fr);
+}
+:root[data-inner-study] .case-page .folio-body .players.three {
+grid-template-columns: minmax(0, 1fr);
+}
+}
+@media (max-width: 700px) {
+:root[data-inner-study] .case-page .folio-body > .case-section {
+gap: 24px;
+}
+:root[data-inner-study] .case-page .folio-body .block-head h2 {
+font-size: clamp(28px, 7.5vw, 38px);
+}
+:root[data-inner-study] .case-page .folio-body .case-chapter {
+padding: 20px 16px; border-radius: 16px;
+}
+:root[data-inner-study] .case-page .folio-body .case-evidence-layout > .stack {
+padding: 20px 16px;
+}
+:root[data-inner-study] .case-page .case-failures > div {
+padding: 20px;
+}
+:root[data-inner-study] .case-page .folio-body .players {
+grid-template-columns: minmax(0, 1fr);
+}
+}
+}
