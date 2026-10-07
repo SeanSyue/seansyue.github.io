@@ -1,0 +1,39 @@
+/* Shared paper handoff; the destination hero is already at its final layout. */
+@view-transition { navigation: auto; }
+@media screen {
+  :root { --page-turn-duration: 900ms; --page-turn-ease: cubic-bezier(.22,1,.36,1); }
+  .site-header { view-transition-name: portfolio-header; }
+  :root[data-page-transition="pending"] main { opacity: 0; }
+  ::view-transition { pointer-events: none; }
+  ::view-transition-group(root), ::view-transition-group(portfolio-header) { animation: none; }
+  ::view-transition-image-pair(root) { isolation: isolate; }
+  ::view-transition-old(root), ::view-transition-new(root) {
+    animation-duration: var(--page-turn-duration);
+    animation-timing-function: var(--page-turn-ease);
+    animation-fill-mode: both;
+    mix-blend-mode: normal;
+  }
+  ::view-transition-old(root) { z-index: 1; animation-name: paper-leave; }
+  ::view-transition-new(root) { z-index: 2; animation-name: paper-enter; }
+  ::view-transition-old(portfolio-header), ::view-transition-new(portfolio-header) {
+    animation: none; mix-blend-mode: normal;
+  }
+  @keyframes paper-leave { to { transform: translateY(-28px); filter: brightness(.94); } }
+  @keyframes paper-enter {
+    from { transform: translateY(100%); box-shadow: 0 -20px 50px rgb(50 40 20 / .12); }
+    to { transform: none; box-shadow: 0 0 0 transparent; }
+  }
+  @media(max-width:700px) {
+    :root { --page-turn-duration: 650ms; }
+    ::view-transition-new(root) { animation-name: paper-enter-mobile; }
+    @keyframes paper-enter-mobile {
+      from { opacity: .7; transform: translateY(36%); }
+      to { opacity: 1; transform: none; }
+    }
+  }
+  :root[data-reduce="true"]::view-transition-old(root),
+  :root[data-reduce="true"]::view-transition-new(root) { animation: none; }
+  @media(prefers-reduced-motion:reduce) {
+    ::view-transition-old(root), ::view-transition-new(root) { animation: none; }
+  }
+}

@@ -54,17 +54,13 @@ export function initProfileMotion({isReduced = () => false} = {}) {
       group(grid, [], copy);
     });
   });
-  const heading = page.querySelector('.profile-heading');
-  if (heading) group(heading,
-    list(heading, ':scope > .eyebrow, :scope > .profile-display, :scope > h1'),
-    list(heading, ':scope > .lede, :scope > .contact-line, :scope > .btn-row, :scope > .pdf-langs'));
+  // The page handoff already introduces this area; keep its text fully placed.
   const next = page.querySelector('.next');
   if (next) group(next, [], list(next, '.btn-row'), {short:true});
 
   const nav = page.querySelector('.profile-nav');
   const sections = nav && !document.documentElement.dataset.innerStudy ? list(nav, 'a[href^="#"]').map(link => ({link,
     section:document.getElementById(link.hash.slice(1))})).filter(row => row.section) : [];
-  const hero = page.querySelector('.profile-about-display, .profile-display');
   const header = document.querySelector('.site-header');
 
   function measure() {
@@ -97,10 +93,6 @@ export function initProfileMotion({isReduced = () => false} = {}) {
       const focused = row.anchor.contains(document.activeElement);
       row.parts.forEach(unit => set(unit, disabled || focused ? 1 : ease(clamp((progress-unit.start)/(unit.end-unit.start)))));
     });
-    if (hero && heading) {
-      const exit = disabled ? 0 : clamp((y-heading.offsetTop) / Math.max(1, heading.offsetHeight));
-      hero.style.setProperty('--profile-hero-shift', `${(-exit * (page.matches('.about-screen') ? 38 : 24)).toFixed(2)}px`);
-    }
     if (sections.length) {
       const line = (header?.getBoundingClientRect().height || 90) + (nav?.offsetHeight || 0) + 40;
       let current = sections[0];

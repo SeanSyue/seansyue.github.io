@@ -49,6 +49,7 @@ function finishOpening(focus = false) {
   if (focus || inside) $('[data-intro-replay]')?.focus({preventScroll:true});
 }
 async function playOpening() {
+  await window.portfolioArrival;
   finishOpening(); cancel(active); clearDepth(); gallery?.reset();
   if (!home || reduced || !$('#headline')?.animate) return;
   window.scrollTo({top:0, behavior:'instant'});
@@ -188,7 +189,8 @@ if (home) {
     finishOpening();
   });
   const version = new URL(import.meta.url).search;
-  import(`/assets/js/gallery.js${version}`).then(({initGallery}) => {
+  import(`/assets/js/gallery.js${version}`).then(async ({initGallery}) => {
+    await window.portfolioArrival;
     gallery = initGallery({getLevel:()=>'experimental',isReduced:()=>reduced,onProject:key=>{
       if (gallery && workForCap[selectedCap] !== key) selectCapability({heart:'integration',aicc:'systems',image:'creative'}[key]);
       if (key === 'aicc') drawDiagram($('.aicc-visual'));
@@ -246,7 +248,7 @@ const observer = new IntersectionObserver(entries => entries.forEach(({target,is
     {opacity:1,transform:'none',clipPath:'inset(0 0 0 0)'}],{duration:950,fill:'both'});
   if (target.matches('[data-diagram-motion]')) drawDiagram(target);
 }),{threshold:.08});
-$$('[data-motion-reveal],[data-diagram-motion]').filter(el => !el.closest('.profile-page') && !(root.dataset.innerStudy === 'cases' && el.closest('.case-section') && !el.matches('[data-diagram-motion]'))).forEach(el => observer.observe(el));
+$$('[data-motion-reveal],[data-diagram-motion]').filter(el => !el.closest('.projects-hero,.case-hero,.profile-heading') && !el.closest('.profile-page') && !(root.dataset.innerStudy === 'cases' && el.closest('.case-section') && !el.matches('[data-diagram-motion]'))).forEach(el => observer.observe(el));
 
 const motionVersion = new URL(import.meta.url).search;
 if ($('.profile-page')) {
@@ -255,7 +257,8 @@ if ($('.profile-page')) {
   }).catch(error => console.error('Portfolio reading motion:',error));
 }
 if ($('.projects-page')) {
-  import(`/assets/js/project-viewer.js${motionVersion}`).then(({initProjectViewer}) => {
+  import(`/assets/js/project-viewer.js${motionVersion}`).then(async ({initProjectViewer}) => {
+    await window.portfolioArrival;
     initProjectViewer({isReduced:()=>reduced});
   }).catch(error => console.error('Portfolio project view:',error));
 }
@@ -290,19 +293,7 @@ $$('.project-cta,.btn').forEach(el => {
 });
 
 // Preserve ordinary static-page URLs, downloads and modified clicks.
-let navigating = false;
-const wipe = document.createElement('div'); wipe.className = 'page-wipe'; wipe.setAttribute('aria-hidden','true'); document.body.append(wipe);
-document.addEventListener('click',event => {
-  const link = event.target.closest('a[href]');
-  if (!link || reduced || navigating || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || link.download || link.target) return;
-  const url = new URL(link.href,location.href);
-  if (url.origin !== location.origin || url.pathname === location.pathname || !url.pathname.endsWith('/')) return;
-  event.preventDefault(); navigating = true; finishOpening(); gallery?.reset();
-  wipe.style.pointerEvents = 'auto';
-  const effect = wipe.animate([{transform:'translateY(100%)',borderRadius:'50% 50% 0 0'},{transform:'translateY(0)',borderRadius:'0'}],{duration:330,easing:ease,fill:'forwards'});
-  effect.finished.catch(()=>{}).then(() => location.assign(url.href));
-});
-window.addEventListener('pageshow',() => { navigating = false; wipe.style.pointerEvents = ''; wipe.getAnimations().forEach(a=>a.cancel()); });
+// page-transition.js/CSS own the single paper handoff, without a second wipe.
 window.addEventListener('resize',() => {
   const next = {width:innerWidth,height:innerHeight,scale:devicePixelRatio};
   // A page attachment may emit resize without changing its viewport. That
