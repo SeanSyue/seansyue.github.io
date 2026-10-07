@@ -54,6 +54,10 @@ if (root.dataset.innerStudy) {
       const marker=anchors.find(a=>a.dataset.folioAnchor===sheet.dataset.folioChapter);
       if (marker.getBoundingClientRect().top<=headerBottom+navHeight+60) active=sheet;
     });
+    // A short final chapter may reach the document bottom before its marker
+    // can reach the reading line (especially with reduced motion). Its nav
+    // item must still become current when there is no more room to scroll.
+    if (scrollY>0 && scrollY+innerHeight>=document.documentElement.scrollHeight-4) active=visible.at(-1);
     links.forEach(link=>{
       if (link.hash.slice(1)===active?.dataset.folioChapter) link.setAttribute('aria-current','location');
       else link.removeAttribute('aria-current');
