@@ -2,6 +2,8 @@
 
 Portfolio site of Sean Syue. Static HTML and CSS, generated from `_src/` by a small Python script (standard library only). **Edit `_src/`, then run `python _src/build.py` and `python _src/check.py`** — see [`_src/README.md`](_src/README.md).
 
+The AICC Dashboard image is the actual Dashboard v5 interface rendered with sanitized demonstration data. It is placed above the design schematic, opens as a larger image in a new tab, and does not represent live task results. Technical diagrams animate internally on entering the reading viewport independently of static page headings; reduced motion shows their complete resting state. Résumé summary cards use the same screen reading width as experience cards, while the two-page PDF layout remains separate.
+
 ```
 _src/                         sources: pages, strings, facts, layout, build and check scripts
 index.html                    home (generated)

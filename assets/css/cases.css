@@ -128,6 +128,17 @@
     background: var(--case-surface);
     overflow: hidden;
   }
+  .case-page .case-product-shot {
+    margin: 0 0 clamp(32px,4vw,56px);
+  }
+  .case-page .case-product-shot img {
+    width: 100%; height: auto; display: block;
+    border-radius: var(--case-radius); object-fit: contain;
+  }
+  .case-page .case-product-shot figcaption {
+    font-size: 13px; line-height: 1.8; color: var(--ink-3);
+    margin-top: 16px; max-width: 80ch;
+  }
   .case-page .case-blueprint-label {
     font-size: 11px;
     line-height: 1.8;

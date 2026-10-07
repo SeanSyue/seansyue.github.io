@@ -132,11 +132,15 @@ applyReduced();
 
 function drawDiagram(container) {
   if (!container || reduced) return;
-  container.querySelectorAll('svg path').forEach((path,i) => {
+  container.querySelectorAll('path').forEach((path,i) => {
     if (getComputedStyle(path).stroke === 'none') return;
     const length = path.getTotalLength();
     animate(path,[{strokeDasharray:`${length} ${length}`,strokeDashoffset:length},
       {strokeDasharray:`${length} ${length}`,strokeDashoffset:0}],{duration:1100,delay:Math.min(i*90,450),fill:'both'});
+  });
+  container.querySelectorAll('.project-diagram-node,.case-diagram-step').forEach((node,i) => {
+    animate(node,[{opacity:.12,transform:'translateY(20px)'},{opacity:1,transform:'none'}],
+      {duration:700,delay:i*210,fill:'both'});
   });
 }
 function selectCapability(key, animated = true) {
@@ -246,9 +250,21 @@ const observer = new IntersectionObserver(entries => entries.forEach(({target,is
   const tilt = target.matches('.project-tile:not(.project-tile--image),[data-diagram-motion]') ? 0 : 1.4;
   animate(target,[{opacity:0,transform:`translateY(75px) rotate(${tilt}deg) scale(.96)`,clipPath:'inset(0 9% 0 0)'},
     {opacity:1,transform:'none',clipPath:'inset(0 0 0 0)'}],{duration:950,fill:'both'});
-  if (target.matches('[data-diagram-motion]')) drawDiagram(target);
 }),{threshold:.08});
 $$('[data-motion-reveal],[data-diagram-motion]').filter(el => !el.closest('.projects-hero,.case-hero,.profile-heading') && !el.closest('.profile-page') && !(root.dataset.innerStudy === 'cases' && el.closest('.case-section') && !el.matches('[data-diagram-motion]'))).forEach(el => observer.observe(el));
+
+// Diagram motion is independent of the deliberately static page hero.
+// Replay after leaving the reading viewport without moving its host.
+const diagramVisible = new WeakSet();
+const diagramObserver = new IntersectionObserver(entries => entries.forEach(({target,isIntersecting}) => {
+  if (!isIntersecting) { diagramVisible.delete(target); return; }
+  if (diagramVisible.has(target)) return;
+  diagramVisible.add(target);
+  Promise.resolve(window.portfolioArrival).then(() => {
+    if (diagramVisible.has(target)) drawDiagram(target);
+  });
+}), {rootMargin:'-18% 0px -12% 0px',threshold:.25});
+$$('.project-tile-diagram,[data-diagram-motion]').forEach(el => diagramObserver.observe(el));
 
 const motionVersion = new URL(import.meta.url).search;
 if ($('.profile-page')) {
