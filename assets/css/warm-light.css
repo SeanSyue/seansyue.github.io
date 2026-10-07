@@ -1,0 +1,70 @@
+/* Adopt the private color study in light mode only. Typography, layout,
+   motion, dark mode and the resume print styles remain in their own sheets. */
+@media screen {
+  :root[data-design="motion03"][data-theme="light"] {
+    --ground: #f4f1ea;
+    --paper: #e9e3d8;
+    --paper-2: #e0d8ca;
+    --ink: #35322c;
+    --ink-2: #655b4e;
+    --ink-3: #675c4e;
+    --rule: #d9d1c3;
+    --rule-strong: #b6a996;
+    --accent: #80694d;
+    --accent-wash: #e9e1d4;
+    --surface: #5a463308;
+    --bg: var(--ground);
+    --fg: var(--ink);
+    --muted: var(--ink-2);
+    --soft: var(--ink-3);
+    --sage-rule: var(--rule);
+    --forest: var(--paper);
+    --forest-2: var(--paper-2);
+    --forest-text: var(--ink-2);
+    --forest-on: var(--ink);
+    --wood: var(--accent);
+  }
+
+  :root[data-design="motion03"][data-theme="light"] .profile-page {
+    --profile-ground: var(--ground);
+    --profile-ink: var(--ink);
+    --profile-copy: #514a40;
+    --profile-muted: var(--ink-2);
+    --profile-rule: var(--rule);
+    --profile-wash: var(--surface);
+  }
+
+  :root[data-design="motion03"][data-theme="light"] .projects-page {
+    --projects-ground: var(--ground);
+    --projects-ink: var(--ink);
+    --projects-muted: var(--ink-2);
+    --projects-surface: var(--paper);
+    --projects-surface-raised: var(--paper-2);
+    --projects-shadow: 0 28px 64px rgb(53 50 44 / .13);
+  }
+
+  :root[data-design="motion03"][data-theme="light"] .case-page {
+    --forest: var(--ink);
+    --forest-on: var(--ground);
+    --forest-text: #ded5c7;
+  }
+
+  :root[data-design="motion03"][data-theme="light"] .motion-home .aicc-visual,
+  :root[data-design="motion03"][data-theme="light"] .motion-home .image-visual {
+    background: #e8e2d7;
+    color: var(--ink);
+  }
+
+  :root[data-design="motion03"][data-theme="light"] .motion-home .diagram-head,
+  :root[data-design="motion03"][data-theme="light"] .motion-home .diagram-bottom {
+    color: var(--ink-2);
+  }
+
+  :root[data-design="motion03"][data-theme="light"] .motion-home .image-mark {
+    color: #b9ac99;
+  }
+
+  :root[data-design="motion03"][data-theme="light"] .project-tile-media--image img {
+    background: #e8e2d7;
+  }
+}

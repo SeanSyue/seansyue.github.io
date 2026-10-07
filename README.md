@@ -13,6 +13,7 @@ assets/css/projects.css       projects overview
 assets/css/cases.css          six case pages
 assets/css/profile.css        About and web résumé
 assets/css/profile-motion.css screen-only reading motion and chapter navigation
+assets/css/warm-light.css     shared warm palette, screen and light mode only
 assets/js/site.js             theme, section navigation and media controls
 assets/js/experience.js        opening, motion preference, reveals and page transitions
 assets/js/gallery.js           selected work: buttons, keys, pointer drag and swipe
