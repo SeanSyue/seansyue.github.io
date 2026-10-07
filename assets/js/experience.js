@@ -199,12 +199,14 @@ if (home) {
   try { visited = sessionStorage.getItem('sean-opening-seen') === 'true'; sessionStorage.setItem('sean-opening-seen','true'); } catch {}
   const arrival = new URL(location.href);
   const replayRequested = arrival.searchParams.get('intro') === 'replay';
-  if (replayRequested) {
+  const skipRequested = arrival.searchParams.get('intro') === 'skip';
+  if (replayRequested || skipRequested) {
     arrival.searchParams.delete('intro'); arrival.hash = '';
     history.replaceState(null,'',arrival.href);
     window.scrollTo({top:0,behavior:'instant'});
   }
-  if ((replayRequested || (!visited && !location.hash)) && !reduced) playOpening();
+  if (skipRequested) finishOpening();
+  if (!skipRequested && (replayRequested || (!visited && !location.hash)) && !reduced) playOpening();
   if (root.dataset.sectionStudy === 'd' && location.hash.startsWith('#cap-')) document.fonts.ready.then(() => requestAnimationFrame(() => {
     if (location.hash.startsWith('#cap-')) goToCapabilityChapter(true);
   }));
@@ -215,6 +217,14 @@ if (home) {
     history.replaceState(null,'',top.href);
     window.scrollTo({top:0,behavior:'instant'});
     playOpening();
+  });
+  $('.site-header [data-home-nav]')?.addEventListener('click',event => {
+    if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    finishOpening(); gallery?.reset(); clearDepth();
+    const top = new URL(location.href); top.searchParams.delete('intro'); top.hash = '';
+    history.replaceState(null,'',top.href);
+    window.scrollTo({top:0,behavior:'instant'});
   });
   const field = $('.word-field');
   field.addEventListener('pointermove',event => {
