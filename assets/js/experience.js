@@ -8,6 +8,7 @@ const ease = 'cubic-bezier(.22,1,.36,1)';
 const active = new Set();
 const introAnimations = new Set();
 let userReduced = false;
+let openingViewport = {width:innerWidth,height:innerHeight,scale:devicePixelRatio};
 try { userReduced = localStorage.getItem('sean-reduce-motion') === 'true'; } catch {}
 let reduced = pref.matches || userReduced;
 let gallery, opening, greeting, skip, profileMotion;
@@ -292,7 +293,14 @@ document.addEventListener('click',event => {
   effect.finished.catch(()=>{}).then(() => location.assign(url.href));
 });
 window.addEventListener('pageshow',() => { navigating = false; wipe.style.pointerEvents = ''; wipe.getAnimations().forEach(a=>a.cancel()); });
-window.addEventListener('resize',() => {finishOpening(); gallery?.reset(); clearDepth();});
+window.addEventListener('resize',() => {
+  const next = {width:innerWidth,height:innerHeight,scale:devicePixelRatio};
+  // A page attachment may emit resize without changing its viewport. That
+  // notification must not cancel the explicit replay immediately after load.
+  if (next.width === openingViewport.width && next.height === openingViewport.height && next.scale === openingViewport.scale) return;
+  openingViewport = next;
+  finishOpening(); gallery?.reset(); clearDepth();
+});
 window.addEventListener('wheel',() => {if(document.body.classList.contains('opening-playing')) finishOpening();},{passive:true});
 window.addEventListener('touchmove',() => {if(document.body.classList.contains('opening-playing')) finishOpening();},{passive:true});
 document.addEventListener('keydown',event => {if(event.key === 'Escape' && document.body.classList.contains('opening-playing')) finishOpening(true);});
