@@ -32,7 +32,6 @@
   "lang.aria": "語言",
   "scroll.hint": "左右滑動可以看到整張圖。",
   "nav.skip": "跳到主要內容",
-  "nav.capabilities": "核心能力",
   "motion.reduce": "減少動態",
   "motion.reduced": "動態已減少",
   "motion.skip": "略過開場",
@@ -42,5 +41,6 @@
   "projects.selected": "精選作品",
   "contact.heading": "<span>聊聊下一個</span><span>合作機會。</span>",
   "contact.email_action": "寄信給我",
-  "external.new_tab": "在新分頁開啟"
+  "external.new_tab": "在新分頁開啟",
+  "nav.home": "首頁"
 }

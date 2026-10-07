@@ -32,7 +32,6 @@
   "lang.aria": "Language",
   "scroll.hint": "Swipe sideways to see the whole diagram.",
   "nav.skip": "Skip to content",
-  "nav.capabilities": "Capabilities",
   "motion.reduce": "Reduce motion",
   "motion.reduced": "Motion reduced",
   "motion.skip": "Skip introduction",
@@ -42,5 +41,6 @@
   "projects.selected": "Selected work",
   "contact.heading": "<span>Let’s talk about</span><span>the next opportunity.</span>",
   "contact.email_action": "Email me",
-  "external.new_tab": "Opens in a new tab"
+  "external.new_tab": "Opens in a new tab",
+  "nav.home": "Home"
 }

@@ -34,7 +34,7 @@
     {
       "id": "home",
       "path": "/",
-      "nav": null,
+      "nav": "home",
       "footer": "contact"
     },
     {
