@@ -197,7 +197,8 @@ const seen = new WeakSet();
 const observer = new IntersectionObserver(entries => entries.forEach(({target,isIntersecting}) => {
   if (!isIntersecting || seen.has(target) || document.body.classList.contains('opening-playing')) return;
   seen.add(target);
-  animate(target,[{opacity:0,transform:'translateY(75px) rotate(1.4deg) scale(.96)',clipPath:'inset(0 9% 0 0)'},
+  const tilt = target.matches('.project-tile:not(.project-tile--image),[data-diagram-motion]') ? 0 : 1.4;
+  animate(target,[{opacity:0,transform:`translateY(75px) rotate(${tilt}deg) scale(.96)`,clipPath:'inset(0 9% 0 0)'},
     {opacity:1,transform:'none',clipPath:'inset(0 0 0 0)'}],{duration:950,fill:'both'});
   if (target.matches('[data-diagram-motion]')) drawDiagram(target);
 }),{threshold:.08});

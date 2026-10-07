@@ -132,9 +132,10 @@
     margin: 0;
   }
   .project-tile--control { grid-column: span 5; margin-top: 136px; }
-  .project-tile--lock { grid-column: span 5; }
-  .project-tile--image { grid-column: span 7; margin-top: 102px; }
-  .project-tile--game { grid-column: span 5; margin-top: 136px; }
+  .project-tile--lock { grid-column: span 7; }
+  .project-tile--image { grid-column: span 5; margin-top: 64px; }
+  .project-tile--music { grid-column: span 5; margin-top: 64px; }
+  .project-tile--game { grid-column: span 7; margin-top: 0; }
   .projects-page .project-tile[hidden] { display: none !important; }
   /* Filtering packs visible tiles without holes left by the full-view offsets. */
   .projects-grid:has(.project-tile[hidden]) .project-tile {
@@ -143,7 +144,7 @@
   }
   .projects-grid:has(.project-tile--game:not([hidden])):has(.project-tile--music[hidden]) .project-tile--game {
     grid-column: 1 / -1;
-    max-width: 1000px;
+    max-width: none;
   }
   .project-tile-link { display: block; border-radius: 18px; }
   .project-tile-media {
@@ -153,7 +154,7 @@
     overflow: hidden;
     border-radius: 18px;
     background: var(--projects-surface);
-    box-shadow: var(--projects-shadow);
+    box-shadow: none;
     /* Clip the art, never the link or its focus outline. */
     clip-path: inset(0 round 18px);
     transition: clip-path .65s cubic-bezier(.2, .7, .2, 1),
@@ -182,30 +183,53 @@
   .project-diagram-question { fill: var(--projects-ink); font-size: 34px; font-weight: 500; letter-spacing: -.035em; }
   .project-diagram-note { fill: var(--projects-muted); font-size: 20px; }
   .project-diagram-lock-label { font-size: 25px; }
-  .project-tile-media--control { aspect-ratio: 10 / 9; }
-  .project-tile-media--lock { aspect-ratio: 10 / 9; }
-  .project-tile-media--image { aspect-ratio: 7 / 6; background: #eeeae3; }
-  .project-tile-media--image img { object-fit: contain; object-position: center bottom; }
-  .project-tile-media--music { aspect-ratio: 10 / 7; }
-  .project-tile-media--music .project-tile-art {
-    inset: 12% 7% 17%;
-    display: grid;
-    align-items: center;
+  .project-tile-media--control { aspect-ratio: 10 / 7; }
+  .project-tile-media--lock { aspect-ratio: 10 / 7; }
+  /* Art can float; evidence and UI screenshots stay square to the reader. */
+  .project-tile-media--image {
+    aspect-ratio: auto;
+    padding: 18px 24px 0;
+    background: none;
+    overflow: visible;
+    clip-path: none;
   }
-  .project-tile-media--music img {
+  .project-tile-media--image .project-tile-art {
+    position: relative;
+    inset: auto;
+    width: 82%;
+    margin: 0 auto 22px;
+    transform: rotate(3deg);
+  }
+  .project-tile-media--image img {
+    height: auto;
     object-fit: contain;
-    background: #f7f7f5;
-    padding: 16px;
-    border-radius: 7px;
-    box-shadow: 0 26px 54px rgb(0 0 0 / .22);
-    transform: rotate(-4deg);
+    border-radius: 22px;
+    background: #eeeae3;
+    box-shadow: 0 12px 32px rgb(0 0 0 / .12);
   }
-  .project-tile-media--game { aspect-ratio: auto; padding: 12px; }
-  .project-tile-media--game .project-tile-art { position: relative; inset: auto; }
-  .project-tile-media--game img { height: auto; object-fit: contain; object-position: center; }
-  .project-tile-media--game .project-tile-caption { position: static; display: block; max-width: none; margin-top: 10px; padding: 0; background: none; }
-  :root .projects-page .project-tile--game .project-tile-link:hover .project-tile-art { transform: none; }
-  .projects-page .project-tile--game .project-tile-link:hover .project-tile-media { clip-path: inset(0 round 18px); }
+  .project-tile-media--music,
+  .project-tile-media--game {
+    aspect-ratio: auto;
+    padding: 0;
+    background: none;
+    overflow: visible;
+    clip-path: none;
+  }
+  .project-tile-media--music .project-tile-art,
+  .project-tile-media--game .project-tile-art {
+    position: relative;
+    inset: auto;
+  }
+  .project-tile-media--music img,
+  .project-tile-media--game img {
+    height: auto;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 16px;
+    transform: none;
+    padding: 0;
+    box-shadow: none;
+  }
   .project-tile-caption {
     position: absolute;
     z-index: 1;
@@ -223,15 +247,28 @@
     line-height: 1.5;
     letter-spacing: .025em;
   }
+  .project-tile-media--music .project-tile-caption,
+  .project-tile-media--game .project-tile-caption,
+  .project-tile-media--image .project-tile-caption {
+    position: static;
+    display: block;
+    width: auto;
+    max-width: none;
+    margin-top: 13px;
+    padding: 0;
+    background: none;
+    color: var(--projects-muted);
+    font-weight: 400;
+    letter-spacing: 0;
+  }
   .project-tile-copy { padding: 24px 2px 0; }
   .project-tile-meta { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; }
   .project-tile-category {
     font-size: 11px;
     font-weight: 600;
     letter-spacing: .055em;
-    padding: 6px 10px;
-    background: var(--projects-surface);
-    border-radius: 999px;
+    padding: 0;
+    color: var(--projects-muted);
   }
   .project-tile-status { font-size: 12px; color: var(--projects-muted); line-height: 1.5; }
   .projects-page .project-tile h2 {
@@ -239,7 +276,7 @@
     font-size: clamp(25px, 3vw, 43px);
     font-weight: 500;
     letter-spacing: -.045em;
-    line-height: 1.12;
+    line-height: 1.22;
     text-wrap: balance;
   }
   .project-tile h2 small {
@@ -315,13 +352,8 @@
   }
 
   @media (hover: hover) and (pointer: fine) {
-    .project-tile-link:hover .project-tile-media {
-      clip-path: inset(8px 6px 8px 6px round 22px);
-      box-shadow: 0 38px 80px rgb(0 0 0 / .28);
-    }
-    .project-tile-link:hover .project-tile-art { transform: scale(1.065) rotate(-1.35deg); }
-    .project-tile:nth-child(even) .project-tile-link:hover .project-tile-art {
-      transform: scale(1.065) rotate(1.35deg);
+    .project-tile--image .project-tile-link:hover .project-tile-art {
+      transform: translateY(-7px) rotate(1deg);
     }
     .project-tile-link:hover .project-tile-arrow {
       background: var(--projects-ink);
@@ -335,7 +367,9 @@
   @media (max-width: 1000px) {
     .projects-grid { column-gap: 32px; row-gap: 64px; }
     .project-tile { grid-column: span 6; }
-    .project-tile--control, .project-tile--game { margin-top: 92px; }
+    .project-tile--control { margin-top: 72px; }
+    .project-tile--music { grid-column: span 5; margin-top: 42px; }
+    .project-tile--game { grid-column: span 7; margin-top: 0; }
     .project-tile--image { margin-top: 76px; }
     .projects-hero-copy { gap: 40px; }
     .project-tile-caption { left: 12px; right: 12px; bottom: 12px; max-width: calc(100% - 24px); }
@@ -355,9 +389,9 @@
     .projects-grid .project-tile,
     .projects-grid:has(.project-tile[hidden]) .project-tile { grid-column: 1 / -1; margin-top: 0; }
     .project-tile-media { aspect-ratio: 10 / 7; }
-    .project-tile-media--image { aspect-ratio: 7 / 6; }
-    .project-tile-media--game { aspect-ratio: auto; }
-    .project-tile-media--music .project-tile-art { inset: 9% 6% 18%; }
+    .project-tile-media--image { aspect-ratio: auto; padding: 12px 28px 0; }
+    .project-tile-media--game, .project-tile-media--music { aspect-ratio: auto; }
+
     .projects-page .project-tile h2 { font-size: 29px; }
     .projects-page .project-tile-summary { font-size: 15px; }
     .project-tile-caption { font-size: 10px; }
@@ -369,9 +403,9 @@
       scroll-behavior: auto !important;
     }
     .project-tile-link:hover .project-tile-art,
-    .project-tile:nth-child(even) .project-tile-link:hover .project-tile-art,
+    .project-tile--image .project-tile-link:hover .project-tile-art,
     .project-tile-link:hover .project-tile-arrow,
     .projects-filters button:hover, .projects-about-link:hover span { transform: none; }
-    .project-tile-link:hover .project-tile-media { clip-path: inset(0 round 18px); }
+    .project-tile-media--image .project-tile-art { transform: none; }
   }
 }
