@@ -200,8 +200,12 @@
     box-shadow: 0 26px 54px rgb(0 0 0 / .22);
     transform: rotate(-4deg);
   }
-  .project-tile-media--game { aspect-ratio: 10 / 9; }
-  .project-tile-media--game img { object-fit: cover; object-position: 52% center; }
+  .project-tile-media--game { aspect-ratio: auto; padding: 12px; }
+  .project-tile-media--game .project-tile-art { position: relative; inset: auto; }
+  .project-tile-media--game img { height: auto; object-fit: contain; object-position: center; }
+  .project-tile-media--game .project-tile-caption { position: static; display: block; max-width: none; margin-top: 10px; padding: 0; background: none; }
+  :root .projects-page .project-tile--game .project-tile-link:hover .project-tile-art { transform: none; }
+  .projects-page .project-tile--game .project-tile-link:hover .project-tile-media { clip-path: inset(0 round 18px); }
   .project-tile-caption {
     position: absolute;
     z-index: 1;
@@ -352,7 +356,7 @@
     .projects-grid:has(.project-tile[hidden]) .project-tile { grid-column: 1 / -1; margin-top: 0; }
     .project-tile-media { aspect-ratio: 10 / 7; }
     .project-tile-media--image { aspect-ratio: 7 / 6; }
-    .project-tile-media--game { aspect-ratio: 16 / 11; }
+    .project-tile-media--game { aspect-ratio: auto; }
     .project-tile-media--music .project-tile-art { inset: 9% 6% 18%; }
     .projects-page .project-tile h2 { font-size: 29px; }
     .projects-page .project-tile-summary { font-size: 15px; }
