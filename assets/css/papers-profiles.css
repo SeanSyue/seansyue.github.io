@@ -48,7 +48,9 @@
 }
 :root[data-inner-study] .profile-page .profile-heading {
 margin-inline: auto;
-    width: min(1200px, calc(100% - 96px));
+    width: min(1600px, calc(100% - 32px));
+    padding-inline: var(--gutter);
+    box-sizing: border-box;
     min-width: 0;
     padding-bottom: clamp(44px, 6vw, 80px);
 }
@@ -281,6 +283,9 @@ grid-template-columns: minmax(0, 1fr);
 @media (max-width: 720px) {
 :root[data-inner-study] .profile-page :is(.profile-heading, .next) {
 width: calc(100% - 40px);
+}
+:root[data-inner-study] .profile-page .profile-heading {
+padding-inline: 0;
 }
 :root[data-inner-study] .profile-page .folio-profile {
 grid-template-columns: 45px minmax(0, 1fr);

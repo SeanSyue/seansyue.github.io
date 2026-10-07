@@ -1,11 +1,11 @@
-title: プロジェクト — Sean Syue
+title: ポートフォリオ — Sean Syue
 description: 個人で取り組むソフトウェア、制作フロー、ゲーム。方向性、判断、検証の根拠を紹介します。
 ---
 
 <main class="projects-page wrap" id="main-content" tabindex="-1">
   <header class="projects-hero" data-motion-reveal>
-    <p class="projects-kicker">個人プロジェクト / Sean Syue</p>
-    <h1>プロジェクト</h1>
+    <p class="projects-kicker">個人作品 / Sean Syue</p>
+    <h1>ポートフォリオ</h1>
     <div class="projects-hero-copy">
       <p class="projects-lede">システムのルールから、共に暮らす世界の感覚まで。</p>
       <p class="projects-authorship">私は方向性と成果を判断し、コードの大半はAIコーディングエージェントが書いています。各事例で担当範囲と検証できたことを説明しています。</p>
@@ -13,24 +13,24 @@ description: 個人で取り組むソフトウェア、制作フロー、ゲー�
   </header>
 
   <div class="projects-tools">
-  <div class="projects-filters" role="group" aria-label="カテゴリでプロジェクトを絞り込む">
-    <button type="button" data-project-filter="all" aria-pressed="true" aria-controls="projects-grid">すべて</button>
-    <button type="button" data-project-filter="workflows" aria-pressed="false" aria-controls="projects-grid">ワークフローとガバナンス</button>
-    <button type="button" data-project-filter="media" aria-pressed="false" aria-controls="projects-grid">画像と音楽</button>
-    <button type="button" data-project-filter="games" aria-pressed="false" aria-controls="projects-grid">ゲーム</button>
+  <div class="projects-filters" role="group" aria-label="カテゴリで作品を絞り込む">
+    <button type="button" data-project-filter="all" aria-pressed="true" aria-controls="projects-grid">すべての作品</button>
+    <button type="button" data-project-filter="workflows" aria-pressed="false" aria-controls="projects-grid">システムとツール</button>
+    <button type="button" data-project-filter="media" aria-pressed="false" aria-controls="projects-grid">AIメディア</button>
+    <button type="button" data-project-filter="games" aria-pressed="false" aria-controls="projects-grid">AIゲーム</button>
   </div>
 
   <div class="projects-viewer" data-project-viewer hidden>
-    <p class="projects-view-label" id="projects-view-label">アート作品の表示 · AI画像とゲーム画面</p>
+    <p class="projects-view-label" id="projects-view-label">大きく表示するのはAI画像とゲーム画面のみです。システムと音楽の内容は変わりません。</p>
     <div class="projects-view-buttons" role="group" aria-labelledby="projects-view-label">
-      <button type="button" data-project-view="overview" data-project-view-announcement="アート作品を一覧表示に切り替えました。" aria-pressed="true" aria-controls="projects-grid">一覧</button>
-      <button type="button" data-project-view="large" data-project-view-announcement="AI画像とゲーム画面を大きく表示しました。他の作品も引き続き閲覧できます。" aria-pressed="false" aria-controls="projects-grid">大きく表示</button>
+      <button type="button" data-project-view="overview" data-project-view-announcement="標準表示に切り替えました。" aria-pressed="true" aria-controls="projects-grid">標準表示</button>
+      <button type="button" data-project-view="large" data-project-view-announcement="AI画像とゲーム画面を大きく表示しました。システムと音楽の内容は変わりません。" aria-pressed="false" aria-controls="projects-grid">大きく表示</button>
     </div>
     <p class="sr-only" data-project-view-status role="status" aria-live="polite" aria-atomic="true"></p>
   </div>
   </div>
 
-  <section class="projects-grid" id="projects-grid" aria-label="個人プロジェクト">
+  <section class="projects-grid" id="projects-grid" aria-label="個人作品">
     <article class="project-tile project-tile--aicc" data-project-group="workflows" data-motion-reveal>
       <a class="project-tile-link" href="{{link:/work/aicc/}}" aria-labelledby="project-aicc-title project-aicc-entry">
         <div class="project-tile-media project-tile-media--aicc">
@@ -45,7 +45,7 @@ description: 個人で取り組むソフトウェア、制作フロー、ゲー�
           <span class="project-tile-caption">設計の図解 / AICC</span>
         </div>
         <div class="project-tile-copy">
-          <p class="project-tile-meta"><span class="project-tile-category">ワークフローとガバナンス</span><span class="project-tile-status">デスクトップアプリ / 開発中</span></p>
+          <p class="project-tile-meta"><span class="project-tile-category">システムとツール</span><span class="project-tile-status">デスクトップアプリ</span></p>
           <h2 id="project-aicc-title">AI Control Center</h2>
           <p class="project-tile-summary">AIの作業を役割、検証、人による承認につなぎ、検証した版に根拠を対応させます。</p>
           <p class="project-tile-role">担当：製品ルール、システムアーキテクチャ、検証設計。</p>
@@ -67,7 +67,7 @@ description: 個人で取り組むソフトウェア、制作フロー、ゲー�
           <span class="project-tile-caption">設計の図解 / negative-control</span>
         </div>
         <div class="project-tile-copy">
-          <p class="project-tile-meta"><span class="project-tile-category">ワークフローとガバナンス</span><span class="project-tile-status">テストツール</span></p>
+          <p class="project-tile-meta"><span class="project-tile-category">システムとツール</span><span class="project-tile-status">テストツール</span></p>
           <h2 id="project-negative-control-title">negative-control</h2>
           <p class="project-tile-summary">意図的にコードを壊し、成功するテストが失敗も検出できるか確かめます。</p>
           <p class="project-tile-role">担当：検証手法、判定、安全な復元のルール。</p>
@@ -89,7 +89,7 @@ description: 個人で取り組むソフトウェア、制作フロー、ゲー�
           <span class="project-tile-caption">設計の図解 / Tetherlock</span>
         </div>
         <div class="project-tile-copy">
-          <p class="project-tile-meta"><span class="project-tile-category">ワークフローとガバナンス</span><span class="project-tile-status">個人で設計したアクセス制御</span></p>
+          <p class="project-tile-meta"><span class="project-tile-category">システムとツール</span><span class="project-tile-status">個人で設計したアクセス制御</span></p>
           <h2 id="project-tetherlock-title">Tetherlock</h2>
           <p class="project-tile-summary">アカウント権限、署名付きUSBデバイス、パスワードを組み合わせたローカルワークスペースのアクセスモデル。</p>
           <p class="project-tile-role">担当：アクセスルール、鍵の設計、ロックのライフサイクル。</p>
@@ -105,7 +105,7 @@ description: 個人で取り組むソフトウェア、制作フロー、ゲー�
           <span class="project-tile-caption">オリジナルキャラクター / ビジュアル仕様から画像へ</span>
         </div>
         <div class="project-tile-copy">
-          <p class="project-tile-meta"><span class="project-tile-category">画像と音楽</span><span class="project-tile-status">画像制作フロー</span></p>
+          <p class="project-tile-meta"><span class="project-tile-category">AIメディア</span><span class="project-tile-status">画像制作フロー</span></p>
           <h2 id="project-ai-image-title">「これでよい」の基準を作る</h2>
           <p class="project-tile-summary">キャラクターの方向性をビジュアル仕様にまとめ、品質チェックが違いを識別できるか確かめます。</p>
           <p class="project-tile-role">担当：アートディレクション、条件を揃えた実験、受け入れ基準。</p>
@@ -121,7 +121,7 @@ description: 個人で取り組むソフトウェア、制作フロー、ゲー�
           <span class="project-tile-caption">和声の比較 / 不採用テイクと基準曲</span>
         </div>
         <div class="project-tile-copy">
-          <p class="project-tile-meta"><span class="project-tile-category">画像と音楽</span><span class="project-tile-status">音楽制作フロー</span></p>
+          <p class="project-tile-meta"><span class="project-tile-category">AIメディア</span><span class="project-tile-status">音楽制作フロー</span></p>
           <h2 id="project-ai-music-title">ひとつの世界、{{f:music.tracks}}曲</h2>
           <p class="project-tile-summary">試聴、評価の記録、チェックを通じて生成音楽を選び、採用曲をゲームに組み込みました。</p>
           <p class="project-tile-role">担当：制作要件、試聴による判断、最終選曲。</p>
@@ -137,7 +137,7 @@ description: 個人で取り組むソフトウェア、制作フロー、ゲー�
           <span class="project-tile-caption">ゲーム画面 / 選択と記憶</span>
         </div>
         <div class="project-tile-copy">
-          <p class="project-tile-meta"><span class="project-tile-category">ゲーム</span><span class="project-tile-status">生活シミュレーションゲーム / 開発中</span></p>
+          <p class="project-tile-meta"><span class="project-tile-category">AIゲーム</span><span class="project-tile-status">生活シミュレーションゲーム / 開発中</span></p>
           <h2 id="project-heart-apartment-title">Heart Apartment <small lang="zh-Hant">心動公寓</small></h2>
           <p class="project-tile-summary">ルームメイトを見守り、迷ったときに関わり、記憶がその後のやり取りにどう影響するかを見る。ローカルモデルが提案し、ゲームのルールが判断します。</p>
           <p class="project-tile-role">担当：プロダクトオーナー兼ディレクター。キャラクター、対話ルール、美術、音楽の方向性を定めました。</p>

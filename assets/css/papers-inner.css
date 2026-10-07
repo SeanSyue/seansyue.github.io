@@ -20,7 +20,7 @@ display: flow-root; position: relative; height: 0;
 }
 :root[data-inner-study] .folio-sheet {
 display: grid; grid-template-columns: 128px minmax(0,1fr); gap: 48px;
-    padding: 56px clamp(24px,4.8vw,76px) 90px; margin: -24px 16px 0;
+    padding: 56px max(var(--gutter),calc((100% - 1600px)/2 + var(--gutter) - 16px)) 90px; margin: -24px 16px 0;
     position: sticky; top: var(--folio-pin, var(--folio-reading-top));
     z-index: var(--folio-layer,1); border-radius: 36px 36px 0 0;
     background: var(--folio-surface); box-shadow: 0 -16px 46px var(--study-shadow);
@@ -49,7 +49,7 @@ margin-top: 0; background: transparent;
 width: 100%; margin-inline: 0; padding: 0; border: 0;
 }
 :root[data-inner-study] .folio-body {
-min-width: 0; max-width: 1260px;
+min-width: 0;
 }
 :root[data-inner-study] .folio-rail {
 position: sticky; top: calc(var(--folio-reading-top) + 28px); align-self: start;
@@ -65,7 +65,7 @@ font-size: 14px; line-height: 1.7; max-width: 11em; overflow-wrap: anywhere;
 }
 :root[data-inner-study] .folio-nav {
 position: sticky; top: var(--folio-nav-top); z-index: 40; margin: 0 0 36px;
-    padding: 8px clamp(24px,4.8vw,76px); border: 0;
+    padding: 8px max(var(--gutter),calc((100% - 1600px)/2 + var(--gutter))); border: 0;
     background: color-mix(in srgb,var(--ground) 96%,transparent); backdrop-filter: blur(12px);
     box-shadow: 0 12px 0 var(--ground), 0 16px 24px var(--study-shadow);
 }

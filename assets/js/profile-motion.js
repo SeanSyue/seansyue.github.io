@@ -7,6 +7,7 @@ export function initProfileMotion({isReduced = () => false} = {}) {
   const clamp = value => Math.max(0, Math.min(1, value));
   const ease = value => value * value * (3 - 2 * value);
   let frame = 0, needsMeasure = true, printing = false;
+  let lastCardFrame = 0;
   const list = (parent, selector) => [...parent.querySelectorAll(selector)];
   function group(anchor, lead, copy, {short = false} = {}) {
     const parts = [];
@@ -62,7 +63,7 @@ export function initProfileMotion({isReduced = () => false} = {}) {
   // as project cards, while leaving technical and career text upright.
   list(page, '.profile-role, .profile-principle, .skills > div, .profile-summary > .lede, .profile-prose-grid > *').forEach(element => {
     element.classList.add('profile-motion-card');
-    cards.push({element, top:0, height:0});
+    cards.push({element, top:0, height:0, value:0});
   });
 
   const nav = page.querySelector('.profile-nav');
@@ -105,13 +106,26 @@ export function initProfileMotion({isReduced = () => false} = {}) {
     const disabled = isReduced() || printing;
     page.classList.toggle('profile-motion-ready', !disabled);
     const vh = window.innerHeight, y = window.scrollY;
+    const now = performance.now();
+    const elapsed = Math.min(64, lastCardFrame ? now-lastCardFrame : 16);
+    lastCardFrame = now;
+    let cardsMoving = false;
     cards.forEach(row => {
       const span = Math.min(vh * .44, Math.max(vh * .24, row.height * .85));
       const progress = clamp((y + vh * .91 - row.top) / span);
-      const value = disabled || row.element.contains(document.activeElement) ? 1 : ease(clamp(progress/.28));
-      row.element.style.setProperty('--profile-card-opacity', (.15+.85*value).toFixed(4));
-      row.element.style.setProperty('--profile-card-shift', `${((1-value)*(innerWidth<=700?40:75)).toFixed(2)}px`);
-      row.element.style.setProperty('--profile-card-scale', (.96+.04*value).toFixed(4));
+      // Let the paper travel inside the viewport, not finish below the reader.
+      // It reaches its final position before the description finishes revealing.
+      const immediate = disabled || row.element.contains(document.activeElement);
+      const target = immediate ? 1 : ease(clamp(progress/.85));
+      // A chapter jump must still show the container arriving. Follow the
+      // scroll target smoothly, including on return, without a once-only flag.
+      row.value = immediate ? 1 : row.value + (target-row.value)*(1-Math.exp(-elapsed/180));
+      if (Math.abs(target-row.value) < .004) row.value = target;
+      else cardsMoving = true;
+      const value = row.value;
+      row.element.style.setProperty('--profile-card-opacity', (.08+.92*value).toFixed(4));
+      row.element.style.setProperty('--profile-card-shift', `${((1-value)*(innerWidth<=700?52:100)).toFixed(2)}px`);
+      row.element.style.setProperty('--profile-card-scale', (.94+.06*value).toFixed(4));
     });
     groups.forEach(row => {
       const span = Math.min(vh * (row.short ? .28 : .44), Math.max(vh * .24, row.height * .85));
@@ -129,6 +143,7 @@ export function initProfileMotion({isReduced = () => false} = {}) {
         else row.link.removeAttribute('aria-current');
       });
     }
+    if (cardsMoving && !frame) frame = requestAnimationFrame(update);
   }
   function refresh(measureAgain = false) {
     if (measureAgain) needsMeasure = true;
