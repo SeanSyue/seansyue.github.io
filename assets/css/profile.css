@@ -389,3 +389,80 @@
   .profile-page:lang(zh-Hant-TW) .profile-about-display,
   .profile-page:lang(ja) .profile-about-display { font-size: 32px; }
 }
+
+/* Chinese screen typography has its own scale and near-zero tracking.
+   Root + design + page specificity defeats the older shared CJK rules without
+   changing English, Japanese, print styles, or motion's resting transforms. */
+@media screen {
+  :root[data-design="motion03"]:lang(zh-Hant-TW) .profile-page {
+    --profile-font: "Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif;
+    letter-spacing: 0;
+  }
+  :root[data-design="motion03"]:lang(zh-Hant-TW) .profile-page .profile-about-display {
+    font-size: clamp(40px, 5.8vw, 84px);
+    font-weight: 500;
+    line-height: 1.32;
+    letter-spacing: .005em;
+    text-wrap: initial;
+  }
+  :root[data-design="motion03"]:lang(zh-Hant-TW) .profile-page .profile-display {
+    font-size: clamp(88px, 13.5vw, 200px);
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: .01em;
+    margin-left: 0;
+  }
+  :root[data-design="motion03"]:lang(zh-Hant-TW) .profile-page .profile-resume-heading h1 {
+    font-size: clamp(30px, 3.2vw, 46px);
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: -.01em;
+  }
+  :root[data-design="motion03"]:lang(zh-Hant-TW) .profile-page .profile-section-heading h2 {
+    font-size: clamp(30px, 3.4vw, 48px);
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: .01em;
+  }
+  :root[data-design="motion03"]:lang(zh-Hant-TW) .profile-page [data-profile-section="next"] .profile-section-heading h2 {
+    font-size: clamp(38px, 5.2vw, 72px);
+    letter-spacing: 0;
+  }
+  :root[data-design="motion03"]:lang(zh-Hant-TW) .profile-page .profile-role .role-head h3 {
+    font-size: clamp(22px, 1.9vw, 28px);
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 0;
+    overflow-wrap: normal;
+  }
+  :root[data-design="motion03"]:lang(zh-Hant-TW) .profile-page .profile-principle h3 {
+    font-size: clamp(24px, 2.3vw, 33px);
+    font-weight: 500;
+    line-height: 1.45;
+    letter-spacing: .01em;
+  }
+  :root[data-design="motion03"]:lang(zh-Hant-TW) .profile-page .profile-timeline h3 { font-weight: 500; letter-spacing: 0; }
+  :root[data-design="motion03"]:lang(zh-Hant-TW) .profile-page .skills dt { letter-spacing: 0; }
+  :root[data-design="motion03"]:lang(zh-Hant-TW) .profile-page :is(.profile-role ul, .skills dd, .profile-prose-grid p, .profile-principle-copy p) {
+    font-family: var(--profile-font);
+    font-size: 17px;
+    line-height: 1.8;
+    letter-spacing: 0;
+  }
+  :root[data-design="motion03"]:lang(zh-Hant-TW) .profile-page .profile-prose-grid .lede { font-size: clamp(20px, 2vw, 26px); line-height: 1.75; }
+  :root[data-design="motion03"]:lang(zh-Hant-TW) .profile-page .profile-summary > .lede { line-height: 1.75; }
+  :root[data-design="motion03"]:lang(zh-Hant-TW) .profile-page :is(.eyebrow, .profile-timeline-label, .profile-timeline-date) { font-size: 12px; letter-spacing: .02em; }
+  :root[data-design="motion03"]:lang(zh-Hant-TW) .profile-page .profile-nav a { font-size: 14px; }
+
+  @media(max-width:720px) {
+    :root[data-design="motion03"]:lang(zh-Hant-TW) .profile-page .profile-about-display { font-size: clamp(32px, 7.8vw, 48px); }
+    :root[data-design="motion03"]:lang(zh-Hant-TW) .profile-page .profile-display { font-size: clamp(80px, 17vw, 122px); }
+    :root[data-design="motion03"]:lang(zh-Hant-TW) .profile-page .profile-resume-heading h1 { font-size: clamp(28px, 6.6vw, 38px); }
+    :root[data-design="motion03"]:lang(zh-Hant-TW) .profile-page .profile-section-heading h2 { font-size: clamp(30px, 5.6vw, 38px); }
+    :root[data-design="motion03"]:lang(zh-Hant-TW) .profile-page [data-profile-section="next"] .profile-section-heading h2 { font-size: 38px; }
+    :root[data-design="motion03"]:lang(zh-Hant-TW) .profile-page .profile-role .role-head h3 { font-size: 24px; }
+    :root[data-design="motion03"]:lang(zh-Hant-TW) .profile-page .profile-principle h3 { font-size: 26px; }
+    :root[data-design="motion03"]:lang(zh-Hant-TW) .profile-page :is(.profile-role ul, .skills dd, .profile-prose-grid p, .profile-principle-copy p) { font-size: 16px; }
+    :root[data-design="motion03"]:lang(zh-Hant-TW) .profile-page .profile-prose-grid .lede { font-size: 20px; }
+  }
+}

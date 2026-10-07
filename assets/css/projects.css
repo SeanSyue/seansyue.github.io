@@ -57,8 +57,8 @@
     text-wrap: balance;
   }
   :root:lang(zh-Hant-TW) .projects-hero h1 {
-    font-size: clamp(64px, 12vw, 180px);
-    letter-spacing: -.065em;
+    font-size: clamp(54px, 10.2vw, 153px);
+    letter-spacing: -.01em;
     line-height: 1.1;
   }
   :root:lang(ja) .projects-hero h1 {
@@ -87,13 +87,31 @@
     line-height: 1.8;
   }
 
+  .projects-tools {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    justify-content: space-between;
+    gap: 24px 36px;
+    margin-bottom: clamp(38px, 5vw, 76px);
+  }
   .projects-filters {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    margin-bottom: clamp(38px, 5vw, 76px);
+    margin-bottom: 0;
   }
-  .projects-filters button {
+  .projects-viewer[hidden] { display: none !important; }
+  .projects-viewer { min-width: 0; }
+  .projects-page .projects-view-label {
+    margin-bottom: 9px;
+    color: var(--projects-muted);
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  .projects-view-buttons { display: flex; flex-wrap: wrap; gap: 8px; }
+  .projects-filters button,
+  .projects-view-buttons button {
     appearance: none;
     border: 0;
     border-radius: 999px;
@@ -107,12 +125,15 @@
     line-height: 1.45;
     transition: background .2s, color .2s, transform .2s;
   }
-  .projects-filters button[aria-pressed="true"] {
+  .projects-filters button[aria-pressed="true"],
+  .projects-view-buttons button[aria-pressed="true"] {
     background: var(--projects-ink);
     color: var(--projects-ground);
   }
-  .projects-filters button:hover { transform: translateY(-2px); }
-  .projects-filters button[aria-pressed="false"]:hover {
+  .projects-filters button:hover,
+  .projects-view-buttons button:hover { transform: translateY(-2px); }
+  .projects-filters button[aria-pressed="false"]:hover,
+  .projects-view-buttons button[aria-pressed="false"]:hover {
     background: var(--projects-surface-raised);
   }
 
@@ -185,6 +206,8 @@
   .project-diagram-lock-label { font-size: 25px; }
   .project-tile-media--control { aspect-ratio: 10 / 7; }
   .project-tile-media--lock { aspect-ratio: 10 / 7; }
+  /* Diagrams keep their SVG viewBox ratio and never join the art enlargement. */
+  .project-tile-diagram { height: auto !important; }
   /* Art can float; evidence and UI screenshots stay square to the reader. */
   .project-tile-media--image {
     aspect-ratio: auto;
@@ -229,6 +252,28 @@
     transform: none;
     padding: 0;
     box-shadow: none;
+  }
+  /* Only original artwork and game scenes expand. No fixed heights or crops. */
+  .projects-page[data-project-view="large"] .projects-grid .project-tile[data-project-expand] {
+    grid-column: 1 / -1;
+    margin-top: 0;
+  }
+  .projects-page[data-project-view="large"] .project-tile--image .project-tile-link {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(240px, 1fr);
+    align-items: center;
+    gap: clamp(24px, 4vw, 64px);
+  }
+  .projects-page[data-project-view="large"] .project-tile-media--image .project-tile-art {
+    width: 100%;
+    max-width: 750px;
+  }
+  .projects-page[data-project-view="large"] .project-tile--game .project-tile-copy {
+    max-width: 760px;
+  }
+  :root.motion-reduced .projects-page .project-tile-link:hover
+  :is(.project-tile-media--image, .project-tile-media--game, .project-tile-media--music) {
+    clip-path: none;
   }
   .project-tile-caption {
     position: absolute;
@@ -378,19 +423,24 @@
   @media (max-width: 700px) {
     .projects-page { padding-top: 44px; }
     .projects-hero h1 { font-size: clamp(60px, 16vw, 108px); line-height: 1; }
-    :root:lang(zh-Hant-TW) .projects-hero h1 { font-size: clamp(58px, 15vw, 108px); }
+    :root:lang(zh-Hant-TW) .projects-hero h1 { font-size: clamp(49px, 12.75vw, 92px); }
     :root:lang(ja) .projects-hero h1 { font-size: clamp(40px, 10.3vw, 74px); }
     .projects-hero-copy { grid-template-columns: 1fr; gap: 22px; }
     .projects-lede { font-size: 27px; max-width: 30ch; }
     .projects-authorship { font-size: 14px; }
     .projects-filters { gap: 8px; }
-    .projects-filters button { font-size: 12px; padding: 11px 16px; }
+    .projects-filters button,
+    .projects-view-buttons button { font-size: 12px; padding: 11px 16px; }
     .projects-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 52px; }
     .projects-grid .project-tile,
     .projects-grid:has(.project-tile[hidden]) .project-tile { grid-column: 1 / -1; margin-top: 0; }
     .project-tile-media { aspect-ratio: 10 / 7; }
     .project-tile-media--image { aspect-ratio: auto; padding: 12px 28px 0; }
     .project-tile-media--game, .project-tile-media--music { aspect-ratio: auto; }
+    .projects-page[data-project-view="large"] .project-tile--image .project-tile-link {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 0;
+    }
 
     .projects-page .project-tile h2 { font-size: 29px; }
     .projects-page .project-tile-summary { font-size: 15px; }
@@ -405,7 +455,10 @@
     .project-tile-link:hover .project-tile-art,
     .project-tile--image .project-tile-link:hover .project-tile-art,
     .project-tile-link:hover .project-tile-arrow,
-    .projects-filters button:hover, .projects-about-link:hover span { transform: none; }
+    .projects-filters button:hover, .projects-view-buttons button:hover,
+    .projects-about-link:hover span { transform: none; }
     .project-tile-media--image .project-tile-art { transform: none; }
   }
+  :root[data-reduce="true"] .projects-view-buttons button:hover,
+  :root.motion-reduced .projects-view-buttons button:hover { transform: none; }
 }

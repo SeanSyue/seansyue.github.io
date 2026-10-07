@@ -12,11 +12,22 @@ description: Independent software, creative workflows and a game. Explore the di
     </div>
   </header>
 
+  <div class="projects-tools">
   <div class="projects-filters" role="group" aria-label="Filter projects by category">
     <button type="button" data-project-filter="all" aria-pressed="true" aria-controls="projects-grid">All work</button>
     <button type="button" data-project-filter="workflows" aria-pressed="false" aria-controls="projects-grid">Workflows &amp; governance</button>
     <button type="button" data-project-filter="media" aria-pressed="false" aria-controls="projects-grid">Images &amp; music</button>
     <button type="button" data-project-filter="games" aria-pressed="false" aria-controls="projects-grid">Games</button>
+  </div>
+
+  <div class="projects-viewer" data-project-viewer hidden>
+    <p class="projects-view-label" id="projects-view-label">Artwork view · AI images &amp; game scenes</p>
+    <div class="projects-view-buttons" role="group" aria-labelledby="projects-view-label">
+      <button type="button" data-project-view="overview" data-project-view-announcement="Artwork overview." aria-pressed="true" aria-controls="projects-grid">Overview</button>
+      <button type="button" data-project-view="large" data-project-view-announcement="AI images and game scenes expanded. Other projects remain available." aria-pressed="false" aria-controls="projects-grid">Large view</button>
+    </div>
+    <p class="sr-only" data-project-view-status role="status" aria-live="polite" aria-atomic="true"></p>
+  </div>
   </div>
 
   <section class="projects-grid" id="projects-grid" aria-label="Independent projects">
@@ -87,7 +98,7 @@ description: Independent software, creative workflows and a game. Explore the di
       </a>
     </article>
 
-    <article class="project-tile project-tile--image" data-project-group="media" data-motion-reveal>
+    <article class="project-tile project-tile--image" data-project-group="media" data-project-expand data-motion-reveal>
       <a class="project-tile-link" href="{{link:/work/ai-image/}}" aria-labelledby="project-ai-image-title project-ai-image-entry">
         <div class="project-tile-media project-tile-media--image">
           <div class="project-tile-art"><img src="/assets/img/ai-image/resident-c.jpg" width="750" height="1000" loading="lazy" decoding="async" alt="An original character with a honey-blonde side braid and moss-green pinafore, generated from a written visual specification."></div>
@@ -119,7 +130,7 @@ description: Independent software, creative workflows and a game. Explore the di
       </a>
     </article>
 
-    <article class="project-tile project-tile--game" data-project-group="games" data-motion-reveal>
+    <article class="project-tile project-tile--game" data-project-group="games" data-project-expand data-motion-reveal>
       <a class="project-tile-link" href="{{link:/work/heart-apartment/}}" aria-labelledby="project-heart-apartment-title project-heart-apartment-entry">
         <div class="project-tile-media project-tile-media--game">
           <div class="project-tile-art"><img src="/assets/img/heart-apartment/02-choice-thought-cloud.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="Heart Apartment: choices appear above a character in an isometric shared apartment."></div>

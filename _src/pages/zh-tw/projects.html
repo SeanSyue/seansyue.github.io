@@ -12,11 +12,22 @@ description: 獨立軟體、創作流程與遊戲。探索作品背後的方向�
     </div>
   </header>
 
+  <div class="projects-tools">
   <div class="projects-filters" role="group" aria-label="依類別篩選作品">
     <button type="button" data-project-filter="all" aria-pressed="true" aria-controls="projects-grid">全部作品</button>
     <button type="button" data-project-filter="workflows" aria-pressed="false" aria-controls="projects-grid">工作流與治理</button>
     <button type="button" data-project-filter="media" aria-pressed="false" aria-controls="projects-grid">圖像與音樂</button>
     <button type="button" data-project-filter="games" aria-pressed="false" aria-controls="projects-grid">遊戲</button>
+  </div>
+
+  <div class="projects-viewer" data-project-viewer hidden>
+    <p class="projects-view-label" id="projects-view-label">藝術作品檢視 · AI 圖像與遊戲畫面</p>
+    <div class="projects-view-buttons" role="group" aria-labelledby="projects-view-label">
+      <button type="button" data-project-view="overview" data-project-view-announcement="藝術作品已切換為總覽。" aria-pressed="true" aria-controls="projects-grid">總覽</button>
+      <button type="button" data-project-view="large" data-project-view-announcement="AI 圖像與遊戲畫面已展開；其他作品仍可瀏覽。" aria-pressed="false" aria-controls="projects-grid">大圖檢視</button>
+    </div>
+    <p class="sr-only" data-project-view-status role="status" aria-live="polite" aria-atomic="true"></p>
+  </div>
   </div>
 
   <section class="projects-grid" id="projects-grid" aria-label="個人獨立作品">
@@ -87,7 +98,7 @@ description: 獨立軟體、創作流程與遊戲。探索作品背後的方向�
       </a>
     </article>
 
-    <article class="project-tile project-tile--image" data-project-group="media" data-motion-reveal>
+    <article class="project-tile project-tile--image" data-project-group="media" data-project-expand data-motion-reveal>
       <a class="project-tile-link" href="{{link:/work/ai-image/}}" aria-labelledby="project-ai-image-title project-ai-image-entry">
         <div class="project-tile-media project-tile-media--image">
           <div class="project-tile-art"><img src="/assets/img/ai-image/resident-c.jpg" width="750" height="1000" loading="lazy" decoding="async" alt="依書面視覺規格生成的原創角色：蜜金色側辮與苔綠色吊帶裙。"></div>
@@ -119,7 +130,7 @@ description: 獨立軟體、創作流程與遊戲。探索作品背後的方向�
       </a>
     </article>
 
-    <article class="project-tile project-tile--game" data-project-group="games" data-motion-reveal>
+    <article class="project-tile project-tile--game" data-project-group="games" data-project-expand data-motion-reveal>
       <a class="project-tile-link" href="{{link:/work/heart-apartment/}}" aria-labelledby="project-heart-apartment-title project-heart-apartment-entry">
         <div class="project-tile-media project-tile-media--game">
           <div class="project-tile-art"><img src="/assets/img/heart-apartment/02-choice-thought-cloud.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="心動公寓：斜俯視的共享公寓裡，角色上方出現互動選項。"></div>

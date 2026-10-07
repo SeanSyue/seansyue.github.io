@@ -12,9 +12,12 @@ assets/css/experience.css     shared screen design and home composition
 assets/css/projects.css       projects overview
 assets/css/cases.css          six case pages
 assets/css/profile.css        About and web résumé
+assets/css/profile-motion.css screen-only reading motion and chapter navigation
 assets/js/site.js             theme, section navigation and media controls
 assets/js/experience.js        opening, motion preference, reveals and page transitions
 assets/js/gallery.js           selected work: buttons, keys, pointer drag and swipe
+assets/js/profile-motion.js    About/résumé: scroll position controls title-to-copy sequences
+assets/js/project-viewer.js    overview/large artwork view with progressive enhancement
 assets/img/                   images
 ```
 
@@ -35,6 +38,8 @@ The home page introduces Sean, maps five capabilities to work evidence, and pres
 The first home-page visit in a browser session shows a greeting, reveals the large positioning words one line at a time, moves them into place, then reveals the capability cloud (about 4.2 seconds). Skip and Replay are available. Scrolling, Escape, navigation or resizing ends the opening immediately. Deep links and return visits skip it. The shared Reduce motion control and the operating system preference disable motion; without JavaScript the full static content remains available. Selected work supports buttons, arrow keys and pointer drag or swipe, without autoplay. Inner pages use scroll reveals and a short transition between ordinary static URLs. The default theme is neutral dark, with a saved light-mode choice supported. Screen design does not change the résumé print layout.
 
 ## Résumé PDF
+
+About and the web résumé use reading sequences driven by scroll position: number and title first, then the corresponding paragraphs or bullet points. Scrolling back reverses the sequence; there is no once-only playback flag. The chapter navigation follows the reading position. Reduced motion, keyboard focus, no JavaScript and print retain fully readable content. The Projects view control changes the scale of artwork and game images while keeping technical diagrams and plots flat and complete.
 
 Each résumé PDF is printed from its own page, so the page and the download can't drift apart:
 

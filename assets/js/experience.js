@@ -10,7 +10,7 @@ const introAnimations = new Set();
 let userReduced = false;
 try { userReduced = localStorage.getItem('sean-reduce-motion') === 'true'; } catch {}
 let reduced = pref.matches || userReduced;
-let gallery, opening, greeting, skip;
+let gallery, opening, greeting, skip, profileMotion;
 let headingStyle = null;
 let run = 0, selectedCap = 'systems';
 const workForCap = {systems:'aicc', delivery:null, integration:'heart', quality:'aicc', creative:'image'};
@@ -118,6 +118,7 @@ function applyReduced() {
     finishOpening(); cancel(active); gallery?.reset(); clearDepth();
     $$('video').forEach(video => video.pause());
   }
+  profileMotion?.refresh();
 }
 $('#motion-toggle')?.addEventListener('click', () => {
   userReduced = !reduced;
@@ -202,7 +203,19 @@ const observer = new IntersectionObserver(entries => entries.forEach(({target,is
     {opacity:1,transform:'none',clipPath:'inset(0 0 0 0)'}],{duration:950,fill:'both'});
   if (target.matches('[data-diagram-motion]')) drawDiagram(target);
 }),{threshold:.08});
-$$('[data-motion-reveal],[data-diagram-motion]').forEach(el => observer.observe(el));
+$$('[data-motion-reveal],[data-diagram-motion]').filter(el => !el.closest('.profile-page')).forEach(el => observer.observe(el));
+
+const motionVersion = new URL(import.meta.url).search;
+if ($('.profile-page')) {
+  import(`/assets/js/profile-motion.js${motionVersion}`).then(({initProfileMotion}) => {
+    profileMotion = initProfileMotion({isReduced:()=>reduced});
+  }).catch(error => console.error('Portfolio reading motion:',error));
+}
+if ($('.projects-page')) {
+  import(`/assets/js/project-viewer.js${motionVersion}`).then(({initProjectViewer}) => {
+    initProjectViewer({isReduced:()=>reduced});
+  }).catch(error => console.error('Portfolio project view:',error));
+}
 
 const filters = $$('[data-project-filter]'), tiles = $$('[data-project-group]');
 if (filters.length) {

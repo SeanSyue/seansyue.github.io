@@ -1,0 +1,43 @@
+/* Only the enhanced screen view moves. PDF, no-JS and reduced views are intact. */
+@media screen {
+  .profile-page.profile-motion-ready .profile-motion-unit {
+    opacity: var(--profile-reveal, 1);
+    transform: translateY(var(--profile-shift, 0px));
+    transition: none;
+  }
+  .profile-page.profile-motion-ready :is(.profile-about-display, .profile-display) {
+    translate: 0 var(--profile-hero-shift, 0px);
+  }
+  .profile-page .profile-nav {
+    position: sticky;
+    top: var(--header-h);
+    z-index: 30;
+    background: color-mix(in srgb, var(--profile-ground) 96%, transparent);
+    backdrop-filter: blur(12px);
+  }
+  .profile-page .profile-nav a[aria-current] {
+    color: var(--profile-ink);
+    text-decoration: underline;
+    text-underline-offset: 7px;
+    text-decoration-thickness: 2px;
+  }
+  /* html already reserves the header. Account for the section's own padding
+     instead of adding a second full header gap to an anchor jump. */
+  .profile-page .profile-section { scroll-margin-top: calc(70px - clamp(64px, 9vw, 128px)); }
+  :root[data-reduce=true] .profile-page .profile-motion-unit,
+  .profile-page .profile-motion-unit:focus-within {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  :root[data-reduce=true] .profile-page :is(.profile-about-display, .profile-display) {
+    translate: none !important;
+  }
+  @media(max-width:700px) {
+    .profile-page .profile-nav { gap: 0 19px; padding-block: 6px; }
+    .profile-page .profile-nav a { min-height: 36px; font-size: 12px; }
+  }
+  @media(prefers-reduced-motion:reduce) {
+    .profile-page .profile-motion-unit { opacity:1 !important; transform:none !important; }
+    .profile-page :is(.profile-about-display, .profile-display) { translate:none !important; }
+  }
+}
