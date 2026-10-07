@@ -196,8 +196,25 @@ if (home) {
   }).catch(error => console.error('Portfolio gallery:',error));
   let visited = false;
   try { visited = sessionStorage.getItem('sean-opening-seen') === 'true'; sessionStorage.setItem('sean-opening-seen','true'); } catch {}
-  if (!visited && !location.hash && !reduced) playOpening();
-  if (root.dataset.sectionStudy === 'd' && location.hash.startsWith('#cap-')) document.fonts.ready.then(() => requestAnimationFrame(() => goToCapabilityChapter(true)));
+  const arrival = new URL(location.href);
+  const replayRequested = arrival.searchParams.get('intro') === 'replay';
+  if (replayRequested) {
+    arrival.searchParams.delete('intro'); arrival.hash = '';
+    history.replaceState(null,'',arrival.href);
+    window.scrollTo({top:0,behavior:'instant'});
+  }
+  if ((replayRequested || (!visited && !location.hash)) && !reduced) playOpening();
+  if (root.dataset.sectionStudy === 'd' && location.hash.startsWith('#cap-')) document.fonts.ready.then(() => requestAnimationFrame(() => {
+    if (location.hash.startsWith('#cap-')) goToCapabilityChapter(true);
+  }));
+  $('.site-header .brand').addEventListener('click',event => {
+    if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    const top = new URL(location.href); top.searchParams.delete('intro'); top.hash = '';
+    history.replaceState(null,'',top.href);
+    window.scrollTo({top:0,behavior:'instant'});
+    playOpening();
+  });
   const field = $('.word-field');
   field.addEventListener('pointermove',event => {
     if (reduced || event.pointerType === 'touch' || root.dataset.motion !== 'done') return;

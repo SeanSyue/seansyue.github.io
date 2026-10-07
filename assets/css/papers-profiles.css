@@ -1,5 +1,30 @@
 /* Shared paper composition; screen and print rules are kept separate. */
 @media screen {
+  .resume .contact-print { display: none; }
+  :root[data-inner-study] .profile-page .contact-screen {
+    display: grid;
+    gap: 6px;
+    font-size: 15px;
+    overflow-wrap: normal;
+  }
+  .contact-screen .contact-location { font-size: 13px; }
+  .resume-contact-links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
+  .resume-contact-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding-block: 4px;
+    color: var(--profile-copy);
+    white-space: nowrap;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 5px;
+  }
+  .resume-contact-links a:hover,
+  .resume-contact-links a:focus-visible {
+    color: var(--profile-ink);
+    text-decoration-thickness: 2px;
+  }
 :root[data-inner-study] .profile-page {
 --profile-ground: #f4f1ea;
     --profile-ink: #24231f;
