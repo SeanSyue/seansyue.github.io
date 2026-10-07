@@ -1,5 +1,8 @@
 /* Shared paper composition; screen and print rules are kept separate. */
 @media screen {
+  /* Filtering owns the reading position; browser anchoring of a disappearing
+     card or the footer would otherwise race the chapter alignment. */
+  :root[data-inner-study="projects"] { overflow-anchor: none; }
 :root[data-inner-study] .projects-page,
 :root[data-inner-study][data-theme="light"] .projects-page {
 --projects-ground: #f4f1ea;

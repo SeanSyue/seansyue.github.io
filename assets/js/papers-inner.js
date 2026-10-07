@@ -33,6 +33,9 @@ if (root.dataset.innerStudy) {
     root.style.setProperty('--folio-nav-height',`${navHeight}px`);
     root.style.setProperty('--folio-reading-top',`${headerBottom+navHeight+22}px`);
     const visible=sheets.filter(sheet=>!sheet.hidden && getComputedStyle(sheet).display!=='none');
+    if (root.dataset.innerStudy==='projects') {
+      sheets.forEach(sheet=>sheet.toggleAttribute('data-folio-last',sheet===visible.at(-1)));
+    }
     const enabled=!reduced()&&innerWidth>700;
     visible.forEach((sheet,index)=>{
       // The terminal paper reaches the viewport bottom; an earlier paper
@@ -63,6 +66,18 @@ if (root.dataset.innerStudy) {
     });
   }
   function schedule(){if(!frame) frame=requestAnimationFrame(draw);}
+  document.addEventListener('portfolio:filterchange',event=>{
+    if (root.dataset.innerStudy!=='projects') return;
+    // Measure the normal-flow grid, never the displaced sticky paper. Align
+    // immediately in the same task as filtering, before a shortened page can
+    // clamp the old scroll position to its new bottom.
+    draw();
+    const grid=main.querySelector('#projects-grid');
+    const start=grid.getBoundingClientRect().top+scrollY-(innerWidth<=700?16:24)
+      -header.getBoundingClientRect().bottom-(nav?.offsetHeight||0)-12;
+    window.scrollTo({top:Math.max(0,Math.min(event.detail.previousScroll,start)),behavior:'instant'});
+    draw();
+  });
   function chapterFor(id) {
     const target=document.getElementById(id);
     return sheets.find(sheet=>sheet.dataset.folioChapter===id) || target?.closest('.folio-sheet');

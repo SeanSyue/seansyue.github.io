@@ -27,6 +27,11 @@ def inner(html):
     sheets = [s for s in elements(main, 'div') if 'folio-sheet' in attribute(s[2], 'class').split()]
     last = sheets[-1]
     paper = last[3].replace('<div ', '<div data-folio-last="true" ', 1)
+    if 'projects-page' in attribute(attrs, 'class').split():
+        # These sheets are nested in projects-grid. Its closing tag and the
+        # independent outro must not be moved inside the last filterable sheet.
+        main = main[:last[0]] + paper + main[last[1]:]
+        return html[:start] + main + html[end:]
     tail = main[last[1]:].removesuffix('</main>')
     # Put final actions inside the full-width terminal paper, so its opaque
     # surface also seals the space beneath the content. No floating narrow box.

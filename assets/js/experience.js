@@ -237,12 +237,17 @@ if (filters.length) {
   const live = document.createElement('p'); live.className = 'sr-only'; live.setAttribute('role','status');
   $('.projects-filters').after(live);
   filters.forEach(button => button.addEventListener('click',() => {
+    if (button.getAttribute('aria-pressed') === 'true') return;
+    const previousScroll = scrollY;
     cancel(active);
     const group = button.dataset.projectFilter;
     filters.forEach(el => el.setAttribute('aria-pressed',String(el === button)));
-    tiles.forEach((tile,i) => {
+    tiles.forEach(tile => {
       tile.hidden = group !== 'all' && tile.dataset.projectGroup !== group;
-      if (!tile.hidden) animate(tile,[{opacity:.2,transform:`translateY(${50+i*8}px) scale(.95)`},{opacity:1,transform:'none'}],{duration:700,delay:i*35,fill:'both'});
+    });
+    document.dispatchEvent(new CustomEvent('portfolio:filterchange',{detail:{group,previousScroll}}));
+    tiles.filter(tile => !tile.hidden).forEach((tile,i) => {
+      animate(tile,[{opacity:.35},{opacity:1}],{duration:380,delay:i*25,fill:'both'});
     });
     live.textContent = `${button.textContent}: ${tiles.filter(tile => !tile.hidden).length}`;
   }));

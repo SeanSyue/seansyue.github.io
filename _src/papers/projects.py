@@ -13,8 +13,8 @@ def decorate(html, page_id, language):
     experience.js toggles ``hidden`` on descendant cards and imports
     assets/js/project-viewer.js, which queries descendants of .projects-grid.
     Neither needs direct child articles; wrappers never get data-project-group.
-    Common inner.js can watch hidden/data-project-view or portfolio:viewchange
-    and refresh sticky heights; data-folio-project-group identifies each sheet.
+    papers-inner.js handles portfolio:filterchange synchronously and observes
+    sheet resizing for view changes; data-folio-project-group identifies sheets.
     CSS :has() also hides empty sheets without waiting for common JS.
     """
     if page_id != "projects" or 'class="folio-project-grid"' in html:
