@@ -24,7 +24,8 @@ main{padding-inline:var(--gutter);max-width:1800px;margin:auto}.hero{padding-top
 @media screen {
   :root[data-design=motion03]{--ground:var(--bg);--paper:#1a1a1a;--ink:var(--fg);--ink-2:var(--muted);--ink-3:var(--soft);--rule:#ffffff16;--rule-strong:#ffffff30;--sage:var(--fg);--sage-deep:var(--fg);--sage-wash:var(--surface);--sage-rule:#ffffff16;--forest:#181818;--forest-2:#383838;--forest-text:#bdbdb7;--forest-on:#f3f3f0;--terracotta:#d89b89;--wood:#999;--shadow-soft:none;--shadow-lift:0 20px 50px #0002;--serif:Inter,'Noto Sans TC','Noto Sans JP',Arial,sans-serif;--sans:Inter,'Noto Sans TC','Noto Sans JP',Arial,sans-serif;--round:var(--sans);--max:1600px;--header-h:90px}
   :root[data-design=motion03][data-theme=light]{--paper:#eeeee9;--rule:#00000012;--rule-strong:#00000030;--sage-rule:#00000012;--forest:#e9e9e4;--forest-2:#b7b7b0;--forest-text:#55554f;--forest-on:#151515}
-  html[data-design=motion03]{scroll-padding-top:calc(var(--header-h) + 25px)}
+  /* Keep the resting layout width while the opening locks scrolling. */
+  html[data-design=motion03]{scrollbar-gutter:stable;scroll-padding-top:calc(var(--header-h) + 25px)}
   body{font-size:15px;line-height:1.8}a{color:var(--ink)}a:hover{color:var(--ink)}[lang=zh-Hant]{font-family:var(--sans)}
   .site-header{z-index:60;background:color-mix(in srgb,var(--ground) 90%,transparent);backdrop-filter:blur(16px);border:0}
   .site-header .wrap{height:auto;min-height:90px;gap:16px;display:flex;align-items:center;flex-wrap:nowrap;padding-block:18px}

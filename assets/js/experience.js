@@ -11,15 +11,21 @@ let userReduced = false;
 try { userReduced = localStorage.getItem('sean-reduce-motion') === 'true'; } catch {}
 let reduced = pref.matches || userReduced;
 let gallery, opening, greeting, skip;
+let headingStyle = null;
 let run = 0, selectedCap = 'systems';
 const workForCap = {systems:'aicc', delivery:null, integration:'heart', quality:'aicc', creative:'image'};
 root.dataset.level = 'experimental';
 
 function animate(el, frames, options = {}, group = active) {
   if (!el || reduced || !el.animate) return Promise.resolve();
-  const effect = el.animate(frames, {duration:850, easing:ease, ...options});
+  const {retain = false, ...timing} = options;
+  const effect = el.animate(frames, {duration:850, easing:ease, ...timing});
   group.add(effect);
-  return effect.finished.catch(() => {}).finally(() => { group.delete(effect); effect.cancel(); });
+  return effect.finished.catch(() => {}).finally(() => {
+    // Exit/docking effects stay on their last frame until the host hands off
+    // visibility/layout and cancels the whole opening in the same task.
+    if (!retain) { group.delete(effect); effect.cancel(); }
+  });
 }
 function cancel(group) { group.forEach(effect => effect.cancel()); group.clear(); }
 function clearDepth() {
@@ -28,6 +34,10 @@ function clearDepth() {
 }
 function finishOpening(focus = false) {
   ++run;
+  if (headingStyle !== null) {
+    $('#headline').style.transform = headingStyle;
+    headingStyle = null;
+  }
   cancel(introAnimations);
   const inside = opening?.contains(document.activeElement);
   if (opening) { opening.hidden = true; opening.style.background = ''; }
@@ -53,18 +63,22 @@ async function playOpening() {
     {opacity:1, transform:'none', clipPath:'inset(0 0 0 0)'}
   ], {duration:650, fill:'both'});
   if (token !== run) return;
+  // Measure only after font metrics have settled, including first visits.
+  await document.fonts.ready;
+  if (token !== run) return;
   await intro(greeting, [{opacity:1}, {opacity:1}], {duration:180});
   if (token !== run) return;
-  await intro(greeting, [{opacity:1,transform:'none'}, {opacity:0,transform:'translateY(-70px) rotate(5deg) scale(1.1)'}], {duration:280,fill:'both'});
+  await intro(greeting, [{opacity:1,transform:'none'}, {opacity:0,transform:'translateY(-70px) rotate(5deg) scale(1.1)'}], {duration:280,fill:'both',retain:true});
   if (token !== run) return;
   greeting.hidden = true;
   const heading = $('#headline'), box = heading.getBoundingClientRect();
+  const restingTransform = getComputedStyle(heading).transform;
+  headingStyle = heading.style.transform;
   const scale = innerWidth < 700 ? Math.min(1.28,(innerWidth-28)/box.width) : Math.min(1.7,(innerWidth-30)/box.width);
   const tx = (innerWidth - box.width * scale)/2 - box.left;
   const ty = (innerHeight - box.height * scale)/2 - box.top;
   const center = `translate(${tx}px,${ty}px) scale(${scale})`;
-  const positioning = heading.animate([{transform:center},{transform:center}], {duration:1,fill:'forwards'});
-  introAnimations.add(positioning);
+  heading.style.transform = center;
   opening.style.background = 'transparent';
   document.body.classList.add('headline-phase');
   root.dataset.motion = 'headline';
@@ -77,8 +91,8 @@ async function playOpening() {
   await intro(heading, [
     {transform:center},
     {transform:'translate(-15px,-12px) scale(.97)',offset:.82},
-    {transform:'translate(0,0) scale(1)'}
-  ], {duration:1000,fill:'forwards'});
+    {transform:restingTransform}
+  ], {duration:1000,fill:'forwards',retain:true});
   if (token !== run) return;
   finishOpening();
   root.dataset.motion = 'capabilities';
@@ -170,7 +184,7 @@ if (home) {
   if (!visited && !location.hash && !reduced) playOpening();
   const field = $('.word-field');
   field.addEventListener('pointermove',event => {
-    if (reduced || event.pointerType === 'touch' || document.body.classList.contains('opening-playing')) return;
+    if (reduced || event.pointerType === 'touch' || root.dataset.motion !== 'done') return;
     const box = field.getBoundingClientRect();
     const x = (event.clientX-box.left)/box.width-.5, y = (event.clientY-box.top)/box.height-.5;
     $$('.skill').forEach((el,i) => el.style.translate = `${x*(12+i*7)}px ${y*(12+i*7)}px`);
